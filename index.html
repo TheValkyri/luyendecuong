@@ -7,6 +7,17 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <title>Ôn Tập Tiếng Anh 11 — THPT Vĩnh Thuận (Giữa HK1)</title>
+<script>
+  // AUTO-REDIRECT CACHE BUSTER FOR ALL USERS
+  (function() {
+    var APP_BUILD_TAG = "20261102_2330";
+    var p = new URLSearchParams(window.location.search);
+    if (p.get("v") !== APP_BUILD_TAG) {
+      p.set("v", APP_BUILD_TAG);
+      window.location.replace(window.location.pathname + "?" + p.toString() + window.location.hash);
+    }
+  })();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -1311,7 +1322,12 @@ a {
         <!-- Injected by JS -->
       </button>
       
-            <!-- History Button -->
+            <!-- Force Refresh & Update Button -->
+      <button class="icon-btn" onclick="forceAppRefresh()" title="Tải phiên bản mới nhất (Làm mới cache)">
+        <svg class="v-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 16h5v5"/></svg>
+      </button>
+
+      <!-- History Button -->
       <button class="icon-btn" onclick="openHistorySheet()" title="Lịch sử làm bài">
         <svg class="v-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
       </button>
@@ -1558,8 +1574,95 @@ function initFlattenedQuestions() {
     });
   });
   
-  // Migrate and hydrate any existing historical submissions in localStorage
+  // Migrate, hydrate and re-grade any existing historical submissions in localStorage
   migrateSubmissionsData();
+}
+
+function forceAppRefresh() {
+  const u = new URL(window.location.href);
+  u.searchParams.set("v", "20261102_2330_" + Date.now());
+  window.location.href = u.toString();
+}
+
+function ensureRecordHydratedAndRegraded(rec) {
+  if (!rec || !Array.isArray(rec.breakdown)) return rec;
+  const letters = ['A', 'B', 'C', 'D'];
+  let modified = false;
+  
+  rec.breakdown = rec.breakdown.map(item => {
+    const orig = FlatQuestions.find(q => q.id === item.id);
+    let updatedItem = { ...item };
+    
+    if (orig) {
+      updatedItem.options = (orig.options && orig.options.length) ? orig.options : item.options;
+      updatedItem.sentences = (orig.sentences && Object.keys(orig.sentences).length) ? orig.sentences : item.sentences;
+      updatedItem.passage = orig.passage || item.passage;
+      updatedItem.taskName = orig.taskName || item.taskName;
+      updatedItem.taskTitle = orig.taskTitle || item.taskTitle;
+      updatedItem.sectionTitle = orig.sectionTitle || item.sectionTitle;
+      updatedItem.cue = orig.cue || item.cue;
+      updatedItem.model_answer = orig.model_answer || item.model_answer;
+      updatedItem.acceptable = orig.acceptable || item.acceptable;
+      if (orig.answer !== undefined) {
+        updatedItem.correctAnswerIdx = orig.answer;
+        updatedItem.correctLetter = letters[orig.answer];
+      }
+    }
+    
+    // Resolve userChoiceIdx if old submission only stored string
+    if (updatedItem.userChoiceIdx === undefined && typeof updatedItem.userChoice === "string") {
+      const uIdx = letters.indexOf(updatedItem.userChoice.trim().toUpperCase());
+      if (uIdx !== -1) updatedItem.userChoiceIdx = uIdx;
+    }
+    if (updatedItem.userChoice === undefined && updatedItem.userChoiceIdx !== undefined && updatedItem.userChoiceIdx !== null) {
+      updatedItem.userChoice = letters[updatedItem.userChoiceIdx];
+    }
+    
+    // RE-GRADE WRITING QUESTIONS DYNAMICALLY
+    if (updatedItem.isWriting || orig?.model_answer) {
+      updatedItem.isWriting = true;
+      const userText = updatedItem.userAns || "";
+      const targetQ = orig || updatedItem;
+      const autoRes = gradeWritingAnswer(userText, targetQ);
+      
+      // If previous score was 0 or incorrect, but autoRes says it is correct:
+      if ((!updatedItem.score || updatedItem.score === 0 || !updatedItem.isCorrect) && autoRes.score > 0) {
+        updatedItem.score = autoRes.score;
+        updatedItem.isCorrect = autoRes.isCorrect;
+        updatedItem.feedback = autoRes.feedback;
+        modified = true;
+      }
+    }
+    
+    return updatedItem;
+  });
+  
+  // Recalculate totals and grade10 if any writing question was re-graded
+  let writingScore = 0;
+  let writingMax = 0;
+  let correctMCQ = 0;
+  let totalMCQ = 0;
+  
+  rec.breakdown.forEach(item => {
+    if (item.isWriting) {
+      writingMax += 1;
+      writingScore += (item.score || 0);
+    } else {
+      totalMCQ += 1;
+      if (item.isCorrect) correctMCQ += 1;
+    }
+  });
+  
+  rec.writingScore = writingScore;
+  rec.writingMax = writingMax;
+  rec.correctMCQ = correctMCQ;
+  rec.totalMCQ = totalMCQ;
+  
+  const totalWeight = totalMCQ + writingMax;
+  const earnedWeight = correctMCQ + writingScore;
+  rec.grade10 = totalWeight > 0 ? Math.round((earnedWeight / totalWeight) * 10 * 10) / 10 : 0;
+  
+  return rec;
 }
 
 function migrateSubmissionsData() {
@@ -1567,42 +1670,12 @@ function migrateSubmissionsData() {
     const raw = localStorage.getItem(SUBMISSIONS_KEY);
     if (!raw) return;
     const list = JSON.parse(raw);
-    const letters = ['A', 'B', 'C', 'D'];
-    let modified = false;
     
     list.forEach(rec => {
-      if (Array.isArray(rec.breakdown)) {
-        rec.breakdown = rec.breakdown.map(item => {
-          const orig = FlatQuestions.find(q => q.id === item.id);
-          if (orig) {
-            modified = true;
-            let uIdx = item.userChoiceIdx;
-            if (uIdx === undefined && typeof item.userChoice === "string") {
-              const found = letters.indexOf(item.userChoice.trim().toUpperCase());
-              if (found !== -1) uIdx = found;
-            }
-            return {
-              ...orig,
-              ...item,
-              options: orig.options || item.options,
-              sentences: orig.sentences || item.sentences,
-              passage: orig.passage || item.passage,
-              taskName: orig.taskName || item.taskName,
-              taskTitle: orig.taskTitle || item.taskTitle,
-              sectionTitle: orig.sectionTitle || item.sectionTitle,
-              correctAnswerIdx: orig.answer !== undefined ? orig.answer : item.correctAnswerIdx,
-              correctLetter: orig.answer !== undefined ? letters[orig.answer] : item.correctLetter,
-              userChoiceIdx: uIdx
-            };
-          }
-          return item;
-        });
-      }
+      ensureRecordHydratedAndRegraded(rec);
     });
     
-    if (modified) {
-      localStorage.setItem(SUBMISSIONS_KEY, JSON.stringify(list));
-    }
+    localStorage.setItem(SUBMISSIONS_KEY, JSON.stringify(list));
   } catch(e) {
     console.error("Migration error:", e);
   }
@@ -3280,6 +3353,7 @@ function clearAllHistory() {
 
 function showAdminView() {
   stopTimer();
+  migrateSubmissionsData();
   document.getElementById("topHeaderTitle").textContent = "Admin Dashboard";
   document.getElementById("timerChip").style.display = "none";
   document.getElementById("progressStrip").style.display = "none";
@@ -3405,14 +3479,73 @@ function filterAdminTable(query) {
   document.getElementById("adminTableBody").innerHTML = renderAdminTableRows(filtered);
 }
 
+let currentAdminViewRecord = null;
+let currentAdminFilter = "all";
+
 function viewStudentDetail(subId) {
   const records = JSON.parse(localStorage.getItem(SUBMISSIONS_KEY) || "[]");
   const rec = records.find(r => r.id === subId);
   if (!rec) return;
   
-  document.getElementById("studentDetailTitle").textContent = `Bài làm của: ${rec.studentName} (${rec.grade10}/10đ)`;
-  document.getElementById("studentDetailBody").innerHTML = renderReviewItems(rec.breakdown, false);
+  ensureRecordHydratedAndRegraded(rec);
+  currentAdminViewRecord = rec;
+  currentAdminFilter = "all";
+  renderAdminStudentDetailModal();
   document.getElementById("studentDetailSheet").classList.add("open");
+}
+
+function setAdminDetailFilter(filterMode) {
+  AudioFX.init();
+  AudioFX.tap();
+  currentAdminFilter = filterMode;
+  renderAdminStudentDetailModal();
+}
+
+function renderAdminStudentDetailModal() {
+  if (!currentAdminViewRecord) return;
+  const rec = currentAdminViewRecord;
+  
+  const totalCount = rec.breakdown.length;
+  const correctCount = rec.breakdown.filter(x => x.isCorrect).length;
+  const wrongCount = totalCount - correctCount;
+  
+  let scoreColor = "var(--success)";
+  if (rec.grade10 < 5.0) scoreColor = "var(--danger)";
+  else if (rec.grade10 < 8.0) scoreColor = "var(--warning)";
+  
+  document.getElementById("studentDetailTitle").innerHTML = `
+    <span>Bài làm của: <b>${escapeHtml(rec.studentName)}</b></span>
+    <span style="font-family:var(--font-mono);color:${scoreColor};font-size:1.1rem;font-weight:800;margin-left:0.5rem;">${rec.grade10}/10đ</span>
+  `;
+  
+  const container = document.getElementById("studentDetailBody");
+  container.innerHTML = `
+    <div style="margin-bottom:1.25rem;background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--radius-sm);padding:0.75rem 1rem;">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;font-size:0.8rem;color:var(--text-secondary);margin-bottom:0.75rem;">
+        <div>Hình thức: <b>${escapeHtml(rec.practiceMode)}</b> · Thời gian làm: <b>${Math.floor(rec.elapsedSeconds/60)}p ${rec.elapsedSeconds%60}s</b></div>
+        <div>Trắc nghiệm: <b style="color:var(--success);">${rec.correctMCQ}/${rec.totalMCQ}</b> · Tự luận: <b style="color:var(--accent-base);">${Math.round(rec.writingScore*10)/10}/${rec.writingMax}</b></div>
+      </div>
+      
+      <!-- FILTER BUTTONS IN ADMIN DETAIL -->
+      <div class="filter-pills-bar" style="margin-bottom:0;">
+        <button class="filter-pill-btn ${currentAdminFilter==='all'?'active':''}" onclick="setAdminDetailFilter('all')">
+          <span>Tất cả (${totalCount})</span>
+        </button>
+        <button class="filter-pill-btn ${currentAdminFilter==='wrong'?'active filter-wrong':''}" onclick="setAdminDetailFilter('wrong')" style="color:var(--danger);">
+          ${ICONS.x}
+          <span>Chỉ câu làm sai (${wrongCount})</span>
+        </button>
+        <button class="filter-pill-btn ${currentAdminFilter==='correct'?'active filter-correct':''}" onclick="setAdminDetailFilter('correct')" style="color:var(--success);">
+          ${ICONS.check}
+          <span>Chỉ câu làm đúng (${correctCount})</span>
+        </button>
+      </div>
+    </div>
+    
+    <div id="adminDetailReviewContainer">
+      ${renderReviewItems(rec.breakdown, currentAdminFilter)}
+    </div>
+  `;
 }
 
 function closeStudentDetailSheet(e) {
