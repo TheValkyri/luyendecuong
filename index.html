@@ -2122,11 +2122,206 @@ function renderSentenceOrderWidget(q, userAns) {
   return fragmentsHtml + optsHtml + previewHtml;
 }
 
+// ==========================================================================
+// INTELLIGENT WRITING EVALUATION & NORMALIZATION
+// ==========================================================================
+function normalizeSentence(str) {
+  if (!str) return "";
+  let s = str.trim().toLowerCase();
+  
+  // Normalize smart quotes, curly apostrophes, dashes
+  s = s.replace(/[\u2018\u2019\u201a\u201b\u00b4\`]/g, "'");
+  s = s.replace(/[\u201c\u201d\u201e\u201f]/g, '"');
+  s = s.replace(/[\u2013\u2014]/g, "-");
+  
+  // Standardize contractions
+  s = s.replace(/\bhasn't\b/g, "has not")
+       .replace(/\bhaven't\b/g, "have not")
+       .replace(/\bdon't\b/g, "do not")
+       .replace(/\bdoesn't\b/g, "does not")
+       .replace(/\bdidn't\b/g, "did not")
+       .replace(/\bcan't\b/g, "cannot")
+       .replace(/\bwon't\b/g, "will not")
+       .replace(/\bshouldn't\b/g, "should not")
+       .replace(/\bmustn't\b/g, "must not")
+       .replace(/\bneedn't\b/g, "need not")
+       .replace(/\baren't\b/g, "are not")
+       .replace(/\bisn't\b/g, "is not")
+       .replace(/\bwasn't\b/g, "was not")
+       .replace(/\bweren't\b/g, "were not")
+       .replace(/\bit's\b/g, "it is")
+       .replace(/\bthat's\b/g, "that is")
+       .replace(/\bthere's\b/g, "there is")
+       .replace(/\bi've\b/g, "i have")
+       .replace(/\bwe've\b/g, "we have")
+       .replace(/\byou've\b/g, "you have")
+       .replace(/\bthey've\b/g, "they have")
+       .replace(/\bi'm\b/g, "i am")
+       .replace(/\bwe're\b/g, "we are")
+       .replace(/\byou're\b/g, "you are")
+       .replace(/\bthey're\b/g, "they are");
+
+  // Collapse multiple spaces
+  s = s.replace(/\s+/g, " ");
+
+  // Strip trailing punctuation (. , ! ? ; :)
+  s = s.replace(/[.,!?;:]+$/, "");
+
+  return s.trim();
+}
+
+function computeSentenceSimilarity(s1, s2) {
+  if (s1 === s2) return 1.0;
+  if (!s1 || !s2) return 0.0;
+  
+  const w1 = s1.split(/\s+/).filter(Boolean);
+  const w2 = s2.split(/\s+/).filter(Boolean);
+  if (w1.length === 0 || w2.length === 0) return 0.0;
+  
+  let matches = 0;
+  const pool = [...w2];
+  for (const word of w1) {
+    const idx = pool.indexOf(word);
+    if (idx !== -1) {
+      matches++;
+      pool.splice(idx, 1);
+    }
+  }
+  
+  return (2.0 * matches) / (w1.length + w2.length);
+}
+
+function gradeWritingAnswer(userText, question) {
+  if (!userText || !userText.trim()) {
+    return { score: 0, isCorrect: false, feedback: "Chưa nhập câu trả lời", matchedTarget: question.model_answer };
+  }
+  
+  const userNorm = normalizeSentence(userText);
+  if (!userNorm) {
+    return { score: 0, isCorrect: false, feedback: "Chưa nhập câu trả lời", matchedTarget: question.model_answer };
+  }
+  
+  // Candidate acceptable targets
+  const targets = [];
+  if (question.model_answer) targets.push(question.model_answer);
+  if (Array.isArray(question.acceptable)) {
+    question.acceptable.forEach(ans => {
+      if (!targets.includes(ans)) targets.push(ans);
+    });
+  }
+  
+  // In case the student only wrote the continuation without the cue prefix (e.g. cue is "We should...")
+  const rawCue = (question.cue || "").replace(/\.{2,}$/, "").trim();
+  const cueNorm = normalizeSentence(rawCue);
+  let userPrefixedNorm = "";
+  if (cueNorm && !userNorm.startsWith(cueNorm)) {
+    userPrefixedNorm = normalizeSentence(rawCue + " " + userText);
+  }
+  
+  let maxSim = 0;
+  let bestTarget = question.model_answer || "";
+  
+  for (const t of targets) {
+    const tNorm = normalizeSentence(t);
+    if (!tNorm) continue;
+    
+    // Exact match against full text or against completion + cue prefix
+    if (userNorm === tNorm || (userPrefixedNorm && userPrefixedNorm === tNorm)) {
+      return {
+        score: 1.0,
+        isCorrect: true,
+        feedback: "Chính xác tuyệt đối (1.0đ)",
+        matchedTarget: t
+      };
+    }
+    
+    // Similarity scoring
+    const sim1 = computeSentenceSimilarity(userNorm, tNorm);
+    const sim2 = userPrefixedNorm ? computeSentenceSimilarity(userPrefixedNorm, tNorm) : 0;
+    const currentMax = Math.max(sim1, sim2);
+    
+    if (currentMax > maxSim) {
+      maxSim = currentMax;
+      bestTarget = t;
+    }
+  }
+  
+  // High similarity (minor word variation or slight slip)
+  if (maxSim >= 0.88) {
+    return {
+      score: 1.0,
+      isCorrect: true,
+      feedback: "Chính xác (đạt yêu cầu cấu trúc, 1.0đ)",
+      matchedTarget: bestTarget
+    };
+  } else if (maxSim >= 0.68) {
+    return {
+      score: 0.5,
+      isCorrect: true,
+      feedback: "Đúng ý chính / cấu trúc cơ bản (+0.5đ)",
+      matchedTarget: bestTarget
+    };
+  }
+  
+  return {
+    score: 0,
+    isCorrect: false,
+    feedback: "Chưa đúng cấu trúc ngữ pháp",
+    matchedTarget: bestTarget
+  };
+}
+
+function updateWritingAutoFeedback(qid) {
+  const box = document.getElementById(`compare-${qid}`);
+  if (!box) return;
+  const subset = getActiveQuestionsSubset();
+  const q = subset.find(x => x.id === qid);
+  if (!q) return;
+  
+  const userAns = AppState.userAnswers[qid] || "";
+  const previewEl = box.querySelector(".auto-grade-preview");
+  if (!previewEl) return;
+  
+  if (!userAns.trim()) {
+    previewEl.innerHTML = `<span style="color:var(--text-tertiary);">Chưa nhập câu trả lời</span>`;
+    return;
+  }
+  
+  const res = gradeWritingAnswer(userAns, q);
+  let color = "var(--danger)";
+  if (res.score >= 1.0) color = "var(--success)";
+  else if (res.score >= 0.5) color = "var(--warning)";
+  
+  previewEl.innerHTML = `<span style="color:${color};font-weight:600;">${escapeHtml(res.feedback)}</span>`;
+}
+
 function renderWritingWidget(q, userAns) {
   const val = userAns || "";
   const words = val.trim() ? val.trim().split(/\s+/).length : 0;
   const selfGrade = AppState.selfGrades[q.id];
   
+  let otherVariantsHtml = "";
+  if (Array.isArray(q.acceptable) && q.acceptable.length > 1) {
+    const alts = q.acceptable.filter(x => x !== q.model_answer).slice(0, 3);
+    if (alts.length > 0) {
+      otherVariantsHtml = `
+        <div style="font-size:0.75rem;color:var(--text-tertiary);margin-top:0.4rem;">
+          <b>Cách viết tương đương khác:</b><br>
+          ${alts.map(a => `<span style="display:inline-block;margin-right:0.5rem;color:var(--text-secondary);">• ${escapeHtml(a)}</span>`).join("")}
+        </div>
+      `;
+    }
+  }
+
+  let autoGradeBadge = "";
+  if (val.trim()) {
+    const autoRes = gradeWritingAnswer(val, q);
+    let color = autoRes.score >= 1 ? "var(--success)" : (autoRes.score >= 0.5 ? "var(--warning)" : "var(--danger)");
+    autoGradeBadge = `<span style="color:${color};font-weight:600;">${escapeHtml(autoRes.feedback)}</span>`;
+  } else {
+    autoGradeBadge = `<span style="color:var(--text-tertiary);">Chưa nhập câu trả lời</span>`;
+  }
+
   return `
     <div class="writing-container">
       <div class="writing-cue"><b>Gợi ý mở đầu:</b> ${escapeHtml(q.cue)}</div>
@@ -2144,12 +2339,18 @@ function renderWritingWidget(q, userAns) {
       <div class="writing-compare-box" id="compare-${q.id}">
         <div style="font-size:0.75rem;font-weight:700;color:var(--text-secondary);">ĐÁP ÁN CHUẨN CỦA ĐỀ CƯƠNG:</div>
         <div class="model-ans-text">→ ${escapeHtml(q.model_answer)}</div>
+        ${otherVariantsHtml}
         
-        <div style="font-size:0.72rem;color:var(--text-tertiary);margin-top:0.6rem;">Tự đánh giá câu của bạn:</div>
+        <div style="margin-top:0.6rem;padding:0.4rem 0.6rem;background:var(--bg-surface);border-radius:var(--radius-xs);font-size:0.75rem;border:1px solid var(--border-subtle);">
+          <span style="color:var(--text-tertiary);">Hệ thống chấm: </span>
+          <span class="auto-grade-preview">${autoGradeBadge}</span>
+        </div>
+        
+        <div style="font-size:0.72rem;color:var(--text-tertiary);margin-top:0.6rem;">Tự điều chỉnh điểm (mặc định hệ thống tự động chấm điểm tối đa):</div>
         <div class="self-grade-group">
-          <button class="self-grade-btn ${selfGrade===1?'active':''}" onclick="setWritingGrade('${q.id}', 1)">1.0đ (Chính xác)</button>
-          <button class="self-grade-btn ${selfGrade===0.5?'active':''}" onclick="setWritingGrade('${q.id}', 0.5)">0.5đ (Đúng ý / Sai nhỏ)</button>
-          <button class="self-grade-btn ${selfGrade===0?'active':''}" onclick="setWritingGrade('${q.id}', 0)">0đ (Chưa đúng)</button>
+          <button class="self-grade-btn ${selfGrade===1?'active':''}" onclick="setWritingGrade('${q.id}', 1, event)">1.0đ (Chính xác)</button>
+          <button class="self-grade-btn ${selfGrade===0.5?'active':''}" onclick="setWritingGrade('${q.id}', 0.5, event)">0.5đ (Đúng ý / Sai nhỏ)</button>
+          <button class="self-grade-btn ${selfGrade===0?'active':''}" onclick="setWritingGrade('${q.id}', 0, event)">0đ (Chưa đúng)</button>
         </div>
       </div>
     </div>
@@ -2210,6 +2411,7 @@ function onWritingChange(qid, textarea) {
     card.classList.toggle("is-answered", textarea.value.trim().length > 0);
   }
   
+  updateWritingAutoFeedback(qid);
   updateProgressUI();
   saveSessionDebounced();
 }
@@ -2223,7 +2425,7 @@ function toggleWritingCompare(qid) {
   }
 }
 
-function setWritingGrade(qid, grade) {
+function setWritingGrade(qid, grade, ev) {
   AudioFX.init();
   AudioFX.tap();
   AppState.selfGrades[qid] = grade;
@@ -2232,7 +2434,10 @@ function setWritingGrade(qid, grade) {
     box.querySelectorAll(".self-grade-btn").forEach((btn, i) => {
       btn.classList.remove("active");
     });
-    event.target.classList.add("active");
+    const target = (ev && ev.target) || (window.event && window.event.target);
+    if (target) {
+      target.classList.add("active");
+    }
   }
   saveSessionDebounced();
 }
@@ -2426,18 +2631,28 @@ function finalizeExam() {
   subset.forEach(q => {
     if (q.model_answer) {
       writingMax += 1;
-      const score = AppState.selfGrades[q.id] !== undefined ? AppState.selfGrades[q.id] : 0;
-      writingScore += score;
+      const userText = AppState.userAnswers[q.id] || "";
+      const autoGrade = gradeWritingAnswer(userText, q);
+      const manualGrade = AppState.selfGrades[q.id];
+      
+      let finalScore = autoGrade.score;
+      if (manualGrade !== undefined && manualGrade !== null) {
+        finalScore = Math.max(autoGrade.score, manualGrade);
+      }
+      
+      writingScore += finalScore;
       breakdown.push({
         id: q.id,
         label: q.label,
         prompt: q.prompt,
         cue: q.cue,
-        userAns: AppState.userAnswers[q.id] || "",
+        userAns: userText,
         correctAnswer: q.model_answer,
-        isCorrect: (score >= 0.5),
+        acceptable: q.acceptable || [],
+        isCorrect: (finalScore >= 0.5),
         isWriting: true,
-        score: score
+        score: finalScore,
+        feedback: autoGrade.feedback
       });
     } else {
       totalMCQ++;
@@ -2514,9 +2729,9 @@ function renderResultsScreen(rec) {
   
   const timeFormatted = Math.floor(rec.elapsedSeconds/60) + " phút " + (rec.elapsedSeconds%60) + " giây";
   const pct = Math.round(((rec.correctMCQ + rec.writingScore) / (rec.totalMCQ + rec.writingMax)) * 100);
-  const wrongCount = (rec.totalMCQ - rec.correctMCQ) + (rec.writingMax - (rec.writingScore >= 0.5 ? 1 : 0));
-  const correctCount = rec.correctMCQ + (rec.writingScore >= 0.5 ? 1 : 0);
   const totalCount = rec.breakdown.length;
+  const correctCount = rec.breakdown.filter(x => x.isCorrect).length;
+  const wrongCount = totalCount - correctCount;
   
   let gradeColor = "var(--success)";
   if (rec.grade10 < 5.0) gradeColor = "var(--danger)";
@@ -2545,7 +2760,7 @@ function renderResultsScreen(rec) {
             <div class="stat-lbl">Trắc nghiệm sai</div>
           </div>
           <div class="stat-box">
-            <div class="stat-val" style="color:var(--accent-base);">` + rec.writingScore + `/` + rec.writingMax + `</div>
+            <div class="stat-val" style="color:var(--accent-base);">` + (Math.round(rec.writingScore * 10) / 10) + ` / ` + rec.writingMax + `</div>
             <div class="stat-lbl">Điểm tự luận</div>
           </div>
           <div class="stat-box">
@@ -2627,6 +2842,23 @@ function renderReviewItems(breakdown, filterMode) {
       statusBg = "var(--bg-surface-elevated)";
       statusText = "CHƯA TRẢ LỜI";
       statusIcon = ICONS.info;
+    } else if (item.isWriting) {
+      if (item.score >= 1.0) {
+        statusColor = "var(--success)";
+        statusBg = "var(--success-soft)";
+        statusText = "ĐÚNG (1.0đ)";
+        statusIcon = ICONS.check;
+      } else if (item.score >= 0.5) {
+        statusColor = "var(--warning)";
+        statusBg = "rgba(180, 83, 9, 0.12)";
+        statusText = "ĐÚNG 1 PHẦN (0.5đ)";
+        statusIcon = ICONS.check;
+      } else {
+        statusColor = "var(--danger)";
+        statusBg = "var(--danger-soft)";
+        statusText = "SAI (0đ)";
+        statusIcon = ICONS.x;
+      }
     } else if (!item.isCorrect) {
       statusColor = "var(--danger)";
       statusBg = "var(--danger-soft)";
@@ -2637,6 +2869,19 @@ function renderReviewItems(breakdown, filterMode) {
     let bodyContent = "";
     
     if (item.isWriting) {
+      let acceptableListHtml = "";
+      if (item.acceptable && item.acceptable.length > 1) {
+        const otherVariants = item.acceptable.filter(x => x !== item.correctAnswer).slice(0, 3);
+        if (otherVariants.length > 0) {
+          acceptableListHtml = `
+            <div style="margin-top:0.5rem;font-size:0.75rem;color:var(--text-tertiary);line-height:1.4;">
+              <b>Biến thể hợp lệ khác:</b><br>
+              ` + otherVariants.map(v => `<span style="display:inline-block;margin-right:0.6rem;color:var(--text-secondary);">• ` + escapeHtml(v) + `</span>`).join("") + `
+            </div>
+          `;
+        }
+      }
+
       bodyContent = `
         <div style="background:var(--bg-surface);padding:0.85rem 1rem;border-radius:var(--radius-sm);margin-bottom:0.6rem;border:1px solid var(--border-subtle);">
           <div style="font-size:0.75rem;color:var(--accent-base);margin-bottom:0.4rem;font-family:var(--font-mono);">
@@ -2650,8 +2895,10 @@ function renderReviewItems(breakdown, filterMode) {
             <span style="color:var(--text-tertiary);">Đáp án chuẩn của đề cương:</span><br>
             <b>→ ` + escapeHtml(item.correctAnswer) + `</b>
           </div>
-          <div style="font-size:0.75rem;color:var(--text-tertiary);">
-            Điểm tự chấm: <b style="color:var(--accent-base);font-family:var(--font-mono);font-size:0.85rem;">` + item.score + ` / 1.0 điểm</b>
+          ` + acceptableListHtml + `
+          <div style="display:flex;align-items:center;gap:0.75rem;font-size:0.8rem;color:var(--text-secondary);flex-wrap:wrap;margin-top:0.6rem;">
+            <span>Điểm đạt được: <b style="color:` + (item.score >= 0.5 ? 'var(--success)' : 'var(--danger)') + `;font-family:var(--font-mono);font-size:0.9rem;">` + item.score + ` / 1.0 điểm</b></span>
+            ` + (item.feedback ? `<span style="font-size:0.75rem;color:var(--text-tertiary);">(` + escapeHtml(item.feedback) + `)</span>` : '') + `
           </div>
         </div>
       `;

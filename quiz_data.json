@@ -1359,7 +1359,15 @@
               "My father has not gone to Vung Tau for 2 years.",
               "My father hasn't gone to Vung Tau for 2 years.",
               "My father has not been to Vung Tau for 2 years.",
-              "My father hasn't been to Vung Tau for 2 years."
+              "My father hasn't been to Vung Tau for 2 years.",
+              "My father has not visited Vung Tau for 2 years.",
+              "My father hasn't visited Vung Tau for 2 years.",
+              "My father has not gone to Vung Tau for two years.",
+              "My father hasn't gone to Vung Tau for two years.",
+              "My father has not been to Vung Tau for two years.",
+              "My father hasn't been to Vung Tau for two years.",
+              "My father has not gone to Vung Tau since 2 years ago.",
+              "My father hasn't gone to Vung Tau since 2 years ago."
             ]
           },
           {
@@ -1372,7 +1380,23 @@
               "It's the first time I have ever met such a famous singer.",
               "It is the first time I have ever met such a famous singer.",
               "It's the first time I have met such a famous singer.",
-              "It is the first time I have met such a famous singer."
+              "It is the first time I have met such a famous singer.",
+              "It's the first time I've ever met such a famous singer.",
+              "It is the first time I've ever met such a famous singer.",
+              "It's the first time I've met such a famous singer.",
+              "It is the first time I've met such a famous singer.",
+              "It's the first time I have ever met a famous singer.",
+              "It is the first time I have ever met a famous singer.",
+              "It's the first time I have met a famous singer.",
+              "It is the first time I have met a famous singer.",
+              "It's the first time I've ever met a famous singer.",
+              "It is the first time I've ever met a famous singer.",
+              "It's the first time I've met a famous singer.",
+              "It is the first time I've met a famous singer.",
+              "This is the first time I have ever met such a famous singer.",
+              "This is the first time I have ever met a famous singer.",
+              "This is the first time I've ever met such a famous singer.",
+              "This is the first time I've met a famous singer."
             ]
           },
           {
@@ -1385,7 +1409,15 @@
               "It is 2 years since I last ate this kind of food.",
               "It's 2 years since I last ate this kind of food.",
               "It is 2 years since I ate this kind of food.",
-              "It's 2 years since I ate this kind of food."
+              "It's 2 years since I ate this kind of food.",
+              "It has been 2 years since I last ate this kind of food.",
+              "It's been 2 years since I last ate this kind of food.",
+              "It is two years since I last ate this kind of food.",
+              "It's two years since I last ate this kind of food.",
+              "It is 2 years since I have eaten this kind of food.",
+              "It's 2 years since I have eaten this kind of food.",
+              "It has been 2 years since I ate this kind of food.",
+              "It's been 2 years since I ate this kind of food."
             ]
           },
           {
@@ -1395,7 +1427,14 @@
             "cue": "We should...",
             "model_answer": "We should learn vocabulary every day.",
             "acceptable": [
-              "We should learn vocabulary every day."
+              "We should learn vocabulary every day.",
+              "We should learn vocabulary everyday.",
+              "We should study vocabulary every day.",
+              "We should study vocabulary everyday.",
+              "We should learn new vocabulary every day.",
+              "We should learn words every day.",
+              "We should learn new words every day.",
+              "We should study new words every day."
             ]
           },
           {
@@ -1409,8 +1448,18 @@
               "We do not have to wear uniforms every day.",
               "We don't need to wear uniforms every day.",
               "We do not need to wear uniforms every day.",
+              "We don't have to wear uniforms everyday.",
+              "We do not have to wear uniforms everyday.",
+              "We don't need to wear uniforms everyday.",
+              "We do not need to wear uniforms everyday.",
+              "We don't have to wear a uniform every day.",
+              "We do not have to wear a uniform every day.",
+              "We don't need to wear a uniform every day.",
+              "We do not need to wear a uniform every day.",
               "I don't have to wear uniforms every day.",
-              "I don't need to wear uniforms every day."
+              "I don't need to wear uniforms every day.",
+              "I do not have to wear uniforms every day.",
+              "I do not need to wear uniforms every day."
             ]
           },
           {
@@ -1421,7 +1470,15 @@
             "model_answer": "We mustn't drive without wearing a helmet.",
             "acceptable": [
               "We mustn't drive without wearing a helmet.",
-              "We must not drive without wearing a helmet."
+              "We must not drive without wearing a helmet.",
+              "We mustn't ride without wearing a helmet.",
+              "We must not ride without wearing a helmet.",
+              "We mustn't drive without wearing helmets.",
+              "We must not drive without wearing helmets.",
+              "We mustn't drive without a helmet.",
+              "We must not drive without a helmet.",
+              "We mustn't drive if we don't wear a helmet.",
+              "We must not drive if we don't wear a helmet."
             ]
           }
         ]
