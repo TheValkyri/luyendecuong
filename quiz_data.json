@@ -1,0 +1,1431 @@
+[
+  {
+    "id": "cloze",
+    "title": "Phần I: Điền từ vào đoạn văn (Cloze Test)",
+    "description": "Đọc các đoạn văn và chọn từ/cụm từ đúng (A, B, C hoặc D) điền vào chỗ trống.",
+    "tasks": [
+      {
+        "id": "cloze_1",
+        "name": "Task 1: Bridging the Generation Gap",
+        "title": "Bridging the Generation Gap",
+        "passage": "We all know that the generation gap can sometimes cause misunderstandings between parents and teenagers. However, both sides (1) _____ learn how to communicate and respect each other’s opinions. Nowadays, young people (2) _____ follow their parents’ rules at home, but they can also share their ideas openly. Parents, on the other hand, (3) _____ be more patient and listen carefully to what their children say. When conflicts happen, family members should avoid (4) _____ angry words and instead try to discuss calmly. Mutual respect is the key to building a (5) _____ relationship. In short, everyone should (6) _____ an effort to close the gap and strengthen family bonds.",
+        "questions": [
+          {
+            "id": "cloze_1_1",
+            "label": "Câu 1",
+            "prompt": "Chọn từ thích hợp điền vào chỗ trống (1):",
+            "options": [
+              "have to",
+              "mustn’t",
+              "may",
+              "can’t"
+            ],
+            "answer": 0,
+            "answer_letter": "A"
+          },
+          {
+            "id": "cloze_1_2",
+            "label": "Câu 2",
+            "prompt": "Chọn từ thích hợp điền vào chỗ trống (2):",
+            "options": [
+              "might",
+              "has to",
+              "can",
+              "should"
+            ],
+            "answer": 1,
+            "answer_letter": "B"
+          },
+          {
+            "id": "cloze_1_3",
+            "label": "Câu 3",
+            "prompt": "Chọn từ thích hợp điền vào chỗ trống (3):",
+            "options": [
+              "should",
+              "have",
+              "are",
+              "had"
+            ],
+            "answer": 0,
+            "answer_letter": "A"
+          },
+          {
+            "id": "cloze_1_4",
+            "label": "Câu 4",
+            "prompt": "Chọn từ thích hợp điền vào chỗ trống (4):",
+            "options": [
+              "to use",
+              "use",
+              "using",
+              "used"
+            ],
+            "answer": 2,
+            "answer_letter": "C"
+          },
+          {
+            "id": "cloze_1_5",
+            "label": "Câu 5",
+            "prompt": "Chọn từ thích hợp điền vào chỗ trống (5):",
+            "options": [
+              "understand",
+              "understanding",
+              "understood",
+              "understandable"
+            ],
+            "answer": 1,
+            "answer_letter": "B"
+          },
+          {
+            "id": "cloze_1_6",
+            "label": "Câu 6",
+            "prompt": "Chọn từ thích hợp điền vào chỗ trống (6):",
+            "options": [
+              "make",
+              "do",
+              "take",
+              "play"
+            ],
+            "answer": 0,
+            "answer_letter": "A"
+          }
+        ]
+      },
+      {
+        "id": "cloze_2",
+        "name": "Task 2: Understanding Between Generations",
+        "title": "Understanding Between Generations",
+        "passage": "Nowadays, parents and teenagers sometimes have different ideas about study, fashion, and lifestyle. However, both generations (1) _____ try to understand each other instead of arguing. Teenagers (2) _____ follow their parents’ advice, because it often comes from experience. Parents, meanwhile, (3) _____ respect their children’s choices and give them freedom to express themselves. A good family relationship is built on (4) _____ communication and trust. In short, everyone should (5) _____ responsibility for keeping harmony at home.",
+        "questions": [
+          {
+            "id": "cloze_2_1",
+            "label": "Q1",
+            "prompt": "Chọn từ thích hợp điền vào chỗ trống (1):",
+            "options": [
+              "may",
+              "must",
+              "can’t",
+              "needn’t"
+            ],
+            "answer": 1,
+            "answer_letter": "B"
+          },
+          {
+            "id": "cloze_2_2",
+            "label": "Q2",
+            "prompt": "Chọn từ thích hợp điền vào chỗ trống (2):",
+            "options": [
+              "have to",
+              "might",
+              "shouldn’t",
+              "don’t have to"
+            ],
+            "answer": 0,
+            "answer_letter": "A"
+          },
+          {
+            "id": "cloze_2_3",
+            "label": "Q3",
+            "prompt": "Chọn từ thích hợp điền vào chỗ trống (3):",
+            "options": [
+              "could",
+              "have",
+              "should",
+              "mustn’t"
+            ],
+            "answer": 2,
+            "answer_letter": "C"
+          },
+          {
+            "id": "cloze_2_4",
+            "label": "Q4",
+            "prompt": "Chọn từ thích hợp điền vào chỗ trống (4):",
+            "options": [
+              "open",
+              "opening",
+              "openly",
+              "openness"
+            ],
+            "answer": 0,
+            "answer_letter": "A"
+          },
+          {
+            "id": "cloze_2_5",
+            "label": "Q5",
+            "prompt": "Chọn từ thích hợp điền vào chỗ trống (5):",
+            "options": [
+              "take",
+              "make",
+              "do",
+              "play"
+            ],
+            "answer": 0,
+            "answer_letter": "A"
+          }
+        ]
+      },
+      {
+        "id": "cloze_3",
+        "name": "Task 3: Bridging the Generation Gap (2)",
+        "title": "Bridging the Generation Gap",
+        "passage": "Family members can live happily together if they learn to accept differences and show mutual respect. Parents should guide their children with love and patience, while teenagers (1) _____ learn how to communicate honestly. Sometimes, both generations find it hard to agree, but that’s when understanding and (2) _____ become most important. A (3) _____ atmosphere at home helps reduce stress and arguments. Children (4) _____ respect their parents’ opinions, even if they don’t always agree. Also, they should avoid (5) _____ rude or hurtful words during conversations.",
+        "questions": [
+          {
+            "id": "cloze_3_1",
+            "label": "Q1",
+            "prompt": "Chọn từ thích hợp điền vào chỗ trống (1):",
+            "options": [
+              "must",
+              "can",
+              "might",
+              "may"
+            ],
+            "answer": 0,
+            "answer_letter": "A"
+          },
+          {
+            "id": "cloze_3_2",
+            "label": "Q2",
+            "prompt": "Chọn từ thích hợp điền vào chỗ trống (2):",
+            "options": [
+              "cooperatively",
+              "cooperate",
+              "cooperative",
+              "cooperating"
+            ],
+            "answer": 3,
+            "answer_letter": "D"
+          },
+          {
+            "id": "cloze_3_3",
+            "label": "Q3",
+            "prompt": "Chọn từ thích hợp điền vào chỗ trống (3):",
+            "options": [
+              "peace",
+              "peacefully",
+              "peaceful",
+              "peaceable"
+            ],
+            "answer": 2,
+            "answer_letter": "C"
+          },
+          {
+            "id": "cloze_3_4",
+            "label": "Q4",
+            "prompt": "Chọn từ thích hợp điền vào chỗ trống (4):",
+            "options": [
+              "should",
+              "have to",
+              "mustn’t",
+              "don’t have to"
+            ],
+            "answer": 0,
+            "answer_letter": "A"
+          },
+          {
+            "id": "cloze_3_5",
+            "label": "Q5",
+            "prompt": "Chọn từ thích hợp điền vào chỗ trống (5):",
+            "options": [
+              "to use",
+              "using",
+              "use",
+              "used"
+            ],
+            "answer": 1,
+            "answer_letter": "B"
+          }
+        ]
+      },
+      {
+        "id": "cloze_4",
+        "name": "Task 4: Healthy Habits",
+        "title": "Healthy Habits",
+        "passage": "People today are paying more attention to their health than ever before. Regular exercise and a balanced diet (1) _____ important roles in keeping our bodies fit. In the past, many people (2) _____ little about the effects of junk food, but now they have become more aware. Doctors always advise us to avoid (3) _____ too much sugar and fat. Getting enough sleep and drinking plenty of water are also (4) _____ for a healthy lifestyle. Over the years, people (5) _____ more interested in mental health as well.",
+        "questions": [
+          {
+            "id": "cloze_4_1",
+            "label": "Q1",
+            "prompt": "Chọn từ thích hợp điền vào chỗ trống (1):",
+            "options": [
+              "play",
+              "plays",
+              "have played",
+              "played"
+            ],
+            "answer": 0,
+            "answer_letter": "A"
+          },
+          {
+            "id": "cloze_4_2",
+            "label": "Q2",
+            "prompt": "Chọn từ thích hợp điền vào chỗ trống (2):",
+            "options": [
+              "know",
+              "knew",
+              "have known",
+              "knowing"
+            ],
+            "answer": 1,
+            "answer_letter": "B"
+          },
+          {
+            "id": "cloze_4_3",
+            "label": "Q3",
+            "prompt": "Chọn từ thích hợp điền vào chỗ trống (3):",
+            "options": [
+              "to eat",
+              "eat",
+              "eaten",
+              "eating"
+            ],
+            "answer": 3,
+            "answer_letter": "D"
+          },
+          {
+            "id": "cloze_4_4",
+            "label": "Q4",
+            "prompt": "Chọn từ thích hợp điền vào chỗ trống (4):",
+            "options": [
+              "benefit",
+              "beneficial",
+              "benefited",
+              "benefits"
+            ],
+            "answer": 1,
+            "answer_letter": "B"
+          },
+          {
+            "id": "cloze_4_5",
+            "label": "Q5",
+            "prompt": "Chọn từ thích hợp điền vào chỗ trống (5):",
+            "options": [
+              "become",
+              "became",
+              "has become",
+              "have become"
+            ],
+            "answer": 3,
+            "answer_letter": "D"
+          }
+        ]
+      },
+      {
+        "id": "cloze_5",
+        "name": "Task 5: Staying Fit",
+        "title": "Staying Fit",
+        "passage": "In recent years, people (1) _____ more conscious of how their lifestyle affects their health. Many (2) _____ to the gym regularly to improve their physical condition. In the past, people often (3) _____ home-cooked meals, but today fast food is more common. However, nutritionists say that we should choose (4) _____ meals and fresh vegetables. Regular exercise also helps reduce stress and brings a feeling of (5) _____.",
+        "questions": [
+          {
+            "id": "cloze_5_1",
+            "label": "Q1",
+            "prompt": "Chọn từ thích hợp điền vào chỗ trống (1):",
+            "options": [
+              "become",
+              "became",
+              "have become",
+              "has become"
+            ],
+            "answer": 2,
+            "answer_letter": "C"
+          },
+          {
+            "id": "cloze_5_2",
+            "label": "Q2",
+            "prompt": "Chọn từ thích hợp điền vào chỗ trống (2):",
+            "options": [
+              "go",
+              "goes",
+              "went",
+              "going"
+            ],
+            "answer": 0,
+            "answer_letter": "A"
+          },
+          {
+            "id": "cloze_5_3",
+            "label": "Q3",
+            "prompt": "Chọn từ thích hợp điền vào chỗ trống (3):",
+            "options": [
+              "eat",
+              "ate",
+              "eaten",
+              "eating"
+            ],
+            "answer": 1,
+            "answer_letter": "B"
+          },
+          {
+            "id": "cloze_5_4",
+            "label": "Q4",
+            "prompt": "Chọn từ thích hợp điền vào chỗ trống (4):",
+            "options": [
+              "balance",
+              "balanced",
+              "balancing",
+              "to balance"
+            ],
+            "answer": 1,
+            "answer_letter": "B"
+          },
+          {
+            "id": "cloze_5_5",
+            "label": "Q5",
+            "prompt": "Chọn từ thích hợp điền vào chỗ trống (5):",
+            "options": [
+              "relax",
+              "relaxing",
+              "relaxation",
+              "relaxed"
+            ],
+            "answer": 2,
+            "answer_letter": "C"
+          }
+        ]
+      },
+      {
+        "id": "cloze_6",
+        "name": "Task 6: The Secret to Longevity",
+        "title": "The Secret to Longevity",
+        "passage": "Many scientists have studied why some people live longer than others. They found that a positive attitude and regular exercise (1) _____ closely related to longevity. In the past, people (2) _____ harder physical work, but they also ate more natural food. Modern life has brought convenience, but it (3) _____ new health problems as well. Recently, doctors (4) _____ that meditation and laughter can improve our immune system. To live a long and healthy life, we should stay active, eat well, and keep a (5) _____ mind.",
+        "questions": [
+          {
+            "id": "cloze_6_1",
+            "label": "Q1",
+            "prompt": "Chọn từ thích hợp điền vào chỗ trống (1):",
+            "options": [
+              "is",
+              "are",
+              "were",
+              "has been"
+            ],
+            "answer": 1,
+            "answer_letter": "B"
+          },
+          {
+            "id": "cloze_6_2",
+            "label": "Q2",
+            "prompt": "Chọn từ thích hợp điền vào chỗ trống (2):",
+            "options": [
+              "did",
+              "do",
+              "have done",
+              "doing"
+            ],
+            "answer": 0,
+            "answer_letter": "A"
+          },
+          {
+            "id": "cloze_6_3",
+            "label": "Q3",
+            "prompt": "Chọn từ thích hợp điền vào chỗ trống (3):",
+            "options": [
+              "introduces",
+              "introduced",
+              "has introduced",
+              "introducing"
+            ],
+            "answer": 2,
+            "answer_letter": "C"
+          },
+          {
+            "id": "cloze_6_4",
+            "label": "Q4",
+            "prompt": "Chọn từ thích hợp điền vào chỗ trống (4):",
+            "options": [
+              "discover",
+              "discovered",
+              "have discovered",
+              "had discovered"
+            ],
+            "answer": 2,
+            "answer_letter": "C"
+          },
+          {
+            "id": "cloze_6_5",
+            "label": "Q5",
+            "prompt": "Chọn từ thích hợp điền vào chỗ trống (5):",
+            "options": [
+              "positive",
+              "positively",
+              "positivity",
+              "positive-mindedBottom of Form"
+            ],
+            "answer": 0,
+            "answer_letter": "A"
+          }
+        ]
+      },
+      {
+        "id": "cloze_7",
+        "name": "Task 7: For A Long and Healthy Life",
+        "title": "For A Long and Healthy Life",
+        "passage": "Are you passionate about wellness? Last year, our team (1)_____ a new wellness initiative that encouraged people to prioritize their health. Our program (2)_____ many participants achieve a healthier way of living. We are seeking individuals who (3)_____ a balanced lifestyle and are dedicated to making healthy choices. Applicants (4)_____ follow weekly activities designed to improve physical and mental well-being. If you enjoy discussions and (5)_____ about the benefits of healthy living, this program is perfect for you. We believe everyone should take steps to achieve a fulfilling, healthy life. For more information, (6)_____  Ms. Lan at 0934.567.888.",
+        "questions": [
+          {
+            "id": "cloze_7_1",
+            "label": "Câu 1",
+            "prompt": "Chọn từ thích hợp điền vào chỗ trống (1):",
+            "options": [
+              "started",
+              "start",
+              "starts",
+              "have started"
+            ],
+            "answer": 0,
+            "answer_letter": "A"
+          },
+          {
+            "id": "cloze_7_2",
+            "label": "Câu 2",
+            "prompt": "Chọn từ thích hợp điền vào chỗ trống (2):",
+            "options": [
+              "had helped",
+              "has helped",
+              "helped",
+              "was  helping"
+            ],
+            "answer": 1,
+            "answer_letter": "B"
+          },
+          {
+            "id": "cloze_7_3",
+            "label": "Câu 3",
+            "prompt": "Chọn từ thích hợp điền vào chỗ trống (3):",
+            "options": [
+              "value",
+              "respect",
+              "view",
+              "remain"
+            ],
+            "answer": 0,
+            "answer_letter": "A"
+          },
+          {
+            "id": "cloze_7_4",
+            "label": "Câu 4",
+            "prompt": "Chọn từ thích hợp điền vào chỗ trống (4):",
+            "options": [
+              "had to",
+              "can",
+              "must",
+              "ought"
+            ],
+            "answer": 2,
+            "answer_letter": "C"
+          },
+          {
+            "id": "cloze_7_5",
+            "label": "Câu 5",
+            "prompt": "Chọn từ thích hợp điền vào chỗ trống (5):",
+            "options": [
+              "arguing",
+              "argumentative",
+              "argues",
+              "arguments"
+            ],
+            "answer": 3,
+            "answer_letter": "D"
+          },
+          {
+            "id": "cloze_7_6",
+            "label": "Câu 6",
+            "prompt": "Chọn từ thích hợp điền vào chỗ trống (6):",
+            "options": [
+              "say",
+              "contact",
+              "talk",
+              "speak"
+            ],
+            "answer": 1,
+            "answer_letter": "B"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "reading",
+    "title": "Phần II: Đọc hiểu văn bản (Reading Comprehension)",
+    "description": "Đọc kĩ văn bản và chọn phương án trả lời đúng nhất (A, B, C hoặc D) cho các câu hỏi.",
+    "tasks": [
+      {
+        "id": "reading_1",
+        "name": "Reading 1: Simple Steps to a Healthy Life",
+        "title": "Simple Steps to a Healthy Life",
+        "passage": "Living a healthy lifestyle doesn't have to be complicated; it simply means making good choices every day for your body and mind. The basis of good health rests on three main practices: eating well, moving often, and resting fully. First, eating well means choosing nutritious foods. This involves filling your plate with fruits, vegetables, and lean proteins, and trying to limit food that has lots of sugar, salt, or unhealthy fats. This balanced diet gives your body the correct fuel it needs to function properly and stay strong. Second, moving often means getting regular physical activity. You don't need to join a gym; a brisk 30-minute walk, cycling, or even dancing is great. Exercise is essential because it strengthens your heart and bones, helps keep a healthy weight, and acts as a fantastic way to reduce stress. Finally, a healthy life demands resting fully. Adults should aim for seven to nine hours of quality sleep every night. Sleep is when your body repairs itself, rebuilds muscle, and allows your brain to process information from the day. Without this recovery time, you can't think clearly or stay productive. Ultimately, combining these habits is the most reliable way to prevent illness and ensure you have the energy to enjoy life to the maximum.",
+        "questions": [
+          {
+            "id": "reading_1_1",
+            "label": "Q1",
+            "prompt": "What are the three main practices that the text says the basis of good health rests on?",
+            "options": [
+              "Going to the gym, taking vitamins, and reading books.",
+              "Eating well, moving often, and resting fully.",
+              "Reducing stress, staying productive, and building muscle.",
+              "Choosing fruits, walking, and sleeping for eight hours."
+            ],
+            "answer": 1,
+            "answer_letter": "B"
+          },
+          {
+            "id": "reading_1_2",
+            "label": "Q2",
+            "prompt": "The word \"nutritious\" in the second sentence of the second paragraph is closest in meaning to:",
+            "options": [
+              "delicious",
+              "harmful",
+              "healthy",
+              "complicated"
+            ],
+            "answer": 2,
+            "answer_letter": "C"
+          },
+          {
+            "id": "reading_1_3",
+            "label": "Q3",
+            "prompt": "The word \"essential\" in the third paragraph is opposite in meaning to:",
+            "options": [
+              "vital",
+              "necessary",
+              "unimportant",
+              "helpful"
+            ],
+            "answer": 2,
+            "answer_letter": "C"
+          },
+          {
+            "id": "reading_1_4",
+            "label": "Q4",
+            "prompt": "The word \"it\" in the sentence, \"Exercise is essential because it strengthens your heart and bones...\" refers to:",
+            "options": [
+              "A healthy weight.",
+              "Your heart.",
+              "The gym.",
+              "Exercise."
+            ],
+            "answer": 3,
+            "answer_letter": "D"
+          },
+          {
+            "id": "reading_1_5",
+            "label": "Q5",
+            "prompt": "Which statement best paraphrases the idea expressed in the first sentence of the text?",
+            "options": [
+              "Being healthy is hard work and requires many complex changes.",
+              "To be healthy, you must make good, simple choices for your body and mind every day.",
+              "A healthy lifestyle only involves avoiding all unhealthy fats.",
+              "You must join a gym to start living a healthy lifestyle."
+            ],
+            "answer": 1,
+            "answer_letter": "B"
+          },
+          {
+            "id": "reading_1_6",
+            "label": "Q6",
+            "prompt": "Which of the following statements is TRUE according to the passage?",
+            "options": [
+              "You must avoid all foods that contain any sugar or salt.",
+              "A healthy lifestyle is about making good choices for your body and mind.",
+              "A short walk is not considered a good type of exercise.",
+              "You only need to sleep five hours a night to be healthy."
+            ],
+            "answer": 1,
+            "answer_letter": "B"
+          },
+          {
+            "id": "reading_1_7",
+            "label": "Q7",
+            "prompt": "Which of the following statements is NOT TRUE according to the passage?",
+            "options": [
+              "Exercise can help you reduce stress.",
+              "The body repairs itself while you are sleeping.",
+              "Adults should aim for around seven to nine hours of sleep.",
+              "Eating well means you should eat lots of sugar and unhealthy fats."
+            ],
+            "answer": 3,
+            "answer_letter": "D"
+          },
+          {
+            "id": "reading_1_8",
+            "label": "Q8",
+            "prompt": "Where in the text can you find information about the ideal number of hours adults should sleep?",
+            "options": [
+              "In the first paragraph.",
+              "In the paragraph about eating well.",
+              "In the paragraph about resting fully.",
+              "In the last sentence of the text."
+            ],
+            "answer": 2,
+            "answer_letter": "C"
+          }
+        ]
+      },
+      {
+        "id": "reading_2",
+        "name": "Reading 2: The Importance of Water and Sleep",
+        "title": "The Importance of Water and Sleep",
+        "passage": "Living a healthy lifestyle means focusing on simple, yet powerful habits, and staying hydrated is a cornerstone of this. Our bodies are mostly made of water, so drinking enough is incredibly important. Water helps digest our food, transports nutrients to our cells, and removes waste from the body. Doctors usually recommend drinking about eight glasses of water every day, but this can vary depending on your activity level and the weather. When you don't drink enough, you might feel tired, get headaches, or struggle to concentrate. In addition, getting enough quality sleep is just as vital for good health. Sleep is not a luxury; it is a necessity for both physical and mental recovery. For most adults, this means aiming for seven to nine hours of undisturbed sleep each night. During sleep, your brain is busy, clearing out toxins and storing memories. If you are regularly missing out on sleep, you may find your immune system weakens, making you more prone to illness. To improve your sleep, try to set a regular bedtime, keep your bedroom cool and dark, and avoid looking at bright screens right before bed. Ultimately, prioritizing these simple elements—proper hydration and consistent rest—makes a huge difference in your overall well-being. They are simple actions, but they have a profound impact on your ability to live a strong, energetic, and happy life.",
+        "questions": [
+          {
+            "id": "reading_2_1",
+            "label": "Q1",
+            "prompt": "According to the text, what is one key function that water performs in the body?",
+            "options": [
+              "It repairs muscle tissue and stores memories.",
+              "It acts as a toxin, clearing waste from the brain.",
+              "It digests food and carries nutrients to cells.",
+              "It causes headaches and tiredness."
+            ],
+            "answer": 2,
+            "answer_letter": "C"
+          },
+          {
+            "id": "reading_2_2",
+            "label": "Q2",
+            "prompt": "The word \"important\" in the second sentence is closest in meaning to:",
+            "options": [
+              "difficult",
+              "necessary",
+              "harmful",
+              "optional"
+            ],
+            "answer": 1,
+            "answer_letter": "B"
+          },
+          {
+            "id": "reading_2_3",
+            "label": "Q3",
+            "prompt": "The word \"addition\" (In addition, getting enough quality sleep is just as vital...) is opposite in meaning to:",
+            "options": [
+              "subtraction",
+              "conclusion",
+              "separation",
+              "introduction"
+            ],
+            "answer": 0,
+            "answer_letter": "A"
+          },
+          {
+            "id": "reading_2_4",
+            "label": "Q4",
+            "prompt": "The word \"this\" in the sentence, \"For most adults, this means aiming for seven to nine hours of undisturbed sleep...\" refers to:",
+            "options": [
+              "The physical and mental recovery.",
+              "Getting enough quality sleep.",
+              "The idea of sleep as a luxury.",
+              "The feeling of being tired."
+            ],
+            "answer": 1,
+            "answer_letter": "B"
+          },
+          {
+            "id": "reading_2_5",
+            "label": "Q5",
+            "prompt": "Which statement best captures the main idea of the final sentence (\"Ultimately, prioritizing these simple elements...\")?",
+            "options": [
+              "Water and rest are simple things, but they greatly affect your ability to have an energetic and happy life.",
+              "It is very difficult to live a strong life if you only drink eight glasses of water.",
+              "Only complex actions, not simple ones, can lead to overall well-being.",
+              "Sleep is less important than hydration for overall well-being."
+            ],
+            "answer": 0,
+            "answer_letter": "A"
+          },
+          {
+            "id": "reading_2_6",
+            "label": "Q6",
+            "prompt": "Which of the following statements is TRUE according to the passage?",
+            "options": [
+              "You only need to drink water when you feel very thirsty.",
+              "Regularly missing sleep can make your immune system weaker.",
+              "The brain does nothing important while you are asleep.",
+              "You must join a gym to live a healthy lifestyle."
+            ],
+            "answer": 1,
+            "answer_letter": "B"
+          },
+          {
+            "id": "reading_2_7",
+            "label": "Q7",
+            "prompt": "Which of the following statements is NOT TRUE according to the passage?",
+            "options": [
+              "Doctors sometimes recommend drinking eight glasses of water daily.",
+              "Headaches can be a sign that you have not drunk enough water.",
+              "Adults need about four to five hours of sleep per night for good recovery.",
+              "Sleep is necessary for mental recovery."
+            ],
+            "answer": 2,
+            "answer_letter": "C"
+          },
+          {
+            "id": "reading_2_8",
+            "label": "Q8",
+            "prompt": "Where in the text does the author provide specific suggestions for improving sleep quality?",
+            "options": [
+              "In the first paragraph, when discussing hydration.",
+              "In the paragraph discussing what the brain does during sleep.",
+              "In the sentence beginning with \"To improve your sleep...\".",
+              "In the very last sentence of the entire text."
+            ],
+            "answer": 2,
+            "answer_letter": "C"
+          }
+        ]
+      },
+      {
+        "id": "reading_3",
+        "name": "Reading 3: The Generation Gap",
+        "title": "The Generation Gap",
+        "passage": "The generation gap, often characterized as a divide between the attitudes, values, and behavior of one generation and those of another, has become particularly pronounced in the digital age. Today's older generations, often referred to as digital immigrants, grew up in an analog world and had to adapt to technology later in life. In stark contrast, their children and grandchildren, the digital natives (Millennials and Gen Z), have never known a world without the internet, smartphones, or instant communication. This fundamental difference in technological experience often fuels misunderstandings.\n\nOlder adults might view the constant scrolling and digital reliance of the youth as an obsession or a lack of engagement with the \"real world,\" leading to calls for more \"traditional\" social interaction. Younger people, however, see technology not as a distraction but as an integral part of their social, educational, and professional lives—a highly efficient means of connection and expression. Bridging this gap requires empathy and a willingness to understand different perspectives. By recognizing that each generation operates under a unique set of circumstances and values, families and communities can move past simple judgment toward mutual respect and cooperation.",
+        "questions": [
+          {
+            "id": "reading_3_1",
+            "label": "Q1",
+            "prompt": "According to the text, what is a key difference in the upbringing of \"digital immigrants\" and \"digital natives\"?",
+            "options": [
+              "Digital immigrants had to adapt to technology, while digital natives never knew a world without it.",
+              "Digital immigrants preferred traditional media, while digital natives only use smartphones.",
+              "Digital immigrants valued social interaction more than digital natives do.",
+              "Digital natives grew up in an analog world, unlike the older generation."
+            ],
+            "answer": 0,
+            "answer_letter": "A"
+          },
+          {
+            "id": "reading_3_2",
+            "label": "Q2",
+            "prompt": "The word \"integral\" in paragraph 2 is closest in meaning to:",
+            "options": [
+              "supplementary",
+              "essential",
+              "complex",
+              "optional"
+            ],
+            "answer": 1,
+            "answer_letter": "B"
+          },
+          {
+            "id": "reading_3_3",
+            "label": "Q3",
+            "prompt": "The word \"obsession\" in paragraph 2 is opposite in meaning to:",
+            "options": [
+              "indifference",
+              "fascination",
+              "dedication",
+              "enthusiasm"
+            ],
+            "answer": 0,
+            "answer_letter": "A"
+          },
+          {
+            "id": "reading_3_4",
+            "label": "Q4",
+            "prompt": "The word \"their\" in the first paragraph refers to:",
+            "options": [
+              "older generations",
+              "digital immigrants",
+              "children and grandchildren",
+              "attitudes and values"
+            ],
+            "answer": 0,
+            "answer_letter": "A"
+          },
+          {
+            "id": "reading_3_5",
+            "label": "Q5",
+            "prompt": "Which statement best paraphrases the main idea of the last sentence?",
+            "options": [
+              "Judgment is necessary for families to understand each other’s unique values.",
+              "Cooperation is impossible unless one generation adopts the other's values.",
+              "Achieving mutual respect means acknowledging the different circumstances and values of each generation.",
+              "Families must move past all simple judgments to achieve mutual cooperation."
+            ],
+            "answer": 2,
+            "answer_letter": "C"
+          },
+          {
+            "id": "reading_3_6",
+            "label": "Q6",
+            "prompt": "Which of the following statements is TRUE according to the passage?",
+            "options": [
+              "The generation gap has become less noticeable over time.",
+              "Technology is seen by all older adults as an efficient means of connection.",
+              "Older adults often view young people's digital use as a lack of real-world engagement.",
+              "Millennials are considered the oldest group of digital immigrants."
+            ],
+            "answer": 2,
+            "answer_letter": "C"
+          },
+          {
+            "id": "reading_3_7",
+            "label": "Q7",
+            "prompt": "Which of the following statements is NOT TRUE according to the passage?",
+            "options": [
+              "Digital natives are also known as Gen Z.",
+              "The generation gap involves differences in behavior and values.",
+              "Bridging the gap requires understanding different perspectives.",
+              "Younger people see technology mainly as a distraction from their professional lives."
+            ],
+            "answer": 3,
+            "answer_letter": "D"
+          },
+          {
+            "id": "reading_3_8",
+            "label": "Q8",
+            "prompt": "Where in the text can you find the distinction between \"digital immigrants\" and \"digital natives\"?",
+            "options": [
+              "The first two sentences of paragraph 1.",
+              "The last two sentences of paragraph 1.",
+              "The first two sentences of paragraph 2.",
+              "The last two sentences of paragraph 2."
+            ],
+            "answer": 1,
+            "answer_letter": "B"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sentence_order",
+    "title": "Phần III: Sắp xếp trật tự câu (Sentence Order)",
+    "description": "Sắp xếp các câu gợi ý theo đúng trật tự logic để tạo thành đoạn văn hoặc bức thư/hội thoại có nghĩa.",
+    "tasks": [
+      {
+        "id": "sentence_order_task",
+        "name": "Task 6: Sentence Arrangement",
+        "title": "Sắp xếp các câu tạo đoạn văn / lá thư hoàn chỉnh",
+        "passage": "",
+        "questions": [
+          {
+            "id": "so_1",
+            "label": "Câu 1",
+            "prompt": "Sắp xếp các câu sau theo thứ tự hợp lí:",
+            "sentences": {
+              "a": "Additionally, such intergenerational interactions promote the transfer of invaluable knowledge and experiences, enriching the overall societal tapestry.",
+              "b": "Furthermore, engaging in open dialogues across generations facilitates the exchange of diverse ideas, contributing to a more inclusive and harmonious community.",
+              "c": "Bridging the generation gap is a multifaceted journey that presents both challenges and opportunities.",
+              "d": "Firstly, bridging the generational divide fosters mutual understanding, allowing younger and older individuals to share perspectives and insights.",
+              "e": "Ultimately, embracing the generational diversity becomes a catalyst for personal growth, fostering a culture of respect and collaboration that transcends age differences."
+            },
+            "options": [
+              "a, c, d, b, e",
+              "c, a, b, d, e",
+              "c, e, d, a, b",
+              "c, d, a, b, e"
+            ],
+            "answer": 3,
+            "answer_letter": "D"
+          },
+          {
+            "id": "so_2",
+            "label": "Câu  2",
+            "prompt": "Sắp xếp các câu sau theo thứ tự hợp lí:",
+            "sentences": {
+              "a": "It not only enhances understanding but also encourages collaborative problem-solving.",
+              "b": "Moreover, utilizing educational tech can make learning enjoyable and efficient.",
+              "c": "Firstly, it empowers students with valuable skills, preparing them for the digital age.",
+              "d": "Dear Minh, I trust you're doing great! Lately, I've been reflecting on the significance of embracing technology in education.",
+              "e": "Additionally, integrating technology in the classroom fosters a dynamic and engaging learning environment.",
+              "f": "It's a wonderful way for students and teachers to explore new possibilities together. Warm regards,"
+            },
+            "options": [
+              "d, c, e, a, b, f",
+              "a, c, b, f, e, d",
+              "d, c, a, b, e, f",
+              "c, d, e, a, b, f"
+            ],
+            "answer": 0,
+            "answer_letter": "A"
+          },
+          {
+            "id": "so_3",
+            "label": "Câu  3",
+            "prompt": "Sắp xếp các câu sau theo thứ tự hợp lí:",
+            "sentences": {
+              "a": "Besides/ In addition, many people set salary as a measure of their working capacity as well as their level in the company.",
+              "b": "The higher income they receive, the more valuable they are in their prospective employment.",
+              "c": "There are a variety of reasons / various reasons for considering salary as the most crucial factor.",
+              "d": "Therefore, not only the amount of money itself but also made-up reputation makes the salary the most concerned matter in job selection."
+            },
+            "options": [
+              "high income guarantees a high standard quality of life, in which the people can afford their increasing demand on not only human basic needs but also luxurious things such as brand new accessories or overseas holidays.",
+              "e-d-c-a-b",
+              "c-e-a-b-d",
+              "b-e-c-a-d",
+              "a-c-d-b-e"
+            ],
+            "answer": 1,
+            "answer_letter": "B"
+          },
+          {
+            "id": "so_4",
+            "label": "Câu  4",
+            "prompt": "Sắp xếp các câu sau theo thứ tự hợp lí:",
+            "sentences": {
+              "a": "First, I’m allowed to watch TV during my free time, or when I have finished all my homework and exercises. Young children should receive lots of encouragement to follow family rules.",
+              "b": "I have told you something about my family rules. How about your family rules? I am really excited to hear about it. And I look forward to hearing from you soon.",
+              "c": "Next my parents don’t permit me to go out with my friends without necessary reasons, for example my friends’ birthdays.",
+              "d": "Dear Anna, I have received your letter and I feel so glad when knowing that you have passed your examinations with good marks. You want me to tell you about my family rules.",
+              "e": "Besides, I have to take a balanced diet to keep fit for my study. The daily routines make children feel safe and secure."
+            },
+            "options": [
+              "b-c-d-e-a",
+              "e-b-d-a-c",
+              "c-d-a-e-b",
+              "d-a-c-e-b"
+            ],
+            "answer": 3,
+            "answer_letter": "D"
+          },
+          {
+            "id": "so_5",
+            "label": "Câu  5",
+            "prompt": "Sắp xếp các câu sau theo thứ tự hợp lí:",
+            "sentences": {
+              "a": "Also, doing housework promote independence, sense of responsibility.",
+              "b": "Additionally, students develop such important skills as organizational skills and better time management.",
+              "c": "Firstly, students who do housework gain valuable real-world experience which can help in their life skills",
+              "d": "Finally, Build self-esteem and confidence in their abilities, especially when the children complete their tasks and are recognized and encouraged by their parents",
+              "e": "Children benefit from doing house work in many ways."
+            },
+            "options": [
+              "e - c - a - b - d",
+              "e - a - c - b - d",
+              "c - a - b - d - e",
+              "c - e - a - b - d"
+            ],
+            "answer": 0,
+            "answer_letter": "A"
+          },
+          {
+            "id": "so_6",
+            "label": "Câu  6",
+            "prompt": "Sắp xếp các câu sau theo thứ tự hợp lí:",
+            "sentences": {
+              "a": "Furthermore, educated girls can give back to their communities. They can help improve educational and medical facilities, raise money for charities for the poor.",
+              "b": "Second, educated girls can become better mothers. They know how to take care of their children and how to help them succeed at school.",
+              "c": "In conclusion, education allows girls to make better choices, become better mothers, and give back to their communities.",
+              "d": "Education is essential to everyone and girls must have the same right to education as boys because of several benefits of girls' education.",
+              "e": "First of all, education can help girls make better choices. Girls who stay at school longer can learn more. With good job skills they can earn better salaries."
+            },
+            "options": [
+              "d – e – b – a - c",
+              "d – a – c – e – b",
+              "b – a – e – c – d",
+              "d – c – e – a - b"
+            ],
+            "answer": 0,
+            "answer_letter": "A"
+          },
+          {
+            "id": "so_7",
+            "label": "Câu  7",
+            "prompt": "Sắp xếp các câu sau theo thứ tự hợp lí:",
+            "sentences": {
+              "a": "All in all, men should be aware of the benefits of looking after the children in order to make their children have enough love and attention.",
+              "b": "Best regards,",
+              "c": "Additionally, when men contribute to sharing child-rearing, the burden is less and their wives become happy to have more time for relaxing.",
+              "d": "Firstly, when men stay home, they have a chance to bond with their children and improve their relationship.",
+              "e": "Dear Lucy, I hope you are well! I’ve been thinking about why it is crucial for men to stay home and take care of their children.",
+              "f": "Secondly, the men who decide to raise their children at home can play good role models. Taught by their fathers, the children learn a lot of family values."
+            },
+            "options": [
+              "f - a – c - d – b – e",
+              "e – d – f – c – a - b",
+              "e – f – b – d – c – a",
+              "b – d – e – c – f - a"
+            ],
+            "answer": 1,
+            "answer_letter": "B"
+          },
+          {
+            "id": "so_8",
+            "label": "Câu  8",
+            "prompt": "Sắp xếp các câu sau theo thứ tự hợp lí:",
+            "sentences": {
+              "a": "Also, volunteering helps students connect with the community, making them aware of the needs around them.",
+              "b": "Finally, doing volunteer work can be a rewarding experience, as students feel good about helping others.",
+              "c": "High school students benefit from doing voluntary work in many ways.",
+              "d": "Additionally, students develop such important skills as teamwork and communication ones while they volunteer.",
+              "e": "Firstly, students who do voluntary work gain valuable real-world experience which can help in their future careers."
+            },
+            "options": [
+              "e-c-a-b-d",
+              "e-a-c-b-d",
+              "c-a-b-d-e",
+              "c-e-a-d-b"
+            ],
+            "answer": 3,
+            "answer_letter": "D"
+          },
+          {
+            "id": "so_9",
+            "label": "Câu  9",
+            "prompt": "Sắp xếp các câu sau theo thứ tự hợp lí:",
+            "sentences": {
+              "a": "Regularly engaging in hobbies and personal interests can have a profound impact on overall well-being.",
+              "b": "These activities provide a much-needed break from the routine of daily life, offering a sense of refreshment and rejuvenation.",
+              "c": "Dear Sam, I've been reflecting on our discussion about balancing work and personal life, and I wanted to emphasize the importance of hobbies.",
+              "d": "Hobbies also allow for personal growth and skill development, which can be fulfilling and rewarding.",
+              "e": "Best regards.",
+              "f": "Whether it's gardening, painting, or playing a musical instrument, these activities can also foster creativity and boost self-esteem."
+            },
+            "options": [
+              "c-a-b-f-d-e",
+              "c-f-b-d-a-e",
+              "c-b-d-f-a-e",
+              "c-d-f-b-a"
+            ],
+            "answer": 0,
+            "answer_letter": "A"
+          },
+          {
+            "id": "so_10",
+            "label": "Câu  10",
+            "prompt": "Sắp xếp các câu sau theo thứ tự hợp lí:",
+            "sentences": {
+              "a": "Finally, difficulties in communication and forming genuine connections due to social media and technology",
+              "b": "Additionally, cyberbullying and online harassment present significant challenges in the digital age.",
+              "c": "Teens often face various social challenges.",
+              "d": "Firstly, peer pressure can lead to risky behaviors such as substance abuse, smoking, or involvement in harmful activities.",
+              "e": "Moreover, mental health issues, including anxiety and depression, are prevalent among teenagers due to"
+            },
+            "options": [
+              "d – e – b – a – c",
+              "c – d – e – b – a",
+              "d – b – e – a - c",
+              "c – d – b – e – a"
+            ],
+            "answer": 1,
+            "answer_letter": "B"
+          },
+          {
+            "id": "so_11",
+            "label": "Câu  11",
+            "prompt": "Sắp xếp các câu sau theo thứ tự hợp lí:",
+            "sentences": {
+              "a": "Also, when we do chores like sweeping or washing dishes, we're moving our bodies, which is good for our health.",
+              "b": "Dear Mike, I hope you are well! I've been thinking about why it’s important for children to share the household chores with their parents.",
+              "c": "Sharing the household chores is really a good way to help us have more time to do fun things together.",
+              "d": "Firstly, it helps keep our home tidy and clean, making it a nicer place to live.",
+              "e": "Additionally, children learn to be responsible and take care of our things when they help with tasks at home.",
+              "f": "Best wishes."
+            },
+            "options": [
+              "b-c-a-e-d-f",
+              "b-d-a-e-c-f",
+              "b-a-d-e-c-f",
+              "b-e-d-a-c-f"
+            ],
+            "answer": 1,
+            "answer_letter": "B"
+          },
+          {
+            "id": "so_12",
+            "label": "Câu  12",
+            "prompt": "Sắp xếp các câu sau theo thứ tự hợp lí:",
+            "sentences": {
+              "a": "Furthermore, educated girls can give back to their communities. They can help improve educational and medical facilities, raise money for charities for the poor.",
+              "b": "Second, educated girls can become better mothers. They know how to take care of their children and how to help them succeed at school.",
+              "c": "In conclusion, education allows girls to make better choices, become better mothers, and give back to their communities.",
+              "d": "Education is essential to everyone and girls must have the same right to education as boys because of several benefits of girls' education.",
+              "e": "First of all, education can help girls make better choices. Girls who stay at school longer can learn more. With good job skills they can earn better salaries."
+            },
+            "options": [
+              "d – e – b – a - c",
+              "d – a – c – e – b",
+              "b – a – e – c – d",
+              "d – c – e – a - b"
+            ],
+            "answer": 0,
+            "answer_letter": "A"
+          },
+          {
+            "id": "so_13",
+            "label": "Câu  13",
+            "prompt": "Sắp xếp các câu sau theo thứ tự hợp lí:",
+            "sentences": {
+              "a": "All in all, men should be aware of the benefits of looking after the children in order to make their children have enough love and attention.",
+              "b": "Best regards,",
+              "c": "Additionally, when men contribute to sharing child-rearing, the burden is less and their wives become happy to have more time for relaxing.",
+              "d": "Firstly, when men stay home, they have a chance to bond with their children and improve their relationship.",
+              "e": "Dear Lucy, I hope you are well! I’ve been thinking about why it is crucial for men to stay home and take care of their children.",
+              "f": "Secondly, the men who decide to raise their children at home can play good role models. Taught by their fathers, the children learn a lot of family values."
+            },
+            "options": [
+              "f - a – c - d – b – e",
+              "e – d – f – c – a - b",
+              "e – f – b – d – c – a",
+              "b – d – e – c – f - a"
+            ],
+            "answer": 1,
+            "answer_letter": "B"
+          },
+          {
+            "id": "so_14",
+            "label": "Câu  14",
+            "prompt": "Sắp xếp các câu sau theo thứ tự hợp lí:",
+            "sentences": {
+              "a": "In addition, every year there is a Quan Ho singing competition attracting thousands of amateur and professional singers from all parts of the country.",
+              "b": "In short, Quan Ho still plays an important part in Vietnamese culture so that we need to preserve and develop this type of folk music.",
+              "c": "First, different versions of thousands of Quan Ho songs which have been recorded in Quan Ho villages with the voices of hundreds of artists can be used as cultural documents for future generations to restore and research.",
+              "d": "Local authorities are making every effort to restore and promote Quan Ho, a style of Vietnamese folk music that was recognised by UNESCO as a World Cultural Heritage in 2009.",
+              "e": "Second, singing clubs were set up in Quan Ho villages to attract members, especially younger people. Club members gather to share their knowledge about Quan Ho singing."
+            },
+            "options": [
+              "e- d – c – a – b",
+              "d – a – c – e – b",
+              "b – a – e – c – d",
+              "d – c – e – a - b"
+            ],
+            "answer": 3,
+            "answer_letter": "D"
+          },
+          {
+            "id": "so_15",
+            "label": "Câu  15",
+            "prompt": "Sắp xếp các câu sau theo thứ tự hợp lí:",
+            "sentences": {
+              "a": "Best wishes,",
+              "b": "Secondly, could you give me some more information about the accommodation? Do volunteers stay with local families?",
+              "c": "I look forward to your reply and I am excited to learn more about the programme.",
+              "d": "Lastly, can you let me know if the programme provides any meals? I'd also like to know what other expenses there may be. I want to work out the total costs.",
+              "e": "Dear Ms.Riggs, I am writing regarding the preservation volunteer programme at Banteay Chhmar Temple Complex in Cambodia. I am interested in becoming a volunteer and would like to have some information about the programme.",
+              "f": "First of all, do you know what kind of training volunteers get? It will be my first time at a heritage site and I am unsure about what I should do."
+            },
+            "options": [
+              "f - a – c - d – b – e",
+              "d –e – f – c – a – b",
+              "e – f – b – d – c – a",
+              "b – d – e – c – f - a"
+            ],
+            "answer": 2,
+            "answer_letter": "C"
+          },
+          {
+            "id": "so_16",
+            "label": "Câu  16",
+            "prompt": "Sắp xếp các câu sau theo thứ tự hợp lí:",
+            "sentences": {
+              "a": "I'm a tourist.",
+              "b": "Good morning. Can I see your passport?",
+              "c": "That's fine. Have a pleasant stay.",
+              "d": "Here you are.",
+              "e": "Thank you very much. Are you a tourist or here on business?",
+              "f": "Thank you."
+            },
+            "options": [
+              "b — d — e — a — c — f",
+              "b — c — a — e — d — f",
+              "b — e — d — a — c — f",
+              "b — a — d — e — c — f"
+            ],
+            "answer": 0,
+            "answer_letter": "A"
+          },
+          {
+            "id": "so_17",
+            "label": "Câu 17",
+            "prompt": "Sắp xếp các câu sau theo thứ tự hợp lí:",
+            "sentences": {
+              "a": "m?",
+              "b": "Hi Mai,",
+              "c": "Please tell me if I need to buy something in advance to prepare for the meal.",
+              "e": "I am so glad to come to try some recipes from the book with you.",
+              "f": "Thank you for inviting me to your house this Sunday."
+            },
+            "options": [
+              "a – c – d – e – f – b",
+              "c – a – e – b – d – f",
+              "b – f – e –a –c -d",
+              "f – b – a – c – d – e"
+            ],
+            "answer": 2,
+            "answer_letter": "C"
+          },
+          {
+            "id": "so_18",
+            "label": "Câu  18",
+            "prompt": "Sắp xếp các câu sau theo thứ tự hợp lí:",
+            "sentences": {
+              "a": "Nam: That sounds great! I will start exercising regularly and try to eat more vegetables every day.",
+              "b": "Lan: You should get enough sleep, eat healthy food, and do some exercise to stay healthy.",
+              "c": "Nam: What should I do to have a healthier lifestyle, especially when I often feel tired after school?"
+            },
+            "options": [
+              "a – c – b",
+              "c – b – a",
+              "b – a – c",
+              "c – a – b"
+            ],
+            "answer": 1,
+            "answer_letter": "B"
+          },
+          {
+            "id": "so_19",
+            "label": "Câu  19",
+            "prompt": "Sắp xếp các câu sau theo thứ tự hợp lí:",
+            "sentences": {
+              "a": "Mai: I agree with you, but I think we should discuss our plans with our parents before making any decisions.",
+              "b": "Nam: My friends and I are planning to start a morning jogging club to improve our health and reduce stress.",
+              "c": "Mai: That is a wonderful idea because regular exercise can help teenagers stay fit and feel more confident."
+            },
+            "options": [
+              "b – c – a",
+              "c – a – b",
+              "a – b – c",
+              "b – a – c"
+            ],
+            "answer": 0,
+            "answer_letter": "A"
+          },
+          {
+            "id": "so_20",
+            "label": "Câu  20",
+            "prompt": "Sắp xếp các câu sau theo thứ tự hợp lí:",
+            "sentences": {
+              "a": "Finally, getting enough sleep every night helps the body recover, improves concentration, and supports both physical and mental health.",
+              "b": "Maintaining a healthy lifestyle requires several important habits that work together to improve our overall well-being.",
+              "c": "First, eating a balanced diet and exercising regularly provide essential nutrients and strengthen the body while reducing the risk of disease."
+            },
+            "options": [
+              "a – c – b",
+              "b – c – a",
+              "c – b – a",
+              "b – a – c"
+            ],
+            "answer": 1,
+            "answer_letter": "B"
+          },
+          {
+            "id": "so_21",
+            "label": "Câu  21",
+            "prompt": "Sắp xếp các câu sau theo thứ tự hợp lí:",
+            "sentences": {
+              "a": "Nam: I understand your point, Grandma, but I believe teenagers also need some independence to learn responsibility and make their own decisions.",
+              "b": "Grandma: Young people today often spend too much time on their phones, whereas our generation preferred talking face to face with family members.",
+              "c": "Nam: You may be right, Grandma, but I think we can respect our different opinions and find ways to spend more time together."
+            },
+            "options": [
+              "b – a – c",
+              "a – c – b",
+              "c – b – a",
+              "b – c – a"
+            ],
+            "answer": 0,
+            "answer_letter": "A"
+          },
+          {
+            "id": "so_22",
+            "label": "Câu  22",
+            "prompt": "Sắp xếp các câu sau theo thứ tự hợp lí:",
+            "sentences": {
+              "a": "In addition, family members can encourage one another to exercise regularly, prepare nutritious meals, and maintain a positive attitude.",
+              "b": "A healthy lifestyle becomes easier to maintain when people receive support and encouragement from their families.",
+              "c": "As a result, developing healthy habits together can strengthen family relationships and improve everyone's physical and mental well-being."
+            },
+            "options": [
+              "a – b – c",
+              "b – a – c",
+              "c – a – b",
+              "b – c – a"
+            ],
+            "answer": 1,
+            "answer_letter": "B"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "writing",
+    "title": "Phần IV: Viết lại câu (Sentence Transformation)",
+    "description": "Viết lại các câu sau sao cho nghĩa không đổi, sử dụng cấu trúc gợi ý trong ngoặc hoặc mở đầu đã cho.",
+    "tasks": [
+      {
+        "id": "writing_task",
+        "name": "Task 7: Rewrite the sentences",
+        "title": "Rewrite the sentences so that it has a similar meaning to the first one",
+        "passage": "",
+        "questions": [
+          {
+            "id": "w_1",
+            "label": "Câu 1",
+            "prompt": "The last time my father went to Vung Tau was 2 years ago.",
+            "cue": "My father has not...",
+            "model_answer": "My father has not gone to Vung Tau for 2 years.",
+            "acceptable": [
+              "My father has not gone to Vung Tau for 2 years.",
+              "My father hasn't gone to Vung Tau for 2 years.",
+              "My father has not been to Vung Tau for 2 years.",
+              "My father hasn't been to Vung Tau for 2 years."
+            ]
+          },
+          {
+            "id": "w_2",
+            "label": "Câu 2",
+            "prompt": "I've never met such a famous singer before.",
+            "cue": "It's the first time...",
+            "model_answer": "It's the first time I have ever met such a famous singer.",
+            "acceptable": [
+              "It's the first time I have ever met such a famous singer.",
+              "It is the first time I have ever met such a famous singer.",
+              "It's the first time I have met such a famous singer.",
+              "It is the first time I have met such a famous singer."
+            ]
+          },
+          {
+            "id": "w_3",
+            "label": "Câu 3",
+            "prompt": "I haven't eaten this kind of food for 2 years.",
+            "cue": "It is 2 years since...",
+            "model_answer": "It is 2 years since I last ate this kind of food.",
+            "acceptable": [
+              "It is 2 years since I last ate this kind of food.",
+              "It's 2 years since I last ate this kind of food.",
+              "It is 2 years since I ate this kind of food.",
+              "It's 2 years since I ate this kind of food."
+            ]
+          },
+          {
+            "id": "w_4",
+            "label": "Câu 4",
+            "prompt": "It is a good idea for us to learn vocabulary every day.",
+            "cue": "We should...",
+            "model_answer": "We should learn vocabulary every day.",
+            "acceptable": [
+              "We should learn vocabulary every day."
+            ]
+          },
+          {
+            "id": "w_5",
+            "label": "Câu 5",
+            "prompt": "It is not necessary for us to wear uniforms every day.",
+            "cue": "We don't...",
+            "model_answer": "We don't have to wear uniforms every day.",
+            "acceptable": [
+              "We don't have to wear uniforms every day.",
+              "We do not have to wear uniforms every day.",
+              "We don't need to wear uniforms every day.",
+              "We do not need to wear uniforms every day.",
+              "I don't have to wear uniforms every day.",
+              "I don't need to wear uniforms every day."
+            ]
+          },
+          {
+            "id": "w_6",
+            "label": "Câu 6",
+            "prompt": "We aren't allowed to drive without wearing a helmet.",
+            "cue": "We mustn't...",
+            "model_answer": "We mustn't drive without wearing a helmet.",
+            "acceptable": [
+              "We mustn't drive without wearing a helmet.",
+              "We must not drive without wearing a helmet."
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

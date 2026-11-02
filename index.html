@@ -1,0 +1,2727 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<title>Ôn Tập Tiếng Anh 11 — THPT Vĩnh Thuận (Giữa HK1)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ==========================================================================
+   DESIGN TOKENS & HIGH-END THEMES
+   ========================================================================== */
+:root {
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-serif: 'Newsreader', Georgia, serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --transition: 0.22s var(--ease-smooth);
+}
+
+/* DARK OBSIDIAN THEME (Default) */
+[data-theme="dark"] {
+  --bg-app: #0c0e12;
+  --bg-surface: #12161d;
+  --bg-surface-elevated: #181d26;
+  --bg-card: #151922;
+  --bg-card-hover: #1c222e;
+  --bg-active: rgba(255, 255, 255, 0.06);
+  --border-subtle: rgba(255, 255, 255, 0.07);
+  --border-strong: rgba(255, 255, 255, 0.14);
+  --border-accent: rgba(79, 120, 255, 0.4);
+  
+  --text-primary: #f2f4f8;
+  --text-secondary: #9aa2b2;
+  --text-tertiary: #606878;
+  
+  --accent-base: #4f78ff;
+  --accent-hover: #3d68f5;
+  --accent-soft: rgba(79, 120, 255, 0.12);
+  --accent-glow: rgba(79, 120, 255, 0.25);
+  
+  --success: #10b981;
+  --success-soft: rgba(16, 185, 129, 0.12);
+  --danger: #ef4444;
+  --danger-soft: rgba(239, 68, 68, 0.12);
+  --warning: #f59e0b;
+  --warning-soft: rgba(245, 158, 11, 0.14);
+  
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.5);
+  --sheet-scrim: rgba(0, 0, 0, 0.7);
+}
+
+/* EDITORIAL PAPER LIGHT THEME */
+[data-theme="light"] {
+  --bg-app: #f7f7f5;
+  --bg-surface: #ffffff;
+  --bg-surface-elevated: #f0f0ed;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f3f3f0;
+  --bg-active: rgba(0, 0, 0, 0.05);
+  --border-subtle: rgba(0, 0, 0, 0.08);
+  --border-strong: rgba(0, 0, 0, 0.16);
+  --border-accent: rgba(37, 99, 235, 0.4);
+  
+  --text-primary: #15171b;
+  --text-secondary: #585d68;
+  --text-tertiary: #8e95a2;
+  
+  --accent-base: #2563eb;
+  --accent-hover: #1d4ed8;
+  --accent-soft: rgba(37, 99, 235, 0.08);
+  --accent-glow: rgba(37, 99, 235, 0.2);
+  
+  --success: #059669;
+  --success-soft: rgba(5, 150, 105, 0.1);
+  --danger: #dc2626;
+  --danger-soft: rgba(220, 38, 38, 0.1);
+  --warning: #d97706;
+  --warning-soft: rgba(217, 119, 6, 0.12);
+  
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.08);
+  --sheet-scrim: rgba(15, 23, 42, 0.4);
+}
+
+/* EYE-CARE SEPIA THEME */
+[data-theme="sepia"] {
+  --bg-app: #f4ede2;
+  --bg-surface: #ede3d3;
+  --bg-surface-elevated: #e4d8c5;
+  --bg-card: #faf5ec;
+  --bg-card-hover: #f2e9dc;
+  --bg-active: rgba(92, 65, 33, 0.08);
+  --border-subtle: rgba(110, 80, 45, 0.12);
+  --border-strong: rgba(110, 80, 45, 0.22);
+  --border-accent: rgba(160, 90, 40, 0.45);
+  
+  --text-primary: #2d241c;
+  --text-secondary: #6e5e4f;
+  --text-tertiary: #9c8a77;
+  
+  --accent-base: #a05a28;
+  --accent-hover: #86461c;
+  --accent-soft: rgba(160, 90, 40, 0.12);
+  --accent-glow: rgba(160, 90, 40, 0.25);
+  
+  --success: #2e7d32;
+  --success-soft: rgba(46, 125, 50, 0.12);
+  --danger: #c62828;
+  --danger-soft: rgba(198, 40, 40, 0.12);
+  --warning: #b45309;
+  --warning-soft: rgba(180, 83, 9, 0.14);
+  
+  --shadow-sm: 0 2px 8px rgba(80, 50, 20, 0.06);
+  --shadow-lg: 0 16px 40px rgba(80, 50, 20, 0.12);
+  --sheet-scrim: rgba(45, 36, 28, 0.5);
+}
+
+/* ==========================================================================
+   RESET & FOUNDATIONS
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+html {
+  font-size: 16px;
+  background: var(--bg-app);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+body {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  background: var(--bg-app);
+  line-height: 1.55;
+}
+button, input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  border: none;
+  background: none;
+}
+button {
+  cursor: pointer;
+  user-select: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all var(--transition);
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* VECTOR ICON COMPONENT */
+.v-icon {
+  display: inline-block;
+  vertical-align: -0.15em;
+  flex-shrink: 0;
+  stroke: currentColor;
+}
+.icon-btn .v-icon {
+  vertical-align: middle;
+}
+
+/* ==========================================================================
+   TOP FLOATING APP BAR
+   ========================================================================== */
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border-subtle);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 0.65rem 1rem;
+  transition: background var(--transition);
+}
+.app-header-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+.brand-group {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-width: 0;
+}
+.brand-badge {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  background: var(--accent-base);
+  color: #ffffff;
+  padding: 0.25rem 0.55rem;
+  border-radius: var(--radius-xs);
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+.brand-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: -0.01em;
+}
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-shrink: 0;
+}
+.icon-btn {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-surface-elevated);
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  transition: all var(--transition);
+}
+.icon-btn:hover {
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+  transform: translateY(-1px);
+}
+.icon-btn:active {
+  transform: scale(0.95);
+}
+.timer-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.28rem 0.65rem;
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.timer-indicator {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--success);
+  box-shadow: 0 0 8px var(--success);
+  animation: pulse 2s infinite ease-in-out;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+/* ==========================================================================
+   NAVIGATION PALETTE & TABS
+   ========================================================================== */
+.section-tabs-bar {
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border-subtle);
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.section-tabs-bar::-webkit-scrollbar {
+  display: none;
+}
+.section-tabs {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  padding: 0.4rem 1rem;
+  gap: 0.4rem;
+  white-space: nowrap;
+}
+.sec-tab {
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  color: var(--text-secondary);
+  border: 1px solid transparent;
+  transition: all var(--transition);
+}
+.sec-tab:hover {
+  color: var(--text-primary);
+  background: var(--bg-active);
+}
+.sec-tab.active {
+  color: var(--accent-base);
+  background: var(--accent-soft);
+  border-color: var(--border-accent);
+}
+.sec-tab .tab-badge {
+  font-size: 0.7rem;
+  opacity: 0.75;
+  margin-left: 0.25rem;
+  font-family: var(--font-mono);
+}
+
+/* ==========================================================================
+   VIEW MODES BAR (Focus vs List)
+   ========================================================================== */
+.mode-toggle-bar {
+  max-width: 900px;
+  margin: 0.75rem auto 0;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+.view-mode-pill {
+  display: inline-flex;
+  background: var(--bg-surface);
+  padding: 3px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+}
+.view-mode-btn {
+  font-size: 0.76rem;
+  font-weight: 600;
+  padding: 0.35rem 0.75rem;
+  border-radius: calc(var(--radius-sm) - 3px);
+  color: var(--text-tertiary);
+  transition: all var(--transition);
+}
+.view-mode-btn.active {
+  background: var(--bg-surface-elevated);
+  color: var(--text-primary);
+  box-shadow: var(--shadow-sm);
+}
+.passage-drawer-btn {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--accent-base);
+  background: var(--accent-soft);
+  border: 1px solid var(--border-accent);
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  gap: 0.4rem;
+}
+.passage-drawer-btn:hover {
+  background: var(--accent-base);
+  color: #fff;
+}
+
+/* PROGRESS BAR */
+.progress-strip {
+  width: 100%;
+  height: 3px;
+  background: var(--bg-surface-elevated);
+}
+.progress-strip-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-base), var(--success));
+  width: 0%;
+  transition: width 0.4s var(--ease-spring);
+}
+
+/* ==========================================================================
+   MAIN CONTENT AREA
+   ========================================================================== */
+.main-viewport {
+  flex: 1;
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1rem 1rem 7rem;
+}
+
+/* INTRO / WELCOME SCREEN */
+.welcome-container {
+  max-width: 520px;
+  margin: 2.5rem auto;
+  text-align: center;
+}
+.welcome-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: 2.25rem 1.75rem;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+}
+.welcome-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-base), var(--success));
+}
+.school-meta {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  color: var(--text-tertiary);
+  margin-bottom: 0.5rem;
+}
+.exam-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: var(--text-primary);
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+}
+.exam-subtitle {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.75rem;
+  line-height: 1.5;
+}
+.meta-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 1.75rem;
+  background: var(--bg-surface);
+  padding: 0.75rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+}
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+.meta-val {
+  font-family: var(--font-mono);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.meta-lbl {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-tertiary);
+}
+.name-input-group {
+  text-align: left;
+  margin-bottom: 1.25rem;
+}
+.input-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  display: block;
+  margin-bottom: 0.4rem;
+}
+.custom-input {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  outline: none;
+  transition: all var(--transition);
+}
+.custom-input:focus {
+  border-color: var(--accent-base);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+.btn-primary-action {
+  width: 100%;
+  padding: 0.9rem 1.5rem;
+  background: var(--accent-base);
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.01em;
+  box-shadow: 0 4px 14px var(--accent-glow);
+  gap: 0.5rem;
+}
+.btn-primary-action:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+}
+.btn-primary-action:active {
+  transform: scale(0.98);
+}
+.mode-picker-title {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  color: var(--text-tertiary);
+  margin: 1.5rem 0 0.65rem;
+  text-align: left;
+}
+.mode-picker {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  text-align: left;
+  margin-bottom: 1.25rem;
+}
+.mode-option-card {
+  padding: 0.75rem;
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+.mode-option-card.active {
+  border-color: var(--accent-base);
+  background: var(--accent-soft);
+}
+.mode-option-card .mode-header {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.25rem;
+}
+.mode-option-card .mode-name {
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+.mode-option-card .mode-desc {
+  font-size: 0.7rem;
+  color: var(--text-tertiary);
+  line-height: 1.35;
+}
+
+/* ==========================================================================
+   QUESTION CARD ARCHITECTURE (Doppelrand Style)
+   ========================================================================== */
+.question-envelope {
+  margin-bottom: 1.25rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card);
+  padding: 1.25rem;
+  position: relative;
+  transition: all var(--transition);
+}
+.question-envelope:hover {
+  border-color: var(--border-strong);
+}
+.question-envelope.is-flagged {
+  border-color: var(--warning);
+  background: linear-gradient(180deg, var(--warning-soft), var(--bg-card) 20%);
+}
+.question-envelope.is-answered {
+  border-left: 3px solid var(--accent-base);
+}
+.q-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.85rem;
+}
+.q-badge-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+.q-idx-tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent-base);
+  background: var(--accent-soft);
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-xs);
+}
+.q-task-tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-tertiary);
+}
+.flag-btn {
+  font-size: 0.74rem;
+  color: var(--text-tertiary);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-xs);
+  gap: 0.35rem;
+  transition: all var(--transition);
+}
+.flag-btn:hover, .flag-btn.active {
+  color: var(--warning);
+  background: var(--warning-soft);
+}
+.q-prompt-text {
+  font-size: 0.96rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.55;
+  margin-bottom: 1rem;
+}
+
+/* PASSAGE INLINE DISPLAY (List Mode) */
+.task-passage-container {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+.task-passage-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 0.5rem;
+}
+.task-passage-title {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.task-passage-content {
+  font-family: var(--font-serif);
+  font-size: 0.98rem;
+  line-height: 1.85;
+  color: var(--text-secondary);
+  white-space: pre-line;
+}
+.task-passage-content mark, .task-passage-content b, .task-passage-content strong {
+  background: var(--accent-soft);
+  color: var(--accent-base);
+  padding: 0.1rem 0.35rem;
+  border-radius: var(--radius-xs);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   OPTIONS LIST (A, B, C, D)
+   ========================================================================== */
+.options-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+.option-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 0.95rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+  cursor: pointer;
+  transition: all var(--transition);
+  text-align: left;
+}
+.option-row:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-strong);
+}
+.option-row.selected {
+  background: var(--accent-soft);
+  border-color: var(--accent-base);
+}
+.opt-circle {
+  width: 1.65rem;
+  height: 1.65rem;
+  border-radius: 50%;
+  border: 1px solid var(--border-strong);
+  background: var(--bg-surface-elevated);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  color: var(--text-secondary);
+  transition: all var(--transition);
+}
+.option-row.selected .opt-circle {
+  background: var(--accent-base);
+  border-color: var(--accent-base);
+  color: #ffffff;
+}
+.option-text {
+  flex: 1;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: var(--text-primary);
+}
+
+/* ==========================================================================
+   SENTENCE ORDER SPECIAL FEATURE (Live Paragraph Assembler)
+   ========================================================================== */
+.so-fragments-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1rem;
+  margin-bottom: 1rem;
+}
+.so-fragment-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+.so-fragment-row:last-child {
+  margin-bottom: 0;
+}
+.so-tag {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.72rem;
+  color: var(--accent-base);
+  background: var(--accent-soft);
+  padding: 0.15rem 0.4rem;
+  border-radius: var(--radius-xs);
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+.so-live-preview-box {
+  margin-top: 0.85rem;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface-elevated);
+  border: 1px dashed var(--border-accent);
+}
+.so-preview-header {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--accent-base);
+  margin-bottom: 0.4rem;
+}
+.so-preview-body {
+  font-family: var(--font-serif);
+  font-size: 0.94rem;
+  line-height: 1.7;
+  color: var(--text-primary);
+  font-style: italic;
+}
+
+/* ==========================================================================
+   WRITING SELF-CHECK ARCHITECTURE
+   ========================================================================== */
+.writing-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.writing-cue {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--accent-base);
+  background: var(--accent-soft);
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--accent-base);
+}
+.writing-textarea {
+  width: 100%;
+  min-height: 85px;
+  padding: 0.85rem 1rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-size: 0.92rem;
+  line-height: 1.5;
+  resize: vertical;
+  outline: none;
+  transition: all var(--transition);
+}
+.writing-textarea:focus {
+  border-color: var(--accent-base);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+.writing-tools {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.writing-word-count {
+  font-size: 0.72rem;
+  color: var(--text-tertiary);
+  font-family: var(--font-mono);
+}
+.writing-compare-box {
+  margin-top: 0.75rem;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  display: none;
+}
+.writing-compare-box.active {
+  display: block;
+}
+.model-ans-text {
+  font-size: 0.88rem;
+  color: var(--success);
+  margin-top: 0.25rem;
+  line-height: 1.5;
+}
+.self-grade-group {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.65rem;
+}
+.self-grade-btn {
+  font-size: 0.74rem;
+  font-weight: 600;
+  padding: 0.3rem 0.65rem;
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+}
+.self-grade-btn.active {
+  border-color: var(--success);
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+/* ==========================================================================
+   STICKY BOTTOM COMMAND BAR
+   ========================================================================== */
+.bottom-dock {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 35;
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border-subtle);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 0.75rem 1rem calc(0.75rem + env(safe-area-inset-bottom, 0px));
+}
+.bottom-dock-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+.dock-nav-btn {
+  padding: 0.65rem 1.15rem;
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  gap: 0.45rem;
+}
+.dock-nav-btn:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-1px);
+}
+.dock-nav-btn:disabled {
+  opacity: 0.35;
+  pointer-events: none;
+}
+.dock-center-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
+}
+.dock-counter {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.dock-matrix-trigger {
+  font-size: 0.7rem;
+  color: var(--accent-base);
+  font-weight: 600;
+  gap: 0.3rem;
+}
+.btn-submit-exam {
+  padding: 0.65rem 1.35rem;
+  border-radius: var(--radius-sm);
+  background: var(--accent-base);
+  color: #fff;
+  font-size: 0.84rem;
+  font-weight: 700;
+  box-shadow: 0 4px 12px var(--accent-glow);
+  gap: 0.45rem;
+}
+.btn-submit-exam:hover {
+  background: var(--accent-hover);
+}
+
+/* ==========================================================================
+   DRAWER: QUESTION MATRIX PALETTE
+   ========================================================================== */
+.sheet-backdrop {
+  position: fixed;
+  inset: 0;
+  background: var(--sheet-scrim);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 50;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s var(--ease-smooth);
+}
+.sheet-backdrop.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.sheet-panel {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  max-width: 680px;
+  margin: 0 auto;
+  max-height: 85dvh;
+  background: var(--bg-card);
+  border-top: 1px solid var(--border-strong);
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  z-index: 55;
+  transform: translateY(100%);
+  transition: transform 0.35s var(--ease-spring);
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-lg);
+}
+.sheet-backdrop.open .sheet-panel {
+  transform: translateY(0);
+}
+.sheet-header {
+  padding: 1rem 1.25rem 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.sheet-handle {
+  width: 40px;
+  height: 4px;
+  background: var(--border-strong);
+  border-radius: 999px;
+  margin: 0.5rem auto 0;
+}
+.sheet-title {
+  font-size: 1rem;
+  font-weight: 700;
+}
+.sheet-body {
+  padding: 1.25rem;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  flex: 1;
+}
+.matrix-legend {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 1.25rem;
+  padding: 0.65rem;
+  background: var(--bg-surface);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+}
+.legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+.matrix-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(42px, 1fr));
+  gap: 0.45rem;
+}
+.matrix-cell {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+  position: relative;
+  transition: all var(--transition);
+}
+.matrix-cell:hover {
+  transform: scale(1.08);
+  border-color: var(--border-strong);
+}
+.matrix-cell.answered {
+  background: var(--accent-soft);
+  border-color: var(--accent-base);
+  color: var(--accent-base);
+}
+.matrix-cell.flagged::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--warning);
+}
+.matrix-cell.active-cur {
+  box-shadow: 0 0 0 2px var(--text-primary);
+}
+
+/* ==========================================================================
+   DRAWER: READING PASSAGE INSPECTOR
+   ========================================================================== */
+.passage-sheet-body {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: var(--text-primary);
+  white-space: pre-line;
+  padding: 1.5rem;
+}
+.passage-sheet-body mark {
+  background: var(--accent-soft);
+  color: var(--accent-base);
+  padding: 0.1rem 0.4rem;
+  border-radius: var(--radius-xs);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   RESULTS / REPORT SCREEN
+   ========================================================================== */
+.report-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: 2.25rem 1.75rem;
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+  margin-bottom: 2rem;
+}
+.score-radial {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 4px solid var(--accent-base);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  background: var(--accent-soft);
+}
+.score-number {
+  font-family: var(--font-mono);
+  font-size: 2.8rem;
+  font-weight: 800;
+  line-height: 1;
+}
+.score-scale {
+  font-size: 0.72rem;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 0.25rem;
+}
+.report-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+  margin: 1.5rem 0;
+}
+.stat-box {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 0.5rem;
+}
+.stat-val {
+  font-family: var(--font-mono);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+.stat-lbl {
+  font-size: 0.68rem;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 0.2rem;
+}
+
+/* ==========================================================================
+   ADMIN DASHBOARD ARCHITECTURE
+   ========================================================================== */
+.admin-card-wrap {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+.admin-toolbar {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.search-input-wrap {
+  position: relative;
+  max-width: 280px;
+  width: 100%;
+}
+.search-input-wrap .search-icon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-tertiary);
+  pointer-events: none;
+}
+.search-input-wrap input {
+  padding-left: 2.2rem;
+}
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.85rem;
+}
+.admin-table th {
+  padding: 0.75rem 1rem;
+  background: var(--bg-surface);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-tertiary);
+  border-bottom: 1px solid var(--border-subtle);
+}
+.admin-table td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+}
+.admin-table tr:hover td {
+  background: var(--bg-surface);
+  color: var(--text-primary);
+}
+.admin-table .student-name {
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+}
+.admin-table .student-name:hover {
+  color: var(--accent-base);
+  text-decoration: underline;
+}
+
+/* RESPONSIVE TWEAKS */
+@media (max-width: 600px) {
+  .report-stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .app-header {
+    padding: 0.5rem 0.75rem;
+  }
+  .brand-title {
+    font-size: 0.8rem;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ==========================================================================
+     APP HEADER
+     ========================================================================== -->
+<header class="app-header">
+  <div class="app-header-inner">
+    <div class="brand-group">
+      <span class="brand-badge">ENG 11</span>
+      <span class="brand-title" id="topHeaderTitle">THPT Vĩnh Thuận</span>
+    </div>
+    
+    <div class="header-actions">
+      <!-- Live Timer -->
+      <div class="timer-chip" id="timerChip" style="display:none;">
+        <span class="timer-indicator"></span>
+        <span id="timerDisplay">00:00</span>
+      </div>
+      
+      <!-- Theme Switcher with Vector Icon -->
+      <button class="icon-btn" id="btnThemeToggle" onclick="cycleTheme()" title="Đổi giao diện (Dark / Light / Sepia)">
+        <!-- Injected by JS -->
+      </button>
+      
+      <!-- Question Matrix Button -->
+      <button class="icon-btn" id="btnMatrixTrigger" onclick="openMatrixSheet()" style="display:none;" title="Bảng ma trận câu hỏi">
+        <svg class="v-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
+      </button>
+      
+      <!-- Admin Button -->
+      <button class="icon-btn" onclick="showAdminView()" title="Bảng quản trị giáo viên">
+        <svg class="v-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- PROGRESS STRIP -->
+<div class="progress-strip" id="progressStrip" style="display:none;">
+  <div class="progress-strip-fill" id="progressFill"></div>
+</div>
+
+<!-- ==========================================================================
+     SECTION TABS BAR
+     ========================================================================== -->
+<nav class="section-tabs-bar" id="sectionTabsBar" style="display:none;">
+  <div class="section-tabs" id="sectionTabs">
+    <!-- Populated by JS -->
+  </div>
+</nav>
+
+<!-- ==========================================================================
+     VIEW MODE TOGGLE BAR
+     ========================================================================== -->
+<div class="mode-toggle-bar" id="modeToggleBar" style="display:none;">
+  <div class="view-mode-pill">
+    <button class="view-mode-btn" id="btnModeFocus" onclick="switchViewMode('focus')">Từng câu (Focus)</button>
+    <button class="view-mode-btn active" id="btnModeList" onclick="switchViewMode('list')">Danh sách (Cuộn)</button>
+  </div>
+  
+  <button class="passage-drawer-btn" id="btnOpenPassage" onclick="openPassageSheet()" style="display:none;">
+    <svg class="v-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+    <span>Đọc bài khóa</span>
+  </button>
+</div>
+
+<!-- ==========================================================================
+     MAIN VIEWPORT
+     ========================================================================== -->
+<main class="main-viewport" id="mainViewport">
+  <!-- Dynamic Views Injected Here -->
+</main>
+
+<!-- ==========================================================================
+     BOTTOM COMMAND DOCK
+     ========================================================================== -->
+<div class="bottom-dock" id="bottomDock" style="display:none;">
+  <div class="bottom-dock-inner">
+    <button class="dock-nav-btn" id="btnPrev" onclick="navigateQuestion(-1)">
+      <svg class="v-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+      <span>Câu trước</span>
+    </button>
+    
+    <div class="dock-center-meta">
+      <span class="dock-counter" id="dockCounter">1 / 89</span>
+      <button class="dock-matrix-trigger" onclick="openMatrixSheet()">
+        <svg class="v-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
+        <span>Bảng câu hỏi</span>
+      </button>
+    </div>
+    
+    <button class="dock-nav-btn" id="btnNext" onclick="navigateQuestion(1)">
+      <span>Câu sau</span>
+      <svg class="v-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+    </button>
+    
+    <button class="btn-submit-exam" id="btnSubmitQuick" onclick="confirmSubmitExam()">
+      <svg class="v-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Nộp bài</span>
+    </button>
+  </div>
+</div>
+
+<!-- ==========================================================================
+     SHEET MODAL: QUESTION MATRIX
+     ========================================================================== -->
+<div class="sheet-backdrop" id="matrixSheet" onclick="closeMatrixSheet(event)">
+  <div class="sheet-panel" onclick="event.stopPropagation()">
+    <div class="sheet-handle"></div>
+    <div class="sheet-header">
+      <h3 class="sheet-title">Ma Trận Câu Hỏi</h3>
+      <button class="icon-btn" onclick="closeMatrixSheet()">
+        <svg class="v-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+    </div>
+    
+    <div class="sheet-body">
+      <div class="matrix-legend">
+        <div class="legend-item"><span class="legend-dot" style="background:var(--border-strong);"></span> Chưa làm</div>
+        <div class="legend-item"><span class="legend-dot" style="background:var(--accent-base);"></span> Đã làm</div>
+        <div class="legend-item"><span class="legend-dot" style="background:var(--warning);"></span> Đánh dấu</div>
+      </div>
+      
+      <div class="matrix-grid" id="matrixGrid">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==========================================================================
+     SHEET MODAL: READING PASSAGE
+     ========================================================================== -->
+<div class="sheet-backdrop" id="passageSheet" onclick="closePassageSheet(event)">
+  <div class="sheet-panel" onclick="event.stopPropagation()">
+    <div class="sheet-handle"></div>
+    <div class="sheet-header">
+      <h3 class="sheet-title" id="passageSheetTitle">Nội dung bài đọc</h3>
+      <button class="icon-btn" onclick="closePassageSheet()">
+        <svg class="v-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+    </div>
+    <div class="sheet-body passage-sheet-body" id="passageSheetBody">
+      <!-- Injected by JS -->
+    </div>
+  </div>
+</div>
+
+<!-- ==========================================================================
+     SHEET MODAL: STUDENT ATTEMPT DETAIL (Admin)
+     ========================================================================== -->
+<div class="sheet-backdrop" id="studentDetailSheet" onclick="closeStudentDetailSheet(event)">
+  <div class="sheet-panel" onclick="event.stopPropagation()">
+    <div class="sheet-handle"></div>
+    <div class="sheet-header">
+      <h3 class="sheet-title" id="studentDetailTitle">Chi tiết bài làm</h3>
+      <button class="icon-btn" onclick="closeStudentDetailSheet()">
+        <svg class="v-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+    </div>
+    <div class="sheet-body" id="studentDetailBody">
+      <!-- Injected by JS -->
+    </div>
+  </div>
+</div>
+
+<!-- LOAD QUESTION DATA -->
+<script src="quiz_data.js"></script>
+
+<script>
+/* ==========================================================================
+   VECTOR SVG ICON DICTIONARY
+   ========================================================================== */
+const ICONS = {
+  moon: `<svg class="v-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>`,
+  sun: `<svg class="v-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>`,
+  sepia: `<svg class="v-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10"/><path d="M6 10h10"/></svg>`,
+  zap: `<svg class="v-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>`,
+  sparkles: `<svg class="v-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg>`,
+  puzzle: `<svg class="v-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19.439 7.85c0-1.571-1.274-2.846-2.846-2.846a2.846 2.846 0 0 0-2.846 2.846v.284H9.253v-.284A2.846 2.846 0 0 0 6.407 5a2.846 2.846 0 0 0-2.846 2.846v3.493h.284a2.846 2.846 0 0 1 2.846 2.846 2.846 2.846 0 0 1-2.846 2.846h-.284V20.5h3.493v-.284a2.846 2.846 0 0 1 2.846-2.846 2.846 2.846 0 0 1 2.846 2.846v.284h4.494v-.284a2.846 2.846 0 0 0 2.846-2.846 2.846 2.846 0 0 0 2.846-2.846V11.34h-.284a2.846 2.846 0 0 1-2.846-2.846 2.846 2.846 0 0 1 2.846-2.846h.284V7.85z"/></svg>`,
+  book: `<svg class="v-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>`,
+  edit: `<svg class="v-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg>`,
+  arrowRight: `<svg class="v-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>`,
+  arrowLeft: `<svg class="v-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>`,
+  bookmark: `<svg class="v-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></svg>`,
+  bookmarkFilled: `<svg class="v-icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></svg>`,
+  eye: `<svg class="v-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>`,
+  info: `<svg class="v-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>`,
+  check: `<svg class="v-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`,
+  x: `<svg class="v-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>`,
+  chart: `<svg class="v-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="20" y2="10"/><line x1="18" x2="18" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="16"/></svg>`,
+  download: `<svg class="v-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>`,
+  trash: `<svg class="v-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></svg>`,
+  search: `<svg class="v-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>`
+};
+
+/* ==========================================================================
+   APP CONTROLLER & STATE MANAGEMENT
+   ========================================================================== */
+const STORAGE_PREFIX = "eng11_thpt_vinhtuan_";
+const STATE_KEY = STORAGE_PREFIX + "active_session";
+const SUBMISSIONS_KEY = STORAGE_PREFIX + "student_records";
+
+const AppState = {
+  studentName: "",
+  theme: "dark",
+  practiceMode: "full",
+  viewMode: "list",
+  activeSectionIdx: 0,
+  activeQuestionGlobalIdx: 0,
+  userAnswers: {},
+  selfGrades: {},
+  flaggedQuestions: new Set(),
+  startTime: null,
+  elapsedSeconds: 0,
+  timerInterval: null,
+  isFinished: false,
+  reviewOnlyWrong: false,
+};
+
+let FlatQuestions = [];
+
+function initFlattenedQuestions() {
+  FlatQuestions = [];
+  if (!window.QUIZ_DATA) return;
+  
+  window.QUIZ_DATA.forEach((sec, secIdx) => {
+    sec.tasks.forEach((task, taskIdx) => {
+      task.questions.forEach((q, qIdx) => {
+        FlatQuestions.push({
+          ...q,
+          sectionId: sec.id,
+          sectionTitle: sec.title,
+          secIdx,
+          taskName: task.name,
+          taskTitle: task.title,
+          passage: task.passage,
+          globalIdx: FlatQuestions.length
+        });
+      });
+    });
+  });
+}
+
+// ==========================================================================
+// AUDIO & HAPTIC FEEDBACK (Web Audio API)
+// ==========================================================================
+const AudioFX = {
+  ctx: null,
+  init() {
+    if (!this.ctx) {
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      if (AudioContext) this.ctx = new AudioContext();
+    }
+  },
+  tap() {
+    if (!this.ctx) return;
+    try {
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(440, this.ctx.currentTime);
+      gain.gain.setValueAtTime(0.04, this.ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.06);
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+      osc.start();
+      osc.stop(this.ctx.currentTime + 0.06);
+    } catch(e){}
+  },
+  success() {
+    if (!this.ctx) return;
+    try {
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(523.25, this.ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(659.25, this.ctx.currentTime + 0.12);
+      gain.gain.setValueAtTime(0.06, this.ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.2);
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+      osc.start();
+      osc.stop(this.ctx.currentTime + 0.2);
+    } catch(e){}
+  }
+};
+
+// ==========================================================================
+// THEME SWITCHER
+// ==========================================================================
+const themes = ["dark", "light", "sepia"];
+
+function applyTheme(theme) {
+  AppState.theme = theme;
+  document.documentElement.setAttribute("data-theme", theme);
+  const btn = document.getElementById("btnThemeToggle");
+  if (btn) {
+    btn.innerHTML = ICONS[theme] || ICONS.moon;
+  }
+  localStorage.setItem(STORAGE_PREFIX + "theme", theme);
+}
+
+function cycleTheme() {
+  AudioFX.init();
+  AudioFX.tap();
+  const next = themes[(themes.indexOf(AppState.theme) + 1) % themes.length];
+  applyTheme(next);
+}
+
+// ==========================================================================
+// TIMER MANAGEMENT
+// ==========================================================================
+function startTimer() {
+  if (AppState.timerInterval) clearInterval(AppState.timerInterval);
+  if (!AppState.startTime) AppState.startTime = Date.now() - (AppState.elapsedSeconds * 1000);
+  
+  document.getElementById("timerChip").style.display = "inline-flex";
+  
+  AppState.timerInterval = setInterval(() => {
+    AppState.elapsedSeconds = Math.floor((Date.now() - AppState.startTime) / 1000);
+    const m = Math.floor(AppState.elapsedSeconds / 60).toString().padStart(2, '0');
+    const s = (AppState.elapsedSeconds % 60).toString().padStart(2, '0');
+    document.getElementById("timerDisplay").textContent = `${m}:${s}`;
+    saveSessionDebounced();
+  }, 1000);
+}
+
+function stopTimer() {
+  if (AppState.timerInterval) {
+    clearInterval(AppState.timerInterval);
+    AppState.timerInterval = null;
+  }
+}
+
+// ==========================================================================
+// SESSION PERSISTENCE (Autosave)
+// ==========================================================================
+let saveTimeout = null;
+function saveSessionDebounced() {
+  if (saveTimeout) clearTimeout(saveTimeout);
+  saveTimeout = setTimeout(() => {
+    if (!AppState.isFinished && AppState.studentName) {
+      const payload = {
+        studentName: AppState.studentName,
+        practiceMode: AppState.practiceMode,
+        viewMode: AppState.viewMode,
+        activeQuestionGlobalIdx: AppState.activeQuestionGlobalIdx,
+        userAnswers: AppState.userAnswers,
+        selfGrades: AppState.selfGrades,
+        flaggedQuestions: Array.from(AppState.flaggedQuestions),
+        elapsedSeconds: AppState.elapsedSeconds,
+        timestamp: Date.now()
+      };
+      localStorage.setItem(STATE_KEY, JSON.stringify(payload));
+    }
+  }, 400);
+}
+
+function loadSavedSession() {
+  try {
+    const raw = localStorage.getItem(STATE_KEY);
+    if (!raw) return null;
+    const data = JSON.parse(raw);
+    if (Date.now() - data.timestamp > 48 * 3600 * 1000) {
+      localStorage.removeItem(STATE_KEY);
+      return null;
+    }
+    return data;
+  } catch(e) {
+    return null;
+  }
+}
+
+function clearSession() {
+  localStorage.removeItem(STATE_KEY);
+}
+
+// ==========================================================================
+// SCREEN 1: WELCOME & CONFIGURATION
+// ==========================================================================
+function renderWelcomeScreen() {
+  stopTimer();
+  document.getElementById("topHeaderTitle").textContent = "THPT Vĩnh Thuận";
+  document.getElementById("timerChip").style.display = "none";
+  document.getElementById("progressStrip").style.display = "none";
+  document.getElementById("sectionTabsBar").style.display = "none";
+  document.getElementById("modeToggleBar").style.display = "none";
+  document.getElementById("bottomDock").style.display = "none";
+  document.getElementById("btnMatrixTrigger").style.display = "none";
+  
+  const saved = loadSavedSession();
+  
+  const viewport = document.getElementById("mainViewport");
+  viewport.innerHTML = `
+    <div class="welcome-container">
+      <div class="welcome-card">
+        <div class="school-meta">SỞ GD&ĐT AN GIANG · THPT VĨNH THUẬN</div>
+        <h1 class="exam-title">Đề Cương Tiếng Anh 11</h1>
+        <p class="exam-subtitle">Hệ thống ôn luyện & kiểm tra giữa học kỳ I (Chương trình Global Success). Đầy đủ 89 câu hỏi kèm đáp án chuẩn giáo viên.</p>
+        
+        <div class="meta-grid">
+          <div class="meta-item">
+            <span class="meta-val">89</span>
+            <span class="meta-lbl">Tổng câu hỏi</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-val">4</span>
+            <span class="meta-lbl">Phần thi</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-val">10</span>
+            <span class="meta-lbl">Thang điểm</span>
+          </div>
+        </div>
+        
+        ${saved ? `
+          <div style="background:var(--accent-soft);border:1px solid var(--border-accent);border-radius:var(--radius-sm);padding:0.75rem 1rem;margin-bottom:1.25rem;text-align:left;">
+            <div style="display:flex;align-items:center;gap:0.4rem;font-size:0.8rem;font-weight:700;color:var(--accent-base);margin-bottom:0.25rem;">
+              ${ICONS.zap}
+              <span>Phát hiện bài làm dang dở</span>
+            </div>
+            <div style="font-size:0.75rem;color:var(--text-secondary);">Học sinh: <b>${escapeHtml(saved.studentName)}</b> · Đã làm ${Object.keys(saved.userAnswers||{}).length} câu</div>
+            <div style="display:flex;gap:0.5rem;margin-top:0.6rem;">
+              <button class="btn-primary-action" style="padding:0.45rem 0.85rem;font-size:0.8rem;width:auto;" onclick="resumeSavedSession()">Tiếp tục làm</button>
+              <button class="dock-nav-btn" style="padding:0.45rem 0.85rem;font-size:0.8rem;" onclick="discardSavedSession()">Bắt đầu mới</button>
+            </div>
+          </div>
+        ` : ''}
+        
+        <div class="name-input-group">
+          <label class="input-label" for="txtStudentName">Họ và tên của bạn:</label>
+          <input type="text" id="txtStudentName" class="custom-input" placeholder="Ví dụ: Nguyễn Văn An - 11/5" autocomplete="name" value="${saved ? escapeHtml(saved.studentName) : ''}">
+        </div>
+        
+        <div class="mode-picker-title">Chọn hình thức ôn tập:</div>
+        <div class="mode-picker">
+          <div class="mode-option-card ${AppState.practiceMode==='full'?'active':''}" onclick="setPracticeMode('full', this)">
+            <div class="mode-header">
+              ${ICONS.sparkles}
+              <span class="mode-name">Toàn bộ đề thi</span>
+            </div>
+            <div class="mode-desc">89 câu chuẩn cấu trúc (Điền từ, Đọc hiểu, Sắp xếp, Tự luận)</div>
+          </div>
+          
+          <div class="mode-option-card ${AppState.practiceMode==='sentence_order'?'active':''}" onclick="setPracticeMode('sentence_order', this)">
+            <div class="mode-header">
+              ${ICONS.puzzle}
+              <span class="mode-name">Sắp xếp câu (22 câu)</span>
+            </div>
+            <div class="mode-desc">Tập trung luyện dạng khó có tính năng ghép văn bản mẫu</div>
+          </div>
+          
+          <div class="mode-option-card ${AppState.practiceMode==='reading'?'active':''}" onclick="setPracticeMode('reading', this)">
+            <div class="mode-header">
+              ${ICONS.book}
+              <span class="mode-name">Đọc hiểu (24 câu)</span>
+            </div>
+            <div class="mode-desc">3 bài đọc dài với cửa sổ tra cứu bài khóa thông minh</div>
+          </div>
+          
+          <div class="mode-option-card ${AppState.practiceMode==='cloze'?'active':''}" onclick="setPracticeMode('cloze', this)">
+            <div class="mode-header">
+              ${ICONS.edit}
+              <span class="mode-name">Điền từ (37 câu)</span>
+            </div>
+            <div class="mode-desc">7 bài đọc điền từ ngữ pháp & từ vựng trọng tâm</div>
+          </div>
+        </div>
+        
+        <button class="btn-primary-action" onclick="startExam()">
+          <span>Bắt Đầu Làm Bài</span>
+          ${ICONS.arrowRight}
+        </button>
+      </div>
+    </div>
+  `;
+}
+
+function setPracticeMode(mode, el) {
+  AudioFX.init();
+  AudioFX.tap();
+  AppState.practiceMode = mode;
+  document.querySelectorAll('.mode-option-card').forEach(c => c.classList.remove('active'));
+  el.classList.add('active');
+}
+
+function startExam() {
+  AudioFX.init();
+  const nameInput = document.getElementById("txtStudentName");
+  const name = nameInput ? nameInput.value.trim() : "";
+  if (!name) {
+    nameInput.focus();
+    nameInput.style.borderColor = "var(--danger)";
+    return;
+  }
+  
+  AppState.studentName = name;
+  AppState.startTime = Date.now();
+  AppState.elapsedSeconds = 0;
+  AppState.userAnswers = {};
+  AppState.selfGrades = {};
+  AppState.flaggedQuestions = new Set();
+  AppState.activeQuestionGlobalIdx = 0;
+  AppState.isFinished = false;
+  
+  AudioFX.success();
+  launchExamUI();
+}
+
+function resumeSavedSession() {
+  const saved = loadSavedSession();
+  if (!saved) return;
+  
+  AppState.studentName = saved.studentName;
+  AppState.practiceMode = saved.practiceMode || "full";
+  AppState.viewMode = saved.viewMode || "list";
+  AppState.activeQuestionGlobalIdx = saved.activeQuestionGlobalIdx || 0;
+  AppState.userAnswers = saved.userAnswers || {};
+  AppState.selfGrades = saved.selfGrades || {};
+  AppState.flaggedQuestions = new Set(saved.flaggedQuestions || []);
+  AppState.elapsedSeconds = saved.elapsedSeconds || 0;
+  AppState.startTime = Date.now() - (AppState.elapsedSeconds * 1000);
+  AppState.isFinished = false;
+  
+  launchExamUI();
+}
+
+function discardSavedSession() {
+  clearSession();
+  renderWelcomeScreen();
+}
+
+function getActiveQuestionsSubset() {
+  if (AppState.practiceMode === "full") return FlatQuestions;
+  return FlatQuestions.filter(q => q.sectionId === AppState.practiceMode);
+}
+
+// ==========================================================================
+// QUIZ VIEWPORT CONTROLLER
+// ==========================================================================
+function launchExamUI() {
+  document.getElementById("topHeaderTitle").textContent = AppState.studentName;
+  document.getElementById("progressStrip").style.display = "block";
+  document.getElementById("sectionTabsBar").style.display = "block";
+  document.getElementById("modeToggleBar").style.display = "flex";
+  document.getElementById("bottomDock").style.display = "block";
+  document.getElementById("btnMatrixTrigger").style.display = "inline-flex";
+  
+  renderSectionTabs();
+  startTimer();
+  
+  if (AppState.viewMode === "focus") {
+    renderFocusMode();
+  } else {
+    renderListMode();
+  }
+  
+  updateProgressUI();
+}
+
+function switchViewMode(mode) {
+  AudioFX.init();
+  AudioFX.tap();
+  AppState.viewMode = mode;
+  document.getElementById("btnModeFocus").classList.toggle("active", mode === "focus");
+  document.getElementById("btnModeList").classList.toggle("active", mode === "list");
+  
+  if (mode === "focus") {
+    renderFocusMode();
+  } else {
+    renderListMode();
+  }
+  saveSessionDebounced();
+}
+
+// ==========================================================================
+// SECTION TABS
+// ==========================================================================
+function renderSectionTabs() {
+  const tabsContainer = document.getElementById("sectionTabs");
+  const sections = window.QUIZ_DATA || [];
+  
+  let html = `<button class="sec-tab ${AppState.practiceMode==='full' && AppState.activeSectionIdx===-1?'active':''}" onclick="filterSection(-1)">Tất cả <span class="tab-badge">${FlatQuestions.length}</span></button>`;
+  
+  sections.forEach((sec, idx) => {
+    const qCount = FlatQuestions.filter(q => q.sectionId === sec.id).length;
+    const isAct = (AppState.activeSectionIdx === idx);
+    html += `
+      <button class="sec-tab ${isAct?'active':''}" onclick="filterSection(${idx})">
+        ${escapeHtml(sec.title.split(':')[0])} <span class="tab-badge">${qCount}</span>
+      </button>
+    `;
+  });
+  
+  tabsContainer.innerHTML = html;
+}
+
+function filterSection(secIdx) {
+  AudioFX.init();
+  AudioFX.tap();
+  AppState.activeSectionIdx = secIdx;
+  renderSectionTabs();
+  
+  const subset = getActiveQuestionsSubset();
+  if (secIdx >= 0) {
+    const secId = window.QUIZ_DATA[secIdx].id;
+    const targetQ = subset.find(q => q.sectionId === secId);
+    if (targetQ) {
+      AppState.activeQuestionGlobalIdx = targetQ.globalIdx;
+    }
+  }
+  
+  if (AppState.viewMode === "focus") {
+    renderFocusMode();
+  } else {
+    renderListMode();
+    if (secIdx >= 0) {
+      const el = document.getElementById(`sec-heading-${secIdx}`);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+}
+
+// ==========================================================================
+// RENDER MODE A: FOCUS MODE
+// ==========================================================================
+function renderFocusMode() {
+  const subset = getActiveQuestionsSubset();
+  if (!subset.length) return;
+  
+  if (AppState.activeQuestionGlobalIdx < 0) AppState.activeQuestionGlobalIdx = 0;
+  if (AppState.activeQuestionGlobalIdx >= subset.length) AppState.activeQuestionGlobalIdx = subset.length - 1;
+  
+  const q = subset[AppState.activeQuestionGlobalIdx];
+  const viewport = document.getElementById("mainViewport");
+  
+  const btnPassage = document.getElementById("btnOpenPassage");
+  if (q.passage) {
+    btnPassage.style.display = "inline-flex";
+  } else {
+    btnPassage.style.display = "none";
+  }
+  
+  viewport.innerHTML = `
+    <div style="max-width:680px;margin:0 auto;">
+      ${renderSingleQuestionCard(q, AppState.activeQuestionGlobalIdx + 1, subset.length)}
+    </div>
+  `;
+  
+  updateDockNav(AppState.activeQuestionGlobalIdx, subset.length);
+}
+
+// ==========================================================================
+// RENDER MODE B: CONTINUOUS LIST MODE
+// ==========================================================================
+function renderListMode() {
+  const subset = getActiveQuestionsSubset();
+  const viewport = document.getElementById("mainViewport");
+  document.getElementById("btnOpenPassage").style.display = "none";
+  
+  let html = `<div style="max-width:760px;margin:0 auto;">`;
+  
+  let lastSecId = "";
+  let lastTaskName = "";
+  
+  subset.forEach((q, idx) => {
+    if (q.sectionId !== lastSecId) {
+      lastSecId = q.sectionId;
+      html += `
+        <div id="sec-heading-${q.secIdx}" style="margin:2.5rem 0 1rem;padding-bottom:0.5rem;border-bottom:2px solid var(--border-accent);">
+          <div style="font-size:0.75rem;font-weight:700;color:var(--accent-base);letter-spacing:0.1em;text-transform:uppercase;">${escapeHtml(q.sectionTitle)}</div>
+        </div>
+      `;
+    }
+    
+    if (q.taskName !== lastTaskName && q.passage) {
+      lastTaskName = q.taskName;
+      html += `
+        <div class="task-passage-container">
+          <div class="task-passage-header">
+            <span class="task-passage-title">${escapeHtml(q.taskTitle || q.taskName)}</span>
+            <span style="font-size:0.75rem;color:var(--text-tertiary);">Bài đọc</span>
+          </div>
+          <div class="task-passage-content">${q.passage}</div>
+        </div>
+      `;
+    }
+    
+    html += renderSingleQuestionCard(q, idx + 1, subset.length);
+  });
+  
+  html += `</div>`;
+  viewport.innerHTML = html;
+  
+  updateDockNav(AppState.activeQuestionGlobalIdx, subset.length);
+}
+
+// ==========================================================================
+// QUESTION CARD HTML BUILDER
+// ==========================================================================
+function renderSingleQuestionCard(q, displayNum, totalCount) {
+  const isFlagged = AppState.flaggedQuestions.has(q.id);
+  const userAns = AppState.userAnswers[q.id];
+  const isAnswered = (userAns !== undefined && userAns !== "");
+  
+  let contentHtml = "";
+  
+  if (q.sentences && Object.keys(q.sentences).length > 0) {
+    contentHtml = renderSentenceOrderWidget(q, userAns);
+  } else if (q.model_answer) {
+    contentHtml = renderWritingWidget(q, userAns);
+  } else {
+    contentHtml = renderStandardMCQOptions(q, userAns);
+  }
+  
+  return `
+    <div class="question-envelope ${isFlagged ? 'is-flagged' : ''} ${isAnswered ? 'is-answered' : ''}" id="card-${q.id}">
+      <div class="q-header-row">
+        <div class="q-badge-wrap">
+          <span class="q-idx-tag">Câu ${displayNum} / ${totalCount}</span>
+          <span class="q-task-tag">${escapeHtml(q.taskName)}</span>
+        </div>
+        
+        <button class="flag-btn ${isFlagged ? 'active' : ''}" onclick="toggleFlag('${q.id}')">
+          ${isFlagged ? ICONS.bookmarkFilled : ICONS.bookmark}
+          <span>${isFlagged ? 'Đã đánh dấu' : 'Đánh dấu xem lại'}</span>
+        </button>
+      </div>
+      
+      <div class="q-prompt-text">${escapeHtml(q.prompt)}</div>
+      
+      ${contentHtml}
+    </div>
+  `;
+}
+
+function renderStandardMCQOptions(q, userAns) {
+  const letters = ['A', 'B', 'C', 'D'];
+  let optsHtml = `<div class="options-grid">`;
+  
+  (q.options || []).forEach((opt, idx) => {
+    const isSelected = (userAns === idx);
+    optsHtml += `
+      <div class="option-row ${isSelected ? 'selected' : ''}" onclick="selectMCQOption('${q.id}', ${idx})">
+        <span class="opt-circle">${letters[idx]}</span>
+        <span class="option-text">${escapeHtml(opt)}</span>
+      </div>
+    `;
+  });
+  
+  optsHtml += `</div>`;
+  return optsHtml;
+}
+
+function renderSentenceOrderWidget(q, userAns) {
+  const letters = ['A', 'B', 'C', 'D'];
+  
+  let fragmentsHtml = `<div class="so-fragments-card">`;
+  for (const [key, text] of Object.entries(q.sentences || {})) {
+    fragmentsHtml += `
+      <div class="so-fragment-row">
+        <span class="so-tag">${key.toUpperCase()}</span>
+        <span>${escapeHtml(text)}</span>
+      </div>
+    `;
+  }
+  fragmentsHtml += `</div>`;
+  
+  let optsHtml = `<div class="options-grid">`;
+  (q.options || []).forEach((opt, idx) => {
+    const isSelected = (userAns === idx);
+    optsHtml += `
+      <div class="option-row ${isSelected ? 'selected' : ''}" onclick="selectSentenceOrderOption('${q.id}', ${idx})">
+        <span class="opt-circle">${letters[idx]}</span>
+        <span class="option-text">${escapeHtml(opt)}</span>
+      </div>
+    `;
+  });
+  optsHtml += `</div>`;
+  
+  let previewText = "";
+  if (userAns !== undefined && q.options[userAns]) {
+    const optStr = q.options[userAns].toLowerCase();
+    const order = optStr.match(/[a-f]/g) || [];
+    previewText = order.map(char => q.sentences[char] || "").filter(Boolean).join(" ");
+  }
+  
+  const previewHtml = previewText ? `
+    <div class="so-live-preview-box">
+      <div class="so-preview-header">
+        ${ICONS.eye}
+        <span>Xem trước đoạn văn hoàn chỉnh (${letters[userAns]}):</span>
+      </div>
+      <div class="so-preview-body">"${escapeHtml(previewText)}"</div>
+    </div>
+  ` : `
+    <div style="display:flex;align-items:center;gap:0.4rem;font-size:0.75rem;color:var(--text-tertiary);margin-top:0.5rem;font-style:italic;">
+      ${ICONS.info}
+      <span>Chọn một phương án để ứng dụng tự động ghép các câu thành đoạn văn hoàn chỉnh giúp bạn kiểm tra độ mạch lạc.</span>
+    </div>
+  `;
+  
+  return fragmentsHtml + optsHtml + previewHtml;
+}
+
+function renderWritingWidget(q, userAns) {
+  const val = userAns || "";
+  const words = val.trim() ? val.trim().split(/\s+/).length : 0;
+  const selfGrade = AppState.selfGrades[q.id];
+  
+  return `
+    <div class="writing-container">
+      <div class="writing-cue"><b>Gợi ý mở đầu:</b> ${escapeHtml(q.cue)}</div>
+      
+      <textarea class="writing-textarea" placeholder="Nhập câu viết lại đầy đủ của bạn ở đây..." oninput="onWritingChange('${q.id}', this)">${escapeHtml(val)}</textarea>
+      
+      <div class="writing-tools">
+        <span class="writing-word-count">${words} từ</span>
+        <button class="dock-nav-btn" style="padding:0.35rem 0.75rem;font-size:0.75rem;" onclick="toggleWritingCompare('${q.id}')">
+          ${ICONS.eye}
+          <span>So khớp đáp án mẫu</span>
+        </button>
+      </div>
+      
+      <div class="writing-compare-box" id="compare-${q.id}">
+        <div style="font-size:0.75rem;font-weight:700;color:var(--text-secondary);">ĐÁP ÁN CHUẨN CỦA ĐỀ CƯƠNG:</div>
+        <div class="model-ans-text">→ ${escapeHtml(q.model_answer)}</div>
+        
+        <div style="font-size:0.72rem;color:var(--text-tertiary);margin-top:0.6rem;">Tự đánh giá câu của bạn:</div>
+        <div class="self-grade-group">
+          <button class="self-grade-btn ${selfGrade===1?'active':''}" onclick="setWritingGrade('${q.id}', 1)">1.0đ (Chính xác)</button>
+          <button class="self-grade-btn ${selfGrade===0.5?'active':''}" onclick="setWritingGrade('${q.id}', 0.5)">0.5đ (Đúng ý / Sai nhỏ)</button>
+          <button class="self-grade-btn ${selfGrade===0?'active':''}" onclick="setWritingGrade('${q.id}', 0)">0đ (Chưa đúng)</button>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+// ==========================================================================
+// USER INTERACTION HANDLERS
+// ==========================================================================
+function selectMCQOption(qid, optIdx) {
+  AudioFX.init();
+  AudioFX.tap();
+  AppState.userAnswers[qid] = optIdx;
+  
+  const card = document.getElementById(`card-${qid}`);
+  if (card) {
+    card.classList.add("is-answered");
+    card.querySelectorAll(".option-row").forEach((row, i) => {
+      row.classList.toggle("selected", i === optIdx);
+    });
+  }
+  
+  updateProgressUI();
+  saveSessionDebounced();
+}
+
+function selectSentenceOrderOption(qid, optIdx) {
+  AudioFX.init();
+  AudioFX.tap();
+  AppState.userAnswers[qid] = optIdx;
+  
+  if (AppState.viewMode === "focus") {
+    renderFocusMode();
+  } else {
+    const subset = getActiveQuestionsSubset();
+    const q = subset.find(x => x.id === qid);
+    const idx = subset.indexOf(q);
+    const card = document.getElementById(`card-${qid}`);
+    if (card && q) {
+      card.outerHTML = renderSingleQuestionCard(q, idx + 1, subset.length);
+    }
+  }
+  
+  updateProgressUI();
+  saveSessionDebounced();
+}
+
+function onWritingChange(qid, textarea) {
+  AppState.userAnswers[qid] = textarea.value;
+  const countEl = textarea.parentElement.querySelector(".writing-word-count");
+  if (countEl) {
+    const w = textarea.value.trim() ? textarea.value.trim().split(/\s+/).length : 0;
+    countEl.textContent = `${w} từ`;
+  }
+  
+  const card = document.getElementById(`card-${qid}`);
+  if (card) {
+    card.classList.toggle("is-answered", textarea.value.trim().length > 0);
+  }
+  
+  updateProgressUI();
+  saveSessionDebounced();
+}
+
+function toggleWritingCompare(qid) {
+  AudioFX.init();
+  AudioFX.tap();
+  const box = document.getElementById(`compare-${qid}`);
+  if (box) {
+    box.classList.toggle("active");
+  }
+}
+
+function setWritingGrade(qid, grade) {
+  AudioFX.init();
+  AudioFX.tap();
+  AppState.selfGrades[qid] = grade;
+  const box = document.getElementById(`compare-${qid}`);
+  if (box) {
+    box.querySelectorAll(".self-grade-btn").forEach((btn, i) => {
+      btn.classList.remove("active");
+    });
+    event.target.classList.add("active");
+  }
+  saveSessionDebounced();
+}
+
+function toggleFlag(qid) {
+  AudioFX.init();
+  AudioFX.tap();
+  if (AppState.flaggedQuestions.has(qid)) {
+    AppState.flaggedQuestions.delete(qid);
+  } else {
+    AppState.flaggedQuestions.add(qid);
+  }
+  
+  const card = document.getElementById(`card-${qid}`);
+  if (card) {
+    const isFl = AppState.flaggedQuestions.has(qid);
+    card.classList.toggle("is-flagged", isFl);
+    const flagBtn = card.querySelector(".flag-btn");
+    if (flagBtn) {
+      flagBtn.classList.toggle("active", isFl);
+      flagBtn.innerHTML = `
+        ${isFl ? ICONS.bookmarkFilled : ICONS.bookmark}
+        <span>${isFl ? 'Đã đánh dấu' : 'Đánh dấu xem lại'}</span>
+      `;
+    }
+  }
+  
+  renderMatrixGrid();
+  saveSessionDebounced();
+}
+
+// ==========================================================================
+// NAVIGATION (Prev / Next)
+// ==========================================================================
+function navigateQuestion(delta) {
+  AudioFX.init();
+  AudioFX.tap();
+  const subset = getActiveQuestionsSubset();
+  const newIdx = AppState.activeQuestionGlobalIdx + delta;
+  
+  if (newIdx >= 0 && newIdx < subset.length) {
+    AppState.activeQuestionGlobalIdx = newIdx;
+    
+    if (AppState.viewMode === "focus") {
+      renderFocusMode();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      const q = subset[newIdx];
+      const el = document.getElementById(`card-${q.id}`);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
+      updateDockNav(newIdx, subset.length);
+    }
+    saveSessionDebounced();
+  }
+}
+
+function jumpToQuestion(globalIdx) {
+  closeMatrixSheet();
+  AppState.activeQuestionGlobalIdx = globalIdx;
+  
+  if (AppState.viewMode === "focus") {
+    renderFocusMode();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  } else {
+    const subset = getActiveQuestionsSubset();
+    const q = subset[globalIdx];
+    if (q) {
+      const el = document.getElementById(`card-${q.id}`);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+    updateDockNav(globalIdx, subset.length);
+  }
+  saveSessionDebounced();
+}
+
+function updateDockNav(curIdx, totalCount) {
+  document.getElementById("dockCounter").textContent = `${curIdx + 1} / ${totalCount}`;
+  document.getElementById("btnPrev").disabled = (curIdx === 0);
+  document.getElementById("btnNext").disabled = (curIdx === totalCount - 1);
+}
+
+function updateProgressUI() {
+  const subset = getActiveQuestionsSubset();
+  const answeredCount = subset.filter(q => {
+    const ans = AppState.userAnswers[q.id];
+    return ans !== undefined && ans !== "";
+  }).length;
+  
+  const pct = subset.length ? Math.round((answeredCount / subset.length) * 100) : 0;
+  document.getElementById("progressFill").style.width = `${pct}%`;
+}
+
+// ==========================================================================
+// QUESTION MATRIX DRAWER
+// ==========================================================================
+function openMatrixSheet() {
+  AudioFX.init();
+  AudioFX.tap();
+  renderMatrixGrid();
+  document.getElementById("matrixSheet").classList.add("open");
+}
+
+function closeMatrixSheet(e) {
+  if (e && e.target !== e.currentTarget && e.target.tagName !== "BUTTON") return;
+  document.getElementById("matrixSheet").classList.remove("open");
+}
+
+function renderMatrixGrid() {
+  const subset = getActiveQuestionsSubset();
+  const grid = document.getElementById("matrixGrid");
+  
+  let html = "";
+  subset.forEach((q, idx) => {
+    const isAnswered = (AppState.userAnswers[q.id] !== undefined && AppState.userAnswers[q.id] !== "");
+    const isFlagged = AppState.flaggedQuestions.has(q.id);
+    const isCur = (idx === AppState.activeQuestionGlobalIdx);
+    
+    html += `
+      <button class="matrix-cell ${isAnswered ? 'answered' : ''} ${isFlagged ? 'flagged' : ''} ${isCur ? 'active-cur' : ''}" onclick="jumpToQuestion(${idx})">
+        ${idx + 1}
+      </button>
+    `;
+  });
+  
+  grid.innerHTML = html;
+}
+
+// ==========================================================================
+// READING PASSAGE DRAWER
+// ==========================================================================
+function openPassageSheet() {
+  AudioFX.init();
+  AudioFX.tap();
+  const subset = getActiveQuestionsSubset();
+  const q = subset[AppState.activeQuestionGlobalIdx];
+  if (!q || !q.passage) return;
+  
+  document.getElementById("passageSheetTitle").textContent = q.taskTitle || q.taskName;
+  document.getElementById("passageSheetBody").innerHTML = q.passage;
+  document.getElementById("passageSheet").classList.add("open");
+}
+
+function closePassageSheet(e) {
+  if (e && e.target !== e.currentTarget && e.target.tagName !== "BUTTON") return;
+  document.getElementById("passageSheet").classList.remove("open");
+}
+
+// ==========================================================================
+// EXAM SUBMISSION & GRADING
+// ==========================================================================
+function confirmSubmitExam() {
+  AudioFX.init();
+  AudioFX.tap();
+  const subset = getActiveQuestionsSubset();
+  const unanswered = subset.filter(q => AppState.userAnswers[q.id] === undefined || AppState.userAnswers[q.id] === "");
+  const flagged = subset.filter(q => AppState.flaggedQuestions.has(q.id));
+  
+  let msg = "Bạn có chắc chắn muốn nộp bài thi không?";
+  if (unanswered.length > 0 || flagged.length > 0) {
+    msg = `Chú ý:\n• Bạn còn ${unanswered.length} câu chưa trả lời.\n• Bạn có ${flagged.length} câu đang đánh dấu xem lại.\n\nBạn có muốn nộp bài ngay bây giờ không?`;
+  }
+  
+  if (confirm(msg)) {
+    finalizeExam();
+  }
+}
+
+function finalizeExam() {
+  stopTimer();
+  AppState.isFinished = true;
+  clearSession();
+  
+  const subset = getActiveQuestionsSubset();
+  let correctMCQ = 0;
+  let totalMCQ = 0;
+  let writingScore = 0;
+  let writingMax = 0;
+  
+  const breakdown = [];
+  
+  subset.forEach(q => {
+    if (q.model_answer) {
+      writingMax += 1;
+      const score = AppState.selfGrades[q.id] !== undefined ? AppState.selfGrades[q.id] : 0;
+      writingScore += score;
+      breakdown.push({
+        id: q.id,
+        label: q.label,
+        prompt: q.prompt,
+        userAns: AppState.userAnswers[q.id] || "(Chưa làm)",
+        correctAnswer: q.model_answer,
+        isCorrect: (score >= 0.5),
+        isWriting: true,
+        score
+      });
+    } else {
+      totalMCQ++;
+      const userChoice = AppState.userAnswers[q.id];
+      const isCor = (userChoice === q.answer);
+      if (isCor) correctMCQ++;
+      
+      const letters = ['A', 'B', 'C', 'D'];
+      breakdown.push({
+        id: q.id,
+        label: q.label,
+        prompt: q.prompt,
+        userChoice: userChoice !== undefined ? letters[userChoice] : "Chưa chọn",
+        correctLetter: letters[q.answer],
+        isCorrect: isCor,
+        isWriting: false
+      });
+    }
+  });
+  
+  const totalWeight = totalMCQ + writingMax;
+  const earnedWeight = correctMCQ + writingScore;
+  const grade10 = totalWeight > 0 ? Math.round((earnedWeight / totalWeight) * 10 * 10) / 10 : 0;
+  
+  const record = {
+    id: "sub_" + Date.now(),
+    studentName: AppState.studentName,
+    practiceMode: AppState.practiceMode,
+    grade10,
+    correctMCQ,
+    totalMCQ,
+    writingScore,
+    writingMax,
+    elapsedSeconds: AppState.elapsedSeconds,
+    timestamp: new Date().toISOString(),
+    breakdown
+  };
+  
+  saveStudentSubmission(record);
+  renderResultsScreen(record);
+}
+
+function saveStudentSubmission(record) {
+  try {
+    const list = JSON.parse(localStorage.getItem(SUBMISSIONS_KEY) || "[]");
+    list.unshift(record);
+    localStorage.setItem(SUBMISSIONS_KEY, JSON.stringify(list));
+  } catch(e) {
+    console.error("Failed to save submission", e);
+  }
+}
+
+// ==========================================================================
+// SCREEN 3: RESULTS & IN-DEPTH REVIEW
+// ==========================================================================
+function renderResultsScreen(rec) {
+  document.getElementById("topHeaderTitle").textContent = "Kết quả bài làm";
+  document.getElementById("timerChip").style.display = "none";
+  document.getElementById("progressStrip").style.display = "none";
+  document.getElementById("sectionTabsBar").style.display = "none";
+  document.getElementById("modeToggleBar").style.display = "none";
+  document.getElementById("bottomDock").style.display = "none";
+  document.getElementById("btnMatrixTrigger").style.display = "none";
+  
+  const timeFormatted = `${Math.floor(rec.elapsedSeconds/60)} phút ${rec.elapsedSeconds%60} giây`;
+  const pct = Math.round(((rec.correctMCQ + rec.writingScore) / (rec.totalMCQ + rec.writingMax)) * 100);
+  
+  let gradeColor = "var(--success)";
+  if (rec.grade10 < 5.0) gradeColor = "var(--danger)";
+  else if (rec.grade10 < 8.0) gradeColor = "var(--warning)";
+  
+  const viewport = document.getElementById("mainViewport");
+  viewport.innerHTML = `
+    <div style="max-width:720px;margin:1.5rem auto;">
+      <div class="report-card">
+        <div class="school-meta">BÁO CÁO KẾT QUẢ ÔN TẬP</div>
+        <h2 style="font-size:1.4rem;font-weight:800;margin-bottom:0.25rem;">${escapeHtml(rec.studentName)}</h2>
+        <div style="font-size:0.8rem;color:var(--text-tertiary);margin-bottom:1.5rem;">Thời gian hoàn thành: ${timeFormatted}</div>
+        
+        <div class="score-radial" style="border-color:${gradeColor};">
+          <span class="score-number" style="color:${gradeColor};">${rec.grade10}</span>
+          <span class="score-scale">Thang điểm 10</span>
+        </div>
+        
+        <div class="report-stats-grid">
+          <div class="stat-box">
+            <div class="stat-val" style="color:var(--success);">${rec.correctMCQ}</div>
+            <div class="stat-lbl">Trắc nghiệm đúng</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-val" style="color:var(--danger);">${rec.totalMCQ - rec.correctMCQ}</div>
+            <div class="stat-lbl">Trắc nghiệm sai</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-val" style="color:var(--accent-base);">${rec.writingScore}/${rec.writingMax}</div>
+            <div class="stat-lbl">Điểm tự luận</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-val">${pct}%</div>
+            <div class="stat-lbl">Tỉ lệ chính xác</div>
+          </div>
+        </div>
+        
+        <div style="display:flex;gap:0.75rem;justify-content:center;margin-top:1.5rem;flex-wrap:wrap;">
+          <button class="btn-primary-action" style="width:auto;padding:0.75rem 1.5rem;" onclick="renderWelcomeScreen()">
+            ${ICONS.arrowLeft}
+            <span>Làm Lại Lần Nữa</span>
+          </button>
+          <button class="dock-nav-btn" onclick="showAdminView()">
+            ${ICONS.chart}
+            <span>Xem Bảng Xếp Hạng Lớp</span>
+          </button>
+        </div>
+      </div>
+      
+      <div style="display:flex;align-items:center;justify-content:space-between;margin:2rem 0 1rem;">
+        <h3 style="font-size:1.1rem;font-weight:700;">Chi Tiết Từng Câu Hỏi</h3>
+        <label style="font-size:0.8rem;color:var(--text-secondary);display:flex;align-items:center;gap:0.4rem;cursor:pointer;">
+          <input type="checkbox" id="chkOnlyWrong" onchange="toggleOnlyWrongReview(this.checked)">
+          <span>Chỉ xem câu làm sai</span>
+        </label>
+      </div>
+      
+      <div id="reviewListContainer">
+        ${renderReviewItems(rec.breakdown, false)}
+      </div>
+    </div>
+  `;
+}
+
+function toggleOnlyWrongReview(onlyWrong) {
+  AppState.reviewOnlyWrong = onlyWrong;
+  const rec = JSON.parse(localStorage.getItem(SUBMISSIONS_KEY) || "[]")[0];
+  if (rec) {
+    document.getElementById("reviewListContainer").innerHTML = renderReviewItems(rec.breakdown, onlyWrong);
+  }
+}
+
+function renderReviewItems(breakdown, onlyWrong) {
+  let html = "";
+  breakdown.forEach((item, idx) => {
+    if (onlyWrong && item.isCorrect) return;
+    
+    const statusColor = item.isCorrect ? "var(--success)" : "var(--danger)";
+    const statusBg = item.isCorrect ? "var(--success-soft)" : "var(--danger-soft)";
+    
+    html += `
+      <div style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:var(--radius-md);padding:1rem 1.25rem;margin-bottom:0.75rem;border-left:3px solid ${statusColor};">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.4rem;">
+          <span style="font-size:0.72rem;font-weight:700;font-family:var(--font-mono);color:${statusColor};">${item.label || ('Câu ' + (idx + 1))}</span>
+          <span style="display:inline-flex;align-items:center;gap:0.3rem;font-size:0.72rem;font-weight:700;padding:0.2rem 0.5rem;border-radius:var(--radius-xs);background:${statusBg};color:${statusColor};">
+            ${item.isCorrect ? ICONS.check : ICONS.x}
+            <span>${item.isCorrect ? 'ĐÚNG' : 'SAI'}</span>
+          </span>
+        </div>
+        
+        <div style="font-size:0.88rem;color:var(--text-primary);margin-bottom:0.6rem;">${escapeHtml(item.prompt)}</div>
+        
+        ${item.isWriting ? `
+          <div style="font-size:0.82rem;margin-bottom:0.35rem;">
+            <span style="color:var(--text-tertiary);">Bài bạn viết:</span> <b>${escapeHtml(item.userAns)}</b>
+          </div>
+          <div style="font-size:0.82rem;color:var(--success);">
+            <span style="color:var(--text-tertiary);">Đáp án chuẩn:</span> <b>${escapeHtml(item.correctAnswer)}</b>
+          </div>
+        ` : `
+          <div style="display:flex;gap:1.5rem;font-size:0.82rem;">
+            <div><span style="color:var(--text-tertiary);">Bạn chọn:</span> <b style="color:${statusColor};">${item.userChoice}</b></div>
+            <div><span style="color:var(--text-tertiary);">Đáp án đúng:</span> <b style="color:var(--success);">${item.correctLetter}</b></div>
+          </div>
+        `}
+      </div>
+    `;
+  });
+  
+  if (!html) {
+    html = `<div style="text-align:center;padding:2rem;color:var(--text-tertiary);">Không có câu hỏi nào bị sai. Bạn đạt kết quả xuất sắc!</div>`;
+  }
+  
+  return html;
+}
+
+// ==========================================================================
+// SCREEN 4: ADMIN DASHBOARD
+// ==========================================================================
+function showAdminView() {
+  stopTimer();
+  document.getElementById("topHeaderTitle").textContent = "Admin Dashboard";
+  document.getElementById("timerChip").style.display = "none";
+  document.getElementById("progressStrip").style.display = "none";
+  document.getElementById("sectionTabsBar").style.display = "none";
+  document.getElementById("modeToggleBar").style.display = "none";
+  document.getElementById("bottomDock").style.display = "none";
+  document.getElementById("btnMatrixTrigger").style.display = "none";
+  
+  const records = JSON.parse(localStorage.getItem(SUBMISSIONS_KEY) || "[]");
+  
+  const totalSubmissions = records.length;
+  const avgScore = totalSubmissions ? (records.reduce((s, r) => s + r.grade10, 0) / totalSubmissions).toFixed(1) : "0.0";
+  const maxScore = totalSubmissions ? Math.max(...records.map(r => r.grade10)).toFixed(1) : "0.0";
+  const passCount = records.filter(r => r.grade10 >= 5.0).length;
+  const passRate = totalSubmissions ? Math.round((passCount / totalSubmissions) * 100) : 0;
+  
+  const viewport = document.getElementById("mainViewport");
+  viewport.innerHTML = `
+    <div style="max-width:850px;margin:1.5rem auto;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;flex-wrap:wrap;gap:1rem;">
+        <div>
+          <h2 style="font-size:1.4rem;font-weight:800;">Bảng Theo Dõi Học Sinh</h2>
+          <p style="font-size:0.8rem;color:var(--text-tertiary);">Theo dõi tiến độ, điểm số và bài làm chi tiết theo thời gian thực</p>
+        </div>
+        
+        <div style="display:flex;gap:0.5rem;">
+          <button class="dock-nav-btn" onclick="exportSubmissionsCSV()">
+            ${ICONS.download}
+            <span>Xuất Excel (CSV)</span>
+          </button>
+          <button class="btn-primary-action" style="width:auto;padding:0.5rem 1rem;font-size:0.85rem;" onclick="renderWelcomeScreen()">
+            ${ICONS.arrowLeft}
+            <span>Về Bài Thi</span>
+          </button>
+        </div>
+      </div>
+      
+      <div class="report-stats-grid" style="margin-bottom:1.5rem;">
+        <div class="stat-box">
+          <div class="stat-val">${totalSubmissions}</div>
+          <div class="stat-lbl">Lượt nộp bài</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val" style="color:var(--accent-base);">${avgScore}</div>
+          <div class="stat-lbl">Điểm trung bình</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val" style="color:var(--success);">${maxScore}</div>
+          <div class="stat-lbl">Điểm cao nhất</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val">${passRate}%</div>
+          <div class="stat-lbl">Tỉ lệ đạt (≥ 5.0)</div>
+        </div>
+      </div>
+      
+      <div class="admin-card-wrap">
+        <div class="admin-toolbar">
+          <div class="search-input-wrap">
+            <span class="search-icon">${ICONS.search}</span>
+            <input type="text" id="adminSearchInput" class="custom-input" placeholder="Tìm kiếm theo tên học sinh..." style="padding:0.45rem 0.75rem 0.45rem 2.2rem;font-size:0.82rem;" oninput="filterAdminTable(this.value)">
+          </div>
+          <button class="dock-nav-btn" style="color:var(--danger);font-size:0.75rem;" onclick="clearAllSubmissions()">
+            ${ICONS.trash}
+            <span>Xóa lịch sử</span>
+          </button>
+        </div>
+        
+        <div style="overflow-x:auto;">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Học sinh</th>
+                <th>Hình thức</th>
+                <th>Điểm</th>
+                <th>Thời gian</th>
+                <th>Ngày nộp</th>
+                <th>Chi tiết</th>
+              </tr>
+            </thead>
+            <tbody id="adminTableBody">
+              ${renderAdminTableRows(records)}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderAdminTableRows(records) {
+  if (!records.length) {
+    return `<tr><td colspan="6" style="text-align:center;padding:2.5rem;color:var(--text-tertiary);">Chưa có lượt nộp bài nào. Học sinh làm xong và bấm "Nộp bài" kết quả sẽ hiển thị tại đây!</td></tr>`;
+  }
+  
+  return records.map((r, i) => {
+    let scoreColor = "var(--success)";
+    if (r.grade10 < 5.0) scoreColor = "var(--danger)";
+    else if (r.grade10 < 8.0) scoreColor = "var(--warning)";
+    
+    const d = new Date(r.timestamp);
+    const dateFormatted = `${d.getDate().toString().padStart(2,'0')}/${(d.getMonth()+1).toString().padStart(2,'0')} ${d.getHours().toString().padStart(2,'0')}:${d.getMinutes().toString().padStart(2,'0')}`;
+    const duration = `${Math.floor(r.elapsedSeconds/60)}p ${r.elapsedSeconds%60}s`;
+    
+    return `
+      <tr>
+        <td><span class="student-name" onclick="viewStudentDetail('${r.id}')">${escapeHtml(r.studentName)}</span></td>
+        <td><span style="font-size:0.75rem;padding:0.15rem 0.45rem;border-radius:var(--radius-xs);background:var(--bg-surface-elevated);">${escapeHtml(r.practiceMode)}</span></td>
+        <td><b style="color:${scoreColor};font-family:var(--font-mono);font-size:0.95rem;">${r.grade10}</b> / 10</td>
+        <td style="font-family:var(--font-mono);">${duration}</td>
+        <td style="font-size:0.78rem;">${dateFormatted}</td>
+        <td>
+          <button class="dock-nav-btn" style="padding:0.25rem 0.55rem;font-size:0.72rem;" onclick="viewStudentDetail('${r.id}')">Xem bài</button>
+        </td>
+      </tr>
+    `;
+  }).join('');
+}
+
+function filterAdminTable(query) {
+  const records = JSON.parse(localStorage.getItem(SUBMISSIONS_KEY) || "[]");
+  const filtered = records.filter(r => r.studentName.toLowerCase().includes(query.toLowerCase()));
+  document.getElementById("adminTableBody").innerHTML = renderAdminTableRows(filtered);
+}
+
+function viewStudentDetail(subId) {
+  const records = JSON.parse(localStorage.getItem(SUBMISSIONS_KEY) || "[]");
+  const rec = records.find(r => r.id === subId);
+  if (!rec) return;
+  
+  document.getElementById("studentDetailTitle").textContent = `Bài làm của: ${rec.studentName} (${rec.grade10}/10đ)`;
+  document.getElementById("studentDetailBody").innerHTML = renderReviewItems(rec.breakdown, false);
+  document.getElementById("studentDetailSheet").classList.add("open");
+}
+
+function closeStudentDetailSheet(e) {
+  if (e && e.target !== e.currentTarget && e.target.tagName !== "BUTTON") return;
+  document.getElementById("studentDetailSheet").classList.remove("open");
+}
+
+function exportSubmissionsCSV() {
+  const records = JSON.parse(localStorage.getItem(SUBMISSIONS_KEY) || "[]");
+  if (!records.length) {
+    alert("Chưa có dữ liệu học sinh để xuất file CSV!");
+    return;
+  }
+  
+  let csv = "\uFEFF";
+  csv += "Họ và Tên,Hình Thức,Điểm Số (/10),Số Câu Đúng,Tổng Câu,Thời Gian (Giây),Thời Gian Nộp\n";
+  
+  records.forEach(r => {
+    const row = [
+      `"${r.studentName.replace(/"/g, '""')}"`,
+      `"${r.practiceMode}"`,
+      r.grade10,
+      r.correctMCQ + r.writingScore,
+      r.totalMCQ + r.writingMax,
+      r.elapsedSeconds,
+      `"${new Date(r.timestamp).toLocaleString('vi-VN')}"`
+    ];
+    csv += row.join(",") + "\n";
+  });
+  
+  const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.setAttribute("href", url);
+  link.setAttribute("download", `diem-tieng-anh-11-thpt-vinh-tuan-${Date.now()}.csv`);
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
+function clearAllSubmissions() {
+  if (confirm("Bạn có chắc chắn muốn xóa toàn bộ lịch sử điểm số của học sinh?")) {
+    localStorage.removeItem(SUBMISSIONS_KEY);
+    showAdminView();
+  }
+}
+
+// ==========================================================================
+// UTILITY FUNCTIONS
+// ==========================================================================
+function escapeHtml(str) {
+  if (!str) return "";
+  const d = document.createElement("div");
+  d.textContent = str;
+  return d.innerHTML;
+}
+
+// ==========================================================================
+// APP INITIALIZATION
+// ==========================================================================
+document.addEventListener("DOMContentLoaded", () => {
+  const savedTheme = localStorage.getItem(STORAGE_PREFIX + "theme") || "dark";
+  applyTheme(savedTheme);
+  initFlattenedQuestions();
+  renderWelcomeScreen();
+});
+</script>
+</body>
+</html>
