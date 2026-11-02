@@ -1223,6 +1223,65 @@ a {
     font-size: 0.8rem;
   }
 }
+
+/* REVIEW FILTER PILLS & STATUS BADGES */
+.filter-pills-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.filter-pill-btn {
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.filter-pill-btn:hover {
+  border-color: var(--border-strong);
+  color: var(--text-primary);
+}
+.filter-pill-btn.active {
+  background: var(--accent-base);
+  border-color: var(--accent-base);
+  color: #fff;
+}
+.filter-pill-btn.active.filter-wrong {
+  background: var(--danger);
+  border-color: var(--danger);
+}
+.filter-pill-btn.active.filter-correct {
+  background: var(--success);
+  border-color: var(--success);
+}
+.opt-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-xs);
+  flex-shrink: 0;
+  margin-left: auto;
+}
+.badge-good {
+  background: var(--success);
+  color: #fff;
+}
+.badge-bad {
+  background: var(--danger);
+  color: #fff;
+}
+
 </style>
 </head>
 <body>
@@ -1249,6 +1308,11 @@ a {
         <!-- Injected by JS -->
       </button>
       
+            <!-- History Button -->
+      <button class="icon-btn" onclick="openHistorySheet()" title="Lịch sử làm bài">
+        <svg class="v-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </button>
+
       <!-- Question Matrix Button -->
       <button class="icon-btn" id="btnMatrixTrigger" onclick="openMatrixSheet()" style="display:none;" title="Bảng ma trận câu hỏi">
         <svg class="v-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
@@ -1391,6 +1455,27 @@ a {
   </div>
 </div>
 
+<!-- ==========================================================================
+     SHEET MODAL: HISTORY DRAWER
+     ========================================================================== -->
+<div class="sheet-backdrop" id="historySheet" onclick="closeHistorySheet(event)">
+  <div class="sheet-panel" onclick="event.stopPropagation()">
+    <div class="sheet-handle"></div>
+    <div class="sheet-header">
+      <div style="display:flex;align-items:center;gap:0.4rem;">
+        <svg class="v-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <h3 class="sheet-title">Lịch Sử Làm Bài Của Bạn</h3>
+      </div>
+      <button class="icon-btn" onclick="closeHistorySheet()">
+        <svg class="v-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+    </div>
+    <div class="sheet-body" id="historySheetBody">
+      <!-- Injected by JS -->
+    </div>
+  </div>
+</div>
+
 <!-- LOAD QUESTION DATA -->
 <script src="quiz_data.js"></script>
 
@@ -1399,6 +1484,8 @@ a {
    VECTOR SVG ICON DICTIONARY
    ========================================================================== */
 const ICONS = {
+  history: `<svg class="v-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`,
+
   moon: `<svg class="v-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>`,
   sun: `<svg class="v-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>`,
   sepia: `<svg class="v-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10"/><path d="M6 10h10"/></svg>`,
@@ -1697,7 +1784,11 @@ function renderWelcomeScreen() {
         
         <button class="btn-primary-action" onclick="startExam()">
           <span>Bắt Đầu Làm Bài</span>
-          ${ICONS.arrowRight}
+          
+        </button>
+        <button class="dock-nav-btn" style="width:100%;margin-top:0.65rem;justify-content:center;" onclick="openHistorySheet()">
+          
+          <span>Xem Lịch Sử Làm Bài Của Bạn</span>
         </button>
       </div>
     </div>
@@ -2292,6 +2383,9 @@ function closePassageSheet(e) {
 // ==========================================================================
 // EXAM SUBMISSION & GRADING
 // ==========================================================================
+// ==========================================================================
+// EXAM SUBMISSION & GRADING
+// ==========================================================================
 function confirmSubmitExam() {
   AudioFX.init();
   AudioFX.tap();
@@ -2301,13 +2395,20 @@ function confirmSubmitExam() {
   
   let msg = "Bạn có chắc chắn muốn nộp bài thi không?";
   if (unanswered.length > 0 || flagged.length > 0) {
-    msg = `Chú ý:\n• Bạn còn ${unanswered.length} câu chưa trả lời.\n• Bạn có ${flagged.length} câu đang đánh dấu xem lại.\n\nBạn có muốn nộp bài ngay bây giờ không?`;
+    msg = `Chú ý:
+• Bạn còn ${unanswered.length} câu chưa trả lời.
+• Bạn có ${flagged.length} câu đang đánh dấu xem lại.
+
+Bạn có muốn nộp bài ngay bây giờ không?`;
   }
   
   if (confirm(msg)) {
     finalizeExam();
   }
 }
+
+let currentReviewRecord = null;
+let currentReviewFilter = "all";
 
 function finalizeExam() {
   stopTimer();
@@ -2331,11 +2432,12 @@ function finalizeExam() {
         id: q.id,
         label: q.label,
         prompt: q.prompt,
-        userAns: AppState.userAnswers[q.id] || "(Chưa làm)",
+        cue: q.cue,
+        userAns: AppState.userAnswers[q.id] || "",
         correctAnswer: q.model_answer,
         isCorrect: (score >= 0.5),
         isWriting: true,
-        score
+        score: score
       });
     } else {
       totalMCQ++;
@@ -2348,8 +2450,15 @@ function finalizeExam() {
         id: q.id,
         label: q.label,
         prompt: q.prompt,
+        userChoiceIdx: userChoice,
         userChoice: userChoice !== undefined ? letters[userChoice] : "Chưa chọn",
         correctLetter: letters[q.answer],
+        correctAnswerIdx: q.answer,
+        options: q.options || [],
+        sentences: q.sentences || null,
+        taskName: q.taskName,
+        taskTitle: q.taskTitle,
+        passage: q.passage || null,
         isCorrect: isCor,
         isWriting: false
       });
@@ -2364,16 +2473,18 @@ function finalizeExam() {
     id: "sub_" + Date.now(),
     studentName: AppState.studentName,
     practiceMode: AppState.practiceMode,
-    grade10,
-    correctMCQ,
-    totalMCQ,
-    writingScore,
-    writingMax,
+    grade10: grade10,
+    correctMCQ: correctMCQ,
+    totalMCQ: totalMCQ,
+    writingScore: writingScore,
+    writingMax: writingMax,
     elapsedSeconds: AppState.elapsedSeconds,
     timestamp: new Date().toISOString(),
-    breakdown
+    breakdown: breakdown
   };
   
+  currentReviewRecord = record;
+  currentReviewFilter = "all";
   saveStudentSubmission(record);
   renderResultsScreen(record);
 }
@@ -2389,10 +2500,11 @@ function saveStudentSubmission(record) {
 }
 
 // ==========================================================================
-// SCREEN 3: RESULTS & IN-DEPTH REVIEW
+// SCREEN 3: RESULTS & FULL IN-DEPTH REVIEW
 // ==========================================================================
 function renderResultsScreen(rec) {
-  document.getElementById("topHeaderTitle").textContent = "Kết quả bài làm";
+  currentReviewRecord = rec;
+  document.getElementById("topHeaderTitle").textContent = "Kết quả: " + rec.studentName;
   document.getElementById("timerChip").style.display = "none";
   document.getElementById("progressStrip").style.display = "none";
   document.getElementById("sectionTabsBar").style.display = "none";
@@ -2400,8 +2512,11 @@ function renderResultsScreen(rec) {
   document.getElementById("bottomDock").style.display = "none";
   document.getElementById("btnMatrixTrigger").style.display = "none";
   
-  const timeFormatted = `${Math.floor(rec.elapsedSeconds/60)} phút ${rec.elapsedSeconds%60} giây`;
+  const timeFormatted = Math.floor(rec.elapsedSeconds/60) + " phút " + (rec.elapsedSeconds%60) + " giây";
   const pct = Math.round(((rec.correctMCQ + rec.writingScore) / (rec.totalMCQ + rec.writingMax)) * 100);
+  const wrongCount = (rec.totalMCQ - rec.correctMCQ) + (rec.writingMax - (rec.writingScore >= 0.5 ? 1 : 0));
+  const correctCount = rec.correctMCQ + (rec.writingScore >= 0.5 ? 1 : 0);
+  const totalCount = rec.breakdown.length;
   
   let gradeColor = "var(--success)";
   if (rec.grade10 < 5.0) gradeColor = "var(--danger)";
@@ -2409,118 +2524,385 @@ function renderResultsScreen(rec) {
   
   const viewport = document.getElementById("mainViewport");
   viewport.innerHTML = `
-    <div style="max-width:720px;margin:1.5rem auto;">
+    <div style="max-width:760px;margin:1.5rem auto;">
       <div class="report-card">
         <div class="school-meta">BÁO CÁO KẾT QUẢ ÔN TẬP</div>
-        <h2 style="font-size:1.4rem;font-weight:800;margin-bottom:0.25rem;">${escapeHtml(rec.studentName)}</h2>
-        <div style="font-size:0.8rem;color:var(--text-tertiary);margin-bottom:1.5rem;">Thời gian hoàn thành: ${timeFormatted}</div>
+        <h2 style="font-size:1.4rem;font-weight:800;margin-bottom:0.25rem;">` + escapeHtml(rec.studentName) + `</h2>
+        <div style="font-size:0.8rem;color:var(--text-tertiary);margin-bottom:1.5rem;">Thời gian hoàn thành: ` + timeFormatted + ` · Hình thức: ` + escapeHtml(rec.practiceMode) + `</div>
         
-        <div class="score-radial" style="border-color:${gradeColor};">
-          <span class="score-number" style="color:${gradeColor};">${rec.grade10}</span>
+        <div class="score-radial" style="border-color:` + gradeColor + `;">
+          <span class="score-number" style="color:` + gradeColor + `;">` + rec.grade10 + `</span>
           <span class="score-scale">Thang điểm 10</span>
         </div>
         
         <div class="report-stats-grid">
           <div class="stat-box">
-            <div class="stat-val" style="color:var(--success);">${rec.correctMCQ}</div>
+            <div class="stat-val" style="color:var(--success);">` + rec.correctMCQ + `</div>
             <div class="stat-lbl">Trắc nghiệm đúng</div>
           </div>
           <div class="stat-box">
-            <div class="stat-val" style="color:var(--danger);">${rec.totalMCQ - rec.correctMCQ}</div>
+            <div class="stat-val" style="color:var(--danger);">` + (rec.totalMCQ - rec.correctMCQ) + `</div>
             <div class="stat-lbl">Trắc nghiệm sai</div>
           </div>
           <div class="stat-box">
-            <div class="stat-val" style="color:var(--accent-base);">${rec.writingScore}/${rec.writingMax}</div>
+            <div class="stat-val" style="color:var(--accent-base);">` + rec.writingScore + `/` + rec.writingMax + `</div>
             <div class="stat-lbl">Điểm tự luận</div>
           </div>
           <div class="stat-box">
-            <div class="stat-val">${pct}%</div>
+            <div class="stat-val">` + pct + `%</div>
             <div class="stat-lbl">Tỉ lệ chính xác</div>
           </div>
         </div>
         
-        <div style="display:flex;gap:0.75rem;justify-content:center;margin-top:1.5rem;flex-wrap:wrap;">
-          <button class="btn-primary-action" style="width:auto;padding:0.75rem 1.5rem;" onclick="renderWelcomeScreen()">
-            ${ICONS.arrowLeft}
+        <div style="display:flex;gap:0.65rem;justify-content:center;margin-top:1.5rem;flex-wrap:wrap;">
+          <button class="btn-primary-action" style="width:auto;padding:0.75rem 1.4rem;" onclick="renderWelcomeScreen()">
+            ` + ICONS.arrowLeft + `
             <span>Làm Lại Lần Nữa</span>
           </button>
+          <button class="dock-nav-btn" onclick="openHistorySheet()">
+            ` + ICONS.history + `
+            <span>Lịch Sử Làm Bài</span>
+          </button>
           <button class="dock-nav-btn" onclick="showAdminView()">
-            ${ICONS.chart}
-            <span>Xem Bảng Xếp Hạng Lớp</span>
+            ` + ICONS.chart + `
+            <span>Bảng Xếp Hạng</span>
           </button>
         </div>
       </div>
       
-      <div style="display:flex;align-items:center;justify-content:space-between;margin:2rem 0 1rem;">
-        <h3 style="font-size:1.1rem;font-weight:700;">Chi Tiết Từng Câu Hỏi</h3>
-        <label style="font-size:0.8rem;color:var(--text-secondary);display:flex;align-items:center;gap:0.4rem;cursor:pointer;">
-          <input type="checkbox" id="chkOnlyWrong" onchange="toggleOnlyWrongReview(this.checked)">
-          <span>Chỉ xem câu làm sai</span>
-        </label>
+      <!-- REVIEW CONTROLS -->
+      <div style="display:flex;align-items:center;justify-content:space-between;margin:2.5rem 0 1rem;flex-wrap:wrap;gap:0.75rem;">
+        <div>
+          <h3 style="font-size:1.15rem;font-weight:800;color:var(--text-primary);">Xem Lại Chi Tiết Từng Câu</h3>
+          <p style="font-size:0.76rem;color:var(--text-tertiary);">Kiểm tra từng phương án bạn đã chọn và đối chiếu đáp án chuẩn</p>
+        </div>
+        
+        <div class="filter-pills-bar" style="margin-bottom:0;">
+          <button class="filter-pill-btn ` + (currentReviewFilter==='all'?'active':'') + `" onclick="setReviewFilter('all')">
+            <span>Tất cả (` + totalCount + `)</span>
+          </button>
+          <button class="filter-pill-btn ` + (currentReviewFilter==='wrong'?'active filter-wrong':'') + `" onclick="setReviewFilter('wrong')" style="color:var(--danger);">
+            ` + ICONS.x + `
+            <span>Chỉ câu sai (` + wrongCount + `)</span>
+          </button>
+          <button class="filter-pill-btn ` + (currentReviewFilter==='correct'?'active filter-correct':'') + `" onclick="setReviewFilter('correct')" style="color:var(--success);">
+            ` + ICONS.check + `
+            <span>Chỉ câu đúng (` + correctCount + `)</span>
+          </button>
+        </div>
       </div>
       
       <div id="reviewListContainer">
-        ${renderReviewItems(rec.breakdown, false)}
+        ` + renderReviewItems(rec.breakdown, currentReviewFilter) + `
       </div>
     </div>
   `;
 }
 
-function toggleOnlyWrongReview(onlyWrong) {
-  AppState.reviewOnlyWrong = onlyWrong;
-  const rec = JSON.parse(localStorage.getItem(SUBMISSIONS_KEY) || "[]")[0];
-  if (rec) {
-    document.getElementById("reviewListContainer").innerHTML = renderReviewItems(rec.breakdown, onlyWrong);
-  }
+function setReviewFilter(filterMode) {
+  AudioFX.init();
+  AudioFX.tap();
+  currentReviewFilter = filterMode;
+  if (!currentReviewRecord) return;
+  renderResultsScreen(currentReviewRecord);
 }
 
-function renderReviewItems(breakdown, onlyWrong) {
+function renderReviewItems(breakdown, filterMode) {
+  const letters = ['A', 'B', 'C', 'D'];
   let html = "";
+  
   breakdown.forEach((item, idx) => {
-    if (onlyWrong && item.isCorrect) return;
+    if (filterMode === 'wrong' && item.isCorrect) return;
+    if (filterMode === 'correct' && !item.isCorrect) return;
     
-    const statusColor = item.isCorrect ? "var(--success)" : "var(--danger)";
-    const statusBg = item.isCorrect ? "var(--success-soft)" : "var(--danger-soft)";
+    const isUnanswered = (!item.isWriting && (item.userChoiceIdx === undefined || item.userChoiceIdx === null)) || (item.isWriting && !item.userAns);
+    
+    let statusColor = "var(--success)";
+    let statusBg = "var(--success-soft)";
+    let statusText = "ĐÚNG";
+    let statusIcon = ICONS.check;
+    
+    if (isUnanswered) {
+      statusColor = "var(--text-tertiary)";
+      statusBg = "var(--bg-surface-elevated)";
+      statusText = "CHƯA TRẢ LỜI";
+      statusIcon = ICONS.info;
+    } else if (!item.isCorrect) {
+      statusColor = "var(--danger)";
+      statusBg = "var(--danger-soft)";
+      statusText = "SAI";
+      statusIcon = ICONS.x;
+    }
+    
+    let bodyContent = "";
+    
+    if (item.isWriting) {
+      bodyContent = `
+        <div style="background:var(--bg-surface);padding:0.85rem 1rem;border-radius:var(--radius-sm);margin-bottom:0.6rem;border:1px solid var(--border-subtle);">
+          <div style="font-size:0.75rem;color:var(--accent-base);margin-bottom:0.4rem;font-family:var(--font-mono);">
+            Gợi ý mở đầu: <b>` + escapeHtml(item.cue || '') + `</b>
+          </div>
+          <div style="font-size:0.9rem;color:var(--text-primary);margin-bottom:0.5rem;line-height:1.5;">
+            <span style="color:var(--text-tertiary);">Câu bạn đã viết:</span> 
+            <b style="color:` + (item.userAns ? 'var(--text-primary)' : 'var(--danger)') + `;">` + escapeHtml(item.userAns || '(Bạn chưa nhập câu trả lời)') + `</b>
+          </div>
+          <div style="font-size:0.9rem;color:var(--success);margin-bottom:0.5rem;line-height:1.5;padding:0.5rem 0.75rem;background:var(--success-soft);border-radius:var(--radius-xs);">
+            <span style="color:var(--text-tertiary);">Đáp án chuẩn của đề cương:</span><br>
+            <b>→ ` + escapeHtml(item.correctAnswer) + `</b>
+          </div>
+          <div style="font-size:0.75rem;color:var(--text-tertiary);">
+            Điểm tự chấm: <b style="color:var(--accent-base);font-family:var(--font-mono);font-size:0.85rem;">` + item.score + ` / 1.0 điểm</b>
+          </div>
+        </div>
+      `;
+    } else if (item.sentences && Object.keys(item.sentences).length > 0) {
+      // SENTENCE ORDER REVIEW
+      let frags = `<div class="so-fragments-card" style="margin-bottom:0.75rem;">`;
+      for (const [k, v] of Object.entries(item.sentences)) {
+        frags += `<div class="so-fragment-row"><span class="so-tag">` + k.toUpperCase() + `</span><span>` + escapeHtml(v) + `</span></div>`;
+      }
+      frags += `</div>`;
+      
+      let opts = `<div class="options-grid" style="margin-bottom:0.75rem;">`;
+      (item.options || []).forEach((opt, oIdx) => {
+        const isUserPick = (item.userChoiceIdx === oIdx);
+        const isKey = (item.correctAnswerIdx === oIdx);
+        
+        let rowClass = "";
+        let badgeHtml = "";
+        if (isUserPick && isKey) {
+          rowClass = "revealed-correct";
+          badgeHtml = `<span class="opt-badge badge-good">✓ Lựa chọn của bạn (Chính xác)</span>`;
+        } else if (isUserPick && !isKey) {
+          rowClass = "revealed-wrong";
+          badgeHtml = `<span class="opt-badge badge-bad">✗ Lựa chọn của bạn (Chưa đúng)</span>`;
+        } else if (isKey) {
+          rowClass = "revealed-correct";
+          badgeHtml = `<span class="opt-badge badge-good">✓ Đáp án chuẩn</span>`;
+        }
+        
+        opts += `
+          <div class="option-row ` + rowClass + `" style="cursor:default;">
+            <span class="opt-circle">` + letters[oIdx] + `</span>
+            <span class="option-text">` + escapeHtml(opt) + `</span>
+            ` + badgeHtml + `
+          </div>
+        `;
+      });
+      opts += `</div>`;
+      
+      let correctAssembled = "";
+      if (item.options[item.correctAnswerIdx]) {
+        const order = item.options[item.correctAnswerIdx].toLowerCase().match(/[a-f]/g) || [];
+        correctAssembled = order.map(c => item.sentences[c] || "").filter(Boolean).join(" ");
+      }
+      
+      const assembledBox = correctAssembled ? `
+        <div class="so-live-preview-box" style="border-color:var(--success);background:var(--success-soft);">
+          <div class="so-preview-header" style="color:var(--success);">
+            ` + ICONS.check + `
+            <span>Đoạn văn ghép hoàn chỉnh theo đáp án chuẩn (` + letters[item.correctAnswerIdx] + `):</span>
+          </div>
+          <div class="so-preview-body" style="color:var(--text-primary);font-style:normal;">"` + escapeHtml(correctAssembled) + `"</div>
+        </div>
+      ` : "";
+      
+      bodyContent = frags + opts + assembledBox;
+    } else {
+      // STANDARD MCQ REVIEW
+      let opts = `<div class="options-grid">`;
+      (item.options || []).forEach((opt, oIdx) => {
+        const isUserPick = (item.userChoiceIdx === oIdx);
+        const isKey = (item.correctAnswerIdx === oIdx);
+        
+        let rowClass = "";
+        let badgeHtml = "";
+        if (isUserPick && isKey) {
+          rowClass = "revealed-correct";
+          badgeHtml = `<span class="opt-badge badge-good">✓ Lựa chọn của bạn (Chính xác)</span>`;
+        } else if (isUserPick && !isKey) {
+          rowClass = "revealed-wrong";
+          badgeHtml = `<span class="opt-badge badge-bad">✗ Lựa chọn của bạn (Chưa đúng)</span>`;
+        } else if (isKey) {
+          rowClass = "revealed-correct";
+          badgeHtml = `<span class="opt-badge badge-good">✓ Đáp án chuẩn</span>`;
+        }
+        
+        opts += `
+          <div class="option-row ` + rowClass + `" style="cursor:default;">
+            <span class="opt-circle">` + letters[oIdx] + `</span>
+            <span class="option-text">` + escapeHtml(opt) + `</span>
+            ` + badgeHtml + `
+          </div>
+        `;
+      });
+      opts += `</div>`;
+      bodyContent = opts;
+    }
+    
+    let passageBtn = "";
+    if (item.passage) {
+      passageBtn = `
+        <button class="dock-nav-btn" style="padding:0.25rem 0.65rem;font-size:0.74rem;gap:0.35rem;" onclick="viewPassageModalById('` + item.id + `')">
+          ` + ICONS.book + `
+          <span>Xem bài đọc</span>
+        </button>
+      `;
+    }
     
     html += `
-      <div style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:var(--radius-md);padding:1rem 1.25rem;margin-bottom:0.75rem;border-left:3px solid ${statusColor};">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.4rem;">
-          <span style="font-size:0.72rem;font-weight:700;font-family:var(--font-mono);color:${statusColor};">${item.label || ('Câu ' + (idx + 1))}</span>
-          <span style="display:inline-flex;align-items:center;gap:0.3rem;font-size:0.72rem;font-weight:700;padding:0.2rem 0.5rem;border-radius:var(--radius-xs);background:${statusBg};color:${statusColor};">
-            ${item.isCorrect ? ICONS.check : ICONS.x}
-            <span>${item.isCorrect ? 'ĐÚNG' : 'SAI'}</span>
-          </span>
+      <div class="question-envelope" style="border-left:4px solid ` + statusColor + `;margin-bottom:1.5rem;">
+        <div class="q-header-row">
+          <div class="q-badge-wrap">
+            <span class="q-idx-tag">` + escapeHtml(item.label || ('Câu ' + (idx + 1))) + `</span>
+            <span class="q-task-tag">` + escapeHtml(item.taskName || '') + `</span>
+          </div>
+          
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            ` + passageBtn + `
+            <span style="display:inline-flex;align-items:center;gap:0.3rem;font-size:0.72rem;font-weight:700;padding:0.2rem 0.55rem;border-radius:var(--radius-xs);background:` + statusBg + `;color:` + statusColor + `;">
+              ` + statusIcon + `
+              <span>` + statusText + `</span>
+            </span>
+          </div>
         </div>
         
-        <div style="font-size:0.88rem;color:var(--text-primary);margin-bottom:0.6rem;">${escapeHtml(item.prompt)}</div>
+        <div class="q-prompt-text" style="margin-bottom:0.85rem;">` + escapeHtml(item.prompt) + `</div>
         
-        ${item.isWriting ? `
-          <div style="font-size:0.82rem;margin-bottom:0.35rem;">
-            <span style="color:var(--text-tertiary);">Bài bạn viết:</span> <b>${escapeHtml(item.userAns)}</b>
-          </div>
-          <div style="font-size:0.82rem;color:var(--success);">
-            <span style="color:var(--text-tertiary);">Đáp án chuẩn:</span> <b>${escapeHtml(item.correctAnswer)}</b>
-          </div>
-        ` : `
-          <div style="display:flex;gap:1.5rem;font-size:0.82rem;">
-            <div><span style="color:var(--text-tertiary);">Bạn chọn:</span> <b style="color:${statusColor};">${item.userChoice}</b></div>
-            <div><span style="color:var(--text-tertiary);">Đáp án đúng:</span> <b style="color:var(--success);">${item.correctLetter}</b></div>
-          </div>
-        `}
+        ` + bodyContent + `
       </div>
     `;
   });
   
   if (!html) {
-    html = `<div style="text-align:center;padding:2rem;color:var(--text-tertiary);">Không có câu hỏi nào bị sai. Bạn đạt kết quả xuất sắc!</div>`;
+    html = `<div style="text-align:center;padding:3rem 1rem;color:var(--text-tertiary);background:var(--bg-card);border-radius:var(--radius-lg);border:1px solid var(--border-subtle);">
+      Không có câu hỏi nào thỏa mãn bộ lọc hiện tại.
+    </div>`;
   }
   
   return html;
 }
 
+function viewPassageModalById(qid) {
+  AudioFX.init();
+  AudioFX.tap();
+  const q = FlatQuestions.find(x => x.id === qid);
+  if (!q || !q.passage) return;
+  document.getElementById("passageSheetTitle").textContent = q.taskTitle || q.taskName;
+  document.getElementById("passageSheetBody").innerHTML = q.passage;
+  document.getElementById("passageSheet").classList.add("open");
+}
+
 // ==========================================================================
-// SCREEN 4: ADMIN DASHBOARD
+// HISTORY DRAWER CONTROLLERS
 // ==========================================================================
+function openHistorySheet() {
+  AudioFX.init();
+  AudioFX.tap();
+  renderHistoryList();
+  document.getElementById("historySheet").classList.add("open");
+}
+
+function closeHistorySheet(e) {
+  if (e && e.target !== e.currentTarget && e.target.tagName !== "BUTTON" && !e.target.closest('button')) return;
+  document.getElementById("historySheet").classList.remove("open");
+}
+
+function renderHistoryList() {
+  const records = JSON.parse(localStorage.getItem(SUBMISSIONS_KEY) || "[]");
+  const container = document.getElementById("historySheetBody");
+  
+  if (!records.length) {
+    container.innerHTML = `
+      <div style="text-align:center;padding:3rem 1rem;color:var(--text-tertiary);">
+        ` + ICONS.history + `
+        <div style="margin-top:0.75rem;font-weight:600;color:var(--text-secondary);">Chưa có lịch sử làm bài nào</div>
+        <div style="font-size:0.78rem;margin-top:0.25rem;line-height:1.45;">Hoàn thành bài thi và bấm "Nộp bài", toàn bộ kết quả cùng chi tiết đúng/sai sẽ được lưu trữ vĩnh viễn tại đây để bạn ôn tập!</div>
+      </div>
+    `;
+    return;
+  }
+  
+  let html = `<div style="display:flex;flex-direction:column;gap:0.75rem;">`;
+  records.forEach((r, idx) => {
+    let scoreColor = "var(--success)";
+    if (r.grade10 < 5.0) scoreColor = "var(--danger)";
+    else if (r.grade10 < 8.0) scoreColor = "var(--warning)";
+    
+    const d = new Date(r.timestamp);
+    const dateFormatted = d.getDate().toString().padStart(2,'0') + "/" + (d.getMonth()+1).toString().padStart(2,'0') + "/" + d.getFullYear() + " lúc " + d.getHours().toString().padStart(2,'0') + ":" + d.getMinutes().toString().padStart(2,'0');
+    const duration = Math.floor(r.elapsedSeconds/60) + " phút " + (r.elapsedSeconds%60) + " giây";
+    const achieved = (r.correctMCQ + r.writingScore);
+    const total = (r.totalMCQ + r.writingMax);
+    const pct = total > 0 ? Math.round((achieved / total) * 100) : 0;
+    
+    html += `
+      <div style="background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--radius-md);padding:1rem 1.25rem;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.4rem;">
+          <span style="font-weight:700;font-size:0.95rem;color:var(--text-primary);">` + escapeHtml(r.studentName) + `</span>
+          <span style="font-family:var(--font-mono);font-size:1.25rem;font-weight:800;color:` + scoreColor + `;">` + r.grade10 + ` <span style="font-size:0.72rem;color:var(--text-tertiary);font-weight:600;">/ 10</span></span>
+        </div>
+        
+        <div style="font-size:0.78rem;color:var(--text-tertiary);line-height:1.5;margin-bottom:0.75rem;">
+          <div>• Nộp bài: <b>` + dateFormatted + `</b></div>
+          <div>• Đúng: <b style="color:var(--success);">` + achieved + `/` + total + ` câu</b> (` + pct + `%) · Thời gian làm: <b>` + duration + `</b></div>
+          <div>• Hình thức: <b>` + escapeHtml(r.practiceMode) + `</b></div>
+        </div>
+        
+        <div style="display:flex;gap:0.5rem;align-items:center;">
+          <button class="btn-primary-action" style="padding:0.45rem 0.95rem;font-size:0.78rem;width:auto;" onclick="revisitHistoryRecord('` + r.id + `')">
+            ` + ICONS.eye + `
+            <span>Xem lại chi tiết bài này</span>
+          </button>
+          <button class="dock-nav-btn" style="padding:0.45rem 0.75rem;font-size:0.78rem;color:var(--danger);" onclick="deleteHistoryRecord('` + r.id + `')" title="Xóa lần thi này">
+            ` + ICONS.trash + `
+          </button>
+        </div>
+      </div>
+    `;
+  });
+  
+  html += `
+    <div style="text-align:center;margin-top:1.25rem;">
+      <button class="dock-nav-btn" style="color:var(--danger);font-size:0.75rem;margin:0 auto;" onclick="clearAllHistory()">
+        ` + ICONS.trash + `
+        <span>Xóa toàn bộ lịch sử thi</span>
+      </button>
+    </div>
+  </div>`;
+  
+  container.innerHTML = html;
+}
+
+function revisitHistoryRecord(subId) {
+  closeHistorySheet();
+  const records = JSON.parse(localStorage.getItem(SUBMISSIONS_KEY) || "[]");
+  const rec = records.find(r => r.id === subId);
+  if (rec) {
+    currentReviewRecord = rec;
+    currentReviewFilter = "all";
+    renderResultsScreen(rec);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+}
+
+function deleteHistoryRecord(subId) {
+  if (confirm("Bạn có chắc chắn muốn xóa lượt làm bài này khỏi lịch sử?")) {
+    let records = JSON.parse(localStorage.getItem(SUBMISSIONS_KEY) || "[]");
+    records = records.filter(r => r.id !== subId);
+    localStorage.setItem(SUBMISSIONS_KEY, JSON.stringify(records));
+    renderHistoryList();
+  }
+}
+
+function clearAllHistory() {
+  if (confirm("Bạn có chắc muốn xóa toàn bộ lịch sử các lần thi?")) {
+    localStorage.removeItem(SUBMISSIONS_KEY);
+    renderHistoryList();
+  }
+}
+
+
 function showAdminView() {
   stopTimer();
   document.getElementById("topHeaderTitle").textContent = "Admin Dashboard";
