@@ -946,14 +946,14 @@
               "a": "Besides/ In addition, many people set salary as a measure of their working capacity as well as their level in the company.",
               "b": "The higher income they receive, the more valuable they are in their prospective employment.",
               "c": "There are a variety of reasons / various reasons for considering salary as the most crucial factor.",
-              "d": "Therefore, not only the amount of money itself but also made-up reputation makes the salary the most concerned matter in job selection."
+              "d": "Therefore, not only the amount of money itself but also made-up reputation makes the salary the most concerned matter in job selection.",
+              "e": "A high income guarantees a high standard quality of life, in which the people can afford their increasing demand on not only human basic needs but also luxurious things such as brand new accessories or overseas holidays."
             },
             "options": [
-              "high income guarantees a high standard quality of life, in which the people can afford their increasing demand on not only human basic needs but also luxurious things such as brand new accessories or overseas holidays.",
-              "e-d-c-a-b",
-              "c-e-a-b-d",
-              "b-e-c-a-d",
-              "a-c-d-b-e"
+              "e - d - c - a - b",
+              "c - e - a - b - d",
+              "b - e - c - a - d",
+              "a - c - d - b - e"
             ],
             "answer": 1,
             "answer_letter": "B"

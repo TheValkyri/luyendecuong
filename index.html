@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <title>Ôn Tập Tiếng Anh 11 — THPT Vĩnh Thuận (Giữa HK1)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1477,7 +1480,7 @@ a {
 </div>
 
 <!-- LOAD QUESTION DATA -->
-<script src="quiz_data.js"></script>
+<script src="quiz_data.js?v=20261102_2215"></script>
 
 <script>
 /* ==========================================================================
@@ -1554,6 +1557,55 @@ function initFlattenedQuestions() {
       });
     });
   });
+  
+  // Migrate and hydrate any existing historical submissions in localStorage
+  migrateSubmissionsData();
+}
+
+function migrateSubmissionsData() {
+  try {
+    const raw = localStorage.getItem(SUBMISSIONS_KEY);
+    if (!raw) return;
+    const list = JSON.parse(raw);
+    const letters = ['A', 'B', 'C', 'D'];
+    let modified = false;
+    
+    list.forEach(rec => {
+      if (Array.isArray(rec.breakdown)) {
+        rec.breakdown = rec.breakdown.map(item => {
+          const orig = FlatQuestions.find(q => q.id === item.id);
+          if (orig) {
+            modified = true;
+            let uIdx = item.userChoiceIdx;
+            if (uIdx === undefined && typeof item.userChoice === "string") {
+              const found = letters.indexOf(item.userChoice.trim().toUpperCase());
+              if (found !== -1) uIdx = found;
+            }
+            return {
+              ...orig,
+              ...item,
+              options: orig.options || item.options,
+              sentences: orig.sentences || item.sentences,
+              passage: orig.passage || item.passage,
+              taskName: orig.taskName || item.taskName,
+              taskTitle: orig.taskTitle || item.taskTitle,
+              sectionTitle: orig.sectionTitle || item.sectionTitle,
+              correctAnswerIdx: orig.answer !== undefined ? orig.answer : item.correctAnswerIdx,
+              correctLetter: orig.answer !== undefined ? letters[orig.answer] : item.correctLetter,
+              userChoiceIdx: uIdx
+            };
+          }
+          return item;
+        });
+      }
+    });
+    
+    if (modified) {
+      localStorage.setItem(SUBMISSIONS_KEY, JSON.stringify(list));
+    }
+  } catch(e) {
+    console.error("Migration error:", e);
+  }
 }
 
 // ==========================================================================
@@ -2826,7 +2878,34 @@ function renderReviewItems(breakdown, filterMode) {
   const letters = ['A', 'B', 'C', 'D'];
   let html = "";
   
-  breakdown.forEach((item, idx) => {
+  breakdown.forEach((rawItem, idx) => {
+    // 1. HYDRATE & BACKFILL from FlatQuestions for backwards compatibility with any existing user data
+    const orig = FlatQuestions.find(q => q.id === rawItem.id);
+    const item = {
+      ...(orig || {}),
+      ...rawItem,
+      options: (rawItem.options && rawItem.options.length) ? rawItem.options : (orig ? orig.options : []),
+      sentences: (rawItem.sentences && Object.keys(rawItem.sentences).length) ? rawItem.sentences : (orig ? orig.sentences : null),
+      passage: rawItem.passage || (orig ? orig.passage : null),
+      taskName: rawItem.taskName || (orig ? orig.taskName : ''),
+      taskTitle: rawItem.taskTitle || (orig ? orig.taskTitle : ''),
+      sectionTitle: rawItem.sectionTitle || (orig ? orig.sectionTitle : ''),
+      cue: rawItem.cue || (orig ? orig.cue : ''),
+      model_answer: rawItem.model_answer || (orig ? orig.model_answer : ''),
+      acceptable: rawItem.acceptable || (orig ? orig.acceptable : []),
+      correctAnswerIdx: rawItem.correctAnswerIdx !== undefined ? rawItem.correctAnswerIdx : (orig ? orig.answer : undefined),
+      correctLetter: rawItem.correctLetter || (orig && orig.answer !== undefined ? letters[orig.answer] : '')
+    };
+    
+    // Auto-resolve userChoiceIdx for old submissions
+    if (item.userChoiceIdx === undefined && typeof item.userChoice === "string") {
+      const uIdx = letters.indexOf(item.userChoice.trim().toUpperCase());
+      if (uIdx !== -1) item.userChoiceIdx = uIdx;
+    }
+    if (item.userChoice === undefined && item.userChoiceIdx !== undefined && item.userChoiceIdx !== null) {
+      item.userChoice = letters[item.userChoiceIdx];
+    }
+    
     if (filterMode === 'wrong' && item.isCorrect) return;
     if (filterMode === 'correct' && !item.isCorrect) return;
     
@@ -2869,6 +2948,7 @@ function renderReviewItems(breakdown, filterMode) {
     let bodyContent = "";
     
     if (item.isWriting) {
+      // WRITING REVIEW
       let acceptableListHtml = "";
       if (item.acceptable && item.acceptable.length > 1) {
         const otherVariants = item.acceptable.filter(x => x !== item.correctAnswer).slice(0, 3);
@@ -2903,14 +2983,25 @@ function renderReviewItems(breakdown, filterMode) {
         </div>
       `;
     } else if (item.sentences && Object.keys(item.sentences).length > 0) {
-      // SENTENCE ORDER REVIEW
-      let frags = `<div class="so-fragments-card" style="margin-bottom:0.75rem;">`;
+      // SENTENCE ORDER REVIEW (Sắp xếp câu)
+      let frags = `
+        <div style="font-size:0.78rem;font-weight:700;color:var(--accent-base);margin-bottom:0.4rem;display:flex;align-items:center;gap:0.35rem;">
+          ${ICONS.book}
+          <span>CÁC CÂU THÀNH PHẦN CẦN SẮP XẾP:</span>
+        </div>
+        <div class="so-fragments-card" style="margin-bottom:0.85rem;">
+      `;
       for (const [k, v] of Object.entries(item.sentences)) {
-        frags += `<div class="so-fragment-row"><span class="so-tag">` + k.toUpperCase() + `</span><span>` + escapeHtml(v) + `</span></div>`;
+        frags += `<div class="so-fragment-row"><span class="so-tag">` + k.toUpperCase() + `</span><span style="line-height:1.45;">` + escapeHtml(v) + `</span></div>`;
       }
       frags += `</div>`;
       
-      let opts = `<div class="options-grid" style="margin-bottom:0.75rem;">`;
+      let opts = `
+        <div style="font-size:0.78rem;font-weight:700;color:var(--text-secondary);margin-bottom:0.4rem;">
+          CÁC PHƯƠNG ÁN THỨ TỰ (A, B, C, D):
+        </div>
+        <div class="options-grid" style="margin-bottom:0.85rem;">
+      `;
       (item.options || []).forEach((opt, oIdx) => {
         const isUserPick = (item.userChoiceIdx === oIdx);
         const isKey = (item.correctAnswerIdx === oIdx);
@@ -2931,33 +3022,60 @@ function renderReviewItems(breakdown, filterMode) {
         opts += `
           <div class="option-row ` + rowClass + `" style="cursor:default;">
             <span class="opt-circle">` + letters[oIdx] + `</span>
-            <span class="option-text">` + escapeHtml(opt) + `</span>
+            <span class="option-text" style="font-weight:600;">` + escapeHtml(opt) + `</span>
             ` + badgeHtml + `
           </div>
         `;
       });
       opts += `</div>`;
       
+      // Assembled text for correct answer
       let correctAssembled = "";
-      if (item.options[item.correctAnswerIdx]) {
+      if (item.options && item.options[item.correctAnswerIdx]) {
         const order = item.options[item.correctAnswerIdx].toLowerCase().match(/[a-f]/g) || [];
         correctAssembled = order.map(c => item.sentences[c] || "").filter(Boolean).join(" ");
       }
       
-      const assembledBox = correctAssembled ? `
-        <div class="so-live-preview-box" style="border-color:var(--success);background:var(--success-soft);">
-          <div class="so-preview-header" style="color:var(--success);">
-            ` + ICONS.check + `
-            <span>Đoạn văn ghép hoàn chỉnh theo đáp án chuẩn (` + letters[item.correctAnswerIdx] + `):</span>
-          </div>
-          <div class="so-preview-body" style="color:var(--text-primary);font-style:normal;">"` + escapeHtml(correctAssembled) + `"</div>
-        </div>
-      ` : "";
+      // Assembled text for student's wrong answer
+      let userWrongAssembled = "";
+      if (!item.isCorrect && item.userChoiceIdx !== undefined && item.options && item.options[item.userChoiceIdx]) {
+        const userOrder = item.options[item.userChoiceIdx].toLowerCase().match(/[a-f]/g) || [];
+        userWrongAssembled = userOrder.map(c => item.sentences[c] || "").filter(Boolean).join(" ");
+      }
       
-      bodyContent = frags + opts + assembledBox;
+      let previewsHtml = "";
+      if (correctAssembled) {
+        previewsHtml += `
+          <div class="so-live-preview-box" style="border-color:var(--success);background:var(--success-soft);margin-bottom:0.6rem;">
+            <div class="so-preview-header" style="color:var(--success);font-weight:700;">
+              ` + ICONS.check + `
+              <span>Đoạn văn / Hội thoại hoàn chỉnh theo đáp án chuẩn (` + letters[item.correctAnswerIdx] + `):</span>
+            </div>
+            <div class="so-preview-body" style="color:var(--text-primary);font-style:normal;line-height:1.6;font-size:0.88rem;">"` + escapeHtml(correctAssembled) + `"</div>
+          </div>
+        `;
+      }
+      if (userWrongAssembled) {
+        previewsHtml += `
+          <div class="so-live-preview-box" style="border-color:var(--danger);background:var(--danger-soft);">
+            <div class="so-preview-header" style="color:var(--danger);font-weight:700;">
+              ` + ICONS.x + `
+              <span>Đoạn văn theo thứ tự bạn đã chọn (` + letters[item.userChoiceIdx] + ` - Chưa hợp lý):</span>
+            </div>
+            <div class="so-preview-body" style="color:var(--text-primary);font-style:normal;line-height:1.6;font-size:0.88rem;opacity:0.9;">"` + escapeHtml(userWrongAssembled) + `"</div>
+          </div>
+        `;
+      }
+      
+      bodyContent = frags + opts + previewsHtml;
     } else {
-      // STANDARD MCQ REVIEW
-      let opts = `<div class="options-grid">`;
+      // STANDARD MCQ / CLOZE / READING REVIEW
+      let opts = `
+        <div style="font-size:0.78rem;font-weight:700;color:var(--text-secondary);margin-bottom:0.4rem;">
+          CÁC PHƯƠNG ÁN LỰA CHỌN:
+        </div>
+        <div class="options-grid" style="margin-bottom:0.6rem;">
+      `;
       (item.options || []).forEach((opt, oIdx) => {
         const isUserPick = (item.userChoiceIdx === oIdx);
         const isKey = (item.correctAnswerIdx === oIdx);
@@ -2984,7 +3102,15 @@ function renderReviewItems(breakdown, filterMode) {
         `;
       });
       opts += `</div>`;
-      bodyContent = opts;
+      
+      let summaryRow = `
+        <div style="font-size:0.82rem;display:flex;gap:1.5rem;padding:0.6rem 0.85rem;background:var(--bg-surface);border-radius:var(--radius-xs);border:1px solid var(--border-subtle);flex-wrap:wrap;align-items:center;">
+          <div><span style="color:var(--text-tertiary);">Bạn đã chọn:</span> <b style="color:` + (item.isCorrect ? 'var(--success)' : 'var(--danger)') + `;">` + (item.userChoiceIdx !== undefined && item.userChoiceIdx !== null && item.options[item.userChoiceIdx] ? letters[item.userChoiceIdx] + '. ' + escapeHtml(item.options[item.userChoiceIdx]) : (item.userChoice || 'Chưa chọn')) + `</b></div>
+          <div><span style="color:var(--text-tertiary);">Đáp án chuẩn:</span> <b style="color:var(--success);">` + (item.correctAnswerIdx !== undefined && item.options[item.correctAnswerIdx] ? letters[item.correctAnswerIdx] + '. ' + escapeHtml(item.options[item.correctAnswerIdx]) : item.correctLetter) + `</b></div>
+        </div>
+      `;
+      
+      bodyContent = opts + summaryRow;
     }
     
     let passageBtn = "";
@@ -2992,17 +3118,19 @@ function renderReviewItems(breakdown, filterMode) {
       passageBtn = `
         <button class="dock-nav-btn" style="padding:0.25rem 0.65rem;font-size:0.74rem;gap:0.35rem;" onclick="viewPassageModalById('` + item.id + `')">
           ` + ICONS.book + `
-          <span>Xem bài đọc</span>
+          <span>Xem bài đọc / đoạn văn</span>
         </button>
       `;
     }
+    
+    const taskHeader = (item.sectionTitle ? escapeHtml(item.sectionTitle) + (item.taskName ? ' · ' + escapeHtml(item.taskName) : '') : escapeHtml(item.taskName || ''));
     
     html += `
       <div class="question-envelope" style="border-left:4px solid ` + statusColor + `;margin-bottom:1.5rem;">
         <div class="q-header-row">
           <div class="q-badge-wrap">
             <span class="q-idx-tag">` + escapeHtml(item.label || ('Câu ' + (idx + 1))) + `</span>
-            <span class="q-task-tag">` + escapeHtml(item.taskName || '') + `</span>
+            <span class="q-task-tag">` + taskHeader + `</span>
           </div>
           
           <div style="display:flex;align-items:center;gap:0.5rem;">
@@ -3014,7 +3142,7 @@ function renderReviewItems(breakdown, filterMode) {
           </div>
         </div>
         
-        <div class="q-prompt-text" style="margin-bottom:0.85rem;">` + escapeHtml(item.prompt) + `</div>
+        <div class="q-prompt-text" style="margin-bottom:0.85rem;font-weight:600;font-size:0.95rem;">` + escapeHtml(item.prompt) + `</div>
         
         ` + bodyContent + `
       </div>
