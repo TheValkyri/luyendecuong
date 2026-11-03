@@ -6,11 +6,11 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<title>Ôn Tập Tiếng Anh 11 — THPT Vĩnh Thuận (Giữa HK1)</title>
+<title>Hệ Thống Ôn Luyện — THPT Vĩnh Thuận (Tiếng Anh 11 & Vật Lí 11)</title>
 <script>
   // AUTO-REDIRECT CACHE BUSTER FOR ALL USERS
   (function() {
-    var APP_BUILD_TAG = "20261102_2330";
+    var APP_BUILD_TAG = "20261103_0100";
     var p = new URLSearchParams(window.location.search);
     if (p.get("v") !== APP_BUILD_TAG) {
       p.set("v", APP_BUILD_TAG);
@@ -21,6 +21,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- KaTeX for Physics Mathematical Formulas -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 <style>
 /* ==========================================================================
    DESIGN TOKENS & HIGH-END THEMES
@@ -1296,6 +1301,273 @@ a {
   color: #fff;
 }
 
+
+/* ==========================================================================
+   SUBJECT SELECTOR & PHYSICS / KATEX / IMAGE STYLING
+   ========================================================================== */
+.subject-picker-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+@media (max-width: 540px) {
+  .subject-picker-row {
+    grid-template-columns: 1fr;
+  }
+}
+.subject-pill-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--border-subtle);
+  background: var(--bg-surface-elevated);
+  transition: all var(--transition);
+  cursor: pointer;
+  text-align: left;
+}
+.subject-pill-btn:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-2px);
+  background: var(--bg-card-hover);
+}
+.subject-pill-btn.active {
+  border-color: var(--accent-base);
+  background: var(--accent-soft);
+  box-shadow: 0 0 16px var(--accent-glow);
+}
+.subject-pill-left {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+.subject-emoji {
+  font-size: 1.45rem;
+  line-height: 1;
+}
+.subject-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: block;
+}
+.subject-subtitle {
+  font-size: 0.72rem;
+  color: var(--text-tertiary);
+  display: block;
+}
+.subject-pill-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+}
+.subject-pill-btn.active .subject-pill-badge {
+  background: var(--accent-base);
+  color: #fff;
+  border-color: var(--accent-base);
+}
+
+/* TOP HEADER SUBJECT TOGGLE BADGE */
+.subject-toggle-badge {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: all var(--transition);
+  user-select: none;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 0.28rem 0.6rem;
+  border-radius: var(--radius-xs);
+  text-transform: uppercase;
+  color: #ffffff;
+}
+.subject-toggle-badge:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.15);
+}
+.subject-toggle-badge:active {
+  transform: scale(0.96);
+}
+.subject-toggle-badge.subject-physics {
+  background: #0ea5e9;
+}
+.subject-toggle-badge.subject-english {
+  background: var(--accent-base);
+}
+
+/* SUBJECT MODAL DIALOG */
+.subject-switch-dialog {
+  background: var(--bg-card);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  max-width: 440px;
+  width: 90%;
+  margin: 15vh auto;
+  box-shadow: var(--shadow-lg);
+}
+
+/* IMAGE DISPLAY & ZOOM MODAL */
+.q-image-card {
+  margin: 0.85rem 0 1.15rem;
+  border-radius: var(--radius-md);
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  overflow: hidden;
+  cursor: zoom-in;
+  transition: all var(--transition);
+}
+.q-image-card:hover {
+  border-color: var(--accent-base);
+  box-shadow: var(--shadow-sm);
+}
+.q-image-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background: rgba(0,0,0,0.18);
+}
+.q-image {
+  max-width: 100%;
+  max-height: 280px;
+  object-fit: contain;
+  border-radius: var(--radius-xs);
+  display: block;
+}
+.q-image-zoom-tag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.75rem;
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border-subtle);
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  font-weight: 600;
+}
+.q-image-card:hover .q-image-zoom-tag {
+  color: var(--accent-base);
+}
+
+/* IMAGE ZOOM MODAL */
+.image-modal-backdrop {
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+.image-modal-dialog {
+  background: var(--bg-card);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  max-width: 92vw;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.65);
+}
+.image-modal-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.25rem;
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+}
+.image-modal-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+.image-modal-body {
+  padding: 1rem;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000000;
+}
+.image-modal-body img {
+  max-width: 100%;
+  max-height: 75vh;
+  object-fit: contain;
+}
+
+/* KATEX MATH FORMULA STYLING */
+.katex {
+  font-size: 1.05em !important;
+  text-rendering: auto;
+}
+.katex-display-wrap {
+  display: block;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.4rem 0;
+  margin: 0.35rem 0;
+  text-align: center;
+}
+.katex-display-wrap .katex-display {
+  margin: 0 !important;
+}
+
+/* EXPLANATION BOX */
+.q-explanation-box {
+  margin-top: 0.85rem;
+  padding: 0.75rem 1rem;
+  background: var(--accent-soft);
+  border: 1px solid var(--border-accent);
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+.q-explanation-header {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 700;
+  font-size: 0.78rem;
+  color: var(--accent-base);
+  margin-bottom: 0.35rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.q-explanation-body {
+  color: var(--text-primary);
+}
+
+/* SUBJECT BADGES IN LISTS & TABLES */
+.sub-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  vertical-align: middle;
+}
+.sub-badge-english {
+  background: rgba(79, 120, 255, 0.15);
+  color: #4f78ff;
+  border: 1px solid rgba(79, 120, 255, 0.3);
+}
+.sub-badge-physics {
+  background: rgba(14, 165, 233, 0.15);
+  color: #0ea5e9;
+  border: 1px solid rgba(14, 165, 233, 0.3);
+}
 </style>
 </head>
 <body>
@@ -1306,7 +1578,10 @@ a {
 <header class="app-header">
   <div class="app-header-inner">
     <div class="brand-group">
-      <span class="brand-badge">ENG 11</span>
+      <button class="subject-toggle-badge subject-english" id="topSubjectBadge" onclick="showSubjectSwitchModal()" title="Nhấp để đổi môn học (Tiếng Anh 11 ↔ Vật Lí 11)">
+        <span id="topSubjectCode">ENG 11</span>
+        <svg class="v-icon" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
       <span class="brand-title" id="topHeaderTitle">THPT Vĩnh Thuận</span>
     </div>
     
@@ -1495,8 +1770,49 @@ a {
   </div>
 </div>
 
+
+<!-- ==========================================================================
+     SHEET MODAL: IMAGE ZOOM MODAL
+     ========================================================================== -->
+<div class="sheet-backdrop image-modal-backdrop" id="imageZoomModal" onclick="closeImageModal(event)">
+  <div class="image-modal-dialog" onclick="event.stopPropagation()">
+    <div class="image-modal-top">
+      <span class="image-modal-title">Hình ảnh minh họa câu hỏi</span>
+      <button class="icon-btn" onclick="closeImageModal()">
+        <svg class="v-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+    </div>
+    <div class="image-modal-body">
+      <img id="imageModalTarget" src="" alt="Hình phóng to">
+    </div>
+  </div>
+</div>
+
+<!-- ==========================================================================
+     SHEET MODAL: QUICK SUBJECT SWITCHER
+     ========================================================================== -->
+<div class="sheet-backdrop" id="subjectSwitchModal" onclick="closeSubjectSwitchModal(event)">
+  <div class="subject-switch-dialog" onclick="event.stopPropagation()">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;">
+      <h3 style="font-size:1.15rem;font-weight:800;color:var(--text-primary);">Chọn Môn Học Ôn Tập</h3>
+      <button class="icon-btn" onclick="closeSubjectSwitchModal()">
+        <svg class="v-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+    </div>
+    
+    <div style="display:flex;flex-direction:column;gap:0.75rem;" id="subjectModalList">
+      <!-- Injected by JS -->
+    </div>
+    
+    <div style="margin-top:1rem;font-size:0.75rem;color:var(--text-tertiary);line-height:1.45;text-align:center;">
+      💡 Hệ thống tự động ghi nhớ môn bạn đang chọn và lưu riêng tiến độ & lịch sử cho từng môn.
+    </div>
+  </div>
+</div>
+
 <!-- LOAD QUESTION DATA -->
 <script src="quiz_data.js?v=20261102_2215"></script>
+<script src="physics_quiz_data.js?v=20261103_01"></script>
 
 <script>
 /* ==========================================================================
@@ -1528,18 +1844,42 @@ const ICONS = {
 };
 
 /* ==========================================================================
-   APP CONTROLLER & STATE MANAGEMENT
+   APP CONTROLLER & MULTI-SUBJECT STATE MANAGEMENT
    ========================================================================== */
+window.PHYSICS_QUIZ_DATA = window.PHYSICS_QUIZ_DATA || [];
+
 const STORAGE_PREFIX = "eng11_thpt_vinhtuan_";
-const STATE_KEY = STORAGE_PREFIX + "active_session";
-const SUBMISSIONS_KEY = STORAGE_PREFIX + "student_records";
+const SUBMISSIONS_KEY = "quiz_student_records_v2";
+const LEGACY_SUBMISSIONS_KEY = "eng11_thpt_vinhtuan_student_records";
+
+const SUBJECT_CONFIG = {
+  english: {
+    code: "ENG 11",
+    name: "Tiếng Anh 11",
+    flag: "🇬🇧",
+    school: "SỞ GD&ĐT AN GIANG · THPT VĨNH THUẬN",
+    title: "Đề Cương Tiếng Anh 11",
+    subtitle: "Hệ thống ôn luyện & kiểm tra giữa học kỳ I (Chương trình Global Success). Đầy đủ 89 câu hỏi kèm đáp án chuẩn giáo viên.",
+    color: "#4f78ff"
+  },
+  physics: {
+    code: "LÝ 11",
+    name: "Vật Lí 11",
+    flag: "⚛️",
+    school: "SỞ GD&ĐT AN GIANG · THPT VĨNH THUẬN",
+    title: "Đề Cương Vật Lí 11",
+    subtitle: "Hệ thống ôn luyện Chuyên đề 1: Dao động cơ học (Vật Lí 11). Kèm 160 câu hỏi, công thức KaTeX, đồ thị và lời giải chi tiết.",
+    color: "#0ea5e9"
+  }
+};
 
 const AppState = {
+  currentSubject: localStorage.getItem("quiz_subject") || "english",
   studentName: "",
   theme: "dark",
   practiceMode: "full",
   viewMode: "list",
-  activeSectionIdx: 0,
+  activeSectionIdx: -1,
   activeQuestionGlobalIdx: 0,
   userAnswers: {},
   selfGrades: {},
@@ -1552,21 +1892,158 @@ const AppState = {
 };
 
 let FlatQuestions = [];
+let historySubjectFilter = "all";
+let adminSubjectFilter = "all";
+
+function getActiveSessionKey() {
+  return "quiz_active_session_" + (AppState.currentSubject || "english");
+}
+
+function getCurrentQuizData() {
+  if (AppState.currentSubject === "physics") {
+    return window.PHYSICS_QUIZ_DATA || [];
+  }
+  return window.QUIZ_DATA || [];
+}
+
+function getSubjectData(subject = AppState.currentSubject) {
+  if (subject === "physics") {
+    return window.PHYSICS_QUIZ_DATA || [];
+  }
+  return window.QUIZ_DATA || [];
+}
+
+function getEnglishCount() {
+  let count = 0;
+  (window.QUIZ_DATA || []).forEach(sec => {
+    (sec.tasks || []).forEach(task => {
+      count += (task.questions || []).length;
+    });
+  });
+  return count;
+}
+
+function getPhysicsCount() {
+  let count = 0;
+  (window.PHYSICS_QUIZ_DATA || []).forEach(sec => {
+    (sec.tasks || []).forEach(task => {
+      count += (task.questions || []).length;
+    });
+  });
+  return count;
+}
+
+function findQuestionById(qid, preferredSubject = AppState.currentSubject) {
+  let found = FlatQuestions.find(q => q.id === qid);
+  if (found) return found;
+  
+  const sets = preferredSubject === "physics" 
+    ? [window.PHYSICS_QUIZ_DATA || [], window.QUIZ_DATA || []] 
+    : [window.QUIZ_DATA || [], window.PHYSICS_QUIZ_DATA || []];
+    
+  for (const dataset of sets) {
+    for (const sec of dataset) {
+      for (const task of (sec.tasks || [])) {
+        for (const q of (task.questions || [])) {
+          if (q.id === qid) {
+            return {
+              ...q,
+              subject: (dataset === (window.PHYSICS_QUIZ_DATA || [])) ? "physics" : "english",
+              sectionId: sec.id,
+              sectionTitle: sec.title || sec.name,
+              taskName: task.name,
+              taskTitle: task.title,
+              passage: task.passage
+            };
+          }
+        }
+      }
+    }
+  }
+  return null;
+}
+
+/* ==========================================================================
+   KATEX MATH FORMULA PARSER & RENDERER
+   ========================================================================== */
+function renderMathAndText(str) {
+  if (!str) return "";
+  if (typeof str !== "string") str = String(str);
+  
+  if (window.katex) {
+    const mathRegex = /(\$\$[\s\S]+?\$\$|\\\[[\s\S]+?\\\]|\\\([\s\S]+?\\\)|\$[^\$\n\r]+?\$)/g;
+    const parts = str.split(mathRegex);
+    let result = "";
+    
+    for (let i = 0; i < parts.length; i++) {
+      const part = parts[i];
+      if (!part) continue;
+      
+      if ((part.startsWith("$$") && part.endsWith("$$") && part.length >= 4) ||
+          (part.startsWith("\\[") && part.endsWith("\\]") && part.length >= 4)) {
+        const expr = part.slice(2, -2).trim();
+        try {
+          result += '<span class="katex-display-wrap">' + window.katex.renderToString(expr, { displayMode: true, throwOnError: false }) + '</span>';
+        } catch(e) {
+          result += escapeHtml(part);
+        }
+      } else if (part.startsWith("\\(") && part.endsWith("\\)") && part.length >= 4) {
+        const expr = part.slice(2, -2).trim();
+        try {
+          result += window.katex.renderToString(expr, { displayMode: false, throwOnError: false });
+        } catch(e) {
+          result += escapeHtml(part);
+        }
+      } else if (part.startsWith("$") && part.endsWith("$") && part.length >= 2) {
+        const expr = part.slice(1, -1).trim();
+        try {
+          result += window.katex.renderToString(expr, { displayMode: false, throwOnError: false });
+        } catch(e) {
+          result += escapeHtml(part);
+        }
+      } else {
+        result += escapeHtml(part);
+      }
+    }
+    return result;
+  }
+  
+  return escapeHtml(str);
+}
+
+function triggerMathTypesetting(element) {
+  if (window.renderMathInElement && element) {
+    try {
+      window.renderMathInElement(element, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "\\[", right: "\\]", display: true },
+          { left: "\\(", right: "\\)", display: false },
+          { left: "$", right: "$", display: false }
+        ],
+        throwOnError: false
+      });
+    } catch(e) {}
+  }
+}
 
 function initFlattenedQuestions() {
   FlatQuestions = [];
-  if (!window.QUIZ_DATA) return;
+  const quizData = getCurrentQuizData();
+  if (!quizData || !quizData.length) return;
   
-  window.QUIZ_DATA.forEach((sec, secIdx) => {
-    sec.tasks.forEach((task, taskIdx) => {
-      task.questions.forEach((q, qIdx) => {
+  quizData.forEach((sec, secIdx) => {
+    (sec.tasks || []).forEach((task, taskIdx) => {
+      (task.questions || []).forEach((q, qIdx) => {
         FlatQuestions.push({
           ...q,
+          subject: AppState.currentSubject,
           sectionId: sec.id,
-          sectionTitle: sec.title,
+          sectionTitle: sec.title || sec.name || "Chuyên đề",
           secIdx,
-          taskName: task.name,
-          taskTitle: task.title,
+          taskId: task.id,
+          taskName: task.name || task.title,
+          taskTitle: task.title || task.name,
           passage: task.passage,
           globalIdx: FlatQuestions.length
         });
@@ -1574,23 +2051,26 @@ function initFlattenedQuestions() {
     });
   });
   
-  // Migrate, hydrate and re-grade any existing historical submissions in localStorage
   migrateSubmissionsData();
 }
 
 function forceAppRefresh() {
   const u = new URL(window.location.href);
-  u.searchParams.set("v", "20261102_2330_" + Date.now());
+  u.searchParams.set("v", "20261103_0100_" + Date.now());
   window.location.href = u.toString();
 }
 
 function ensureRecordHydratedAndRegraded(rec) {
   if (!rec || !Array.isArray(rec.breakdown)) return rec;
+  if (!rec.subject) {
+    rec.subject = "english";
+    rec.subjectName = "Tiếng Anh 11";
+  }
   const letters = ['A', 'B', 'C', 'D'];
   let modified = false;
   
   rec.breakdown = rec.breakdown.map(item => {
-    const orig = FlatQuestions.find(q => q.id === item.id);
+    const orig = findQuestionById(item.id, rec.subject);
     let updatedItem = { ...item };
     
     if (orig) {
@@ -1603,13 +2083,14 @@ function ensureRecordHydratedAndRegraded(rec) {
       updatedItem.cue = orig.cue || item.cue;
       updatedItem.model_answer = orig.model_answer || item.model_answer;
       updatedItem.acceptable = orig.acceptable || item.acceptable;
+      updatedItem.explanation = orig.explanation || item.explanation;
+      updatedItem.image = orig.image || item.image;
       if (orig.answer !== undefined) {
         updatedItem.correctAnswerIdx = orig.answer;
         updatedItem.correctLetter = letters[orig.answer];
       }
     }
     
-    // Resolve userChoiceIdx if old submission only stored string
     if (updatedItem.userChoiceIdx === undefined && typeof updatedItem.userChoice === "string") {
       const uIdx = letters.indexOf(updatedItem.userChoice.trim().toUpperCase());
       if (uIdx !== -1) updatedItem.userChoiceIdx = uIdx;
@@ -1618,14 +2099,12 @@ function ensureRecordHydratedAndRegraded(rec) {
       updatedItem.userChoice = letters[updatedItem.userChoiceIdx];
     }
     
-    // RE-GRADE WRITING QUESTIONS DYNAMICALLY
     if (updatedItem.isWriting || orig?.model_answer) {
       updatedItem.isWriting = true;
       const userText = updatedItem.userAns || "";
       const targetQ = orig || updatedItem;
       const autoRes = gradeWritingAnswer(userText, targetQ);
       
-      // If previous score was 0 or incorrect, but autoRes says it is correct:
       if ((!updatedItem.score || updatedItem.score === 0 || !updatedItem.isCorrect) && autoRes.score > 0) {
         updatedItem.score = autoRes.score;
         updatedItem.isCorrect = autoRes.isCorrect;
@@ -1637,7 +2116,6 @@ function ensureRecordHydratedAndRegraded(rec) {
     return updatedItem;
   });
   
-  // Recalculate totals and grade10 if any writing question was re-graded
   let writingScore = 0;
   let writingMax = 0;
   let correctMCQ = 0;
@@ -1665,11 +2143,43 @@ function ensureRecordHydratedAndRegraded(rec) {
   return rec;
 }
 
+function getAllSubmissions() {
+  try {
+    let list = JSON.parse(localStorage.getItem(SUBMISSIONS_KEY) || "null");
+    if (!list) {
+      const legacy = JSON.parse(localStorage.getItem(LEGACY_SUBMISSIONS_KEY) || "[]");
+      list = legacy.map(r => ({
+        ...r,
+        subject: r.subject || "english",
+        subjectName: r.subjectName || (r.subject === "physics" ? "Vật Lí 11" : "Tiếng Anh 11")
+      }));
+      localStorage.setItem(SUBMISSIONS_KEY, JSON.stringify(list));
+    }
+    return list;
+  } catch(e) {
+    return [];
+  }
+}
+
+function saveStudentSubmission(record) {
+  try {
+    const list = getAllSubmissions();
+    list.unshift(record);
+    localStorage.setItem(SUBMISSIONS_KEY, JSON.stringify(list));
+    if (record.subject === "english") {
+      const leg = JSON.parse(localStorage.getItem(LEGACY_SUBMISSIONS_KEY) || "[]");
+      leg.unshift(record);
+      localStorage.setItem(LEGACY_SUBMISSIONS_KEY, JSON.stringify(leg));
+    }
+  } catch(e) {
+    console.error("Failed to save submission", e);
+  }
+}
+
 function migrateSubmissionsData() {
   try {
-    const raw = localStorage.getItem(SUBMISSIONS_KEY);
-    if (!raw) return;
-    const list = JSON.parse(raw);
+    const list = getAllSubmissions();
+    if (!list || !list.length) return;
     
     list.forEach(rec => {
       ensureRecordHydratedAndRegraded(rec);
@@ -1773,7 +2283,7 @@ function stopTimer() {
 }
 
 // ==========================================================================
-// SESSION PERSISTENCE (Autosave)
+// SESSION PERSISTENCE (Autosave per subject)
 // ==========================================================================
 let saveTimeout = null;
 function saveSessionDebounced() {
@@ -1781,6 +2291,7 @@ function saveSessionDebounced() {
   saveTimeout = setTimeout(() => {
     if (!AppState.isFinished && AppState.studentName) {
       const payload = {
+        subject: AppState.currentSubject,
         studentName: AppState.studentName,
         practiceMode: AppState.practiceMode,
         viewMode: AppState.viewMode,
@@ -1791,18 +2302,22 @@ function saveSessionDebounced() {
         elapsedSeconds: AppState.elapsedSeconds,
         timestamp: Date.now()
       };
-      localStorage.setItem(STATE_KEY, JSON.stringify(payload));
+      localStorage.setItem(getActiveSessionKey(), JSON.stringify(payload));
     }
   }, 400);
 }
 
 function loadSavedSession() {
   try {
-    const raw = localStorage.getItem(STATE_KEY);
+    const key = getActiveSessionKey();
+    let raw = localStorage.getItem(key);
+    if (!raw && AppState.currentSubject === "english") {
+      raw = localStorage.getItem("eng11_thpt_vinhtuan_active_session");
+    }
     if (!raw) return null;
     const data = JSON.parse(raw);
     if (Date.now() - data.timestamp > 48 * 3600 * 1000) {
-      localStorage.removeItem(STATE_KEY);
+      localStorage.removeItem(key);
       return null;
     }
     return data;
@@ -1812,14 +2327,120 @@ function loadSavedSession() {
 }
 
 function clearSession() {
-  localStorage.removeItem(STATE_KEY);
+  localStorage.removeItem(getActiveSessionKey());
+  if (AppState.currentSubject === "english") {
+    localStorage.removeItem("eng11_thpt_vinhtuan_active_session");
+  }
 }
 
 // ==========================================================================
-// SCREEN 1: WELCOME & CONFIGURATION
+// SUBJECT SWITCHER CONTROLLERS
+// ==========================================================================
+function switchSubject(subject) {
+  if (AppState.currentSubject === subject) {
+    closeSubjectSwitchModal();
+    return;
+  }
+  
+  if (!AppState.isFinished && AppState.studentName && Object.keys(AppState.userAnswers).length > 0) {
+    if (!confirm("Bạn đang trong bài làm. Chuyển môn học sẽ lưu lại bài làm hiện tại. Bạn có muốn đổi môn học không?")) {
+      return;
+    }
+    saveSessionDebounced();
+  }
+  
+  AudioFX.init();
+  AudioFX.tap();
+  
+  AppState.currentSubject = subject;
+  localStorage.setItem("quiz_subject", subject);
+  AppState.practiceMode = "full";
+  AppState.activeSectionIdx = -1;
+  AppState.activeQuestionGlobalIdx = 0;
+  AppState.userAnswers = {};
+  AppState.selfGrades = {};
+  AppState.flaggedQuestions = new Set();
+  AppState.startTime = null;
+  AppState.elapsedSeconds = 0;
+  AppState.isFinished = false;
+  stopTimer();
+  
+  initFlattenedQuestions();
+  updateTopSubjectBadge();
+  closeSubjectSwitchModal();
+  renderWelcomeScreen();
+}
+
+function updateTopSubjectBadge() {
+  const badge = document.getElementById("topSubjectBadge");
+  const code = document.getElementById("topSubjectCode");
+  if (!badge || !code) return;
+  const isPhy = (AppState.currentSubject === "physics");
+  code.textContent = isPhy ? "LÝ 11" : "ENG 11";
+  badge.className = "subject-toggle-badge " + (isPhy ? "subject-physics" : "subject-english");
+}
+
+function showSubjectSwitchModal() {
+  AudioFX.init();
+  AudioFX.tap();
+  const modal = document.getElementById("subjectSwitchModal");
+  const list = document.getElementById("subjectModalList");
+  if (!modal || !list) return;
+  
+  list.innerHTML = `
+    <button class="subject-pill-btn ${AppState.currentSubject === 'english' ? 'active' : ''}" onclick="switchSubject('english')">
+      <div class="subject-pill-left">
+        <span class="subject-emoji">🇬🇧</span>
+        <div>
+          <span class="subject-title">Tiếng Anh 11</span>
+          <span class="subject-subtitle">Đề cương Ôn thi Giữa HK1 (Global Success)</span>
+        </div>
+      </div>
+      <span class="subject-pill-badge">${getEnglishCount()} câu</span>
+    </button>
+    
+    <button class="subject-pill-btn ${AppState.currentSubject === 'physics' ? 'active' : ''}" onclick="switchSubject('physics')">
+      <div class="subject-pill-left">
+        <span class="subject-emoji">⚛️</span>
+        <div>
+          <span class="subject-title">Vật Lí 11</span>
+          <span class="subject-subtitle">Chuyên đề 1: Dao động cơ học</span>
+        </div>
+      </div>
+      <span class="subject-pill-badge">${getPhysicsCount()} câu</span>
+    </button>
+  `;
+  modal.classList.add("open");
+}
+
+function closeSubjectSwitchModal(e) {
+  if (e && e.target !== e.currentTarget && e.target.tagName !== "BUTTON" && !e.target.closest('button')) return;
+  const modal = document.getElementById("subjectSwitchModal");
+  if (modal) modal.classList.remove("open");
+}
+
+function openImageModal(imgSrc) {
+  AudioFX.init();
+  AudioFX.tap();
+  const modal = document.getElementById("imageZoomModal");
+  const target = document.getElementById("imageModalTarget");
+  if (!modal || !target) return;
+  target.src = imgSrc;
+  modal.classList.add("open");
+}
+
+function closeImageModal(e) {
+  if (e && e.target !== e.currentTarget && e.target.tagName !== "BUTTON" && !e.target.closest('button')) return;
+  const modal = document.getElementById("imageZoomModal");
+  if (modal) modal.classList.remove("open");
+}
+
+// ==========================================================================
+// SCREEN 1: WELCOME & CONFIGURATION (DYNAMIC MULTI-SUBJECT)
 // ==========================================================================
 function renderWelcomeScreen() {
   stopTimer();
+  updateTopSubjectBadge();
   document.getElementById("topHeaderTitle").textContent = "THPT Vĩnh Thuận";
   document.getElementById("timerChip").style.display = "none";
   document.getElementById("progressStrip").style.display = "none";
@@ -1829,23 +2450,114 @@ function renderWelcomeScreen() {
   document.getElementById("btnMatrixTrigger").style.display = "none";
   
   const saved = loadSavedSession();
+  const cfg = SUBJECT_CONFIG[AppState.currentSubject] || SUBJECT_CONFIG.english;
+  const quizData = getCurrentQuizData();
+  const engCount = getEnglishCount();
+  const phyCount = getPhysicsCount();
+  
+  let modeCardsHtml = `
+    <div class="mode-option-card ${AppState.practiceMode === 'full' ? 'active' : ''}" onclick="setPracticeMode('full', this)">
+      <div class="mode-header">
+        ${ICONS.sparkles}
+        <span class="mode-name">Toàn bộ đề thi (${FlatQuestions.length} câu)</span>
+      </div>
+      <div class="mode-desc">Luyện tập đầy đủ toàn bộ câu hỏi chuẩn kiến thức</div>
+    </div>
+  `;
+  
+  if (AppState.currentSubject === 'english') {
+    modeCardsHtml += `
+      <div class="mode-option-card ${AppState.practiceMode === 'sentence_order' ? 'active' : ''}" onclick="setPracticeMode('sentence_order', this)">
+        <div class="mode-header">
+          ${ICONS.puzzle}
+          <span class="mode-name">Sắp xếp câu (22 câu)</span>
+        </div>
+        <div class="mode-desc">Tập trung luyện dạng khó có tính năng ghép văn bản mẫu</div>
+      </div>
+      
+      <div class="mode-option-card ${AppState.practiceMode === 'reading' ? 'active' : ''}" onclick="setPracticeMode('reading', this)">
+        <div class="mode-header">
+          ${ICONS.book}
+          <span class="mode-name">Đọc hiểu (24 câu)</span>
+        </div>
+        <div class="mode-desc">3 bài đọc dài với cửa sổ tra cứu bài khóa thông minh</div>
+      </div>
+      
+      <div class="mode-option-card ${AppState.practiceMode === 'cloze' ? 'active' : ''}" onclick="setPracticeMode('cloze', this)">
+        <div class="mode-header">
+          ${ICONS.edit}
+          <span class="mode-name">Điền từ (37 câu)</span>
+        </div>
+        <div class="mode-desc">7 bài đọc điền từ ngữ pháp & từ vựng trọng tâm</div>
+      </div>
+    `;
+  } else {
+    quizData.forEach(sec => {
+      (sec.tasks || []).forEach(t => {
+        const qCount = (t.questions || []).length;
+        const isAct = (AppState.practiceMode === t.id);
+        modeCardsHtml += `
+          <div class="mode-option-card ${isAct ? 'active' : ''}" onclick="setPracticeMode('${t.id}', this)">
+            <div class="mode-header">
+              ${ICONS.zap}
+              <span class="mode-name">${escapeHtml(t.name || t.title)} (${qCount} câu)</span>
+            </div>
+            <div class="mode-desc">Luyện tập chuyên đề bài học</div>
+          </div>
+        `;
+      });
+    });
+  }
+  
+  let sectionCount = 0;
+  if (AppState.currentSubject === 'english') {
+    sectionCount = quizData.length;
+  } else {
+    sectionCount = quizData.reduce((acc, s) => acc + (s.tasks || []).length, 0);
+  }
   
   const viewport = document.getElementById("mainViewport");
   viewport.innerHTML = `
     <div class="welcome-container">
       <div class="welcome-card">
-        <div class="school-meta">SỞ GD&ĐT AN GIANG · THPT VĨNH THUẬN</div>
-        <h1 class="exam-title">Đề Cương Tiếng Anh 11</h1>
-        <p class="exam-subtitle">Hệ thống ôn luyện & kiểm tra giữa học kỳ I (Chương trình Global Success). Đầy đủ 89 câu hỏi kèm đáp án chuẩn giáo viên.</p>
+        <div class="school-meta">${escapeHtml(cfg.school)}</div>
+        
+        <!-- SUBJECT SELECTOR PILLS -->
+        <div class="subject-picker-row">
+          <button class="subject-pill-btn ${AppState.currentSubject === 'english' ? 'active' : ''}" onclick="switchSubject('english')">
+            <div class="subject-pill-left">
+              <span class="subject-emoji">🇬🇧</span>
+              <div>
+                <span class="subject-title">Tiếng Anh 11</span>
+                <span class="subject-subtitle">Global Success · HK1</span>
+              </div>
+            </div>
+            <span class="subject-pill-badge">${engCount} câu</span>
+          </button>
+          
+          <button class="subject-pill-btn ${AppState.currentSubject === 'physics' ? 'active' : ''}" onclick="switchSubject('physics')">
+            <div class="subject-pill-left">
+              <span class="subject-emoji">⚛️</span>
+              <div>
+                <span class="subject-title">Vật Lí 11</span>
+                <span class="subject-subtitle">Chuyên đề 1: Dao động</span>
+              </div>
+            </div>
+            <span class="subject-pill-badge">${phyCount} câu</span>
+          </button>
+        </div>
+        
+        <h1 class="exam-title">${escapeHtml(cfg.title)}</h1>
+        <p class="exam-subtitle">${escapeHtml(cfg.subtitle)}</p>
         
         <div class="meta-grid">
           <div class="meta-item">
-            <span class="meta-val">89</span>
+            <span class="meta-val">${FlatQuestions.length}</span>
             <span class="meta-lbl">Tổng câu hỏi</span>
           </div>
           <div class="meta-item">
-            <span class="meta-val">4</span>
-            <span class="meta-lbl">Phần thi</span>
+            <span class="meta-val">${sectionCount}</span>
+            <span class="meta-lbl">${AppState.currentSubject === 'physics' ? 'Bài học' : 'Phần thi'}</span>
           </div>
           <div class="meta-item">
             <span class="meta-val">10</span>
@@ -1857,7 +2569,7 @@ function renderWelcomeScreen() {
           <div style="background:var(--accent-soft);border:1px solid var(--border-accent);border-radius:var(--radius-sm);padding:0.75rem 1rem;margin-bottom:1.25rem;text-align:left;">
             <div style="display:flex;align-items:center;gap:0.4rem;font-size:0.8rem;font-weight:700;color:var(--accent-base);margin-bottom:0.25rem;">
               ${ICONS.zap}
-              <span>Phát hiện bài làm dang dở</span>
+              <span>Phát hiện bài làm dang dở (${cfg.name})</span>
             </div>
             <div style="font-size:0.75rem;color:var(--text-secondary);">Học sinh: <b>${escapeHtml(saved.studentName)}</b> · Đã làm ${Object.keys(saved.userAnswers||{}).length} câu</div>
             <div style="display:flex;gap:0.5rem;margin-top:0.6rem;">
@@ -1872,47 +2584,15 @@ function renderWelcomeScreen() {
           <input type="text" id="txtStudentName" class="custom-input" placeholder="Ví dụ: Nguyễn Văn An - 11/5" autocomplete="name" value="${saved ? escapeHtml(saved.studentName) : ''}">
         </div>
         
-        <div class="mode-picker-title">Chọn hình thức ôn tập:</div>
+        <div class="mode-picker-title">Chọn phạm vi ôn tập:</div>
         <div class="mode-picker">
-          <div class="mode-option-card ${AppState.practiceMode==='full'?'active':''}" onclick="setPracticeMode('full', this)">
-            <div class="mode-header">
-              ${ICONS.sparkles}
-              <span class="mode-name">Toàn bộ đề thi</span>
-            </div>
-            <div class="mode-desc">89 câu chuẩn cấu trúc (Điền từ, Đọc hiểu, Sắp xếp, Tự luận)</div>
-          </div>
-          
-          <div class="mode-option-card ${AppState.practiceMode==='sentence_order'?'active':''}" onclick="setPracticeMode('sentence_order', this)">
-            <div class="mode-header">
-              ${ICONS.puzzle}
-              <span class="mode-name">Sắp xếp câu (22 câu)</span>
-            </div>
-            <div class="mode-desc">Tập trung luyện dạng khó có tính năng ghép văn bản mẫu</div>
-          </div>
-          
-          <div class="mode-option-card ${AppState.practiceMode==='reading'?'active':''}" onclick="setPracticeMode('reading', this)">
-            <div class="mode-header">
-              ${ICONS.book}
-              <span class="mode-name">Đọc hiểu (24 câu)</span>
-            </div>
-            <div class="mode-desc">3 bài đọc dài với cửa sổ tra cứu bài khóa thông minh</div>
-          </div>
-          
-          <div class="mode-option-card ${AppState.practiceMode==='cloze'?'active':''}" onclick="setPracticeMode('cloze', this)">
-            <div class="mode-header">
-              ${ICONS.edit}
-              <span class="mode-name">Điền từ (37 câu)</span>
-            </div>
-            <div class="mode-desc">7 bài đọc điền từ ngữ pháp & từ vựng trọng tâm</div>
-          </div>
+          ${modeCardsHtml}
         </div>
         
         <button class="btn-primary-action" onclick="startExam()">
-          <span>Bắt Đầu Làm Bài</span>
-          
+          <span>Bắt Đầu Làm Bài (${cfg.code})</span>
         </button>
         <button class="dock-nav-btn" style="width:100%;margin-top:0.65rem;justify-content:center;" onclick="openHistorySheet()">
-          
           <span>Xem Lịch Sử Làm Bài Của Bạn</span>
         </button>
       </div>
@@ -1976,7 +2656,11 @@ function discardSavedSession() {
 
 function getActiveQuestionsSubset() {
   if (AppState.practiceMode === "full") return FlatQuestions;
-  return FlatQuestions.filter(q => q.sectionId === AppState.practiceMode);
+  const bySec = FlatQuestions.filter(q => q.sectionId === AppState.practiceMode);
+  if (bySec.length > 0) return bySec;
+  const byTask = FlatQuestions.filter(q => q.taskId === AppState.practiceMode);
+  if (byTask.length > 0) return byTask;
+  return FlatQuestions;
 }
 
 // ==========================================================================
@@ -2022,19 +2706,38 @@ function switchViewMode(mode) {
 // ==========================================================================
 function renderSectionTabs() {
   const tabsContainer = document.getElementById("sectionTabs");
-  const sections = window.QUIZ_DATA || [];
+  const quizData = getCurrentQuizData();
   
-  let html = `<button class="sec-tab ${AppState.practiceMode==='full' && AppState.activeSectionIdx===-1?'active':''}" onclick="filterSection(-1)">Tất cả <span class="tab-badge">${FlatQuestions.length}</span></button>`;
+  let html = `<button class="sec-tab ${AppState.activeSectionIdx === -1 ? 'active' : ''}" onclick="filterSection(-1)">Tất cả <span class="tab-badge">${FlatQuestions.length}</span></button>`;
   
-  sections.forEach((sec, idx) => {
-    const qCount = FlatQuestions.filter(q => q.sectionId === sec.id).length;
-    const isAct = (AppState.activeSectionIdx === idx);
-    html += `
-      <button class="sec-tab ${isAct?'active':''}" onclick="filterSection(${idx})">
-        ${escapeHtml(sec.title.split(':')[0])} <span class="tab-badge">${qCount}</span>
-      </button>
-    `;
-  });
+  if (AppState.currentSubject === 'english') {
+    quizData.forEach((sec, idx) => {
+      const qCount = FlatQuestions.filter(q => q.sectionId === sec.id).length;
+      const isAct = (AppState.activeSectionIdx === idx);
+      const shortTitle = sec.title.includes(":") ? sec.title.split(":")[0] : sec.title;
+      html += `
+        <button class="sec-tab ${isAct ? 'active' : ''}" onclick="filterSection(${idx})">
+          ${escapeHtml(shortTitle)} <span class="tab-badge">${qCount}</span>
+        </button>
+      `;
+    });
+  } else {
+    let itemIdx = 0;
+    quizData.forEach(sec => {
+      (sec.tasks || []).forEach(t => {
+        const qCount = (t.questions || []).length;
+        const isAct = (AppState.activeSectionIdx === itemIdx);
+        const shortName = t.name.includes(":") ? t.name.split(":")[0] : t.name;
+        const curIdx = itemIdx;
+        html += `
+          <button class="sec-tab ${isAct ? 'active' : ''}" onclick="filterSection(${curIdx})">
+            ${escapeHtml(shortName)} <span class="tab-badge">${qCount}</span>
+          </button>
+        `;
+        itemIdx++;
+      });
+    });
+  }
   
   tabsContainer.innerHTML = html;
 }
@@ -2046,9 +2749,29 @@ function filterSection(secIdx) {
   renderSectionTabs();
   
   const subset = getActiveQuestionsSubset();
+  const quizData = getCurrentQuizData();
+  
   if (secIdx >= 0) {
-    const secId = window.QUIZ_DATA[secIdx].id;
-    const targetQ = subset.find(q => q.sectionId === secId);
+    let targetQ = null;
+    if (AppState.currentSubject === 'english') {
+      if (quizData[secIdx]) {
+        const secId = quizData[secIdx].id;
+        targetQ = subset.find(q => q.sectionId === secId);
+      }
+    } else {
+      let cur = 0;
+      for (const s of quizData) {
+        for (const t of (s.tasks || [])) {
+          if (cur === secIdx) {
+            targetQ = subset.find(q => q.taskId === t.id);
+            break;
+          }
+          cur++;
+        }
+        if (targetQ) break;
+      }
+    }
+    
     if (targetQ) {
       AppState.activeQuestionGlobalIdx = targetQ.globalIdx;
     }
@@ -2092,6 +2815,7 @@ function renderFocusMode() {
   `;
   
   updateDockNav(AppState.activeQuestionGlobalIdx, subset.length);
+  requestAnimationFrame(() => triggerMathTypesetting(viewport));
 }
 
 // ==========================================================================
@@ -2104,21 +2828,24 @@ function renderListMode() {
   
   let html = `<div style="max-width:760px;margin:0 auto;">`;
   
-  let lastSecId = "";
-  let lastTaskName = "";
+  let lastGroupKey = "";
+  let headingIdx = 0;
   
   subset.forEach((q, idx) => {
-    if (q.sectionId !== lastSecId) {
-      lastSecId = q.sectionId;
+    const groupKey = AppState.currentSubject === 'physics' ? (q.taskId || q.sectionId) : q.sectionId;
+    const groupTitle = AppState.currentSubject === 'physics' ? (q.taskName || q.taskTitle) : q.sectionTitle;
+    
+    if (groupKey !== lastGroupKey) {
+      lastGroupKey = groupKey;
       html += `
-        <div id="sec-heading-${q.secIdx}" style="margin:2.5rem 0 1rem;padding-bottom:0.5rem;border-bottom:2px solid var(--border-accent);">
-          <div style="font-size:0.75rem;font-weight:700;color:var(--accent-base);letter-spacing:0.1em;text-transform:uppercase;">${escapeHtml(q.sectionTitle)}</div>
+        <div id="sec-heading-${headingIdx}" style="margin:2.5rem 0 1rem;padding-bottom:0.5rem;border-bottom:2px solid var(--border-accent);">
+          <div style="font-size:0.75rem;font-weight:700;color:var(--accent-base);letter-spacing:0.1em;text-transform:uppercase;">${escapeHtml(groupTitle)}</div>
         </div>
       `;
+      headingIdx++;
     }
     
-    if (q.taskName !== lastTaskName && q.passage) {
-      lastTaskName = q.taskName;
+    if (q.passage && q.taskName && AppState.currentSubject === 'english' && (idx === 0 || subset[idx-1].taskName !== q.taskName)) {
       html += `
         <div class="task-passage-container">
           <div class="task-passage-header">
@@ -2137,6 +2864,7 @@ function renderListMode() {
   viewport.innerHTML = html;
   
   updateDockNav(AppState.activeQuestionGlobalIdx, subset.length);
+  requestAnimationFrame(() => triggerMathTypesetting(viewport));
 }
 
 // ==========================================================================
@@ -2157,12 +2885,26 @@ function renderSingleQuestionCard(q, displayNum, totalCount) {
     contentHtml = renderStandardMCQOptions(q, userAns);
   }
   
+  let imageHtml = "";
+  if (q.image) {
+    imageHtml = `
+      <div class="q-image-card" onclick="openImageModal('${escapeHtml(q.image)}')">
+        <div class="q-image-wrapper">
+          <img src="${escapeHtml(q.image)}" alt="Hình minh họa câu hỏi" class="q-image" loading="lazy" onerror="this.closest('.q-image-card').style.display='none'">
+        </div>
+        <div class="q-image-zoom-tag">
+          ${ICONS.search} <span>Nhấp để phóng to hình ảnh</span>
+        </div>
+      </div>
+    `;
+  }
+  
   return `
     <div class="question-envelope ${isFlagged ? 'is-flagged' : ''} ${isAnswered ? 'is-answered' : ''}" id="card-${q.id}">
       <div class="q-header-row">
         <div class="q-badge-wrap">
-          <span class="q-idx-tag">Câu ${displayNum} / ${totalCount}</span>
-          <span class="q-task-tag">${escapeHtml(q.taskName)}</span>
+          <span class="q-idx-tag">${escapeHtml(q.label || ('Câu ' + displayNum))} (${displayNum} / ${totalCount})</span>
+          <span class="q-task-tag">${escapeHtml(q.taskName || q.sectionTitle || '')}</span>
         </div>
         
         <button class="flag-btn ${isFlagged ? 'active' : ''}" onclick="toggleFlag('${q.id}')">
@@ -2171,8 +2913,9 @@ function renderSingleQuestionCard(q, displayNum, totalCount) {
         </button>
       </div>
       
-      <div class="q-prompt-text">${escapeHtml(q.prompt)}</div>
+      <div class="q-prompt-text">${renderMathAndText(q.prompt)}</div>
       
+      ${imageHtml}
       ${contentHtml}
     </div>
   `;
@@ -2187,7 +2930,7 @@ function renderStandardMCQOptions(q, userAns) {
     optsHtml += `
       <div class="option-row ${isSelected ? 'selected' : ''}" onclick="selectMCQOption('${q.id}', ${idx})">
         <span class="opt-circle">${letters[idx]}</span>
-        <span class="option-text">${escapeHtml(opt)}</span>
+        <span class="option-text">${renderMathAndText(opt)}</span>
       </div>
     `;
   });
@@ -2254,12 +2997,10 @@ function normalizeSentence(str) {
   if (!str) return "";
   let s = str.trim().toLowerCase();
   
-  // Normalize smart quotes, curly apostrophes, dashes
   s = s.replace(/[\u2018\u2019\u201a\u201b\u00b4\`]/g, "'");
   s = s.replace(/[\u201c\u201d\u201e\u201f]/g, '"');
   s = s.replace(/[\u2013\u2014]/g, "-");
   
-  // Standardize contractions
   s = s.replace(/\bhasn't\b/g, "has not")
        .replace(/\bhaven't\b/g, "have not")
        .replace(/\bdon't\b/g, "do not")
@@ -2286,12 +3027,8 @@ function normalizeSentence(str) {
        .replace(/\byou're\b/g, "you are")
        .replace(/\bthey're\b/g, "they are");
 
-  // Collapse multiple spaces
   s = s.replace(/\s+/g, " ");
-
-  // Strip trailing punctuation (. , ! ? ; :)
   s = s.replace(/[.,!?;:]+$/, "");
-
   return s.trim();
 }
 
@@ -2326,7 +3063,6 @@ function gradeWritingAnswer(userText, question) {
     return { score: 0, isCorrect: false, feedback: "Chưa nhập câu trả lời", matchedTarget: question.model_answer };
   }
   
-  // Candidate acceptable targets
   const targets = [];
   if (question.model_answer) targets.push(question.model_answer);
   if (Array.isArray(question.acceptable)) {
@@ -2335,7 +3071,6 @@ function gradeWritingAnswer(userText, question) {
     });
   }
   
-  // In case the student only wrote the continuation without the cue prefix (e.g. cue is "We should...")
   const rawCue = (question.cue || "").replace(/\.{2,}$/, "").trim();
   const cueNorm = normalizeSentence(rawCue);
   let userPrefixedNorm = "";
@@ -2350,7 +3085,6 @@ function gradeWritingAnswer(userText, question) {
     const tNorm = normalizeSentence(t);
     if (!tNorm) continue;
     
-    // Exact match against full text or against completion + cue prefix
     if (userNorm === tNorm || (userPrefixedNorm && userPrefixedNorm === tNorm)) {
       return {
         score: 1.0,
@@ -2360,7 +3094,6 @@ function gradeWritingAnswer(userText, question) {
       };
     }
     
-    // Similarity scoring
     const sim1 = computeSentenceSimilarity(userNorm, tNorm);
     const sim2 = userPrefixedNorm ? computeSentenceSimilarity(userPrefixedNorm, tNorm) : 0;
     const currentMax = Math.max(sim1, sim2);
@@ -2371,7 +3104,6 @@ function gradeWritingAnswer(userText, question) {
     }
   }
   
-  // High similarity (minor word variation or slight slip)
   if (maxSim >= 0.88) {
     return {
       score: 1.0,
@@ -2556,7 +3288,7 @@ function setWritingGrade(qid, grade, ev) {
   AppState.selfGrades[qid] = grade;
   const box = document.getElementById(`compare-${qid}`);
   if (box) {
-    box.querySelectorAll(".self-grade-btn").forEach((btn, i) => {
+    box.querySelectorAll(".self-grade-btn").forEach(btn => {
       btn.classList.remove("active");
     });
     const target = (ev && ev.target) || (window.event && window.event.target);
@@ -2713,9 +3445,6 @@ function closePassageSheet(e) {
 // ==========================================================================
 // EXAM SUBMISSION & GRADING
 // ==========================================================================
-// ==========================================================================
-// EXAM SUBMISSION & GRADING
-// ==========================================================================
 function confirmSubmitExam() {
   AudioFX.init();
   AudioFX.tap();
@@ -2777,7 +3506,9 @@ function finalizeExam() {
         isCorrect: (finalScore >= 0.5),
         isWriting: true,
         score: finalScore,
-        feedback: autoGrade.feedback
+        feedback: autoGrade.feedback,
+        explanation: q.explanation || null,
+        image: q.image || null
       });
     } else {
       totalMCQ++;
@@ -2799,6 +3530,8 @@ function finalizeExam() {
         taskName: q.taskName,
         taskTitle: q.taskTitle,
         passage: q.passage || null,
+        explanation: q.explanation || null,
+        image: q.image || null,
         isCorrect: isCor,
         isWriting: false
       });
@@ -2811,6 +3544,8 @@ function finalizeExam() {
   
   const record = {
     id: "sub_" + Date.now(),
+    subject: AppState.currentSubject,
+    subjectName: (AppState.currentSubject === "physics" ? "Vật Lí 11" : "Tiếng Anh 11"),
     studentName: AppState.studentName,
     practiceMode: AppState.practiceMode,
     grade10: grade10,
@@ -2829,21 +3564,12 @@ function finalizeExam() {
   renderResultsScreen(record);
 }
 
-function saveStudentSubmission(record) {
-  try {
-    const list = JSON.parse(localStorage.getItem(SUBMISSIONS_KEY) || "[]");
-    list.unshift(record);
-    localStorage.setItem(SUBMISSIONS_KEY, JSON.stringify(list));
-  } catch(e) {
-    console.error("Failed to save submission", e);
-  }
-}
-
 // ==========================================================================
 // SCREEN 3: RESULTS & FULL IN-DEPTH REVIEW
 // ==========================================================================
 function renderResultsScreen(rec) {
   currentReviewRecord = rec;
+  const isPhy = (rec.subject === "physics");
   document.getElementById("topHeaderTitle").textContent = "Kết quả: " + rec.studentName;
   document.getElementById("timerChip").style.display = "none";
   document.getElementById("progressStrip").style.display = "none";
@@ -2853,7 +3579,9 @@ function renderResultsScreen(rec) {
   document.getElementById("btnMatrixTrigger").style.display = "none";
   
   const timeFormatted = Math.floor(rec.elapsedSeconds/60) + " phút " + (rec.elapsedSeconds%60) + " giây";
-  const pct = Math.round(((rec.correctMCQ + rec.writingScore) / (rec.totalMCQ + rec.writingMax)) * 100);
+  const achieved = (rec.correctMCQ + rec.writingScore);
+  const total = (rec.totalMCQ + rec.writingMax);
+  const pct = total > 0 ? Math.round((achieved / total) * 100) : 0;
   const totalCount = rec.breakdown.length;
   const correctCount = rec.breakdown.filter(x => x.isCorrect).length;
   const wrongCount = totalCount - correctCount;
@@ -2866,45 +3594,59 @@ function renderResultsScreen(rec) {
   viewport.innerHTML = `
     <div style="max-width:760px;margin:1.5rem auto;">
       <div class="report-card">
-        <div class="school-meta">BÁO CÁO KẾT QUẢ ÔN TẬP</div>
-        <h2 style="font-size:1.4rem;font-weight:800;margin-bottom:0.25rem;">` + escapeHtml(rec.studentName) + `</h2>
-        <div style="font-size:0.8rem;color:var(--text-tertiary);margin-bottom:1.5rem;">Thời gian hoàn thành: ` + timeFormatted + ` · Hình thức: ` + escapeHtml(rec.practiceMode) + `</div>
+        <div class="school-meta">
+          <span class="sub-badge sub-badge-${rec.subject || 'english'}" style="margin-right:0.4rem;">
+            ${isPhy ? '⚛️ Vật Lí 11' : '🇬🇧 Tiếng Anh 11'}
+          </span>
+          <span>BÁO CÁO KẾT QUẢ ÔN TẬP</span>
+        </div>
+        <h2 style="font-size:1.4rem;font-weight:800;margin-bottom:0.25rem;">${escapeHtml(rec.studentName)}</h2>
+        <div style="font-size:0.8rem;color:var(--text-tertiary);margin-bottom:1.5rem;">
+          Môn học: <b>${escapeHtml(rec.subjectName || (isPhy ? 'Vật Lí 11' : 'Tiếng Anh 11'))}</b> · Thời gian: ${timeFormatted} · Phạm vi: ${escapeHtml(rec.practiceMode)}
+        </div>
         
-        <div class="score-radial" style="border-color:` + gradeColor + `;">
-          <span class="score-number" style="color:` + gradeColor + `;">` + rec.grade10 + `</span>
+        <div class="score-radial" style="border-color:${gradeColor};">
+          <span class="score-number" style="color:${gradeColor};">${rec.grade10}</span>
           <span class="score-scale">Thang điểm 10</span>
         </div>
         
         <div class="report-stats-grid">
           <div class="stat-box">
-            <div class="stat-val" style="color:var(--success);">` + rec.correctMCQ + `</div>
+            <div class="stat-val" style="color:var(--success);">${rec.correctMCQ}</div>
             <div class="stat-lbl">Trắc nghiệm đúng</div>
           </div>
           <div class="stat-box">
-            <div class="stat-val" style="color:var(--danger);">` + (rec.totalMCQ - rec.correctMCQ) + `</div>
+            <div class="stat-val" style="color:var(--danger);">${rec.totalMCQ - rec.correctMCQ}</div>
             <div class="stat-lbl">Trắc nghiệm sai</div>
           </div>
+          ${rec.writingMax > 0 ? `
           <div class="stat-box">
-            <div class="stat-val" style="color:var(--accent-base);">` + (Math.round(rec.writingScore * 10) / 10) + ` / ` + rec.writingMax + `</div>
+            <div class="stat-val" style="color:var(--accent-base);">${Math.round(rec.writingScore * 10) / 10} / ${rec.writingMax}</div>
             <div class="stat-lbl">Điểm tự luận</div>
           </div>
+          ` : `
           <div class="stat-box">
-            <div class="stat-val">` + pct + `%</div>
+            <div class="stat-val" style="color:var(--accent-base);">${achieved} / ${total}</div>
+            <div class="stat-lbl">Tổng câu đúng</div>
+          </div>
+          `}
+          <div class="stat-box">
+            <div class="stat-val">${pct}%</div>
             <div class="stat-lbl">Tỉ lệ chính xác</div>
           </div>
         </div>
         
         <div style="display:flex;gap:0.65rem;justify-content:center;margin-top:1.5rem;flex-wrap:wrap;">
           <button class="btn-primary-action" style="width:auto;padding:0.75rem 1.4rem;" onclick="renderWelcomeScreen()">
-            ` + ICONS.arrowLeft + `
+            ${ICONS.arrowLeft}
             <span>Làm Lại Lần Nữa</span>
           </button>
           <button class="dock-nav-btn" onclick="openHistorySheet()">
-            ` + ICONS.history + `
+            ${ICONS.history}
             <span>Lịch Sử Làm Bài</span>
           </button>
           <button class="dock-nav-btn" onclick="showAdminView()">
-            ` + ICONS.chart + `
+            ${ICONS.chart}
             <span>Bảng Xếp Hạng</span>
           </button>
         </div>
@@ -2918,25 +3660,26 @@ function renderResultsScreen(rec) {
         </div>
         
         <div class="filter-pills-bar" style="margin-bottom:0;">
-          <button class="filter-pill-btn ` + (currentReviewFilter==='all'?'active':'') + `" onclick="setReviewFilter('all')">
-            <span>Tất cả (` + totalCount + `)</span>
+          <button class="filter-pill-btn ${currentReviewFilter === 'all' ? 'active' : ''}" onclick="setReviewFilter('all')">
+            <span>Tất cả (${totalCount})</span>
           </button>
-          <button class="filter-pill-btn ` + (currentReviewFilter==='wrong'?'active filter-wrong':'') + `" onclick="setReviewFilter('wrong')" style="color:var(--danger);">
-            ` + ICONS.x + `
-            <span>Chỉ câu sai (` + wrongCount + `)</span>
+          <button class="filter-pill-btn ${currentReviewFilter === 'wrong' ? 'active filter-wrong' : ''}" onclick="setReviewFilter('wrong')" style="color:var(--danger);">
+            ${ICONS.x}
+            <span>Chỉ câu sai (${wrongCount})</span>
           </button>
-          <button class="filter-pill-btn ` + (currentReviewFilter==='correct'?'active filter-correct':'') + `" onclick="setReviewFilter('correct')" style="color:var(--success);">
-            ` + ICONS.check + `
-            <span>Chỉ câu đúng (` + correctCount + `)</span>
+          <button class="filter-pill-btn ${currentReviewFilter === 'correct' ? 'active filter-correct' : ''}" onclick="setReviewFilter('correct')" style="color:var(--success);">
+            ${ICONS.check}
+            <span>Chỉ câu đúng (${correctCount})</span>
           </button>
         </div>
       </div>
       
       <div id="reviewListContainer">
-        ` + renderReviewItems(rec.breakdown, currentReviewFilter) + `
+        ${renderReviewItems(rec.breakdown, currentReviewFilter)}
       </div>
     </div>
   `;
+  requestAnimationFrame(() => triggerMathTypesetting(viewport));
 }
 
 function setReviewFilter(filterMode) {
@@ -2952,8 +3695,7 @@ function renderReviewItems(breakdown, filterMode) {
   let html = "";
   
   breakdown.forEach((rawItem, idx) => {
-    // 1. HYDRATE & BACKFILL from FlatQuestions for backwards compatibility with any existing user data
-    const orig = FlatQuestions.find(q => q.id === rawItem.id);
+    const orig = findQuestionById(rawItem.id, (currentReviewRecord && currentReviewRecord.subject) || AppState.currentSubject);
     const item = {
       ...(orig || {}),
       ...rawItem,
@@ -2966,11 +3708,12 @@ function renderReviewItems(breakdown, filterMode) {
       cue: rawItem.cue || (orig ? orig.cue : ''),
       model_answer: rawItem.model_answer || (orig ? orig.model_answer : ''),
       acceptable: rawItem.acceptable || (orig ? orig.acceptable : []),
+      explanation: rawItem.explanation || (orig ? orig.explanation : null),
+      image: rawItem.image || (orig ? orig.image : null),
       correctAnswerIdx: rawItem.correctAnswerIdx !== undefined ? rawItem.correctAnswerIdx : (orig ? orig.answer : undefined),
       correctLetter: rawItem.correctLetter || (orig && orig.answer !== undefined ? letters[orig.answer] : '')
     };
     
-    // Auto-resolve userChoiceIdx for old submissions
     if (item.userChoiceIdx === undefined && typeof item.userChoice === "string") {
       const uIdx = letters.indexOf(item.userChoice.trim().toUpperCase());
       if (uIdx !== -1) item.userChoiceIdx = uIdx;
@@ -3021,7 +3764,6 @@ function renderReviewItems(breakdown, filterMode) {
     let bodyContent = "";
     
     if (item.isWriting) {
-      // WRITING REVIEW
       let acceptableListHtml = "";
       if (item.acceptable && item.acceptable.length > 1) {
         const otherVariants = item.acceptable.filter(x => x !== item.correctAnswer).slice(0, 3);
@@ -3029,7 +3771,7 @@ function renderReviewItems(breakdown, filterMode) {
           acceptableListHtml = `
             <div style="margin-top:0.5rem;font-size:0.75rem;color:var(--text-tertiary);line-height:1.4;">
               <b>Biến thể hợp lệ khác:</b><br>
-              ` + otherVariants.map(v => `<span style="display:inline-block;margin-right:0.6rem;color:var(--text-secondary);">• ` + escapeHtml(v) + `</span>`).join("") + `
+              ${otherVariants.map(v => `<span style="display:inline-block;margin-right:0.6rem;color:var(--text-secondary);">• ${escapeHtml(v)}</span>`).join("")}
             </div>
           `;
         }
@@ -3038,25 +3780,24 @@ function renderReviewItems(breakdown, filterMode) {
       bodyContent = `
         <div style="background:var(--bg-surface);padding:0.85rem 1rem;border-radius:var(--radius-sm);margin-bottom:0.6rem;border:1px solid var(--border-subtle);">
           <div style="font-size:0.75rem;color:var(--accent-base);margin-bottom:0.4rem;font-family:var(--font-mono);">
-            Gợi ý mở đầu: <b>` + escapeHtml(item.cue || '') + `</b>
+            Gợi ý mở đầu: <b>${escapeHtml(item.cue || '')}</b>
           </div>
           <div style="font-size:0.9rem;color:var(--text-primary);margin-bottom:0.5rem;line-height:1.5;">
             <span style="color:var(--text-tertiary);">Câu bạn đã viết:</span> 
-            <b style="color:` + (item.userAns ? 'var(--text-primary)' : 'var(--danger)') + `;">` + escapeHtml(item.userAns || '(Bạn chưa nhập câu trả lời)') + `</b>
+            <b style="color:${item.userAns ? 'var(--text-primary)' : 'var(--danger)'};">${escapeHtml(item.userAns || '(Bạn chưa nhập câu trả lời)')}</b>
           </div>
           <div style="font-size:0.9rem;color:var(--success);margin-bottom:0.5rem;line-height:1.5;padding:0.5rem 0.75rem;background:var(--success-soft);border-radius:var(--radius-xs);">
             <span style="color:var(--text-tertiary);">Đáp án chuẩn của đề cương:</span><br>
-            <b>→ ` + escapeHtml(item.correctAnswer) + `</b>
+            <b>→ ${escapeHtml(item.correctAnswer)}</b>
           </div>
-          ` + acceptableListHtml + `
+          ${acceptableListHtml}
           <div style="display:flex;align-items:center;gap:0.75rem;font-size:0.8rem;color:var(--text-secondary);flex-wrap:wrap;margin-top:0.6rem;">
-            <span>Điểm đạt được: <b style="color:` + (item.score >= 0.5 ? 'var(--success)' : 'var(--danger)') + `;font-family:var(--font-mono);font-size:0.9rem;">` + item.score + ` / 1.0 điểm</b></span>
-            ` + (item.feedback ? `<span style="font-size:0.75rem;color:var(--text-tertiary);">(` + escapeHtml(item.feedback) + `)</span>` : '') + `
+            <span>Điểm đạt được: <b style="color:${item.score >= 0.5 ? 'var(--success)' : 'var(--danger)'};font-family:var(--font-mono);font-size:0.9rem;">${item.score} / 1.0 điểm</b></span>
+            ${item.feedback ? `<span style="font-size:0.75rem;color:var(--text-tertiary);">(${escapeHtml(item.feedback)})</span>` : ''}
           </div>
         </div>
       `;
     } else if (item.sentences && Object.keys(item.sentences).length > 0) {
-      // SENTENCE ORDER REVIEW (Sắp xếp câu)
       let frags = `
         <div style="font-size:0.78rem;font-weight:700;color:var(--accent-base);margin-bottom:0.4rem;display:flex;align-items:center;gap:0.35rem;">
           ${ICONS.book}
@@ -3065,7 +3806,7 @@ function renderReviewItems(breakdown, filterMode) {
         <div class="so-fragments-card" style="margin-bottom:0.85rem;">
       `;
       for (const [k, v] of Object.entries(item.sentences)) {
-        frags += `<div class="so-fragment-row"><span class="so-tag">` + k.toUpperCase() + `</span><span style="line-height:1.45;">` + escapeHtml(v) + `</span></div>`;
+        frags += `<div class="so-fragment-row"><span class="so-tag">${k.toUpperCase()}</span><span style="line-height:1.45;">${escapeHtml(v)}</span></div>`;
       }
       frags += `</div>`;
       
@@ -3093,23 +3834,21 @@ function renderReviewItems(breakdown, filterMode) {
         }
         
         opts += `
-          <div class="option-row ` + rowClass + `" style="cursor:default;">
-            <span class="opt-circle">` + letters[oIdx] + `</span>
-            <span class="option-text" style="font-weight:600;">` + escapeHtml(opt) + `</span>
-            ` + badgeHtml + `
+          <div class="option-row ${rowClass}" style="cursor:default;">
+            <span class="opt-circle">${letters[oIdx]}</span>
+            <span class="option-text" style="font-weight:600;">${renderMathAndText(opt)}</span>
+            ${badgeHtml}
           </div>
         `;
       });
       opts += `</div>`;
       
-      // Assembled text for correct answer
       let correctAssembled = "";
       if (item.options && item.options[item.correctAnswerIdx]) {
         const order = item.options[item.correctAnswerIdx].toLowerCase().match(/[a-f]/g) || [];
         correctAssembled = order.map(c => item.sentences[c] || "").filter(Boolean).join(" ");
       }
       
-      // Assembled text for student's wrong answer
       let userWrongAssembled = "";
       if (!item.isCorrect && item.userChoiceIdx !== undefined && item.options && item.options[item.userChoiceIdx]) {
         const userOrder = item.options[item.userChoiceIdx].toLowerCase().match(/[a-f]/g) || [];
@@ -3121,10 +3860,10 @@ function renderReviewItems(breakdown, filterMode) {
         previewsHtml += `
           <div class="so-live-preview-box" style="border-color:var(--success);background:var(--success-soft);margin-bottom:0.6rem;">
             <div class="so-preview-header" style="color:var(--success);font-weight:700;">
-              ` + ICONS.check + `
-              <span>Đoạn văn / Hội thoại hoàn chỉnh theo đáp án chuẩn (` + letters[item.correctAnswerIdx] + `):</span>
+              ${ICONS.check}
+              <span>Đoạn văn / Hội thoại hoàn chỉnh theo đáp án chuẩn (${letters[item.correctAnswerIdx]}):</span>
             </div>
-            <div class="so-preview-body" style="color:var(--text-primary);font-style:normal;line-height:1.6;font-size:0.88rem;">"` + escapeHtml(correctAssembled) + `"</div>
+            <div class="so-preview-body" style="color:var(--text-primary);font-style:normal;line-height:1.6;font-size:0.88rem;">"${escapeHtml(correctAssembled)}"</div>
           </div>
         `;
       }
@@ -3132,17 +3871,16 @@ function renderReviewItems(breakdown, filterMode) {
         previewsHtml += `
           <div class="so-live-preview-box" style="border-color:var(--danger);background:var(--danger-soft);">
             <div class="so-preview-header" style="color:var(--danger);font-weight:700;">
-              ` + ICONS.x + `
-              <span>Đoạn văn theo thứ tự bạn đã chọn (` + letters[item.userChoiceIdx] + ` - Chưa hợp lý):</span>
+              ${ICONS.x}
+              <span>Đoạn văn theo thứ tự bạn đã chọn (${letters[item.userChoiceIdx]} - Chưa hợp lý):</span>
             </div>
-            <div class="so-preview-body" style="color:var(--text-primary);font-style:normal;line-height:1.6;font-size:0.88rem;opacity:0.9;">"` + escapeHtml(userWrongAssembled) + `"</div>
+            <div class="so-preview-body" style="color:var(--text-primary);font-style:normal;line-height:1.6;font-size:0.88rem;opacity:0.9;">"${escapeHtml(userWrongAssembled)}"</div>
           </div>
         `;
       }
       
       bodyContent = frags + opts + previewsHtml;
     } else {
-      // STANDARD MCQ / CLOZE / READING REVIEW
       let opts = `
         <div style="font-size:0.78rem;font-weight:700;color:var(--text-secondary);margin-bottom:0.4rem;">
           CÁC PHƯƠNG ÁN LỰA CHỌN:
@@ -3167,30 +3905,64 @@ function renderReviewItems(breakdown, filterMode) {
         }
         
         opts += `
-          <div class="option-row ` + rowClass + `" style="cursor:default;">
-            <span class="opt-circle">` + letters[oIdx] + `</span>
-            <span class="option-text">` + escapeHtml(opt) + `</span>
-            ` + badgeHtml + `
+          <div class="option-row ${rowClass}" style="cursor:default;">
+            <span class="opt-circle">${letters[oIdx]}</span>
+            <span class="option-text">${renderMathAndText(opt)}</span>
+            ${badgeHtml}
           </div>
         `;
       });
       opts += `</div>`;
       
+      const userChoiceStr = (item.userChoiceIdx !== undefined && item.userChoiceIdx !== null && item.options[item.userChoiceIdx])
+        ? `${letters[item.userChoiceIdx]}. ${item.options[item.userChoiceIdx]}`
+        : (item.userChoice || "Chưa chọn");
+      const keyChoiceStr = (item.correctAnswerIdx !== undefined && item.options[item.correctAnswerIdx])
+        ? `${letters[item.correctAnswerIdx]}. ${item.options[item.correctAnswerIdx]}`
+        : item.correctLetter;
+        
       let summaryRow = `
         <div style="font-size:0.82rem;display:flex;gap:1.5rem;padding:0.6rem 0.85rem;background:var(--bg-surface);border-radius:var(--radius-xs);border:1px solid var(--border-subtle);flex-wrap:wrap;align-items:center;">
-          <div><span style="color:var(--text-tertiary);">Bạn đã chọn:</span> <b style="color:` + (item.isCorrect ? 'var(--success)' : 'var(--danger)') + `;">` + (item.userChoiceIdx !== undefined && item.userChoiceIdx !== null && item.options[item.userChoiceIdx] ? letters[item.userChoiceIdx] + '. ' + escapeHtml(item.options[item.userChoiceIdx]) : (item.userChoice || 'Chưa chọn')) + `</b></div>
-          <div><span style="color:var(--text-tertiary);">Đáp án chuẩn:</span> <b style="color:var(--success);">` + (item.correctAnswerIdx !== undefined && item.options[item.correctAnswerIdx] ? letters[item.correctAnswerIdx] + '. ' + escapeHtml(item.options[item.correctAnswerIdx]) : item.correctLetter) + `</b></div>
+          <div><span style="color:var(--text-tertiary);">Bạn đã chọn:</span> <b style="color:${item.isCorrect ? 'var(--success)' : 'var(--danger)'};">${renderMathAndText(userChoiceStr)}</b></div>
+          <div><span style="color:var(--text-tertiary);">Đáp án chuẩn:</span> <b style="color:var(--success);">${renderMathAndText(keyChoiceStr)}</b></div>
         </div>
       `;
       
       bodyContent = opts + summaryRow;
     }
     
+    let reviewImgHtml = "";
+    if (item.image) {
+      reviewImgHtml = `
+        <div class="q-image-card" style="margin-bottom:0.85rem;" onclick="openImageModal('${escapeHtml(item.image)}')">
+          <div class="q-image-wrapper">
+            <img src="${escapeHtml(item.image)}" alt="Hình minh họa" class="q-image" loading="lazy">
+          </div>
+          <div class="q-image-zoom-tag">
+            ${ICONS.search} <span>Nhấp để phóng to</span>
+          </div>
+        </div>
+      `;
+    }
+    
+    let explanationHtml = "";
+    if (item.explanation) {
+      explanationHtml = `
+        <div class="q-explanation-box">
+          <div class="q-explanation-header">
+            ${ICONS.sparkles}
+            <span>Lời giải chi tiết:</span>
+          </div>
+          <div class="q-explanation-body">${renderMathAndText(item.explanation)}</div>
+        </div>
+      `;
+    }
+    
     let passageBtn = "";
     if (item.passage) {
       passageBtn = `
-        <button class="dock-nav-btn" style="padding:0.25rem 0.65rem;font-size:0.74rem;gap:0.35rem;" onclick="viewPassageModalById('` + item.id + `')">
-          ` + ICONS.book + `
+        <button class="dock-nav-btn" style="padding:0.25rem 0.65rem;font-size:0.74rem;gap:0.35rem;" onclick="viewPassageModalById('${item.id}')">
+          ${ICONS.book}
           <span>Xem bài đọc / đoạn văn</span>
         </button>
       `;
@@ -3199,25 +3971,27 @@ function renderReviewItems(breakdown, filterMode) {
     const taskHeader = (item.sectionTitle ? escapeHtml(item.sectionTitle) + (item.taskName ? ' · ' + escapeHtml(item.taskName) : '') : escapeHtml(item.taskName || ''));
     
     html += `
-      <div class="question-envelope" style="border-left:4px solid ` + statusColor + `;margin-bottom:1.5rem;">
+      <div class="question-envelope" style="border-left:4px solid ${statusColor};margin-bottom:1.5rem;">
         <div class="q-header-row">
           <div class="q-badge-wrap">
-            <span class="q-idx-tag">` + escapeHtml(item.label || ('Câu ' + (idx + 1))) + `</span>
-            <span class="q-task-tag">` + taskHeader + `</span>
+            <span class="q-idx-tag">${escapeHtml(item.label || ('Câu ' + (idx + 1)))}</span>
+            <span class="q-task-tag">${taskHeader}</span>
           </div>
           
           <div style="display:flex;align-items:center;gap:0.5rem;">
-            ` + passageBtn + `
-            <span style="display:inline-flex;align-items:center;gap:0.3rem;font-size:0.72rem;font-weight:700;padding:0.2rem 0.55rem;border-radius:var(--radius-xs);background:` + statusBg + `;color:` + statusColor + `;">
-              ` + statusIcon + `
-              <span>` + statusText + `</span>
+            ${passageBtn}
+            <span style="display:inline-flex;align-items:center;gap:0.3rem;font-size:0.72rem;font-weight:700;padding:0.2rem 0.55rem;border-radius:var(--radius-xs);background:${statusBg};color:${statusColor};">
+              ${statusIcon}
+              <span>${statusText}</span>
             </span>
           </div>
         </div>
         
-        <div class="q-prompt-text" style="margin-bottom:0.85rem;font-weight:600;font-size:0.95rem;">` + escapeHtml(item.prompt) + `</div>
+        <div class="q-prompt-text" style="margin-bottom:0.85rem;font-weight:600;font-size:0.95rem;">${renderMathAndText(item.prompt)}</div>
         
-        ` + bodyContent + `
+        ${reviewImgHtml}
+        ${bodyContent}
+        ${explanationHtml}
       </div>
     `;
   });
@@ -3242,7 +4016,7 @@ function viewPassageModalById(qid) {
 }
 
 // ==========================================================================
-// HISTORY DRAWER CONTROLLERS
+// HISTORY DRAWER CONTROLLERS (MULTI-SUBJECT)
 // ==========================================================================
 function openHistorySheet() {
   AudioFX.init();
@@ -3256,23 +4030,54 @@ function closeHistorySheet(e) {
   document.getElementById("historySheet").classList.remove("open");
 }
 
+function setHistorySubjectFilter(sub) {
+  AudioFX.init();
+  AudioFX.tap();
+  historySubjectFilter = sub;
+  renderHistoryList();
+}
+
 function renderHistoryList() {
-  const records = JSON.parse(localStorage.getItem(SUBMISSIONS_KEY) || "[]");
+  const records = getAllSubmissions();
   const container = document.getElementById("historySheetBody");
   
-  if (!records.length) {
-    container.innerHTML = `
-      <div style="text-align:center;padding:3rem 1rem;color:var(--text-tertiary);">
-        ` + ICONS.history + `
-        <div style="margin-top:0.75rem;font-weight:600;color:var(--text-secondary);">Chưa có lịch sử làm bài nào</div>
+  const engRecs = records.filter(r => (r.subject || 'english') === 'english');
+  const phyRecs = records.filter(r => r.subject === 'physics');
+  
+  const filtered = records.filter(r => {
+    if (historySubjectFilter === 'english') return (r.subject || 'english') === 'english';
+    if (historySubjectFilter === 'physics') return r.subject === 'physics';
+    return true;
+  });
+  
+  let filterBar = `
+    <div class="filter-pills-bar" style="margin-bottom:1rem;">
+      <button class="filter-pill-btn ${historySubjectFilter==='all'?'active':''}" onclick="setHistorySubjectFilter('all')">
+        <span>Tất cả (${records.length})</span>
+      </button>
+      <button class="filter-pill-btn ${historySubjectFilter==='english'?'active':''}" onclick="setHistorySubjectFilter('english')">
+        <span>🇬🇧 Tiếng Anh (${engRecs.length})</span>
+      </button>
+      <button class="filter-pill-btn ${historySubjectFilter==='physics'?'active':''}" onclick="setHistorySubjectFilter('physics')">
+        <span>⚛️ Vật Lí (${phyRecs.length})</span>
+      </button>
+    </div>
+  `;
+  
+  if (!filtered.length) {
+    container.innerHTML = filterBar + `
+      <div style="text-align:center;padding:2.5rem 1rem;color:var(--text-tertiary);">
+        ${ICONS.history}
+        <div style="margin-top:0.75rem;font-weight:600;color:var(--text-secondary);">Chưa có lịch sử làm bài cho mục này</div>
         <div style="font-size:0.78rem;margin-top:0.25rem;line-height:1.45;">Hoàn thành bài thi và bấm "Nộp bài", toàn bộ kết quả cùng chi tiết đúng/sai sẽ được lưu trữ vĩnh viễn tại đây để bạn ôn tập!</div>
       </div>
     `;
     return;
   }
   
-  let html = `<div style="display:flex;flex-direction:column;gap:0.75rem;">`;
-  records.forEach((r, idx) => {
+  let html = filterBar + `<div style="display:flex;flex-direction:column;gap:0.75rem;">`;
+  filtered.forEach(r => {
+    const isPhy = (r.subject === 'physics');
     let scoreColor = "var(--success)";
     if (r.grade10 < 5.0) scoreColor = "var(--danger)";
     else if (r.grade10 < 8.0) scoreColor = "var(--warning)";
@@ -3287,23 +4092,26 @@ function renderHistoryList() {
     html += `
       <div style="background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--radius-md);padding:1rem 1.25rem;">
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.4rem;">
-          <span style="font-weight:700;font-size:0.95rem;color:var(--text-primary);">` + escapeHtml(r.studentName) + `</span>
-          <span style="font-family:var(--font-mono);font-size:1.25rem;font-weight:800;color:` + scoreColor + `;">` + r.grade10 + ` <span style="font-size:0.72rem;color:var(--text-tertiary);font-weight:600;">/ 10</span></span>
+          <div style="display:flex;align-items:center;gap:0.45rem;">
+            <span class="sub-badge sub-badge-${r.subject || 'english'}">${isPhy ? '⚛️ Vật Lí 11' : '🇬🇧 Tiếng Anh 11'}</span>
+            <span style="font-weight:700;font-size:0.95rem;color:var(--text-primary);">${escapeHtml(r.studentName)}</span>
+          </div>
+          <span style="font-family:var(--font-mono);font-size:1.25rem;font-weight:800;color:${scoreColor};">${r.grade10} <span style="font-size:0.72rem;color:var(--text-tertiary);font-weight:600;">/ 10</span></span>
         </div>
         
         <div style="font-size:0.78rem;color:var(--text-tertiary);line-height:1.5;margin-bottom:0.75rem;">
-          <div>• Nộp bài: <b>` + dateFormatted + `</b></div>
-          <div>• Đúng: <b style="color:var(--success);">` + achieved + `/` + total + ` câu</b> (` + pct + `%) · Thời gian làm: <b>` + duration + `</b></div>
-          <div>• Hình thức: <b>` + escapeHtml(r.practiceMode) + `</b></div>
+          <div>• Nộp bài: <b>${dateFormatted}</b></div>
+          <div>• Đúng: <b style="color:var(--success);">${achieved}/${total} câu</b> (${pct}%) · Thời gian làm: <b>${duration}</b></div>
+          <div>• Phạm vi: <b>${escapeHtml(r.practiceMode)}</b></div>
         </div>
         
         <div style="display:flex;gap:0.5rem;align-items:center;">
-          <button class="btn-primary-action" style="padding:0.45rem 0.95rem;font-size:0.78rem;width:auto;" onclick="revisitHistoryRecord('` + r.id + `')">
-            ` + ICONS.eye + `
+          <button class="btn-primary-action" style="padding:0.45rem 0.95rem;font-size:0.78rem;width:auto;" onclick="revisitHistoryRecord('${r.id}')">
+            ${ICONS.eye}
             <span>Xem lại chi tiết bài này</span>
           </button>
-          <button class="dock-nav-btn" style="padding:0.45rem 0.75rem;font-size:0.78rem;color:var(--danger);" onclick="deleteHistoryRecord('` + r.id + `')" title="Xóa lần thi này">
-            ` + ICONS.trash + `
+          <button class="dock-nav-btn" style="padding:0.45rem 0.75rem;font-size:0.78rem;color:var(--danger);" onclick="deleteHistoryRecord('${r.id}')" title="Xóa lần thi này">
+            ${ICONS.trash}
           </button>
         </div>
       </div>
@@ -3313,7 +4121,7 @@ function renderHistoryList() {
   html += `
     <div style="text-align:center;margin-top:1.25rem;">
       <button class="dock-nav-btn" style="color:var(--danger);font-size:0.75rem;margin:0 auto;" onclick="clearAllHistory()">
-        ` + ICONS.trash + `
+        ${ICONS.trash}
         <span>Xóa toàn bộ lịch sử thi</span>
       </button>
     </div>
@@ -3324,9 +4132,15 @@ function renderHistoryList() {
 
 function revisitHistoryRecord(subId) {
   closeHistorySheet();
-  const records = JSON.parse(localStorage.getItem(SUBMISSIONS_KEY) || "[]");
+  const records = getAllSubmissions();
   const rec = records.find(r => r.id === subId);
   if (rec) {
+    if (rec.subject && rec.subject !== AppState.currentSubject) {
+      AppState.currentSubject = rec.subject;
+      localStorage.setItem("quiz_subject", rec.subject);
+      initFlattenedQuestions();
+      updateTopSubjectBadge();
+    }
     currentReviewRecord = rec;
     currentReviewFilter = "all";
     renderResultsScreen(rec);
@@ -3336,7 +4150,7 @@ function revisitHistoryRecord(subId) {
 
 function deleteHistoryRecord(subId) {
   if (confirm("Bạn có chắc chắn muốn xóa lượt làm bài này khỏi lịch sử?")) {
-    let records = JSON.parse(localStorage.getItem(SUBMISSIONS_KEY) || "[]");
+    let records = getAllSubmissions();
     records = records.filter(r => r.id !== subId);
     localStorage.setItem(SUBMISSIONS_KEY, JSON.stringify(records));
     renderHistoryList();
@@ -3346,10 +4160,20 @@ function deleteHistoryRecord(subId) {
 function clearAllHistory() {
   if (confirm("Bạn có chắc muốn xóa toàn bộ lịch sử các lần thi?")) {
     localStorage.removeItem(SUBMISSIONS_KEY);
+    localStorage.removeItem(LEGACY_SUBMISSIONS_KEY);
     renderHistoryList();
   }
 }
 
+// ==========================================================================
+// ADMIN DASHBOARD (MULTI-SUBJECT)
+// ==========================================================================
+function setAdminSubjectFilter(sub) {
+  AudioFX.init();
+  AudioFX.tap();
+  adminSubjectFilter = sub;
+  showAdminView();
+}
 
 function showAdminView() {
   stopTimer();
@@ -3362,7 +4186,15 @@ function showAdminView() {
   document.getElementById("bottomDock").style.display = "none";
   document.getElementById("btnMatrixTrigger").style.display = "none";
   
-  const records = JSON.parse(localStorage.getItem(SUBMISSIONS_KEY) || "[]");
+  const allRecords = getAllSubmissions();
+  const engRecords = allRecords.filter(r => (r.subject || 'english') === 'english');
+  const phyRecords = allRecords.filter(r => r.subject === 'physics');
+  
+  const records = allRecords.filter(r => {
+    if (adminSubjectFilter === 'english') return (r.subject || 'english') === 'english';
+    if (adminSubjectFilter === 'physics') return r.subject === 'physics';
+    return true;
+  });
   
   const totalSubmissions = records.length;
   const avgScore = totalSubmissions ? (records.reduce((s, r) => s + r.grade10, 0) / totalSubmissions).toFixed(1) : "0.0";
@@ -3376,7 +4208,7 @@ function showAdminView() {
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;flex-wrap:wrap;gap:1rem;">
         <div>
           <h2 style="font-size:1.4rem;font-weight:800;">Bảng Theo Dõi Học Sinh</h2>
-          <p style="font-size:0.8rem;color:var(--text-tertiary);">Theo dõi tiến độ, điểm số và bài làm chi tiết theo thời gian thực</p>
+          <p style="font-size:0.8rem;color:var(--text-tertiary);">Theo dõi tiến độ, điểm số và bài làm chi tiết (Tiếng Anh 11 & Vật Lí 11)</p>
         </div>
         
         <div style="display:flex;gap:0.5rem;">
@@ -3389,6 +4221,19 @@ function showAdminView() {
             <span>Về Bài Thi</span>
           </button>
         </div>
+      </div>
+      
+      <!-- SUBJECT FILTER TABS -->
+      <div class="filter-pills-bar" style="margin-bottom:1.25rem;">
+        <button class="filter-pill-btn ${adminSubjectFilter==='all'?'active':''}" onclick="setAdminSubjectFilter('all')">
+          <span>Tất cả các môn (${allRecords.length})</span>
+        </button>
+        <button class="filter-pill-btn ${adminSubjectFilter==='english'?'active':''}" onclick="setAdminSubjectFilter('english')">
+          <span>🇬🇧 Tiếng Anh 11 (${engRecords.length})</span>
+        </button>
+        <button class="filter-pill-btn ${adminSubjectFilter==='physics'?'active':''}" onclick="setAdminSubjectFilter('physics')">
+          <span>⚛️ Vật Lí 11 (${phyRecords.length})</span>
+        </button>
       </div>
       
       <div class="report-stats-grid" style="margin-bottom:1.5rem;">
@@ -3427,6 +4272,7 @@ function showAdminView() {
             <thead>
               <tr>
                 <th>Học sinh</th>
+                <th>Môn học</th>
                 <th>Hình thức</th>
                 <th>Điểm</th>
                 <th>Thời gian</th>
@@ -3446,10 +4292,11 @@ function showAdminView() {
 
 function renderAdminTableRows(records) {
   if (!records.length) {
-    return `<tr><td colspan="6" style="text-align:center;padding:2.5rem;color:var(--text-tertiary);">Chưa có lượt nộp bài nào. Học sinh làm xong và bấm "Nộp bài" kết quả sẽ hiển thị tại đây!</td></tr>`;
+    return `<tr><td colspan="7" style="text-align:center;padding:2.5rem;color:var(--text-tertiary);">Chưa có lượt nộp bài nào thỏa mãn bộ lọc.</td></tr>`;
   }
   
-  return records.map((r, i) => {
+  return records.map(r => {
+    const isPhy = (r.subject === 'physics');
     let scoreColor = "var(--success)";
     if (r.grade10 < 5.0) scoreColor = "var(--danger)";
     else if (r.grade10 < 8.0) scoreColor = "var(--warning)";
@@ -3461,6 +4308,7 @@ function renderAdminTableRows(records) {
     return `
       <tr>
         <td><span class="student-name" onclick="viewStudentDetail('${r.id}')">${escapeHtml(r.studentName)}</span></td>
+        <td><span class="sub-badge sub-badge-${r.subject || 'english'}">${isPhy ? '⚛️ LÝ 11' : '🇬🇧 ENG 11'}</span></td>
         <td><span style="font-size:0.75rem;padding:0.15rem 0.45rem;border-radius:var(--radius-xs);background:var(--bg-surface-elevated);">${escapeHtml(r.practiceMode)}</span></td>
         <td><b style="color:${scoreColor};font-family:var(--font-mono);font-size:0.95rem;">${r.grade10}</b> / 10</td>
         <td style="font-family:var(--font-mono);">${duration}</td>
@@ -3474,16 +4322,18 @@ function renderAdminTableRows(records) {
 }
 
 function filterAdminTable(query) {
-  const records = JSON.parse(localStorage.getItem(SUBMISSIONS_KEY) || "[]");
-  const filtered = records.filter(r => r.studentName.toLowerCase().includes(query.toLowerCase()));
+  const allRecords = getAllSubmissions();
+  const filteredBySubject = allRecords.filter(r => {
+    if (adminSubjectFilter === 'english') return (r.subject || 'english') === 'english';
+    if (adminSubjectFilter === 'physics') return r.subject === 'physics';
+    return true;
+  });
+  const filtered = filteredBySubject.filter(r => r.studentName.toLowerCase().includes(query.toLowerCase()));
   document.getElementById("adminTableBody").innerHTML = renderAdminTableRows(filtered);
 }
 
-let currentAdminViewRecord = null;
-let currentAdminFilter = "all";
-
 function viewStudentDetail(subId) {
-  const records = JSON.parse(localStorage.getItem(SUBMISSIONS_KEY) || "[]");
+  const records = getAllSubmissions();
   const rec = records.find(r => r.id === subId);
   if (!rec) return;
   
@@ -3504,6 +4354,7 @@ function setAdminDetailFilter(filterMode) {
 function renderAdminStudentDetailModal() {
   if (!currentAdminViewRecord) return;
   const rec = currentAdminViewRecord;
+  const isPhy = (rec.subject === 'physics');
   
   const totalCount = rec.breakdown.length;
   const correctCount = rec.breakdown.filter(x => x.isCorrect).length;
@@ -3514,7 +4365,7 @@ function renderAdminStudentDetailModal() {
   else if (rec.grade10 < 8.0) scoreColor = "var(--warning)";
   
   document.getElementById("studentDetailTitle").innerHTML = `
-    <span>Bài làm của: <b>${escapeHtml(rec.studentName)}</b></span>
+    <span>Bài làm của: <b>${escapeHtml(rec.studentName)}</b> (${isPhy ? '⚛️ Vật Lí 11' : '🇬🇧 Tiếng Anh 11'})</span>
     <span style="font-family:var(--font-mono);color:${scoreColor};font-size:1.1rem;font-weight:800;margin-left:0.5rem;">${rec.grade10}/10đ</span>
   `;
   
@@ -3522,11 +4373,10 @@ function renderAdminStudentDetailModal() {
   container.innerHTML = `
     <div style="margin-bottom:1.25rem;background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--radius-sm);padding:0.75rem 1rem;">
       <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;font-size:0.8rem;color:var(--text-secondary);margin-bottom:0.75rem;">
-        <div>Hình thức: <b>${escapeHtml(rec.practiceMode)}</b> · Thời gian làm: <b>${Math.floor(rec.elapsedSeconds/60)}p ${rec.elapsedSeconds%60}s</b></div>
+        <div>Môn: <b>${escapeHtml(rec.subjectName || (isPhy ? 'Vật Lí 11' : 'Tiếng Anh 11'))}</b> · Hình thức: <b>${escapeHtml(rec.practiceMode)}</b> · Thời gian: <b>${Math.floor(rec.elapsedSeconds/60)}p ${rec.elapsedSeconds%60}s</b></div>
         <div>Trắc nghiệm: <b style="color:var(--success);">${rec.correctMCQ}/${rec.totalMCQ}</b> · Tự luận: <b style="color:var(--accent-base);">${Math.round(rec.writingScore*10)/10}/${rec.writingMax}</b></div>
       </div>
       
-      <!-- FILTER BUTTONS IN ADMIN DETAIL -->
       <div class="filter-pills-bar" style="margin-bottom:0;">
         <button class="filter-pill-btn ${currentAdminFilter==='all'?'active':''}" onclick="setAdminDetailFilter('all')">
           <span>Tất cả (${totalCount})</span>
@@ -3546,6 +4396,7 @@ function renderAdminStudentDetailModal() {
       ${renderReviewItems(rec.breakdown, currentAdminFilter)}
     </div>
   `;
+  requestAnimationFrame(() => triggerMathTypesetting(container));
 }
 
 function closeStudentDetailSheet(e) {
@@ -3554,18 +4405,20 @@ function closeStudentDetailSheet(e) {
 }
 
 function exportSubmissionsCSV() {
-  const records = JSON.parse(localStorage.getItem(SUBMISSIONS_KEY) || "[]");
+  const records = getAllSubmissions();
   if (!records.length) {
     alert("Chưa có dữ liệu học sinh để xuất file CSV!");
     return;
   }
   
   let csv = "\uFEFF";
-  csv += "Họ và Tên,Hình Thức,Điểm Số (/10),Số Câu Đúng,Tổng Câu,Thời Gian (Giây),Thời Gian Nộp\n";
+  csv += "Họ và Tên,Môn Học,Hình Thức,Điểm Số (/10),Số Câu Đúng,Tổng Câu,Thời Gian (Giây),Thời Gian Nộp\n";
   
   records.forEach(r => {
+    const subName = (r.subject === 'physics' ? 'Vật Lí 11' : 'Tiếng Anh 11');
     const row = [
       `"${r.studentName.replace(/"/g, '""')}"`,
+      `"${subName}"`,
       `"${r.practiceMode}"`,
       r.grade10,
       r.correctMCQ + r.writingScore,
@@ -3580,7 +4433,7 @@ function exportSubmissionsCSV() {
   const url = URL.createObjectURL(blob);
   const link = document.createElement("a");
   link.setAttribute("href", url);
-  link.setAttribute("download", `diem-tieng-anh-11-thpt-vinh-tuan-${Date.now()}.csv`);
+  link.setAttribute("download", `diem-kiem-tra-thpt-vinh-tuan-${Date.now()}.csv`);
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
@@ -3589,6 +4442,7 @@ function exportSubmissionsCSV() {
 function clearAllSubmissions() {
   if (confirm("Bạn có chắc chắn muốn xóa toàn bộ lịch sử điểm số của học sinh?")) {
     localStorage.removeItem(SUBMISSIONS_KEY);
+    localStorage.removeItem(LEGACY_SUBMISSIONS_KEY);
     showAdminView();
   }
 }
@@ -3610,6 +4464,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const savedTheme = localStorage.getItem(STORAGE_PREFIX + "theme") || "dark";
   applyTheme(savedTheme);
   initFlattenedQuestions();
+  updateTopSubjectBadge();
   renderWelcomeScreen();
 });
 </script>
