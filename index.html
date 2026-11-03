@@ -10,7 +10,7 @@
 <script>
   // AUTO-REDIRECT CACHE BUSTER FOR ALL USERS
   (function() {
-    var APP_BUILD_TAG = "20261103_0100";
+    var APP_BUILD_TAG = "20261103_0200";
     var p = new URLSearchParams(window.location.search);
     if (p.get("v") !== APP_BUILD_TAG) {
       p.set("v", APP_BUILD_TAG);
@@ -1338,6 +1338,40 @@ a {
   background: var(--accent-soft);
   box-shadow: 0 0 16px var(--accent-glow);
 }
+.subject-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  color: var(--accent-base);
+  flex-shrink: 0;
+  transition: all var(--transition);
+}
+.subject-icon-wrap svg {
+  width: 22px;
+  height: 22px;
+}
+.subject-pill-btn.active .subject-icon-wrap {
+  background: var(--accent-base);
+  color: #ffffff;
+  border-color: var(--accent-base);
+  box-shadow: 0 2px 8px var(--accent-glow);
+}
+.opt-badge svg {
+  width: 12px;
+  height: 12px;
+  margin-right: 0.3rem;
+  vertical-align: -1px;
+}
+.sub-badge svg {
+  width: 13px;
+  height: 13px;
+  vertical-align: -2px;
+}
 .subject-pill-left {
   display: flex;
   align-items: center;
@@ -1805,7 +1839,7 @@ a {
     </div>
     
     <div style="margin-top:1rem;font-size:0.75rem;color:var(--text-tertiary);line-height:1.45;text-align:center;">
-      💡 Hệ thống tự động ghi nhớ môn bạn đang chọn và lưu riêng tiến độ & lịch sử cho từng môn.
+      <span style="color:var(--accent-base);display:inline-flex;align-items:center;margin-right:0.35rem;"><svg class="v-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg></span> Hệ thống tự động ghi nhớ môn bạn đang chọn và lưu riêng tiến độ & lịch sử cho từng môn.
     </div>
   </div>
 </div>
@@ -1840,7 +1874,10 @@ const ICONS = {
   chart: `<svg class="v-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="20" y2="10"/><line x1="18" x2="18" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="16"/></svg>`,
   download: `<svg class="v-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>`,
   trash: `<svg class="v-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></svg>`,
-  search: `<svg class="v-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>`
+  search: `<svg class="v-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>`,
+  languages: `<svg class="v-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></svg>`,
+  atom: `<svg class="v-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2.5"/><ellipse cx="12" cy="12" rx="9" ry="3.8" transform="rotate(0 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="3.8" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="3.8" transform="rotate(120 12 12)"/></svg>`,
+  bulb: `<svg class="v-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>`
 };
 
 /* ==========================================================================
@@ -1856,7 +1893,7 @@ const SUBJECT_CONFIG = {
   english: {
     code: "ENG 11",
     name: "Tiếng Anh 11",
-    flag: "🇬🇧",
+    iconKey: "languages",
     school: "SỞ GD&ĐT AN GIANG · THPT VĨNH THUẬN",
     title: "Đề Cương Tiếng Anh 11",
     subtitle: "Hệ thống ôn luyện & kiểm tra giữa học kỳ I (Chương trình Global Success). Đầy đủ 89 câu hỏi kèm đáp án chuẩn giáo viên.",
@@ -1865,7 +1902,7 @@ const SUBJECT_CONFIG = {
   physics: {
     code: "LÝ 11",
     name: "Vật Lí 11",
-    flag: "⚛️",
+    iconKey: "atom",
     school: "SỞ GD&ĐT AN GIANG · THPT VĨNH THUẬN",
     title: "Đề Cương Vật Lí 11",
     subtitle: "Hệ thống ôn luyện Chuyên đề 1: Dao động cơ học (Vật Lí 11). Kèm 160 câu hỏi, công thức KaTeX, đồ thị và lời giải chi tiết.",
@@ -2390,7 +2427,7 @@ function showSubjectSwitchModal() {
   list.innerHTML = `
     <button class="subject-pill-btn ${AppState.currentSubject === 'english' ? 'active' : ''}" onclick="switchSubject('english')">
       <div class="subject-pill-left">
-        <span class="subject-emoji">🇬🇧</span>
+        <span class="subject-icon-wrap">${ICONS.languages}</span>
         <div>
           <span class="subject-title">Tiếng Anh 11</span>
           <span class="subject-subtitle">Đề cương Ôn thi Giữa HK1 (Global Success)</span>
@@ -2401,7 +2438,7 @@ function showSubjectSwitchModal() {
     
     <button class="subject-pill-btn ${AppState.currentSubject === 'physics' ? 'active' : ''}" onclick="switchSubject('physics')">
       <div class="subject-pill-left">
-        <span class="subject-emoji">⚛️</span>
+        <span class="subject-icon-wrap">${ICONS.atom}</span>
         <div>
           <span class="subject-title">Vật Lí 11</span>
           <span class="subject-subtitle">Chuyên đề 1: Dao động cơ học</span>
@@ -2526,7 +2563,7 @@ function renderWelcomeScreen() {
         <div class="subject-picker-row">
           <button class="subject-pill-btn ${AppState.currentSubject === 'english' ? 'active' : ''}" onclick="switchSubject('english')">
             <div class="subject-pill-left">
-              <span class="subject-emoji">🇬🇧</span>
+              <span class="subject-icon-wrap">${ICONS.languages}</span>
               <div>
                 <span class="subject-title">Tiếng Anh 11</span>
                 <span class="subject-subtitle">Global Success · HK1</span>
@@ -2537,7 +2574,7 @@ function renderWelcomeScreen() {
           
           <button class="subject-pill-btn ${AppState.currentSubject === 'physics' ? 'active' : ''}" onclick="switchSubject('physics')">
             <div class="subject-pill-left">
-              <span class="subject-emoji">⚛️</span>
+              <span class="subject-icon-wrap">${ICONS.atom}</span>
               <div>
                 <span class="subject-title">Vật Lí 11</span>
                 <span class="subject-subtitle">Chuyên đề 1: Dao động</span>
@@ -3596,7 +3633,7 @@ function renderResultsScreen(rec) {
       <div class="report-card">
         <div class="school-meta">
           <span class="sub-badge sub-badge-${rec.subject || 'english'}" style="margin-right:0.4rem;">
-            ${isPhy ? '⚛️ Vật Lí 11' : '🇬🇧 Tiếng Anh 11'}
+            ${isPhy ? ICONS.atom : ICONS.languages} <span>${isPhy ? 'Vật Lí 11' : 'Tiếng Anh 11'}</span>
           </span>
           <span>BÁO CÁO KẾT QUẢ ÔN TẬP</span>
         </div>
@@ -3824,13 +3861,13 @@ function renderReviewItems(breakdown, filterMode) {
         let badgeHtml = "";
         if (isUserPick && isKey) {
           rowClass = "revealed-correct";
-          badgeHtml = `<span class="opt-badge badge-good">✓ Lựa chọn của bạn (Chính xác)</span>`;
+          badgeHtml = `<span class="opt-badge badge-good">${ICONS.check} Lựa chọn của bạn (Chính xác)</span>`;
         } else if (isUserPick && !isKey) {
           rowClass = "revealed-wrong";
-          badgeHtml = `<span class="opt-badge badge-bad">✗ Lựa chọn của bạn (Chưa đúng)</span>`;
+          badgeHtml = `<span class="opt-badge badge-bad">${ICONS.x} Lựa chọn của bạn (Chưa đúng)</span>`;
         } else if (isKey) {
           rowClass = "revealed-correct";
-          badgeHtml = `<span class="opt-badge badge-good">✓ Đáp án chuẩn</span>`;
+          badgeHtml = `<span class="opt-badge badge-good">${ICONS.check} Đáp án chuẩn</span>`;
         }
         
         opts += `
@@ -3895,13 +3932,13 @@ function renderReviewItems(breakdown, filterMode) {
         let badgeHtml = "";
         if (isUserPick && isKey) {
           rowClass = "revealed-correct";
-          badgeHtml = `<span class="opt-badge badge-good">✓ Lựa chọn của bạn (Chính xác)</span>`;
+          badgeHtml = `<span class="opt-badge badge-good">${ICONS.check} Lựa chọn của bạn (Chính xác)</span>`;
         } else if (isUserPick && !isKey) {
           rowClass = "revealed-wrong";
-          badgeHtml = `<span class="opt-badge badge-bad">✗ Lựa chọn của bạn (Chưa đúng)</span>`;
+          badgeHtml = `<span class="opt-badge badge-bad">${ICONS.x} Lựa chọn của bạn (Chưa đúng)</span>`;
         } else if (isKey) {
           rowClass = "revealed-correct";
-          badgeHtml = `<span class="opt-badge badge-good">✓ Đáp án chuẩn</span>`;
+          badgeHtml = `<span class="opt-badge badge-good">${ICONS.check} Đáp án chuẩn</span>`;
         }
         
         opts += `
@@ -4056,10 +4093,10 @@ function renderHistoryList() {
         <span>Tất cả (${records.length})</span>
       </button>
       <button class="filter-pill-btn ${historySubjectFilter==='english'?'active':''}" onclick="setHistorySubjectFilter('english')">
-        <span>🇬🇧 Tiếng Anh (${engRecs.length})</span>
+        ${ICONS.languages} <span>Tiếng Anh (${engRecs.length})</span>
       </button>
       <button class="filter-pill-btn ${historySubjectFilter==='physics'?'active':''}" onclick="setHistorySubjectFilter('physics')">
-        <span>⚛️ Vật Lí (${phyRecs.length})</span>
+        ${ICONS.atom} <span>Vật Lí (${phyRecs.length})</span>
       </button>
     </div>
   `;
@@ -4093,7 +4130,7 @@ function renderHistoryList() {
       <div style="background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--radius-md);padding:1rem 1.25rem;">
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.4rem;">
           <div style="display:flex;align-items:center;gap:0.45rem;">
-            <span class="sub-badge sub-badge-${r.subject || 'english'}">${isPhy ? '⚛️ Vật Lí 11' : '🇬🇧 Tiếng Anh 11'}</span>
+            <span class="sub-badge sub-badge-${r.subject || 'english'}">${isPhy ? ICONS.atom : ICONS.languages} <span>${isPhy ? 'Vật Lí 11' : 'Tiếng Anh 11'}</span></span>
             <span style="font-weight:700;font-size:0.95rem;color:var(--text-primary);">${escapeHtml(r.studentName)}</span>
           </div>
           <span style="font-family:var(--font-mono);font-size:1.25rem;font-weight:800;color:${scoreColor};">${r.grade10} <span style="font-size:0.72rem;color:var(--text-tertiary);font-weight:600;">/ 10</span></span>
@@ -4229,10 +4266,10 @@ function showAdminView() {
           <span>Tất cả các môn (${allRecords.length})</span>
         </button>
         <button class="filter-pill-btn ${adminSubjectFilter==='english'?'active':''}" onclick="setAdminSubjectFilter('english')">
-          <span>🇬🇧 Tiếng Anh 11 (${engRecords.length})</span>
+          ${ICONS.languages} <span>Tiếng Anh 11 (${engRecords.length})</span>
         </button>
         <button class="filter-pill-btn ${adminSubjectFilter==='physics'?'active':''}" onclick="setAdminSubjectFilter('physics')">
-          <span>⚛️ Vật Lí 11 (${phyRecords.length})</span>
+          ${ICONS.atom} <span>Vật Lí 11 (${phyRecords.length})</span>
         </button>
       </div>
       
@@ -4308,7 +4345,7 @@ function renderAdminTableRows(records) {
     return `
       <tr>
         <td><span class="student-name" onclick="viewStudentDetail('${r.id}')">${escapeHtml(r.studentName)}</span></td>
-        <td><span class="sub-badge sub-badge-${r.subject || 'english'}">${isPhy ? '⚛️ LÝ 11' : '🇬🇧 ENG 11'}</span></td>
+        <td><span class="sub-badge sub-badge-${r.subject || 'english'}">${isPhy ? ICONS.atom : ICONS.languages} <span>${isPhy ? 'LÝ 11' : 'ENG 11'}</span></span></td>
         <td><span style="font-size:0.75rem;padding:0.15rem 0.45rem;border-radius:var(--radius-xs);background:var(--bg-surface-elevated);">${escapeHtml(r.practiceMode)}</span></td>
         <td><b style="color:${scoreColor};font-family:var(--font-mono);font-size:0.95rem;">${r.grade10}</b> / 10</td>
         <td style="font-family:var(--font-mono);">${duration}</td>
@@ -4365,7 +4402,7 @@ function renderAdminStudentDetailModal() {
   else if (rec.grade10 < 8.0) scoreColor = "var(--warning)";
   
   document.getElementById("studentDetailTitle").innerHTML = `
-    <span>Bài làm của: <b>${escapeHtml(rec.studentName)}</b> (${isPhy ? '⚛️ Vật Lí 11' : '🇬🇧 Tiếng Anh 11'})</span>
+    <span>Bài làm của: <b>${escapeHtml(rec.studentName)}</b> (${isPhy ? ICONS.atom : ICONS.languages} ${isPhy ? 'Vật Lí 11' : 'Tiếng Anh 11'})</span>
     <span style="font-family:var(--font-mono);color:${scoreColor};font-size:1.1rem;font-weight:800;margin-left:0.5rem;">${rec.grade10}/10đ</span>
   `;
   
