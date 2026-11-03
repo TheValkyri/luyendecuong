@@ -10,7 +10,7 @@
 <script>
   // AUTO-REDIRECT CACHE BUSTER FOR ALL USERS
   (function() {
-    var APP_BUILD_TAG = "20261103_0200";
+    var APP_BUILD_TAG = "20261103_0300";
     var p = new URLSearchParams(window.location.search);
     if (p.get("v") !== APP_BUILD_TAG) {
       p.set("v", APP_BUILD_TAG);
@@ -2492,66 +2492,91 @@ function renderWelcomeScreen() {
   const engCount = getEnglishCount();
   const phyCount = getPhysicsCount();
   
-  let modeCardsHtml = `
-    <div class="mode-option-card ${AppState.practiceMode === 'full' ? 'active' : ''}" onclick="setPracticeMode('full', this)">
-      <div class="mode-header">
-        ${ICONS.sparkles}
-        <span class="mode-name">Toàn bộ đề thi (${FlatQuestions.length} câu)</span>
+  const isPhy = (AppState.currentSubject === 'physics');
+  const totalCount = FlatQuestions.length;
+  
+  // PRIMARY SCOPE CARD: Toàn bộ đề thi
+  const isFullAct = (AppState.practiceMode === 'full');
+  const fullDesc = isPhy 
+    ? 'Ôn luyện toàn diện tất cả 10 bài học Chuyên đề 1 (160 câu)' 
+    : 'Luyện tập tổng hợp đầy đủ cả 4 dạng: Điền từ, Đọc hiểu, Sắp xếp câu & Viết lại câu';
+    
+  let scopeSelectorHtml = `
+    <div class="scope-selector-wrap">
+      <div class="scope-section-label">
+        <span>Phạm vi ôn luyện</span>
+        <span>Mặc định: Toàn bộ đề</span>
       </div>
-      <div class="mode-desc">Luyện tập đầy đủ toàn bộ câu hỏi chuẩn kiến thức</div>
-    </div>
+      
+      <div class="scope-primary-card ${isFullAct ? 'active' : ''}" onclick="setPracticeMode('full', this)">
+        <div class="scope-primary-left">
+          <div class="scope-icon-box">${ICONS.sparkles}</div>
+          <div style="min-width:0;flex:1;">
+            <div class="scope-primary-title">Toàn bộ đề thi (${totalCount} câu)</div>
+            <div class="scope-primary-desc">${fullDesc}</div>
+          </div>
+        </div>
+        <span class="scope-badge-count">${totalCount} câu</span>
+      </div>
+      
+      <div class="scope-section-label" style="margin-top:1rem;">
+        <span>Hoặc chọn bài / dạng học trọng tâm</span>
+      </div>
+      
+      <div class="topic-pills-grid">
   `;
   
-  if (AppState.currentSubject === 'english') {
-    modeCardsHtml += `
-      <div class="mode-option-card ${AppState.practiceMode === 'sentence_order' ? 'active' : ''}" onclick="setPracticeMode('sentence_order', this)">
-        <div class="mode-header">
-          ${ICONS.puzzle}
-          <span class="mode-name">Sắp xếp câu (22 câu)</span>
-        </div>
-        <div class="mode-desc">Tập trung luyện dạng khó có tính năng ghép văn bản mẫu</div>
-      </div>
-      
-      <div class="mode-option-card ${AppState.practiceMode === 'reading' ? 'active' : ''}" onclick="setPracticeMode('reading', this)">
-        <div class="mode-header">
-          ${ICONS.book}
-          <span class="mode-name">Đọc hiểu (24 câu)</span>
-        </div>
-        <div class="mode-desc">3 bài đọc dài với cửa sổ tra cứu bài khóa thông minh</div>
-      </div>
-      
-      <div class="mode-option-card ${AppState.practiceMode === 'cloze' ? 'active' : ''}" onclick="setPracticeMode('cloze', this)">
-        <div class="mode-header">
-          ${ICONS.edit}
-          <span class="mode-name">Điền từ (37 câu)</span>
-        </div>
-        <div class="mode-desc">7 bài đọc điền từ ngữ pháp & từ vựng trọng tâm</div>
-      </div>
-    `;
-  } else {
-    quizData.forEach(sec => {
-      (sec.tasks || []).forEach(t => {
-        const qCount = (t.questions || []).length;
-        const isAct = (AppState.practiceMode === t.id);
-        modeCardsHtml += `
-          <div class="mode-option-card ${isAct ? 'active' : ''}" onclick="setPracticeMode('${t.id}', this)">
-            <div class="mode-header">
-              ${ICONS.zap}
-              <span class="mode-name">${escapeHtml(t.name || t.title)} (${qCount} câu)</span>
-            </div>
-            <div class="mode-desc">Luyện tập chuyên đề bài học</div>
+  if (!isPhy) {
+    // English Sections
+    const engSections = [
+      { id: 'cloze', tag: 'Phần 1', title: 'Điền từ vào đoạn văn (Cloze Test)', count: 37 },
+      { id: 'sentence_order', tag: 'Phần 2', title: 'Sắp xếp câu (Sentence Order)', count: 22 },
+      { id: 'reading', tag: 'Phần 3', title: 'Đọc hiểu (Reading Comprehension)', count: 24 },
+      { id: 'writing', tag: 'Phần 4', title: 'Viết lại câu tương đương (Writing)', count: 6 }
+    ];
+    
+    engSections.forEach(sec => {
+      const isAct = (AppState.practiceMode === sec.id);
+      scopeSelectorHtml += `
+        <div class="topic-pill ${isAct ? 'active' : ''}" onclick="setPracticeMode('${sec.id}', this)" title="${sec.title}">
+          <div class="topic-pill-left">
+            <span class="topic-pill-tag">${sec.tag}</span>
+            <span class="topic-pill-title">${escapeHtml(sec.title)}</span>
           </div>
-        `;
-      });
+          <span class="topic-pill-count">${sec.count} câu</span>
+        </div>
+      `;
+    });
+  } else {
+    // Physics 10 Tasks
+    (quizData[0]?.tasks || []).forEach((t, idx) => {
+      const qCount = (t.questions || []).length;
+      const isAct = (AppState.practiceMode === t.id);
+      
+      // Clean title: remove "Bài X: " prefix for crisp display
+      let cleanTitle = t.name || t.title || `Bài ${idx + 1}`;
+      if (cleanTitle.includes(':')) {
+        cleanTitle = cleanTitle.split(':').slice(1).join(':').trim();
+      }
+      
+      scopeSelectorHtml += `
+        <div class="topic-pill ${isAct ? 'active' : ''}" onclick="setPracticeMode('${t.id}', this)" title="Bài ${idx + 1}: ${escapeHtml(cleanTitle)}">
+          <div class="topic-pill-left">
+            <span class="topic-pill-tag">Bài ${idx + 1}</span>
+            <span class="topic-pill-title">${escapeHtml(cleanTitle)}</span>
+          </div>
+          <span class="topic-pill-count">${qCount} câu</span>
+        </div>
+      `;
     });
   }
   
-  let sectionCount = 0;
-  if (AppState.currentSubject === 'english') {
-    sectionCount = quizData.length;
-  } else {
-    sectionCount = quizData.reduce((acc, s) => acc + (s.tasks || []).length, 0);
-  }
+  scopeSelectorHtml += `
+      </div>
+    </div>
+  `;
+  
+  let sectionCount = isPhy ? 10 : 4;
   
   const viewport = document.getElementById("mainViewport");
   viewport.innerHTML = `
@@ -2594,7 +2619,7 @@ function renderWelcomeScreen() {
           </div>
           <div class="meta-item">
             <span class="meta-val">${sectionCount}</span>
-            <span class="meta-lbl">${AppState.currentSubject === 'physics' ? 'Bài học' : 'Phần thi'}</span>
+            <span class="meta-lbl">${isPhy ? 'Bài học' : 'Phần thi'}</span>
           </div>
           <div class="meta-item">
             <span class="meta-val">10</span>
@@ -2621,15 +2646,14 @@ function renderWelcomeScreen() {
           <input type="text" id="txtStudentName" class="custom-input" placeholder="Ví dụ: Nguyễn Văn An - 11/5" autocomplete="name" value="${saved ? escapeHtml(saved.studentName) : ''}">
         </div>
         
-        <div class="mode-picker-title">Chọn phạm vi ôn tập:</div>
-        <div class="mode-picker">
-          ${modeCardsHtml}
-        </div>
+        ${scopeSelectorHtml}
         
         <button class="btn-primary-action" onclick="startExam()">
           <span>Bắt Đầu Làm Bài (${cfg.code})</span>
+          ${ICONS.arrowRight}
         </button>
         <button class="dock-nav-btn" style="width:100%;margin-top:0.65rem;justify-content:center;" onclick="openHistorySheet()">
+          ${ICONS.history}
           <span>Xem Lịch Sử Làm Bài Của Bạn</span>
         </button>
       </div>
@@ -2641,8 +2665,8 @@ function setPracticeMode(mode, el) {
   AudioFX.init();
   AudioFX.tap();
   AppState.practiceMode = mode;
-  document.querySelectorAll('.mode-option-card').forEach(c => c.classList.remove('active'));
-  el.classList.add('active');
+  document.querySelectorAll('.scope-primary-card, .topic-pill, .mode-option-card').forEach(c => c.classList.remove('active'));
+  if (el) el.classList.add('active');
 }
 
 function startExam() {
