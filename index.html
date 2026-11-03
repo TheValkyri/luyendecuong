@@ -6,11 +6,11 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<title>Hệ Thống Ôn Luyện — THPT Vĩnh Thuận (Tiếng Anh 11 & Vật Lí 11)</title>
+<title>Hệ Thống Ôn Luyện — THPT Vĩnh Thuận (Tiếng Anh 11, Vật Lí 11 & Lịch Sử 11)</title>
 <script>
   // AUTO-REDIRECT CACHE BUSTER FOR ALL USERS
   (function() {
-    var APP_BUILD_TAG = "20261103_0400";
+    var APP_BUILD_TAG = "20261103_0600";
     var p = new URLSearchParams(window.location.search);
     if (p.get("v") !== APP_BUILD_TAG) {
       p.set("v", APP_BUILD_TAG);
@@ -1307,9 +1307,14 @@ a {
    ========================================================================== */
 .subject-picker-row {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.75rem;
-  margin-bottom: 1.5rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.65rem;
+  margin-bottom: 1.25rem;
+}
+@media (max-width: 640px) {
+  .subject-picker-row {
+    grid-template-columns: 1fr;
+  }
 }
 @media (max-width: 540px) {
   .subject-picker-row {
@@ -1432,6 +1437,9 @@ a {
 }
 .subject-toggle-badge.subject-physics {
   background: #0ea5e9;
+}
+.subject-toggle-badge.subject-history {
+  background: #e11d48;
 }
 .subject-toggle-badge.subject-english {
   background: var(--accent-base);
@@ -1596,6 +1604,11 @@ a {
   background: rgba(79, 120, 255, 0.15);
   color: #4f78ff;
   border: 1px solid rgba(79, 120, 255, 0.3);
+}
+.sub-badge-history {
+  background: rgba(225, 29, 72, 0.14);
+  color: #f43f5e;
+  border: 1px solid rgba(225, 29, 72, 0.3);
 }
 .sub-badge-physics {
   background: rgba(14, 165, 233, 0.15);
@@ -1897,6 +1910,7 @@ a {
 <!-- LOAD QUESTION DATA -->
 <script src="quiz_data.js?v=20261102_2215"></script>
 <script src="physics_quiz_data.js?v=20261103_01"></script>
+<script src="history_quiz_data.js?v=20261103_0600"></script>
 
 <script>
 /* ==========================================================================
@@ -1926,6 +1940,7 @@ const ICONS = {
   trash: `<svg class="v-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></svg>`,
   search: `<svg class="v-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>`,
   languages: `<svg class="v-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></svg>`,
+  landmark: `<svg class="v-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="2" y1="22" x2="22" y2="22"/><line x1="12" y1="2" x2="2" y2="7"/><line x1="22" y1="7" x2="12" y2="2"/><line x1="2" y1="7" x2="22" y2="7"/><line x1="4" y1="7" x2="4" y2="22"/><line x1="9" y1="7" x2="9" y2="22"/><line x1="15" y1="7" x2="15" y2="22"/><line x1="20" y1="7" x2="20" y2="22"/></svg>`,
   atom: `<svg class="v-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2.5"/><ellipse cx="12" cy="12" rx="9" ry="3.8" transform="rotate(0 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="3.8" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="3.8" transform="rotate(120 12 12)"/></svg>`,
   bulb: `<svg class="v-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>`
 };
@@ -1934,6 +1949,7 @@ const ICONS = {
    APP CONTROLLER & MULTI-SUBJECT STATE MANAGEMENT
    ========================================================================== */
 window.PHYSICS_QUIZ_DATA = window.PHYSICS_QUIZ_DATA || [];
+window.HISTORY_QUIZ_DATA = window.HISTORY_QUIZ_DATA || [];
 
 const STORAGE_PREFIX = "eng11_thpt_vinhtuan_";
 const SUBMISSIONS_KEY = "quiz_student_records_v2";
@@ -1949,7 +1965,7 @@ const SUBJECT_CONFIG = {
     subtitle: "Hệ thống ôn luyện & kiểm tra giữa học kỳ I (Chương trình Global Success). Đầy đủ 89 câu hỏi kèm đáp án chuẩn giáo viên.",
     color: "#4f78ff"
   },
-  physics: {
+    physics: {
     code: "LÝ 11",
     name: "Vật Lí 11",
     iconKey: "atom",
@@ -1957,6 +1973,15 @@ const SUBJECT_CONFIG = {
     title: "Đề Cương Vật Lí 11",
     subtitle: "Hệ thống ôn luyện Chuyên đề 1: Dao động cơ học (Vật Lí 11). Kèm 160 câu hỏi, công thức KaTeX, đồ thị và lời giải chi tiết.",
     color: "#0ea5e9"
+  },
+  history: {
+    code: "SỬ 11",
+    name: "Lịch Sử 11",
+    iconKey: "landmark",
+    school: "SỞ GD&ĐT AN GIANG · THPT VĨNH THUẬN",
+    title: "Đề Cương Lịch Sử 11",
+    subtitle: "Hệ thống ôn tập Giữa kì I: Chủ đề 1 (Cách mạng tư sản) & Chủ đề 2 (Chủ nghĩa xã hội). Toàn diện 166 câu: trắc nghiệm 4 lựa chọn & Đúng / Sai chuẩn Bộ GD&ĐT.",
+    color: "#e11d48"
   }
 };
 
@@ -1987,6 +2012,9 @@ function getActiveSessionKey() {
 }
 
 function getCurrentQuizData() {
+  if (AppState.currentSubject === "history") {
+    return window.HISTORY_QUIZ_DATA || [];
+  }
   if (AppState.currentSubject === "physics") {
     return window.PHYSICS_QUIZ_DATA || [];
   }
@@ -1994,10 +2022,23 @@ function getCurrentQuizData() {
 }
 
 function getSubjectData(subject = AppState.currentSubject) {
+  if (subject === "history") {
+    return window.HISTORY_QUIZ_DATA || [];
+  }
   if (subject === "physics") {
     return window.PHYSICS_QUIZ_DATA || [];
   }
   return window.QUIZ_DATA || [];
+}
+
+function getHistoryCount() {
+  let count = 0;
+  (window.HISTORY_QUIZ_DATA || []).forEach(sec => {
+    (sec.tasks || []).forEach(task => {
+      count += (task.questions || []).length;
+    });
+  });
+  return count;
 }
 
 function getEnglishCount() {
@@ -2024,18 +2065,23 @@ function findQuestionById(qid, preferredSubject = AppState.currentSubject) {
   let found = FlatQuestions.find(q => q.id === qid);
   if (found) return found;
   
-  const sets = preferredSubject === "physics" 
-    ? [window.PHYSICS_QUIZ_DATA || [], window.QUIZ_DATA || []] 
-    : [window.QUIZ_DATA || [], window.PHYSICS_QUIZ_DATA || []];
+  const sets = [
+    { data: window.HISTORY_QUIZ_DATA || [], sub: "history" },
+    { data: window.PHYSICS_QUIZ_DATA || [], sub: "physics" },
+    { data: window.QUIZ_DATA || [], sub: "english" }
+  ];
+  
+  // Sort preferred first
+  sets.sort((a, b) => (a.sub === preferredSubject ? -1 : (b.sub === preferredSubject ? 1 : 0)));
     
-  for (const dataset of sets) {
-    for (const sec of dataset) {
+  for (const item of sets) {
+    for (const sec of item.data) {
       for (const task of (sec.tasks || [])) {
         for (const q of (task.questions || [])) {
           if (q.id === qid) {
             return {
               ...q,
-              subject: (dataset === (window.PHYSICS_QUIZ_DATA || [])) ? "physics" : "english",
+              subject: item.sub,
               sectionId: sec.id,
               sectionTitle: sec.title || sec.name,
               taskName: task.name,
@@ -2209,7 +2255,44 @@ function ensureRecordHydratedAndRegraded(rec) {
   let totalMCQ = 0;
   
   rec.breakdown.forEach(item => {
-    if (item.isWriting) {
+    if (item.isTrueFalse || item.type === 'true_false') {
+      let tfRows = `<div class="review-tf-container">`;
+      (item.items || []).forEach(it => {
+        const userChoiceStr = it.userChoice === true ? "Đúng" : (it.userChoice === false ? "Sai" : "Chưa chọn");
+        const correctStr = it.correct ? "Đúng" : "Sai";
+        const isSubCor = it.isCorrect;
+        
+        tfRows += `
+          <div class="review-tf-row" style="border-left: 3px solid ${isSubCor ? 'var(--success)' : 'var(--danger)'};">
+            <div class="review-tf-top">
+              <span class="tf-item-badge">${it.id.toUpperCase()})</span>
+              <span class="review-tf-text">${renderMathAndText(it.text)}</span>
+              <span style="color: ${isSubCor ? 'var(--success)' : 'var(--danger)'}; font-weight:800; font-size:0.75rem; display:inline-flex; align-items:center; gap:0.2rem; flex-shrink:0;">
+                ${isSubCor ? ICONS.check : ICONS.x} ${isSubCor ? 'ĐÚNG' : 'SAI'}
+              </span>
+            </div>
+            <div class="review-tf-verdict">
+              <span style="color:var(--text-tertiary);">Bạn chọn: <b style="color:${it.userChoice !== undefined ? (isSubCor ? 'var(--success)' : 'var(--danger)') : 'var(--text-tertiary)'}">${userChoiceStr}</b></span>
+              <span style="color:var(--text-tertiary);">Đáp án chuẩn: <b style="color:var(--success)">${correctStr}</b></span>
+              ${it.explanation ? `<div style="width:100%;font-size:0.78rem;color:var(--text-secondary);margin-top:0.25rem;line-height:1.45;">💡 ${escapeHtml(it.explanation)}</div>` : ''}
+            </div>
+          </div>
+        `;
+      });
+      tfRows += `</div>`;
+      
+      bodyContent = tfRows;
+      if (item.explanation) {
+        bodyContent += `
+          <div class="q-explain-box" style="margin-top:0.6rem;background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--radius-sm);padding:0.75rem 0.95rem;">
+            <div style="font-size:0.75rem;font-weight:700;color:var(--accent-base);margin-bottom:0.35rem;display:flex;align-items:center;gap:0.35rem;">
+              ${ICONS.bulb} <span>Tổng hợp giải thích đáp án:</span>
+            </div>
+            <div style="font-size:0.86rem;line-height:1.5;color:var(--text-secondary);">${renderMathAndText(item.explanation)}</div>
+          </div>
+        `;
+      }
+    } else if (item.isWriting) {
       writingMax += 1;
       writingScore += (item.score || 0);
     } else {
@@ -2462,9 +2545,9 @@ function updateTopSubjectBadge() {
   const badge = document.getElementById("topSubjectBadge");
   const code = document.getElementById("topSubjectCode");
   if (!badge || !code) return;
-  const isPhy = (AppState.currentSubject === "physics");
-  code.textContent = isPhy ? "LÝ 11" : "ENG 11";
-  badge.className = "subject-toggle-badge " + (isPhy ? "subject-physics" : "subject-english");
+  const cfg = SUBJECT_CONFIG[AppState.currentSubject] || SUBJECT_CONFIG.english;
+  code.textContent = cfg.code;
+  badge.className = "subject-toggle-badge subject-" + AppState.currentSubject;
 }
 
 function showSubjectSwitchModal() {
@@ -2495,6 +2578,17 @@ function showSubjectSwitchModal() {
         </div>
       </div>
       <span class="subject-pill-badge">${getPhysicsCount()} câu</span>
+    </button>
+    
+    <button class="subject-pill-btn ${AppState.currentSubject === 'history' ? 'active' : ''}" onclick="switchSubject('history')">
+      <div class="subject-pill-left">
+        <span class="subject-icon-wrap">${ICONS.landmark}</span>
+        <div>
+          <span class="subject-title">Lịch Sử 11</span>
+          <span class="subject-subtitle">Ôn tập Giữa kì I: Chủ đề 1 & 2 (Có Đúng/Sai)</span>
+        </div>
+      </div>
+      <span class="subject-pill-badge">${getHistoryCount()} câu</span>
     </button>
   `;
   modal.classList.add("open");
@@ -2579,7 +2673,7 @@ function renderWelcomeScreen() {
       </div>
     </div>
   `;
-  let sectionCount = isPhy ? 10 : 4;
+  let sectionCount = isHis ? 4 : (isPhy ? 10 : 4);
   
   const viewport = document.getElementById("mainViewport");
   viewport.innerHTML = `
@@ -2989,6 +3083,79 @@ function renderSingleQuestionCard(q, displayNum, totalCount) {
       ${contentHtml}
     </div>
   `;
+}
+
+
+function renderTrueFalseWidget(q, userAns) {
+  const ua = (userAns && typeof userAns === 'object') ? userAns : {};
+  let html = `<div class="tf-container">`;
+  html += `
+    <div class="tf-instruction-tag">
+      ${ICONS.bulb}
+      <span>Chọn Đúng hoặc Sai cho mỗi phát biểu sau:</span>
+    </div>
+    <div class="tf-items-list">
+  `;
+  
+  (q.items || []).forEach(it => {
+    const val = ua[it.id];
+    const isTrue = (val === true);
+    const isFalse = (val === false);
+    
+    html += `
+      <div class="tf-item-card ${val !== undefined ? 'answered' : ''}">
+        <div class="tf-item-header">
+          <span class="tf-item-badge">${it.id.toUpperCase()})</span>
+          <span class="tf-item-text">${renderMathAndText(it.text)}</span>
+        </div>
+        <div class="tf-btn-group">
+          <button type="button" class="tf-choice-btn btn-true ${isTrue ? 'active' : ''}" onclick="selectTrueFalseChoice('${q.id}', '${it.id}', true)">
+            ${ICONS.check}
+            <span>Đúng</span>
+          </button>
+          <button type="button" class="tf-choice-btn btn-false ${isFalse ? 'active' : ''}" onclick="selectTrueFalseChoice('${q.id}', '${it.id}', false)">
+            ${ICONS.x}
+            <span>Sai</span>
+          </button>
+        </div>
+      </div>
+    `;
+  });
+  
+  html += `</div></div>`;
+  return html;
+}
+
+function selectTrueFalseChoice(qid, subId, isTrue) {
+  AudioFX.init();
+  AudioFX.tap();
+  
+  if (!AppState.userAnswers[qid] || typeof AppState.userAnswers[qid] !== "object") {
+    AppState.userAnswers[qid] = {};
+  }
+  
+  if (AppState.userAnswers[qid][subId] === isTrue) {
+    delete AppState.userAnswers[qid][subId];
+  } else {
+    AppState.userAnswers[qid][subId] = isTrue;
+  }
+  
+  saveSessionDebounced();
+  
+  if (AppState.viewMode === "focus") {
+    renderFocusMode();
+  } else {
+    const card = document.getElementById("card-" + qid);
+    if (card) {
+      const q = findQuestionById(qid);
+      const displayNum = FlatQuestions.findIndex(x => x.id === qid) + 1;
+      const tmp = document.createElement("div");
+      tmp.innerHTML = renderSingleQuestionCard(q, displayNum, FlatQuestions.length);
+      card.replaceWith(tmp.firstElementChild);
+      triggerMathTypesetting(document.getElementById("card-" + qid));
+    }
+  }
+  updateProgressUI();
 }
 
 function renderStandardMCQOptions(q, userAns) {
@@ -3649,8 +3816,8 @@ function renderResultsScreen(rec) {
   document.getElementById("btnMatrixTrigger").style.display = "none";
   
   const timeFormatted = Math.floor(rec.elapsedSeconds/60) + " phút " + (rec.elapsedSeconds%60) + " giây";
-  const achieved = (rec.correctMCQ + rec.writingScore);
-  const total = (rec.totalMCQ + rec.writingMax);
+  const achieved = (rec.correctMCQ + (rec.writingScore || 0) + (rec.tfScore || 0));
+  const total = (rec.totalMCQ + (rec.writingMax || 0) + (rec.tfMax || 0));
   const pct = total > 0 ? Math.round((achieved / total) * 100) : 0;
   const totalCount = rec.breakdown.length;
   const correctCount = rec.breakdown.filter(x => x.isCorrect).length;
@@ -3672,7 +3839,7 @@ function renderResultsScreen(rec) {
         </div>
         <h2 style="font-size:1.4rem;font-weight:800;margin-bottom:0.25rem;">${escapeHtml(rec.studentName)}</h2>
         <div style="font-size:0.8rem;color:var(--text-tertiary);margin-bottom:1.5rem;">
-          Môn học: <b>${escapeHtml(rec.subjectName || (isPhy ? 'Vật Lí 11' : 'Tiếng Anh 11'))}</b> · Thời gian: ${timeFormatted} · Phạm vi: ${escapeHtml(rec.practiceMode)}
+          Môn học: <b>${escapeHtml(rec.subjectName || (rec.subject === 'history' ? 'Lịch Sử 11' : (isPhy ? 'Vật Lí 11' : 'Tiếng Anh 11')))}</b> · Thời gian: ${timeFormatted} · Phạm vi: ${escapeHtml(rec.practiceMode)}
         </div>
         
         <div class="score-radial" style="border-color:${gradeColor};">
@@ -4163,7 +4330,10 @@ function renderHistoryList() {
       <div style="background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--radius-md);padding:1rem 1.25rem;">
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.4rem;">
           <div style="display:flex;align-items:center;gap:0.45rem;">
-            <span class="sub-badge sub-badge-${r.subject || 'english'}">${isPhy ? ICONS.atom : ICONS.languages} <span>${isPhy ? 'Vật Lí 11' : 'Tiếng Anh 11'}</span></span>
+            <span class="sub-badge sub-badge-${r.subject || 'english'}">
+    ${r.subject === 'history' ? ICONS.landmark : (r.subject === 'physics' ? ICONS.atom : ICONS.languages)}
+    <span>${r.subject === 'history' ? 'Lịch Sử 11' : (r.subject === 'physics' ? 'Vật Lí 11' : 'Tiếng Anh 11')}</span>
+  </span>
             <span style="font-weight:700;font-size:0.95rem;color:var(--text-primary);">${escapeHtml(r.studentName)}</span>
           </div>
           <span style="font-family:var(--font-mono);font-size:1.25rem;font-weight:800;color:${scoreColor};">${r.grade10} <span style="font-size:0.72rem;color:var(--text-tertiary);font-weight:600;">/ 10</span></span>
@@ -4485,7 +4655,7 @@ function exportSubmissionsCSV() {
   csv += "Họ và Tên,Môn Học,Hình Thức,Điểm Số (/10),Số Câu Đúng,Tổng Câu,Thời Gian (Giây),Thời Gian Nộp\n";
   
   records.forEach(r => {
-    const subName = (r.subject === 'physics' ? 'Vật Lí 11' : 'Tiếng Anh 11');
+    const subName = r.subject === 'history' ? 'Lịch Sử 11' : (r.subject === 'physics' ? 'Vật Lí 11' : 'Tiếng Anh 11');
     const row = [
       `"${r.studentName.replace(/"/g, '""')}"`,
       `"${subName}"`,
