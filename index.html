@@ -10,7 +10,7 @@
 <script>
   // AUTO-REDIRECT CACHE BUSTER FOR ALL USERS
   (function() {
-    var APP_BUILD_TAG = "20261103_0300";
+    var APP_BUILD_TAG = "20261103_0400";
     var p = new URLSearchParams(window.location.search);
     if (p.get("v") !== APP_BUILD_TAG) {
       p.set("v", APP_BUILD_TAG);
@@ -1602,6 +1602,56 @@ a {
   color: #0ea5e9;
   border: 1px solid rgba(14, 165, 233, 0.3);
 }
+
+/* ==========================================================================
+   COMPACT SCOPE SELECTOR DROPDOWN (ULTRA CLEAN & NO CLUTTER)
+   ========================================================================== */
+.scope-dropdown-group {
+  text-align: left;
+  margin-bottom: 1.25rem;
+}
+.select-wrapper {
+  position: relative;
+  width: 100%;
+}
+.custom-select {
+  width: 100%;
+  padding: 0.85rem 2.5rem 0.85rem 1rem;
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-size: 0.92rem;
+  font-weight: 600;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  outline: none;
+  transition: all var(--transition);
+}
+.custom-select:hover {
+  border-color: var(--border-strong);
+  background: var(--bg-card-hover);
+}
+.custom-select:focus {
+  border-color: var(--accent-base);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+.custom-select option {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  padding: 0.5rem;
+}
+.select-arrow {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--text-tertiary);
+  display: flex;
+  align-items: center;
+}
 </style>
 </head>
 <body>
@@ -2493,89 +2543,42 @@ function renderWelcomeScreen() {
   const phyCount = getPhysicsCount();
   
   const isPhy = (AppState.currentSubject === 'physics');
-  const totalCount = FlatQuestions.length;
+  const totalCount = isPhy ? phyCount : engCount;
   
-  // PRIMARY SCOPE CARD: Toàn bộ đề thi
-  const isFullAct = (AppState.practiceMode === 'full');
-  const fullDesc = isPhy 
-    ? 'Ôn luyện toàn diện tất cả 10 bài học Chuyên đề 1 (160 câu)' 
-    : 'Luyện tập tổng hợp đầy đủ cả 4 dạng: Điền từ, Đọc hiểu, Sắp xếp câu & Viết lại câu';
-    
-  let scopeSelectorHtml = `
-    <div class="scope-selector-wrap">
-      <div class="scope-section-label">
-        <span>Phạm vi ôn luyện</span>
-        <span>Mặc định: Toàn bộ đề</span>
-      </div>
-      
-      <div class="scope-primary-card ${isFullAct ? 'active' : ''}" onclick="setPracticeMode('full', this)">
-        <div class="scope-primary-left">
-          <div class="scope-icon-box">${ICONS.sparkles}</div>
-          <div style="min-width:0;flex:1;">
-            <div class="scope-primary-title">Toàn bộ đề thi (${totalCount} câu)</div>
-            <div class="scope-primary-desc">${fullDesc}</div>
-          </div>
-        </div>
-        <span class="scope-badge-count">${totalCount} câu</span>
-      </div>
-      
-      <div class="scope-section-label" style="margin-top:1rem;">
-        <span>Hoặc chọn bài / dạng học trọng tâm</span>
-      </div>
-      
-      <div class="topic-pills-grid">
-  `;
+  // ULTRA COMPACT SCOPE DROPDOWN
+  let optionsHtml = `<option value="full" ${AppState.practiceMode === 'full' ? 'selected' : ''}>🎯 Toàn bộ đề thi (${totalCount} câu - Mặc định)</option>`;
   
   if (!isPhy) {
-    // English Sections
     const engSections = [
-      { id: 'cloze', tag: 'Phần 1', title: 'Điền từ vào đoạn văn (Cloze Test)', count: 37 },
-      { id: 'sentence_order', tag: 'Phần 2', title: 'Sắp xếp câu (Sentence Order)', count: 22 },
-      { id: 'reading', tag: 'Phần 3', title: 'Đọc hiểu (Reading Comprehension)', count: 24 },
-      { id: 'writing', tag: 'Phần 4', title: 'Viết lại câu tương đương (Writing)', count: 6 }
+      { id: 'cloze', title: 'Phần 1: Điền từ vào đoạn văn (Cloze Test)', count: 37 },
+      { id: 'sentence_order', title: 'Phần 2: Sắp xếp câu (Sentence Order)', count: 22 },
+      { id: 'reading', title: 'Phần 3: Đọc hiểu văn bản (Reading)', count: 24 },
+      { id: 'writing', title: 'Phần 4: Viết lại câu tương đương (Writing)', count: 6 }
     ];
-    
-    engSections.forEach(sec => {
-      const isAct = (AppState.practiceMode === sec.id);
-      scopeSelectorHtml += `
-        <div class="topic-pill ${isAct ? 'active' : ''}" onclick="setPracticeMode('${sec.id}', this)" title="${sec.title}">
-          <div class="topic-pill-left">
-            <span class="topic-pill-tag">${sec.tag}</span>
-            <span class="topic-pill-title">${escapeHtml(sec.title)}</span>
-          </div>
-          <span class="topic-pill-count">${sec.count} câu</span>
-        </div>
-      `;
+    engSections.forEach(s => {
+      optionsHtml += `<option value="${s.id}" ${AppState.practiceMode === s.id ? 'selected' : ''}>${s.title} (${s.count} câu)</option>`;
     });
   } else {
-    // Physics 10 Tasks
     (quizData[0]?.tasks || []).forEach((t, idx) => {
       const qCount = (t.questions || []).length;
-      const isAct = (AppState.practiceMode === t.id);
-      
-      // Clean title: remove "Bài X: " prefix for crisp display
-      let cleanTitle = t.name || t.title || `Bài ${idx + 1}`;
-      if (cleanTitle.includes(':')) {
-        cleanTitle = cleanTitle.split(':').slice(1).join(':').trim();
-      }
-      
-      scopeSelectorHtml += `
-        <div class="topic-pill ${isAct ? 'active' : ''}" onclick="setPracticeMode('${t.id}', this)" title="Bài ${idx + 1}: ${escapeHtml(cleanTitle)}">
-          <div class="topic-pill-left">
-            <span class="topic-pill-tag">Bài ${idx + 1}</span>
-            <span class="topic-pill-title">${escapeHtml(cleanTitle)}</span>
-          </div>
-          <span class="topic-pill-count">${qCount} câu</span>
-        </div>
-      `;
+      const cleanTitle = t.name || t.title || `Bài ${idx + 1}`;
+      optionsHtml += `<option value="${t.id}" ${AppState.practiceMode === t.id ? 'selected' : ''}>${escapeHtml(cleanTitle)} (${qCount} câu)</option>`;
     });
   }
   
-  scopeSelectorHtml += `
+  const scopeSelectorHtml = `
+    <div class="scope-dropdown-group">
+      <label class="input-label" for="selPracticeScope">Chọn phạm vi ôn tập:</label>
+      <div class="select-wrapper">
+        <select id="selPracticeScope" class="custom-select" onchange="onScopeDropdownChange(this.value)">
+          ${optionsHtml}
+        </select>
+        <div class="select-arrow">
+          <svg class="v-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+        </div>
       </div>
     </div>
   `;
-  
   let sectionCount = isPhy ? 10 : 4;
   
   const viewport = document.getElementById("mainViewport");
@@ -2614,7 +2617,7 @@ function renderWelcomeScreen() {
         
         <div class="meta-grid">
           <div class="meta-item">
-            <span class="meta-val">${FlatQuestions.length}</span>
+            <span class="meta-val">${totalCount}</span>
             <span class="meta-lbl">Tổng câu hỏi</span>
           </div>
           <div class="meta-item">
@@ -2659,6 +2662,12 @@ function renderWelcomeScreen() {
       </div>
     </div>
   `;
+}
+
+function onScopeDropdownChange(val) {
+  AudioFX.init();
+  AudioFX.tap();
+  AppState.practiceMode = val;
 }
 
 function setPracticeMode(mode, el) {
