@@ -10,7 +10,7 @@
 <script>
   // AUTO-REDIRECT CACHE BUSTER FOR ALL USERS
   (function() {
-    var APP_BUILD_TAG = "20261103_0600";
+    var APP_BUILD_TAG = "20261104_1130";
     var p = new URLSearchParams(window.location.search);
     if (p.get("v") !== APP_BUILD_TAG) {
       p.set("v", APP_BUILD_TAG);
@@ -1910,7 +1910,7 @@ a {
 <!-- LOAD QUESTION DATA -->
 <script src="quiz_data.js?v=20261102_2215"></script>
 <script src="physics_quiz_data.js?v=20261103_01"></script>
-<script src="history_quiz_data.js?v=20261103_0600"></script>
+<script src="history_quiz_data.js?v=20261104_1130"></script>
 
 <script>
 /* ==========================================================================
@@ -2253,45 +2253,13 @@ function ensureRecordHydratedAndRegraded(rec) {
   let writingMax = 0;
   let correctMCQ = 0;
   let totalMCQ = 0;
-  
+  let tfScore = 0;
+  let tfMax = 0;
+
   rec.breakdown.forEach(item => {
     if (item.isTrueFalse || item.type === 'true_false') {
-      let tfRows = `<div class="review-tf-container">`;
-      (item.items || []).forEach(it => {
-        const userChoiceStr = it.userChoice === true ? "Đúng" : (it.userChoice === false ? "Sai" : "Chưa chọn");
-        const correctStr = it.correct ? "Đúng" : "Sai";
-        const isSubCor = it.isCorrect;
-        
-        tfRows += `
-          <div class="review-tf-row" style="border-left: 3px solid ${isSubCor ? 'var(--success)' : 'var(--danger)'};">
-            <div class="review-tf-top">
-              <span class="tf-item-badge">${it.id.toUpperCase()})</span>
-              <span class="review-tf-text">${renderMathAndText(it.text)}</span>
-              <span style="color: ${isSubCor ? 'var(--success)' : 'var(--danger)'}; font-weight:800; font-size:0.75rem; display:inline-flex; align-items:center; gap:0.2rem; flex-shrink:0;">
-                ${isSubCor ? ICONS.check : ICONS.x} ${isSubCor ? 'ĐÚNG' : 'SAI'}
-              </span>
-            </div>
-            <div class="review-tf-verdict">
-              <span style="color:var(--text-tertiary);">Bạn chọn: <b style="color:${it.userChoice !== undefined ? (isSubCor ? 'var(--success)' : 'var(--danger)') : 'var(--text-tertiary)'}">${userChoiceStr}</b></span>
-              <span style="color:var(--text-tertiary);">Đáp án chuẩn: <b style="color:var(--success)">${correctStr}</b></span>
-              ${it.explanation ? `<div style="width:100%;font-size:0.78rem;color:var(--text-secondary);margin-top:0.25rem;line-height:1.45;">💡 ${escapeHtml(it.explanation)}</div>` : ''}
-            </div>
-          </div>
-        `;
-      });
-      tfRows += `</div>`;
-      
-      bodyContent = tfRows;
-      if (item.explanation) {
-        bodyContent += `
-          <div class="q-explain-box" style="margin-top:0.6rem;background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--radius-sm);padding:0.75rem 0.95rem;">
-            <div style="font-size:0.75rem;font-weight:700;color:var(--accent-base);margin-bottom:0.35rem;display:flex;align-items:center;gap:0.35rem;">
-              ${ICONS.bulb} <span>Tổng hợp giải thích đáp án:</span>
-            </div>
-            <div style="font-size:0.86rem;line-height:1.5;color:var(--text-secondary);">${renderMathAndText(item.explanation)}</div>
-          </div>
-        `;
-      }
+      tfMax += 1.0;
+      tfScore += (item.score || 0);
     } else if (item.isWriting) {
       writingMax += 1;
       writingScore += (item.score || 0);
@@ -2300,16 +2268,18 @@ function ensureRecordHydratedAndRegraded(rec) {
       if (item.isCorrect) correctMCQ += 1;
     }
   });
-  
+
   rec.writingScore = writingScore;
   rec.writingMax = writingMax;
   rec.correctMCQ = correctMCQ;
   rec.totalMCQ = totalMCQ;
-  
-  const totalWeight = totalMCQ + writingMax;
-  const earnedWeight = correctMCQ + writingScore;
+  rec.tfScore = tfScore;
+  rec.tfMax = tfMax;
+
+  const totalWeight = totalMCQ + writingMax + tfMax;
+  const earnedWeight = correctMCQ + writingScore + tfScore;
   rec.grade10 = totalWeight > 0 ? Math.round((earnedWeight / totalWeight) * 10 * 10) / 10 : 0;
-  
+
   return rec;
 }
 
@@ -2635,14 +2605,34 @@ function renderWelcomeScreen() {
   const quizData = getCurrentQuizData();
   const engCount = getEnglishCount();
   const phyCount = getPhysicsCount();
+  const hisCount = getHistoryCount();
   
   const isPhy = (AppState.currentSubject === 'physics');
-  const totalCount = isPhy ? phyCount : engCount;
+  const isHis = (AppState.currentSubject === 'history');
+  const totalCount = isHis ? hisCount : (isPhy ? phyCount : engCount);
   
   // ULTRA COMPACT SCOPE DROPDOWN
   let optionsHtml = `<option value="full" ${AppState.practiceMode === 'full' ? 'selected' : ''}>🎯 Toàn bộ đề thi (${totalCount} câu - Mặc định)</option>`;
   
-  if (!isPhy) {
+  if (isHis) {
+    const hisOptions = [
+      { id: 'chu_de_1', title: 'Chủ đề 1: Cách mạng tư sản & CNTB (97 câu)' },
+      { id: 'his_cd1_mcq', title: '　├── CĐ1 - Phần I: Trắc nghiệm 4 lựa chọn (86 câu)' },
+      { id: 'his_cd1_tf', title: '　└── CĐ1 - Phần II: Trắc nghiệm Đúng / Sai (11 câu)' },
+      { id: 'chu_de_2', title: 'Chủ đề 2: Chủ nghĩa xã hội từ 1917 đến nay (69 câu)' },
+      { id: 'his_cd2_mcq', title: '　├── CĐ2 - Phần I: Trắc nghiệm 4 lựa chọn (59 câu)' },
+      { id: 'his_cd2_tf', title: '　└── CĐ2 - Phần II: Trắc nghiệm Đúng / Sai (10 câu)' }
+    ];
+    hisOptions.forEach(s => {
+      optionsHtml += `<option value="${s.id}" ${AppState.practiceMode === s.id ? 'selected' : ''}>${escapeHtml(s.title)}</option>`;
+    });
+  } else if (isPhy) {
+    (quizData[0]?.tasks || []).forEach((t, idx) => {
+      const qCount = (t.questions || []).length;
+      const cleanTitle = t.name || t.title || `Bài ${idx + 1}`;
+      optionsHtml += `<option value="${t.id}" ${AppState.practiceMode === t.id ? 'selected' : ''}>${escapeHtml(cleanTitle)} (${qCount} câu)</option>`;
+    });
+  } else {
     const engSections = [
       { id: 'cloze', title: 'Phần 1: Điền từ vào đoạn văn (Cloze Test)', count: 37 },
       { id: 'sentence_order', title: 'Phần 2: Sắp xếp câu (Sentence Order)', count: 22 },
@@ -2651,12 +2641,6 @@ function renderWelcomeScreen() {
     ];
     engSections.forEach(s => {
       optionsHtml += `<option value="${s.id}" ${AppState.practiceMode === s.id ? 'selected' : ''}>${s.title} (${s.count} câu)</option>`;
-    });
-  } else {
-    (quizData[0]?.tasks || []).forEach((t, idx) => {
-      const qCount = (t.questions || []).length;
-      const cleanTitle = t.name || t.title || `Bài ${idx + 1}`;
-      optionsHtml += `<option value="${t.id}" ${AppState.practiceMode === t.id ? 'selected' : ''}>${escapeHtml(cleanTitle)} (${qCount} câu)</option>`;
     });
   }
   
@@ -2673,7 +2657,8 @@ function renderWelcomeScreen() {
       </div>
     </div>
   `;
-  let sectionCount = isHis ? 4 : (isPhy ? 10 : 4);
+  let sectionCount = isHis ? 2 : (isPhy ? 10 : 4);
+  let sectionUnit = isHis ? 'Chủ đề' : (isPhy ? 'Bài học' : 'Phần thi');
   
   const viewport = document.getElementById("mainViewport");
   viewport.innerHTML = `
@@ -2704,6 +2689,17 @@ function renderWelcomeScreen() {
             </div>
             <span class="subject-pill-badge">${phyCount} câu</span>
           </button>
+
+          <button class="subject-pill-btn ${AppState.currentSubject === 'history' ? 'active' : ''}" onclick="switchSubject('history')">
+            <div class="subject-pill-left">
+              <span class="subject-icon-wrap">${ICONS.landmark}</span>
+              <div>
+                <span class="subject-title">Lịch Sử 11</span>
+                <span class="subject-subtitle">Chủ đề 1 & 2 · Đúng/Sai</span>
+              </div>
+            </div>
+            <span class="subject-pill-badge">${hisCount} câu</span>
+          </button>
         </div>
         
         <h1 class="exam-title">${escapeHtml(cfg.title)}</h1>
@@ -2716,7 +2712,7 @@ function renderWelcomeScreen() {
           </div>
           <div class="meta-item">
             <span class="meta-val">${sectionCount}</span>
-            <span class="meta-lbl">${isPhy ? 'Bài học' : 'Phần thi'}</span>
+            <span class="meta-lbl">${sectionUnit}</span>
           </div>
           <div class="meta-item">
             <span class="meta-val">10</span>
@@ -2996,8 +2992,8 @@ function renderListMode() {
   let headingIdx = 0;
   
   subset.forEach((q, idx) => {
-    const groupKey = AppState.currentSubject === 'physics' ? (q.taskId || q.sectionId) : q.sectionId;
-    const groupTitle = AppState.currentSubject === 'physics' ? (q.taskName || q.taskTitle) : q.sectionTitle;
+    const groupKey = (AppState.currentSubject === 'physics' || AppState.currentSubject === 'history') ? (q.taskId || q.sectionId) : q.sectionId;
+    const groupTitle = (AppState.currentSubject === 'physics' || AppState.currentSubject === 'history') ? (q.taskName || q.taskTitle) : q.sectionTitle;
     
     if (groupKey !== lastGroupKey) {
       lastGroupKey = groupKey;
@@ -3719,6 +3715,10 @@ function finalizeExam() {
   
   const breakdown = [];
   
+  let tfScore = 0;
+  let tfMax = 0;
+  let totalTF = 0;
+
   subset.forEach(q => {
     if (q.model_answer) {
       writingMax += 1;
@@ -3746,6 +3746,48 @@ function finalizeExam() {
         feedback: autoGrade.feedback,
         explanation: q.explanation || null,
         image: q.image || null
+      });
+    } else if (q.type === 'true_false' || q.items) {
+      totalTF++;
+      tfMax += 1.0;
+      const userAnsObj = AppState.userAnswers[q.id] || {};
+      let subCorrectCount = 0;
+      const itemResults = (q.items || []).map(it => {
+        const userChoice = userAnsObj[it.id];
+        const isSubCor = (userChoice === it.correct);
+        if (isSubCor) subCorrectCount++;
+        return {
+          id: it.id,
+          text: it.text,
+          userChoice: userChoice,
+          correct: it.correct,
+          isCorrect: isSubCor,
+          explanation: it.explanation || ""
+        };
+      });
+
+      let qScore = 0;
+      if (subCorrectCount === 4) qScore = 1.0;
+      else if (subCorrectCount === 3) qScore = 0.5;
+      else if (subCorrectCount === 2) qScore = 0.25;
+      else if (subCorrectCount === 1) qScore = 0.1;
+      tfScore += qScore;
+
+      breakdown.push({
+        id: q.id,
+        label: q.label,
+        prompt: q.prompt,
+        type: 'true_false',
+        isTrueFalse: true,
+        isWriting: false,
+        isCorrect: (subCorrectCount === 4),
+        subCorrectCount: subCorrectCount,
+        score: qScore,
+        items: itemResults,
+        taskName: q.taskName,
+        taskTitle: q.taskTitle,
+        sectionTitle: q.sectionTitle,
+        explanation: q.explanation || null
       });
     } else {
       totalMCQ++;
@@ -3775,14 +3817,14 @@ function finalizeExam() {
     }
   });
   
-  const totalWeight = totalMCQ + writingMax;
-  const earnedWeight = correctMCQ + writingScore;
+  const totalWeight = totalMCQ + writingMax + tfMax;
+  const earnedWeight = correctMCQ + writingScore + tfScore;
   const grade10 = totalWeight > 0 ? Math.round((earnedWeight / totalWeight) * 10 * 10) / 10 : 0;
   
   const record = {
     id: "sub_" + Date.now(),
     subject: AppState.currentSubject,
-    subjectName: (AppState.currentSubject === "physics" ? "Vật Lí 11" : "Tiếng Anh 11"),
+    subjectName: (AppState.currentSubject === "history" ? "Lịch Sử 11" : (AppState.currentSubject === "physics" ? "Vật Lí 11" : "Tiếng Anh 11")),
     studentName: AppState.studentName,
     practiceMode: AppState.practiceMode,
     grade10: grade10,
@@ -3790,6 +3832,9 @@ function finalizeExam() {
     totalMCQ: totalMCQ,
     writingScore: writingScore,
     writingMax: writingMax,
+    tfScore: Math.round(tfScore * 100) / 100,
+    tfMax: tfMax,
+    totalTF: totalTF,
     elapsedSeconds: AppState.elapsedSeconds,
     timestamp: new Date().toISOString(),
     breakdown: breakdown
@@ -3833,7 +3878,7 @@ function renderResultsScreen(rec) {
       <div class="report-card">
         <div class="school-meta">
           <span class="sub-badge sub-badge-${rec.subject || 'english'}" style="margin-right:0.4rem;">
-            ${isPhy ? ICONS.atom : ICONS.languages} <span>${isPhy ? 'Vật Lí 11' : 'Tiếng Anh 11'}</span>
+            ${rec.subject === 'history' ? ICONS.landmark : (isPhy ? ICONS.atom : ICONS.languages)} <span>${rec.subject === 'history' ? 'Lịch Sử 11' : (isPhy ? 'Vật Lí 11' : 'Tiếng Anh 11')}</span>
           </span>
           <span>BÁO CÁO KẾT QUẢ ÔN TẬP</span>
         </div>
@@ -3856,7 +3901,12 @@ function renderResultsScreen(rec) {
             <div class="stat-val" style="color:var(--danger);">${rec.totalMCQ - rec.correctMCQ}</div>
             <div class="stat-lbl">Trắc nghiệm sai</div>
           </div>
-          ${rec.writingMax > 0 ? `
+          ${rec.tfMax > 0 ? `
+          <div class="stat-box">
+            <div class="stat-val" style="color:var(--accent-base);">${rec.tfScore || 0} / ${rec.tfMax}đ</div>
+            <div class="stat-lbl">Điểm Đúng / Sai</div>
+          </div>
+          ` : (rec.writingMax > 0 ? `
           <div class="stat-box">
             <div class="stat-val" style="color:var(--accent-base);">${Math.round(rec.writingScore * 10) / 10} / ${rec.writingMax}</div>
             <div class="stat-lbl">Điểm tự luận</div>
@@ -3866,7 +3916,7 @@ function renderResultsScreen(rec) {
             <div class="stat-val" style="color:var(--accent-base);">${achieved} / ${total}</div>
             <div class="stat-lbl">Tổng câu đúng</div>
           </div>
-          `}
+          `)}
           <div class="stat-box">
             <div class="stat-val">${pct}%</div>
             <div class="stat-lbl">Tỉ lệ chính xác</div>
@@ -3991,6 +4041,23 @@ function renderReviewItems(breakdown, filterMode) {
         statusText = "SAI (0đ)";
         statusIcon = ICONS.x;
       }
+    } else if (item.isTrueFalse || item.type === 'true_false') {
+      if ((item.score || 0) >= 1.0) {
+        statusColor = "var(--success)";
+        statusBg = "var(--success-soft)";
+        statusText = "ĐÚNG (1.0đ)";
+        statusIcon = ICONS.check;
+      } else if ((item.score || 0) >= 0.25) {
+        statusColor = "var(--warning)";
+        statusBg = "rgba(180, 83, 9, 0.12)";
+        statusText = `ĐÚNG 1 PHẦN (${item.score}đ)`;
+        statusIcon = ICONS.check;
+      } else {
+        statusColor = "var(--danger)";
+        statusBg = "var(--danger-soft)";
+        statusText = `SAI (${item.score || 0}đ)`;
+        statusIcon = ICONS.x;
+      }
     } else if (!item.isCorrect) {
       statusColor = "var(--danger)";
       statusBg = "var(--danger-soft)";
@@ -4034,6 +4101,40 @@ function renderReviewItems(breakdown, filterMode) {
           </div>
         </div>
       `;
+    } else if (item.isTrueFalse || item.type === 'true_false') {
+      let tfRows = `<div class="review-tf-container">`;
+      (item.items || []).forEach(it => {
+        const userChoiceStr = it.userChoice === true ? "Đúng" : (it.userChoice === false ? "Sai" : "Chưa chọn");
+        const correctStr = it.correct ? "Đúng" : "Sai";
+        const isSubCor = it.isCorrect;
+        
+        tfRows += `
+          <div class="review-tf-row" style="border-left: 3px solid ${isSubCor ? 'var(--success)' : 'var(--danger)'};">
+            <div class="review-tf-top">
+              <span class="tf-item-badge">${it.id.toUpperCase()})</span>
+              <span class="review-tf-text">${renderMathAndText(it.text)}</span>
+              <span style="color: ${isSubCor ? 'var(--success)' : 'var(--danger)'}; font-weight:800; font-size:0.75rem; display:inline-flex; align-items:center; gap:0.2rem; flex-shrink:0;">
+                ${isSubCor ? ICONS.check : ICONS.x} ${isSubCor ? 'ĐÚNG' : 'SAI'}
+              </span>
+            </div>
+            <div class="review-tf-verdict">
+              <span style="color:var(--text-tertiary);">Bạn chọn: <b style="color:${it.userChoice !== undefined ? (isSubCor ? 'var(--success)' : 'var(--danger)') : 'var(--text-tertiary)'}">${userChoiceStr}</b></span>
+              <span style="color:var(--text-tertiary);">Đáp án chuẩn: <b style="color:var(--success)">${correctStr}</b></span>
+              ${it.explanation ? `<div style="width:100%;font-size:0.78rem;color:var(--text-secondary);margin-top:0.25rem;line-height:1.45;">💡 ${escapeHtml(it.explanation)}</div>` : ''}
+            </div>
+          </div>
+        `;
+      });
+      tfRows += `</div>`;
+      
+      let tfScoreSummary = `
+        <div style="font-size:0.82rem;display:flex;gap:1.5rem;padding:0.6rem 0.85rem;background:var(--bg-surface);border-radius:var(--radius-xs);border:1px solid var(--border-subtle);flex-wrap:wrap;align-items:center;margin-top:0.6rem;">
+          <div><span style="color:var(--text-tertiary);">Số ý đúng:</span> <b style="color:var(--accent-base);font-family:var(--font-mono);">${item.subCorrectCount || 0} / 4 ý</b></div>
+          <div><span style="color:var(--text-tertiary);">Điểm đạt được:</span> <b style="color:${(item.score || 0) >= 0.5 ? 'var(--success)' : 'var(--danger)'};font-family:var(--font-mono);">${item.score || 0} / 1.0 điểm</b></div>
+        </div>
+      `;
+
+      bodyContent = tfRows + tfScoreSummary;
     } else if (item.sentences && Object.keys(item.sentences).length > 0) {
       let frags = `
         <div style="font-size:0.78rem;font-weight:700;color:var(--accent-base);margin-bottom:0.4rem;display:flex;align-items:center;gap:0.35rem;">
@@ -4280,10 +4381,12 @@ function renderHistoryList() {
   
   const engRecs = records.filter(r => (r.subject || 'english') === 'english');
   const phyRecs = records.filter(r => r.subject === 'physics');
+  const hisRecs = records.filter(r => r.subject === 'history');
   
   const filtered = records.filter(r => {
     if (historySubjectFilter === 'english') return (r.subject || 'english') === 'english';
     if (historySubjectFilter === 'physics') return r.subject === 'physics';
+    if (historySubjectFilter === 'history') return r.subject === 'history';
     return true;
   });
   
@@ -4297,6 +4400,9 @@ function renderHistoryList() {
       </button>
       <button class="filter-pill-btn ${historySubjectFilter==='physics'?'active':''}" onclick="setHistorySubjectFilter('physics')">
         ${ICONS.atom} <span>Vật Lí (${phyRecs.length})</span>
+      </button>
+      <button class="filter-pill-btn ${historySubjectFilter==='history'?'active':''}" onclick="setHistorySubjectFilter('history')">
+        ${ICONS.landmark} <span>Lịch Sử (${hisRecs.length})</span>
       </button>
     </div>
   `;
@@ -4429,10 +4535,12 @@ function showAdminView() {
   const allRecords = getAllSubmissions();
   const engRecords = allRecords.filter(r => (r.subject || 'english') === 'english');
   const phyRecords = allRecords.filter(r => r.subject === 'physics');
+  const hisRecords = allRecords.filter(r => r.subject === 'history');
   
   const records = allRecords.filter(r => {
     if (adminSubjectFilter === 'english') return (r.subject || 'english') === 'english';
     if (adminSubjectFilter === 'physics') return r.subject === 'physics';
+    if (adminSubjectFilter === 'history') return r.subject === 'history';
     return true;
   });
   
@@ -4473,6 +4581,9 @@ function showAdminView() {
         </button>
         <button class="filter-pill-btn ${adminSubjectFilter==='physics'?'active':''}" onclick="setAdminSubjectFilter('physics')">
           ${ICONS.atom} <span>Vật Lí 11 (${phyRecords.length})</span>
+        </button>
+        <button class="filter-pill-btn ${adminSubjectFilter==='history'?'active':''}" onclick="setAdminSubjectFilter('history')">
+          ${ICONS.landmark} <span>Lịch Sử 11 (${hisRecords.length})</span>
         </button>
       </div>
       
@@ -4548,7 +4659,7 @@ function renderAdminTableRows(records) {
     return `
       <tr>
         <td><span class="student-name" onclick="viewStudentDetail('${r.id}')">${escapeHtml(r.studentName)}</span></td>
-        <td><span class="sub-badge sub-badge-${r.subject || 'english'}">${isPhy ? ICONS.atom : ICONS.languages} <span>${isPhy ? 'LÝ 11' : 'ENG 11'}</span></span></td>
+        <td><span class="sub-badge sub-badge-${r.subject || 'english'}">${r.subject === 'history' ? ICONS.landmark : (isPhy ? ICONS.atom : ICONS.languages)} <span>${r.subject === 'history' ? 'SỬ 11' : (isPhy ? 'LÝ 11' : 'ENG 11')}</span></span></td>
         <td><span style="font-size:0.75rem;padding:0.15rem 0.45rem;border-radius:var(--radius-xs);background:var(--bg-surface-elevated);">${escapeHtml(r.practiceMode)}</span></td>
         <td><b style="color:${scoreColor};font-family:var(--font-mono);font-size:0.95rem;">${r.grade10}</b> / 10</td>
         <td style="font-family:var(--font-mono);">${duration}</td>
@@ -4566,6 +4677,7 @@ function filterAdminTable(query) {
   const filteredBySubject = allRecords.filter(r => {
     if (adminSubjectFilter === 'english') return (r.subject || 'english') === 'english';
     if (adminSubjectFilter === 'physics') return r.subject === 'physics';
+    if (adminSubjectFilter === 'history') return r.subject === 'history';
     return true;
   });
   const filtered = filteredBySubject.filter(r => r.studentName.toLowerCase().includes(query.toLowerCase()));
@@ -4605,7 +4717,7 @@ function renderAdminStudentDetailModal() {
   else if (rec.grade10 < 8.0) scoreColor = "var(--warning)";
   
   document.getElementById("studentDetailTitle").innerHTML = `
-    <span>Bài làm của: <b>${escapeHtml(rec.studentName)}</b> (${isPhy ? ICONS.atom : ICONS.languages} ${isPhy ? 'Vật Lí 11' : 'Tiếng Anh 11'})</span>
+    <span>Bài làm của: <b>${escapeHtml(rec.studentName)}</b> (${rec.subject === 'history' ? ICONS.landmark : (isPhy ? ICONS.atom : ICONS.languages)} ${rec.subject === 'history' ? 'Lịch Sử 11' : (isPhy ? 'Vật Lí 11' : 'Tiếng Anh 11')})</span>
     <span style="font-family:var(--font-mono);color:${scoreColor};font-size:1.1rem;font-weight:800;margin-left:0.5rem;">${rec.grade10}/10đ</span>
   `;
   
