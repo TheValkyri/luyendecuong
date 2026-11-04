@@ -216,11 +216,26 @@
       if (bc) bc.postMessage({ type: "SESSION_STARTED", session: sessionData });
       pushToCloud(`active_sessions/${sessionId}`, "PUT", sessionData);
 
+      // Record student attempt history in Cloud
+      if (meta.studentName) {
+        const safeKey = meta.studentName.trim().replace(/[.#$\[\]\/]/g, '_');
+        pushToCloud(`student_history/${safeKey}/studentName`, "PUT", meta.studentName);
+        pushToCloud(`student_history/${safeKey}/lastSeen`, "PUT", Date.now());
+        pushToCloud(`student_history/${safeKey}/lastSubject`, "PUT", meta.subject || "english");
+        pushToCloud(`student_history/${safeKey}/attempts/${sessionId}`, "PUT", {
+          sessionId,
+          subject: meta.subject || "english",
+          startTime: Date.now(),
+          status: "in_progress",
+          device: detectDevice()
+        });
+      }
+
       // Start periodic heartbeat
       if (heartbeatTimer) clearInterval(heartbeatTimer);
       heartbeatTimer = setInterval(() => {
         Telemetry.heartbeat();
-      }, 12000);
+      }, 8000);
 
       return sessionData;
     },
@@ -252,6 +267,14 @@
       saveLocalActiveSession(sessionData);
       if (bc) bc.postMessage({ type: "PROGRESS_UPDATED", session: sessionData });
       pushToCloud(`active_sessions/${sessionId}`, "PUT", sessionData);
+
+      if (updateData.studentName) {
+        const safeKey = updateData.studentName.trim().replace(/[.#$\[\]\/]/g, '_');
+        pushToCloud(`student_history/${safeKey}/lastSeen`, "PUT", Date.now());
+        pushToCloud(`student_history/${safeKey}/attempts/${sessionId}/lastActive`, "PUT", Date.now());
+        pushToCloud(`student_history/${safeKey}/attempts/${sessionId}/progress`, "PUT", `${updateData.answeredCount}/${updateData.totalCount}`);
+        pushToCloud(`student_history/${safeKey}/attempts/${sessionId}/provisionalGrade10`, "PUT", updateData.provisionalGrade10 || 0);
+      }
     },
 
     heartbeat() {
@@ -284,6 +307,13 @@
       // Save submission record to cloud
       if (submissionRecord && submissionRecord.id) {
         pushToCloud(`submissions/${submissionRecord.id}`, "PUT", submissionRecord);
+      }
+
+      if (submissionRecord && submissionRecord.studentName) {
+        const safeKey = submissionRecord.studentName.trim().replace(/[.#$\[\]\/]/g, '_');
+        pushToCloud(`student_history/${safeKey}/attempts/${sessionId}/status`, "PUT", "completed");
+        pushToCloud(`student_history/${safeKey}/attempts/${sessionId}/completedTime`, "PUT", Date.now());
+        pushToCloud(`student_history/${safeKey}/attempts/${sessionId}/grade10`, "PUT", submissionRecord.grade10);
       }
 
       sessionStorage.removeItem("luyendecuong_sess_id");
@@ -364,7 +394,39 @@
         }
       }
 
-      return merged;
+      // 3. Deduplicate active sessions: Merge duplicate records for the same student & subject
+      const dedupMap = {};
+      Object.values(merged).forEach(sess => {
+        if (!sess || !sess.studentName) return;
+        const key = sess.studentName.trim().toLowerCase() + "___" + (sess.subject || "english");
+        if (!dedupMap[key]) {
+          dedupMap[key] = sess;
+        } else {
+          const cur = dedupMap[key];
+          const sessIsLegacy = !!(sess.device && sess.device.tag && sess.device.tag.includes("trước update"));
+          const curIsLegacy = !!(cur.device && cur.device.tag && cur.device.tag.includes("trước update"));
+
+          if (curIsLegacy && !sessIsLegacy) {
+            dedupMap[key] = sess;
+          } else if (!curIsLegacy && sessIsLegacy) {
+            // Keep cur
+          } else {
+            const sessNewer = (sess.lastActive || 0) >= (cur.lastActive || 0);
+            if (sessNewer || (sess.answeredCount || 0) > (cur.answeredCount || 0)) {
+              sess.answeredCount = Math.max(sess.answeredCount || 0, cur.answeredCount || 0);
+              sess.userAnswers = Object.assign({}, cur.userAnswers, sess.userAnswers);
+              sess.provisionalGrade10 = Math.max(sess.provisionalGrade10 || 0, cur.provisionalGrade10 || 0);
+              dedupMap[key] = sess;
+            }
+          }
+        }
+      });
+
+      const finalMap = {};
+      Object.values(dedupMap).forEach(s => {
+        finalMap[s.sessionId || s.studentName] = s;
+      });
+      return finalMap;
     },
 
     async getAllSubmissions() {

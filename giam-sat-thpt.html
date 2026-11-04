@@ -1488,13 +1488,43 @@ async function fetchAllTelemetryData() {
   if (activeSpySessionId) updateSpyModalContent();
 }
 
-// --- KPI METRICS ---
-function updateKPICards() {
+function getDeduplicatedActiveSessions() {
   const now = Date.now();
-  // Filter sessions active within last 24 hours
-  const activeList = Object.values(activeSessionsMap).filter(s => {
+  const rawList = Object.values(activeSessionsMap).filter(s => {
     return s && s.studentName && (now - (s.lastActive || 0) < 24 * 60 * 60 * 1000);
   });
+
+  const dedupMap = {};
+  rawList.forEach(sess => {
+    const key = (sess.studentName || "").trim().toLowerCase() + "___" + (sess.subject || "english");
+    if (!dedupMap[key]) {
+      dedupMap[key] = sess;
+    } else {
+      const cur = dedupMap[key];
+      const sessIsLegacy = !!(sess.device && sess.device.tag && sess.device.tag.includes("trước update"));
+      const curIsLegacy = !!(cur.device && cur.device.tag && cur.device.tag.includes("trước update"));
+
+      if (curIsLegacy && !sessIsLegacy) {
+        dedupMap[key] = sess;
+      } else if (!curIsLegacy && sessIsLegacy) {
+        // keep cur
+      } else {
+        if ((sess.lastActive || 0) >= (cur.lastActive || 0) || (sess.answeredCount || 0) >= (cur.answeredCount || 0)) {
+          sess.answeredCount = Math.max(sess.answeredCount || 0, cur.answeredCount || 0);
+          sess.userAnswers = Object.assign({}, cur.userAnswers, sess.userAnswers);
+          sess.provisionalGrade10 = Math.max(sess.provisionalGrade10 || 0, cur.provisionalGrade10 || 0);
+          dedupMap[key] = sess;
+        }
+      }
+    }
+  });
+
+  return Object.values(dedupMap);
+}
+
+// --- KPI METRICS ---
+function updateKPICards() {
+  const activeList = getDeduplicatedActiveSessions();
 
   document.getElementById("kpiOnlineCount").textContent = activeList.length;
   document.getElementById("badgeLiveCount").textContent = activeList.length;
@@ -1529,6 +1559,26 @@ function updateKPICards() {
     });
     document.getElementById("kpiMaxScore").textContent = (maxSub.grade10 || 0).toFixed(1);
     document.getElementById("kpiTopStudent").textContent = `${maxSub.studentName} (${maxSub.subjectName || maxSub.subject})`;
+  } else if (activeList.length > 0) {
+    const activeWithScore = activeList.filter(s => (s.provisionalGrade10 || 0) > 0);
+    if (activeWithScore.length > 0) {
+      const liveSum = activeWithScore.reduce((acc, s) => acc + (s.provisionalGrade10 || 0), 0);
+      const liveAvg = (liveSum / activeWithScore.length).toFixed(1);
+      document.getElementById("kpiAvgScore").textContent = liveAvg;
+      document.getElementById("kpiPassRate").textContent = `Tạm tính (${activeWithScore.length} bài đang làm)`;
+
+      let maxActive = activeWithScore[0];
+      activeWithScore.forEach(s => {
+        if ((s.provisionalGrade10 || 0) > (maxActive.provisionalGrade10 || 0)) maxActive = s;
+      });
+      document.getElementById("kpiMaxScore").textContent = (maxActive.provisionalGrade10 || 0).toFixed(1);
+      document.getElementById("kpiTopStudent").textContent = `${maxActive.studentName} (Đang làm: ${maxActive.subjectName || maxActive.subject})`;
+    } else {
+      document.getElementById("kpiAvgScore").textContent = "0.0";
+      document.getElementById("kpiPassRate").textContent = "Đang chờ học sinh làm bài";
+      document.getElementById("kpiMaxScore").textContent = "0.0";
+      document.getElementById("kpiTopStudent").textContent = "Chưa có bài thi";
+    }
   } else {
     document.getElementById("kpiAvgScore").textContent = "0.0";
     document.getElementById("kpiPassRate").textContent = "Tỷ lệ đạt (≥ 5.0): 0%";
@@ -1555,11 +1605,8 @@ function renderLiveTable() {
   const emptyState = document.getElementById("liveEmptyState");
   const searchKeyword = (document.getElementById("txtSearchLive").value || "").trim().toLowerCase();
 
-  const now = Date.now();
-  let list = Object.values(activeSessionsMap).filter(s => {
-    if (!s || !s.studentName) return false;
-    // Show active sessions from the last 24 hours
-    if (now - (s.lastActive || 0) > 24 * 60 * 60 * 1000) return false;
+  const dedupActive = getDeduplicatedActiveSessions();
+  let list = dedupActive.filter(s => {
     if (liveSubjectFilter !== "all" && s.subject !== liveSubjectFilter) return false;
     if (searchKeyword && !s.studentName.toLowerCase().includes(searchKeyword)) return false;
     return true;
@@ -1683,14 +1730,52 @@ function renderStudentsTable() {
   const emptyState = document.getElementById("studentsEmptyState");
   const searchKeyword = (document.getElementById("txtSearchStudents").value || "").trim().toLowerCase();
 
-  // Filter submissions by subject
-  let subs = allSubmissionsList.filter(s => {
-    if (studentSubjectFilter !== "all" && (s.subject || 'english') !== studentSubjectFilter) return false;
-    if (searchKeyword && !(s.studentName || "").toLowerCase().includes(searchKeyword)) return false;
+  const dedupActive = getDeduplicatedActiveSessions();
+
+  // Combine completed submissions AND active attempts
+  const allAttempts = [];
+
+  // 1. Completed submissions
+  allSubmissionsList.forEach(s => {
+    allAttempts.push({
+      ...s,
+      isCompleted: true,
+      displayScore: (s.grade10 || 0),
+      attemptTime: new Date(s.timestamp || Date.now()).getTime(),
+      displayDate: new Date(s.timestamp || Date.now()).toLocaleDateString('vi-VN'),
+      type: "completed"
+    });
+  });
+
+  // 2. Active in-progress attempts
+  dedupActive.forEach(sess => {
+    allAttempts.push({
+      id: sess.sessionId,
+      studentName: sess.studentName,
+      subject: sess.subject,
+      subjectName: sess.subjectName || sess.subject,
+      practiceMode: sess.practiceMode,
+      grade10: sess.provisionalGrade10 || 0,
+      displayScore: sess.provisionalGrade10 || 0,
+      answeredCount: sess.answeredCount || 0,
+      totalCount: sess.totalCount || 0,
+      elapsedSeconds: sess.elapsedSeconds || 0,
+      attemptTime: (sess.lastActive || Date.now()),
+      displayDate: "Đang làm",
+      isCompleted: false,
+      type: "active",
+      device: sess.device
+    });
+  });
+
+  // Filter by subject & search
+  let filteredAttempts = allAttempts.filter(a => {
+    if (studentSubjectFilter !== "all" && (a.subject || 'english') !== studentSubjectFilter) return false;
+    if (searchKeyword && !(a.studentName || "").toLowerCase().includes(searchKeyword)) return false;
     return true;
   });
 
-  if (subs.length === 0) {
+  if (filteredAttempts.length === 0) {
     tbody.innerHTML = "";
     emptyState.style.display = "block";
     return;
@@ -1700,26 +1785,31 @@ function renderStudentsTable() {
 
   // Group by student name
   const studentsMap = {};
-  subs.forEach(s => {
-    const key = (s.studentName || "Ẩn danh").trim();
+  filteredAttempts.forEach(att => {
+    const key = (att.studentName || "Ẩn danh").trim();
     if (!studentsMap[key]) {
       studentsMap[key] = {
         name: key,
         attempts: [],
-        subjects: new Set()
+        subjects: new Set(),
+        hasActive: false,
+        activeSessId: null
       };
     }
-    studentsMap[key].attempts.push(s);
-    studentsMap[key].subjects.add(s.subjectName || s.subject || 'Tiếng Anh 11');
+    studentsMap[key].attempts.push(att);
+    studentsMap[key].subjects.add(att.subjectName || att.subject || 'Tiếng Anh 11');
+    if (!att.isCompleted) {
+      studentsMap[key].hasActive = true;
+      studentsMap[key].activeSessId = att.id;
+    }
   });
 
   const studentsList = Object.values(studentsMap);
 
   // Compute stats per student
   studentsList.forEach(st => {
-    // Sort attempts by timestamp oldest to newest for timeline
-    st.attempts.sort((a, b) => new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime());
-    const scores = st.attempts.map(a => a.grade10 || 0);
+    st.attempts.sort((a, b) => a.attemptTime - b.attemptTime);
+    const scores = st.attempts.map(a => a.displayScore);
     st.attemptCount = st.attempts.length;
     st.bestScore = Math.max(...scores);
     st.latestScore = scores[scores.length - 1];
@@ -1741,12 +1831,21 @@ function renderStudentsTable() {
     else if (idx === 2) rankBadge = `🥉`;
 
     const timelineChips = st.attempts.map((att, i) => {
-      const g = (att.grade10 || 0).toFixed(1);
+      const g = (att.displayScore || 0).toFixed(1);
       let col = "#fbbf24";
-      if (att.grade10 >= 8.0) col = "#34d399";
-      else if (att.grade10 < 5.0) col = "#f87171";
-      return `<span class="attempt-chip" onclick="openSubmissionModal('${att.id}')" style="cursor:pointer;" title="Nhấn để xem bài thi lần ${i+1}">Lần ${i+1}: <strong style="color:${col};">${g}</strong></span>`;
+      if (att.displayScore >= 8.0) col = "#34d399";
+      else if (att.displayScore < 5.0) col = "#f87171";
+
+      if (att.isCompleted) {
+        return `<span class="attempt-chip" onclick="openSubmissionModal('${att.id}')" style="cursor:pointer;" title="Lần ${i+1} (Đã nộp): Nhấn để xem chi tiết">Lần ${i+1}: <strong style="color:${col};">${g}đ</strong></span>`;
+      } else {
+        return `<span class="attempt-chip" onclick="openSpyModal('${att.id}')" style="cursor:pointer; border-color:rgba(79,120,255,0.4); background:rgba(79,120,255,0.12);" title="Đang làm bài: Nhấn để soi bài làm trực tiếp"><span class="beacon-dot" style="width:6px; height:6px;"></span>Lần ${i+1} (Đang làm): <strong style="color:${col};">${g}đ</strong></span>`;
+      }
     }).join("");
+
+    const statusPill = st.hasActive 
+      ? `<span style="font-size:0.7rem; color:#34d399; display:inline-flex; align-items:center; gap:4px; margin-top:2px;"><span class="beacon-dot" style="width:6px; height:6px;"></span>Đang online</span>`
+      : `<span style="font-size:0.7rem; color:var(--text-tertiary); margin-top:2px;">Đã hoàn thành</span>`;
 
     html += `
       <tr>
@@ -1756,12 +1855,13 @@ function renderStudentsTable() {
             <div class="student-avatar" style="background:${avatarBg};">${initials}</div>
             <div>
               <div class="student-name-text">${escapeHtml(st.name)}</div>
-              <div class="student-device-text">${Array.from(st.subjects).join(', ')}</div>
+              <div class="student-device-text">${Array.from(st.subjects).join(', ')} · ${statusPill}</div>
             </div>
           </div>
         </td>
         <td>
-          <strong style="font-family:var(--font-mono); font-size:0.9rem; color:var(--text-primary);">${st.attemptCount}</strong> lần
+          <strong style="font-family:var(--font-mono); font-size:0.95rem; color:var(--text-primary);">${st.attemptCount}</strong> lần
+          ${st.hasActive ? '<span style="font-size:0.7rem; color:#6b95ff; display:block;">(1 đang làm)</span>' : ''}
         </td>
         <td>
           <span class="score-pill-provisional ${st.bestScore >= 8 ? 'score-pill-good' : (st.bestScore < 5 ? 'score-pill-low' : 'score-pill-mid')}">
@@ -1783,9 +1883,15 @@ function renderStudentsTable() {
           </div>
         </td>
         <td>
-          <button class="dev-btn" onclick="openSubmissionModal('${st.attempts[st.attempts.length - 1].id}')" title="Xem bài làm lần gần nhất">
-            <span>Xem bài</span>
-          </button>
+          ${st.hasActive ? `
+            <button class="action-btn-spy" onclick="openSpyModal('${st.activeSessId}')" title="Soi bài làm trực tiếp">
+              <span>Soi bài</span>
+            </button>
+          ` : `
+            <button class="dev-btn" onclick="openSubmissionModal('${st.attempts[st.attempts.length - 1].id}')" title="Xem bài thi gần nhất">
+              <span>Xem bài</span>
+            </button>
+          `}
         </td>
       </tr>
     `;
