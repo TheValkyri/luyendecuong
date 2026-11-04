@@ -8,6 +8,31 @@
 <meta http-equiv="Expires" content="0">
 <title>Trung Tâm Giám Sát & Tracking Trực Tuyến — THPT Vĩnh Thuận</title>
 
+<script>
+  // Global defensive fallback: ensure 'now' is always accessible
+  try {
+    Object.defineProperty(window, 'now', {
+      get: function() { return Date.now(); },
+      configurable: true
+    });
+  } catch (e) {
+    window.now = Date.now();
+  }
+
+  // Auto-bust stale browser cache
+  (function() {
+    try {
+      if (typeof window === "undefined" || !window.location) return;
+      var DASHBOARD_BUILD = "20261104_2255";
+      var p = new URLSearchParams(window.location.search);
+      if (p.get("v") !== DASHBOARD_BUILD) {
+        p.set("v", DASHBOARD_BUILD);
+        window.location.replace(window.location.pathname + "?" + p.toString() + window.location.hash);
+      }
+    } catch(e) {}
+  })();
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -1646,7 +1671,8 @@ function renderLiveTable() {
     else if (grade < 5.0) scoreClass = "score-pill-low";
 
     const elapsed = formatElapsed(sess.elapsedSeconds || 0);
-    const diffSec = Math.floor((now - (sess.lastActive || 0)) / 1000);
+    const nowTime = (typeof now !== "undefined" ? now : Date.now());
+    const diffSec = Math.floor((nowTime - (sess.lastActive || 0)) / 1000);
     let heartbeatDot = "var(--success)";
     let heartbeatText = "Đang thao tác";
     if (diffSec > 300) {
