@@ -10,7 +10,7 @@
 <script>
   // AUTO-REDIRECT CACHE BUSTER FOR ALL USERS
   (function() {
-    var APP_BUILD_TAG = "20261104_2015";
+    var APP_BUILD_TAG = "20261104_2145";
     var p = new URLSearchParams(window.location.search);
     if (p.get("v") !== APP_BUILD_TAG) {
       p.set("v", APP_BUILD_TAG);
@@ -2009,6 +2009,11 @@ a {
         <svg class="v-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
       </button>
       
+      <!-- Live Dev / Telemetry Dashboard Button -->
+      <a class="icon-btn" href="dev.html" title="Bảng Theo Dõi Trực Tuyến (Dev & Teacher Live Tracking)" style="text-decoration:none;">
+        <svg class="v-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+      </a>
+
       <!-- Admin Button -->
       <button class="icon-btn" onclick="showAdminView()" title="Bảng quản trị giáo viên">
         <svg class="v-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
@@ -2211,6 +2216,7 @@ a {
 <script src="quiz_data.js?v=20261102_2215"></script>
 <script src="physics_quiz_data.js?v=20261103_01"></script>
 <script src="history_quiz_data.js?v=20261104_2015"></script>
+<script src="telemetry_sync.js?v=20261104_2145"></script>
 
 <script>
 /* ==========================================================================
@@ -2743,6 +2749,34 @@ function saveSessionDebounced() {
         timestamp: Date.now()
       };
       localStorage.setItem(getActiveSessionKey(), JSON.stringify(payload));
+
+      // Telemetry Live Update (Provisional Scoring & Realtime Telemetry)
+      if (window.Telemetry && typeof Telemetry.updateProgress === "function") {
+        try {
+          const subset = getActiveQuestionsSubset();
+          const prov = Telemetry.calculateProvisionalScore(subset, AppState.userAnswers);
+          const curQ = subset[AppState.activeQuestionGlobalIdx] || {};
+          Telemetry.updateProgress({
+            studentName: AppState.studentName,
+            subject: AppState.currentSubject,
+            subjectName: (AppState.currentSubject === "history" ? "Lịch Sử 11" : (AppState.currentSubject === "physics" ? "Vật Lí 11" : "Tiếng Anh 11")),
+            practiceMode: AppState.practiceMode,
+            totalCount: subset.length,
+            answeredCount: prov.answered,
+            provisionalScore: prov.earnedWeight,
+            provisionalGrade10: prov.grade10,
+            correctCount: prov.correct,
+            wrongCount: prov.wrong,
+            progressPct: prov.progressPct,
+            currentQuestionGlobalIdx: AppState.activeQuestionGlobalIdx,
+            currentQuestionLabel: curQ.label || `Câu ${AppState.activeQuestionGlobalIdx + 1}`,
+            elapsedSeconds: AppState.elapsedSeconds,
+            userAnswers: AppState.userAnswers
+          });
+        } catch(te) {
+          console.warn("[Telemetry] Error updating progress", te);
+        }
+      }
     }
   }, 400);
 }
@@ -3121,6 +3155,20 @@ function getActiveQuestionsSubset() {
 // QUIZ VIEWPORT CONTROLLER
 // ==========================================================================
 function launchExamUI() {
+  if (window.Telemetry && typeof Telemetry.startSession === "function") {
+    try {
+      const subset = getActiveQuestionsSubset();
+      Telemetry.startSession({
+        studentName: AppState.studentName,
+        subject: AppState.currentSubject,
+        subjectName: (AppState.currentSubject === "history" ? "Lịch Sử 11" : (AppState.currentSubject === "physics" ? "Vật Lí 11" : "Tiếng Anh 11")),
+        practiceMode: AppState.practiceMode,
+        totalCount: subset.length
+      });
+    } catch(te) {
+      console.warn("[Telemetry] Error starting session", te);
+    }
+  }
   document.getElementById("topHeaderTitle").textContent = AppState.studentName;
   document.getElementById("progressStrip").style.display = "block";
   document.getElementById("sectionTabsBar").style.display = "block";
@@ -4164,6 +4212,13 @@ function finalizeExam() {
   currentReviewRecord = record;
   currentReviewFilter = "all";
   saveStudentSubmission(record);
+  if (window.Telemetry && typeof Telemetry.completeSession === "function") {
+    try {
+      Telemetry.completeSession(record);
+    } catch(te) {
+      console.warn("[Telemetry] Error completing session", te);
+    }
+  }
   renderResultsScreen(record);
 }
 
@@ -4881,6 +4936,10 @@ function showAdminView() {
         </div>
         
         <div style="display:flex;gap:0.5rem;">
+          <a class="dock-nav-btn" href="dev.html" style="text-decoration:none;background:rgba(79,120,255,0.16);border-color:rgba(79,120,255,0.4);color:#6b95ff;">
+            <svg class="v-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            <span>Live Tracking (Trực Tuyến)</span>
+          </a>
           <button class="dock-nav-btn" onclick="exportSubmissionsCSV()">
             ${ICONS.download}
             <span>Xuất Excel (CSV)</span>

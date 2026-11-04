@@ -1,0 +1,2255 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>Trung Tâm Giám Sát & Tracking Trực Tuyến — THPT Vĩnh Thuận</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- KaTeX for physics mathematical formulas -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+
+<style>
+:root {
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  
+  --bg-app: #090b0e;
+  --bg-surface: #0f131a;
+  --bg-card: #141822;
+  --bg-card-hover: #19202c;
+  --bg-elevated: #1e2634;
+  
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.16);
+  --border-accent: rgba(79, 120, 255, 0.45);
+  
+  --text-primary: #f3f5f9;
+  --text-secondary: #9da6b8;
+  --text-tertiary: #656f84;
+  
+  --accent: #4f78ff;
+  --accent-glow: rgba(79, 120, 255, 0.25);
+  --success: #10b981;
+  --success-glow: rgba(16, 185, 129, 0.25);
+  --warning: #f59e0b;
+  --warning-glow: rgba(245, 158, 11, 0.25);
+  --danger: #ef4444;
+  --danger-glow: rgba(239, 68, 68, 0.25);
+  
+  --color-eng: #4f78ff;
+  --color-phy: #f59e0b;
+  --color-his: #ef4444;
+  
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg-app);
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-app); }
+::-webkit-scrollbar-thumb { background: #232c3d; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #35425b; }
+
+/* SVG icons */
+.v-icon {
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+/* Animations */
+@keyframes pulse-beacon {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+  70% { transform: scale(1.05); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+.beacon-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--success);
+  display: inline-block;
+  animation: pulse-beacon 1.8s infinite;
+  margin-right: 6px;
+}
+
+.beacon-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  background: rgba(16, 185, 129, 0.12);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+/* TOP NAVBAR */
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(15, 19, 26, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 0.75rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.brand-badge {
+  background: linear-gradient(135deg, #4f78ff 0%, #3151b5 100%);
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.8rem;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.5px;
+}
+
+.nav-title-box h1 {
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: -0.2px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-title-box p {
+  font-size: 0.72rem;
+  color: var(--text-tertiary);
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+/* Buttons */
+.dev-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  transition: all 0.18s ease;
+  text-decoration: none;
+}
+
+.dev-btn:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-strong);
+}
+
+.dev-btn-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.dev-btn-primary:hover {
+  background: #3d66e8;
+  border-color: #3d66e8;
+}
+
+.dev-btn-danger {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.3);
+  color: #f87171;
+}
+
+.dev-btn-danger:hover {
+  background: rgba(239, 68, 68, 0.2);
+}
+
+.refresh-select {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  border-radius: var(--radius-sm);
+  padding: 0.45rem 0.65rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  outline: none;
+  cursor: pointer;
+}
+
+/* MAIN CONTAINER */
+.main-wrap {
+  max-width: 1380px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1.25rem 1.25rem 3rem 1.25rem;
+  flex: 1;
+}
+
+/* KPI CARDS */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.kpi-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.15rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.kpi-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-strong);
+}
+
+.kpi-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.kpi-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-tertiary);
+}
+
+.kpi-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-secondary);
+}
+
+.kpi-value {
+  font-family: var(--font-mono);
+  font-size: 1.85rem;
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--text-primary);
+}
+
+.kpi-footer {
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* TABS HEADER */
+.tabs-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 1.25rem;
+  overflow-x: auto;
+  padding-bottom: 2px;
+}
+
+.tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.15rem;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.15s ease;
+  white-space: nowrap;
+}
+
+.tab-btn:hover {
+  color: var(--text-primary);
+}
+
+.tab-btn.active {
+  color: #fff;
+}
+
+.tab-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--accent);
+  border-radius: 3px 3px 0 0;
+}
+
+.tab-counter {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-secondary);
+}
+
+.tab-btn.active .tab-counter {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* TAB CONTENT */
+.tab-pane {
+  display: none;
+}
+.tab-pane.active {
+  display: block;
+}
+
+/* CONTROLS BAR */
+.controls-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.pill-filter {
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.pill-filter:hover {
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+}
+
+.pill-filter.active {
+  background: rgba(79, 120, 255, 0.15);
+  color: #6b95ff;
+  border-color: rgba(79, 120, 255, 0.45);
+}
+
+.search-input-box {
+  position: relative;
+  min-width: 220px;
+}
+
+.search-input-box input {
+  width: 100%;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 0.4rem 0.75rem 0.4rem 2rem;
+  color: var(--text-primary);
+  font-size: 0.8rem;
+  outline: none;
+}
+
+.search-input-box input:focus {
+  border-color: var(--accent);
+}
+
+.search-input-box .search-icon {
+  position: absolute;
+  left: 0.65rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-tertiary);
+}
+
+/* DATA TABLE */
+.table-wrap {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+th {
+  padding: 0.75rem 1rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-tertiary);
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid var(--border-subtle);
+  white-space: nowrap;
+}
+
+td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: 0.83rem;
+  color: var(--text-secondary);
+  vertical-align: middle;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* Student Cell */
+.student-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.student-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.8rem;
+  color: #fff;
+  flex-shrink: 0;
+  text-transform: uppercase;
+}
+
+.student-name-text {
+  font-weight: 700;
+  color: var(--text-primary);
+  font-size: 0.88rem;
+}
+
+.student-device-text {
+  font-size: 0.72rem;
+  color: var(--text-tertiary);
+  margin-top: 1px;
+}
+
+/* Subject Badges */
+.subject-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.subject-tag.eng {
+  background: rgba(79, 120, 255, 0.15);
+  color: #7094ff;
+  border: 1px solid rgba(79, 120, 255, 0.3);
+}
+
+.subject-tag.phy {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.subject-tag.his {
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+/* Progress bar inside table */
+.progress-mini-bar {
+  width: 100%;
+  max-width: 120px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 4px;
+}
+
+.progress-mini-fill {
+  height: 100%;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #4f78ff 0%, #10b981 100%);
+  transition: width 0.3s ease;
+}
+
+/* Provisional Score Pill */
+.score-pill-provisional {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 800;
+  padding: 3px 9px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.score-pill-good {
+  background: rgba(16, 185, 129, 0.16);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+}
+
+.score-pill-mid {
+  background: rgba(245, 158, 11, 0.16);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.35);
+}
+
+.score-pill-low {
+  background: rgba(239, 68, 68, 0.16);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.35);
+}
+
+/* Action button in table */
+.action-btn-spy {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  background: rgba(79, 120, 255, 0.15);
+  color: #7094ff;
+  border: 1px solid rgba(79, 120, 255, 0.35);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.action-btn-spy:hover {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+/* EMPTY STATE */
+.empty-state-box {
+  text-align: center;
+  padding: 3.5rem 1.5rem;
+  color: var(--text-tertiary);
+}
+
+.empty-icon-wrap {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+}
+
+.empty-state-box h3 {
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  margin-bottom: 0.35rem;
+}
+
+.empty-state-box p {
+  font-size: 0.85rem;
+  max-width: 480px;
+  margin: 0 auto 1.25rem auto;
+}
+
+/* ATTEMPTS TIMELINE CHIPS */
+.attempt-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-secondary);
+  margin-right: 4px;
+  margin-bottom: 4px;
+}
+
+/* HISTOGRAM / ITEM ANALYSIS */
+.analytics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+@media (max-width: 900px) {
+  .analytics-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card-box {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+}
+
+.card-box-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.card-box-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Histogram Bars */
+.histo-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.65rem;
+  font-size: 0.8rem;
+}
+
+.histo-label {
+  width: 95px;
+  font-family: var(--font-mono);
+  color: var(--text-secondary);
+  flex-shrink: 0;
+}
+
+.histo-bar-wrap {
+  flex: 1;
+  height: 18px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.histo-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  background: var(--accent);
+  transition: width 0.4s ease;
+}
+
+.histo-count {
+  width: 40px;
+  text-align: right;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* Most Missed Question Card */
+.missed-q-item {
+  padding: 0.85rem;
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  margin-bottom: 0.65rem;
+}
+
+.missed-q-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.35rem;
+}
+
+.missed-q-label {
+  font-weight: 700;
+  color: var(--text-primary);
+  font-size: 0.82rem;
+}
+
+.missed-q-rate {
+  font-family: var(--font-mono);
+  font-weight: 800;
+  font-size: 0.75rem;
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+}
+
+.missed-q-prompt {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  margin-bottom: 0.4rem;
+}
+
+.missed-q-ans {
+  font-size: 0.75rem;
+  color: #34d399;
+  font-weight: 600;
+}
+
+/* MODAL OVERLAY */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(4, 6, 9, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-window {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  max-width: 900px;
+  width: 100%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  animation: modal-pop 0.2s ease-out;
+}
+
+@keyframes modal-pop {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.modal-header {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.modal-header h3 {
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.modal-close-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.modal-close-btn:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.modal-body {
+  padding: 1.25rem;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.modal-footer {
+  padding: 0.85rem 1.25rem;
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* Question Matrix in Spy Modal */
+.matrix-spy-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(36px, 1fr));
+  gap: 6px;
+  margin-bottom: 1.25rem;
+}
+
+.matrix-spy-cell {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-tertiary);
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.matrix-spy-cell.correct {
+  background: rgba(16, 185, 129, 0.2);
+  color: #34d399;
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
+.matrix-spy-cell.wrong {
+  background: rgba(239, 68, 68, 0.2);
+  color: #f87171;
+  border-color: rgba(239, 68, 68, 0.4);
+}
+
+.matrix-spy-cell.current {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+/* Question card in Spy Modal */
+.spy-q-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 1rem;
+  margin-bottom: 0.85rem;
+}
+
+.spy-q-card.is-correct {
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
+.spy-q-card.is-wrong {
+  border-color: rgba(239, 68, 68, 0.4);
+}
+
+.spy-opt-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.4rem 0.65rem;
+  border-radius: 6px;
+  margin-top: 0.35rem;
+  font-size: 0.82rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid transparent;
+}
+
+.spy-opt-row.student-picked {
+  background: rgba(79, 120, 255, 0.15);
+  border-color: rgba(79, 120, 255, 0.4);
+  color: #fff;
+  font-weight: 600;
+}
+
+.spy-opt-row.is-key {
+  border-color: rgba(16, 185, 129, 0.5);
+  color: #34d399;
+}
+
+/* Toast */
+.dev-toast {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  background: #1e2634;
+  border: 1px solid var(--border-strong);
+  color: #fff;
+  padding: 0.65rem 1.15rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.83rem;
+  font-weight: 600;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.25s ease;
+  pointer-events: none;
+}
+
+.dev-toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+</head>
+<body>
+
+<!-- TOP NAV -->
+<header class="top-nav">
+  <div class="nav-left">
+    <span class="brand-badge">THPT VĨNH THUẬN</span>
+    <div class="nav-title-box">
+      <h1>
+        <span>Trung Tâm Giám Sát & Tracking Trực Tuyến</span>
+        <span class="beacon-badge"><span class="beacon-dot"></span>REAL-TIME</span>
+      </h1>
+      <p id="liveSyncStatus">Kết nối: Sẵn sàng · BroadcastChannel (0ms) & LocalStorage Sync</p>
+    </div>
+  </div>
+
+  <div class="nav-right">
+    <select class="refresh-select" id="selRefreshInterval" onchange="changeRefreshInterval()">
+      <option value="2000">Tự động: 2s (Nhanh)</option>
+      <option value="5000" selected>Tự động: 5s (Chuẩn)</option>
+      <option value="15000">Tự động: 15s</option>
+      <option value="0">Tắt (Thủ công)</option>
+    </select>
+
+    <button class="dev-btn" onclick="manualRefresh()" id="btnManualRefresh" title="Làm mới dữ liệu ngay">
+      <svg class="v-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 16h5v5"/></svg>
+      <span>Làm mới</span>
+    </button>
+
+    <button class="dev-btn" onclick="openCloudModal()" title="Cấu hình Firebase Realtime Database">
+      <svg class="v-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>
+      <span id="cloudBtnLabel">Cloud Sync</span>
+    </button>
+
+    <button class="dev-btn" onclick="exportFullCSV()" title="Xuất toàn bộ dữ liệu ra Excel (CSV)">
+      <svg class="v-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+      <span>Xuất Excel</span>
+    </button>
+
+    <button class="dev-btn dev-btn-danger" onclick="promptClearAllData()" title="Xóa dữ liệu thi thử">
+      <svg class="v-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
+    </button>
+
+    <a class="dev-btn dev-btn-primary" href="index.html">
+      <svg class="v-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+      <span>Trang Làm Bài</span>
+    </a>
+  </div>
+</header>
+
+<!-- MAIN CONTENT -->
+<main class="main-wrap">
+  <!-- TOP KPI METRICS -->
+  <section class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-header">
+        <span class="kpi-title">Đang làm bài trực tuyến</span>
+        <div class="kpi-icon" style="color:var(--success); background:rgba(16,185,129,0.12);">
+          <svg class="v-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+      </div>
+      <div class="kpi-value" id="kpiOnlineCount" style="color:var(--success);">0</div>
+      <div class="kpi-footer" id="kpiOnlineBreakdown">Đang tải trạng thái...</div>
+    </div>
+
+    <div class="kpi-card">
+      <div class="kpi-header">
+        <span class="kpi-title">Tổng số lượt nộp bài</span>
+        <div class="kpi-icon" style="color:var(--accent); background:rgba(79,120,255,0.12);">
+          <svg class="v-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        </div>
+      </div>
+      <div class="kpi-value" id="kpiTotalSubmissions">0</div>
+      <div class="kpi-footer" id="kpiSubmissionSubjectSplit">Anh: 0 · Lý: 0 · Sử: 0</div>
+    </div>
+
+    <div class="kpi-card">
+      <div class="kpi-header">
+        <span class="kpi-title">Điểm trung bình toàn trường</span>
+        <div class="kpi-icon" style="color:var(--warning); background:rgba(245,158,11,0.12);">
+          <svg class="v-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+      </div>
+      <div class="kpi-value" id="kpiAvgScore">0.0</div>
+      <div class="kpi-footer" id="kpiPassRate">Tỷ lệ đạt (≥ 5.0): 0%</div>
+    </div>
+
+    <div class="kpi-card">
+      <div class="kpi-header">
+        <span class="kpi-title">Điểm cao nhất (Thủ khoa)</span>
+        <div class="kpi-icon" style="color:#a855f7; background:rgba(168,85,247,0.12);">
+          <svg class="v-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+        </div>
+      </div>
+      <div class="kpi-value" id="kpiMaxScore" style="color:#c084fc;">0.0</div>
+      <div class="kpi-footer" id="kpiTopStudent">Chưa có bài thi</div>
+    </div>
+  </section>
+
+  <!-- NAVIGATION TABS -->
+  <div class="tabs-header">
+    <button class="tab-btn active" onclick="switchDevTab('live')" id="tabBtnLive">
+      <span class="beacon-dot"></span>
+      <span>Đang Làm Bài Trực Tuyến</span>
+      <span class="tab-counter" id="badgeLiveCount">0</span>
+    </button>
+    <button class="tab-btn" onclick="switchDevTab('students')" id="tabBtnStudents">
+      <svg class="v-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      <span>Bảng Xếp Hạng & Thống Kê Học Sinh</span>
+      <span class="tab-counter" id="badgeStudentCount">0</span>
+    </button>
+    <button class="tab-btn" onclick="switchDevTab('analytics')" id="tabBtnAnalytics">
+      <svg class="v-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" x2="18" y1="20" y2="10"/><line x1="12" x2="12" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="14"/></svg>
+      <span>Phân Tích Câu Hỏi Khó & Phổ Điểm</span>
+    </button>
+  </div>
+
+  <!-- TAB 1: LIVE SESSIONS -->
+  <div class="tab-pane active" id="paneLive">
+    <div class="controls-bar">
+      <div class="filter-group">
+        <button class="pill-filter active" onclick="filterLiveSubject('all', this)">Tất cả môn</button>
+        <button class="pill-filter" onclick="filterLiveSubject('english', this)">Tiếng Anh 11</button>
+        <button class="pill-filter" onclick="filterLiveSubject('physics', this)">Vật Lí 11</button>
+        <button class="pill-filter" onclick="filterLiveSubject('history', this)">Lịch Sử 11</button>
+      </div>
+
+      <div class="search-input-box">
+        <svg class="v-icon search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="text" id="txtSearchLive" placeholder="Tìm tên học sinh..." oninput="renderLiveTable()">
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Học Sinh & Thiết Bị</th>
+            <th>Môn Học</th>
+            <th>Tiến Độ Làm Bài</th>
+            <th>Điểm Tạm Tính (Live)</th>
+            <th>Vị Trí Câu</th>
+            <th>Thời Gian</th>
+            <th>Tín Hiệu (Heartbeat)</th>
+            <th>Thao Tác</th>
+          </tr>
+        </thead>
+        <tbody id="tbodyLiveSessions">
+          <!-- Populated by JS -->
+        </tbody>
+      </table>
+      <div id="liveEmptyState" class="empty-state-box" style="display:none;">
+        <div class="empty-icon-wrap">
+          <svg class="v-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h3>Hiện Chưa Có Học Sinh Nào Đang Làm Bài</h3>
+        <p>Hệ thống hỗ trợ đồng bộ tức thì 0ms qua BroadcastChannel và Firebase Cloud. Khi học sinh mở bài làm và click chọn đáp án, mọi thông số sẽ xuất hiện tại đây ngay lập tức.</p>
+        <a class="dev-btn dev-btn-primary" href="index.html" target="_blank" style="display:inline-flex;">
+          <svg class="v-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>
+          <span>Mở thử 1 tab làm bài để test live</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 2: STUDENTS LEADERBOARD & ATTEMPTS -->
+  <div class="tab-pane" id="paneStudents">
+    <div class="controls-bar">
+      <div class="filter-group">
+        <button class="pill-filter active" onclick="filterStudentSubject('all', this)">Tất cả môn</button>
+        <button class="pill-filter" onclick="filterStudentSubject('english', this)">Tiếng Anh 11</button>
+        <button class="pill-filter" onclick="filterStudentSubject('physics', this)">Vật Lí 11</button>
+        <button class="pill-filter" onclick="filterStudentSubject('history', this)">Lịch Sử 11</button>
+      </div>
+
+      <div class="search-input-box">
+        <svg class="v-icon search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="text" id="txtSearchStudents" placeholder="Tìm tên học sinh..." oninput="renderStudentsTable()">
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Hạng & Họ Tên</th>
+            <th>Số Lần Thi</th>
+            <th>Điểm Cao Nhất</th>
+            <th>Điểm Lần Cuối</th>
+            <th>Điểm Trung Bình</th>
+            <th>Thời Gian TB</th>
+            <th>Lịch Sử Điểm Các Lần</th>
+            <th>Chi Tiết</th>
+          </tr>
+        </thead>
+        <tbody id="tbodyStudentsList">
+          <!-- Populated by JS -->
+        </tbody>
+      </table>
+      <div id="studentsEmptyState" class="empty-state-box" style="display:none;">
+        <div class="empty-icon-wrap">
+          <svg class="v-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
+        </div>
+        <h3>Chưa Có Lượt Nộp Bài Nào</h3>
+        <p>Khi học sinh hoàn thành và nhấn nút "Nộp bài", dữ liệu bài làm chi tiết và số lần thi của từng em sẽ được thống kê tại bảng này.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 3: ITEM ANALYSIS & GRADE DISTRIBUTION -->
+  <div class="tab-pane" id="paneAnalytics">
+    <div class="analytics-grid">
+      <!-- Histogram -->
+      <div class="card-box">
+        <div class="card-box-header">
+          <h3 class="card-box-title">
+            <svg class="v-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" x2="18" y1="20" y2="10"/><line x1="12" x2="12" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="14"/></svg>
+            <span>Phổ Điểm Toàn Hệ Thống (Hệ 10)</span>
+          </h3>
+          <span style="font-size:0.75rem; color:var(--text-tertiary);" id="analyticsTotalCount">0 bài</span>
+        </div>
+        <div id="histoContainer">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- Hardest / Most Missed Questions -->
+      <div class="card-box">
+        <div class="card-box-header">
+          <h3 class="card-box-title">
+            <svg class="v-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
+            <span>Top Câu Hỏi Khó & Sai Nhiều Nhất</span>
+          </h3>
+          <span style="font-size:0.75rem; color:var(--text-tertiary);">Cần ôn củng cố</span>
+        </div>
+        <div id="missedQuestionsContainer">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- MODAL 1: LIVE SPY MODAL -->
+<div class="modal-overlay" id="modalSpy">
+  <div class="modal-window">
+    <div class="modal-header">
+      <div>
+        <h3 id="spyModalTitle">Soi Bài Làm Trực Tiếp</h3>
+        <p style="font-size:0.75rem; color:var(--text-tertiary);" id="spyModalSubtitle">Cập nhật theo thời gian thực mỗi khi học sinh bấm chọn đáp án</p>
+      </div>
+      <button class="modal-close-btn" onclick="closeSpyModal()">
+        <svg class="v-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" x2="6" y1="6" y2="18"/><line x1="6" x2="18" y1="6" y2="18"/></svg>
+      </button>
+    </div>
+
+    <div class="modal-body" id="spyModalBody">
+      <!-- Populated by JS -->
+    </div>
+
+    <div class="modal-footer">
+      <span style="font-size:0.78rem; color:var(--text-tertiary); margin-right:auto;">
+        <span class="beacon-dot"></span> Đang đồng bộ trực tiếp
+      </span>
+      <button class="dev-btn" onclick="closeSpyModal()">Đóng</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 2: SUBMISSION REVIEW MODAL -->
+<div class="modal-overlay" id="modalSubmissionReview">
+  <div class="modal-window">
+    <div class="modal-header">
+      <div>
+        <h3 id="subReviewTitle">Chi Tiết Bài Nộp</h3>
+        <p style="font-size:0.75rem; color:var(--text-tertiary);" id="subReviewSubtitle"></p>
+      </div>
+      <button class="modal-close-btn" onclick="closeSubmissionModal()">
+        <svg class="v-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" x2="6" y1="6" y2="18"/><line x1="6" x2="18" y1="6" y2="18"/></svg>
+      </button>
+    </div>
+
+    <div class="modal-body" id="subReviewBody">
+      <!-- Populated by JS -->
+    </div>
+
+    <div class="modal-footer">
+      <button class="dev-btn" onclick="closeSubmissionModal()">Đóng</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 3: CLOUD SYNC CONFIGURATION -->
+<div class="modal-overlay" id="modalCloud">
+  <div class="modal-window" style="max-width:560px;">
+    <div class="modal-header">
+      <div>
+        <h3>Cấu Hình Cloud Sync (Firebase REST)</h3>
+        <p style="font-size:0.75rem; color:var(--text-tertiary);">Giúp theo dõi học sinh trên mọi điện thoại & máy tính toàn cầu</p>
+      </div>
+      <button class="modal-close-btn" onclick="closeCloudModal()">
+        <svg class="v-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" x2="6" y1="6" y2="18"/><line x1="6" x2="18" y1="6" y2="18"/></svg>
+      </button>
+    </div>
+
+    <div class="modal-body">
+      <div style="background:rgba(79,120,255,0.08); border:1px solid rgba(79,120,255,0.25); border-radius:var(--radius-sm); padding:0.85rem; margin-bottom:1rem; font-size:0.8rem; line-height:1.5;">
+        <strong style="color:#6b95ff;">💡 3 bước kết nối hoàn toàn miễn phí (1 phút):</strong><br>
+        1. Truy cập <a href="https://console.firebase.google.com" target="_blank" style="color:#93b3ff;">console.firebase.google.com</a> và tạo một project miễn phí.<br>
+        2. Chọn <strong>Build &rarr; Realtime Database &rarr; Create Database</strong> (chọn Test mode).<br>
+        3. Copy URL dạng <code>https://my-exam-rtdb.firebaseio.com</code> và dán vào bên dưới.
+      </div>
+
+      <label style="display:block; font-size:0.8rem; font-weight:700; margin-bottom:0.4rem; color:var(--text-secondary);">
+        Firebase Realtime Database URL:
+      </label>
+      <input type="text" id="txtCloudUrl" placeholder="https://your-project-default-rtdb.firebaseio.com" style="width:100%; background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:var(--radius-sm); padding:0.6rem 0.85rem; font-family:var(--font-mono); font-size:0.82rem; color:var(--text-primary); outline:none; margin-bottom:0.75rem;">
+
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:0.5rem;">
+        <button class="dev-btn" onclick="testCloudConnection()" id="btnTestCloud">
+          <svg class="v-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg>
+          <span>Kiểm tra kết nối (Ping Test)</span>
+        </button>
+        <span id="cloudTestResult" style="font-size:0.78rem;"></span>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button class="dev-btn" onclick="resetCloudUrl()">Xóa cấu hình</button>
+      <button class="dev-btn dev-btn-primary" onclick="saveCloudUrl()">Lưu cấu hình</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="dev-toast" id="devToast">
+  <span id="devToastText">Thông báo</span>
+</div>
+
+<!-- LOAD SCRIPTS & QUESTION DATA -->
+<script src="quiz_data.js?v=20261102_2215"></script>
+<script src="physics_quiz_data.js?v=20261103_01"></script>
+<script src="history_quiz_data.js?v=20261104_2015"></script>
+<script src="telemetry_sync.js?v=20261104_2145"></script>
+
+<script>
+/* ==========================================================================
+   DEV & TEACHER DASHBOARD CONTROLLER
+   ========================================================================== */
+
+let activeSessionsMap = {};
+let allSubmissionsList = [];
+let currentTab = "live";
+let liveSubjectFilter = "all";
+let studentSubjectFilter = "all";
+let refreshTimer = null;
+let activeSpySessionId = null;
+
+// Flatten questions lookup map
+const AllQuestionsMap = {};
+function initAllQuestionsLookup() {
+  // 1. English
+  if (window.QUIZ_DATA && Array.isArray(window.QUIZ_DATA)) {
+    window.QUIZ_DATA.forEach(sec => {
+      (sec.tasks || []).forEach(task => {
+        (task.questions || []).forEach(q => {
+          AllQuestionsMap[q.id] = { ...q, subject: 'english', subjectName: 'Tiếng Anh 11' };
+        });
+      });
+    });
+  }
+  // 2. Physics
+  if (window.PHYSICS_QUIZ_DATA && Array.isArray(window.PHYSICS_QUIZ_DATA)) {
+    window.PHYSICS_QUIZ_DATA.forEach(sec => {
+      (sec.tasks || []).forEach(task => {
+        (task.questions || []).forEach(q => {
+          AllQuestionsMap[q.id] = { ...q, subject: 'physics', subjectName: 'Vật Lí 11' };
+        });
+      });
+    });
+  }
+  // 3. History
+  if (window.HISTORY_QUIZ_DATA && Array.isArray(window.HISTORY_QUIZ_DATA)) {
+    window.HISTORY_QUIZ_DATA.forEach(sec => {
+      (sec.tasks || []).forEach(task => {
+        (task.questions || []).forEach(q => {
+          AllQuestionsMap[q.id] = { ...q, subject: 'history', subjectName: 'Lịch Sử 11' };
+        });
+      });
+    });
+  }
+}
+
+// Generate color from string for avatars
+function stringToColor(str) {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    hash = str.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  const colors = [
+    '#3b82f6', '#10b981', '#f59e0b', '#8b5cf6', 
+    '#ec4899', '#06b6d4', '#f97316', '#6366f1'
+  ];
+  return colors[Math.abs(hash) % colors.length];
+}
+
+function getInitials(name) {
+  if (!name) return "HS";
+  const parts = name.trim().split(/\s+/);
+  if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
+  return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+}
+
+function formatElapsed(sec) {
+  if (!sec && sec !== 0) return "--:--";
+  const m = Math.floor(sec / 60).toString().padStart(2, '0');
+  const s = (sec % 60).toString().padStart(2, '0');
+  return `${m}:${s}`;
+}
+
+function timeAgo(ms) {
+  if (!ms) return "Vừa xong";
+  const diffSec = Math.floor((Date.now() - ms) / 1000);
+  if (diffSec < 5) return "Vừa xong";
+  if (diffSec < 60) return `${diffSec}s trước`;
+  const diffMin = Math.floor(diffSec / 60);
+  if (diffMin < 60) return `${diffMin} phút trước`;
+  const diffHr = Math.floor(diffMin / 60);
+  return `${diffHr} giờ trước`;
+}
+
+function showToast(text) {
+  const el = document.getElementById("devToast");
+  const txt = document.getElementById("devToastText");
+  txt.textContent = text;
+  el.classList.add("show");
+  setTimeout(() => el.classList.remove("show"), 2600);
+}
+
+// --- TAB SWITCHING ---
+function switchDevTab(tab) {
+  currentTab = tab;
+  document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+  document.querySelectorAll(".tab-pane").forEach(p => p.classList.remove("active"));
+  
+  if (tab === "live") {
+    document.getElementById("tabBtnLive").classList.add("active");
+    document.getElementById("paneLive").classList.add("active");
+  } else if (tab === "students") {
+    document.getElementById("tabBtnStudents").classList.add("active");
+    document.getElementById("paneStudents").classList.add("active");
+    renderStudentsTable();
+  } else if (tab === "analytics") {
+    document.getElementById("tabBtnAnalytics").classList.add("active");
+    document.getElementById("paneAnalytics").classList.add("active");
+    renderAnalytics();
+  }
+}
+
+// --- DATA FETCHING ---
+async function fetchAllTelemetryData() {
+  try {
+    if (window.Telemetry) {
+      activeSessionsMap = await Telemetry.getActiveSessions() || {};
+      allSubmissionsList = await Telemetry.getAllSubmissions() || [];
+    } else {
+      activeSessionsMap = JSON.parse(localStorage.getItem("luyendecuong_live_sessions") || "{}");
+      allSubmissionsList = JSON.parse(localStorage.getItem("quiz_student_records_v2") || "[]");
+    }
+  } catch(e) {
+    console.warn("Failed fetching telemetry:", e);
+  }
+
+  updateKPICards();
+  renderLiveTable();
+  if (currentTab === "students") renderStudentsTable();
+  if (currentTab === "analytics") renderAnalytics();
+  if (activeSpySessionId) updateSpyModalContent();
+}
+
+// --- KPI METRICS ---
+function updateKPICards() {
+  const now = Date.now();
+  // Filter sessions active within last 15 minutes
+  const activeList = Object.values(activeSessionsMap).filter(s => {
+    return s && s.studentName && (now - (s.lastActive || 0) < 15 * 60 * 1000);
+  });
+
+  document.getElementById("kpiOnlineCount").textContent = activeList.length;
+  document.getElementById("badgeLiveCount").textContent = activeList.length;
+
+  const engLive = activeList.filter(s => s.subject === "english").length;
+  const phyLive = activeList.filter(s => s.subject === "physics").length;
+  const hisLive = activeList.filter(s => s.subject === "history").length;
+  document.getElementById("kpiOnlineBreakdown").textContent = `Anh: ${engLive} · Lý: ${phyLive} · Sử: ${hisLive}`;
+
+  // Submissions KPI
+  const subCount = allSubmissionsList.length;
+  document.getElementById("kpiTotalSubmissions").textContent = subCount;
+
+  const engSub = allSubmissionsList.filter(s => (s.subject || 'english') === "english").length;
+  const phySub = allSubmissionsList.filter(s => s.subject === "physics").length;
+  const hisSub = allSubmissionsList.filter(s => s.subject === "history").length;
+  document.getElementById("kpiSubmissionSubjectSplit").textContent = `Anh: ${engSub} · Lý: ${phySub} · Sử: ${hisSub}`;
+
+  // Average & Pass rate
+  if (subCount > 0) {
+    const sum = allSubmissionsList.reduce((acc, s) => acc + (s.grade10 || 0), 0);
+    const avg = (sum / subCount).toFixed(1);
+    document.getElementById("kpiAvgScore").textContent = avg;
+
+    const passCount = allSubmissionsList.filter(s => (s.grade10 || 0) >= 5.0).length;
+    const passPct = Math.round((passCount / subCount) * 100);
+    document.getElementById("kpiPassRate").textContent = `Tỷ lệ đạt (≥ 5.0): ${passPct}% (${passCount}/${subCount})`;
+
+    let maxSub = allSubmissionsList[0];
+    allSubmissionsList.forEach(s => {
+      if ((s.grade10 || 0) > (maxSub.grade10 || 0)) maxSub = s;
+    });
+    document.getElementById("kpiMaxScore").textContent = (maxSub.grade10 || 0).toFixed(1);
+    document.getElementById("kpiTopStudent").textContent = `${maxSub.studentName} (${maxSub.subjectName || maxSub.subject})`;
+  } else {
+    document.getElementById("kpiAvgScore").textContent = "0.0";
+    document.getElementById("kpiPassRate").textContent = "Tỷ lệ đạt (≥ 5.0): 0%";
+    document.getElementById("kpiMaxScore").textContent = "0.0";
+    document.getElementById("kpiTopStudent").textContent = "Chưa có bài thi";
+  }
+
+  // Unique students count
+  const studentNames = new Set(allSubmissionsList.map(s => (s.studentName || "").trim().toLowerCase()));
+  activeList.forEach(s => studentNames.add((s.studentName || "").trim().toLowerCase()));
+  document.getElementById("badgeStudentCount").textContent = studentNames.size;
+}
+
+// --- RENDER TAB 1: LIVE SESSIONS TABLE ---
+function filterLiveSubject(sub, btn) {
+  liveSubjectFilter = sub;
+  btn.parentElement.querySelectorAll(".pill-filter").forEach(b => b.classList.remove("active"));
+  btn.classList.add("active");
+  renderLiveTable();
+}
+
+function renderLiveTable() {
+  const tbody = document.getElementById("tbodyLiveSessions");
+  const emptyState = document.getElementById("liveEmptyState");
+  const searchKeyword = (document.getElementById("txtSearchLive").value || "").trim().toLowerCase();
+
+  const now = Date.now();
+  let list = Object.values(activeSessionsMap).filter(s => {
+    if (!s || !s.studentName) return false;
+    // Hide stale sessions older than 20 minutes
+    if (now - (s.lastActive || 0) > 20 * 60 * 1000) return false;
+    if (liveSubjectFilter !== "all" && s.subject !== liveSubjectFilter) return false;
+    if (searchKeyword && !s.studentName.toLowerCase().includes(searchKeyword)) return false;
+    return true;
+  });
+
+  // Sort by last active newest first
+  list.sort((a, b) => (b.lastActive || 0) - (a.lastActive || 0));
+
+  if (list.length === 0) {
+    tbody.innerHTML = "";
+    emptyState.style.display = "block";
+    return;
+  }
+
+  emptyState.style.display = "none";
+  let html = "";
+
+  list.forEach(sess => {
+    const avatarBg = stringToColor(sess.studentName);
+    const initials = getInitials(sess.studentName);
+    const devTag = sess.device ? sess.device.tag : "📱 Thiết bị học sinh";
+
+    let subTagClass = "eng";
+    let subShort = "ENG 11";
+    if (sess.subject === "physics") { subTagClass = "phy"; subShort = "LÝ 11"; }
+    else if (sess.subject === "history") { subTagClass = "his"; subShort = "SỬ 11"; }
+
+    const answered = sess.answeredCount || 0;
+    const total = sess.totalCount || 0;
+    const pct = sess.progressPct || (total > 0 ? Math.round((answered / total) * 100) : 0);
+
+    const grade = (sess.provisionalGrade10 !== undefined) ? sess.provisionalGrade10 : 0;
+    let scoreClass = "score-pill-mid";
+    if (grade >= 8.0) scoreClass = "score-pill-good";
+    else if (grade < 5.0) scoreClass = "score-pill-low";
+
+    const elapsed = formatElapsed(sess.elapsedSeconds || 0);
+    const diffSec = Math.floor((now - (sess.lastActive || 0)) / 1000);
+    let heartbeatDot = "var(--success)";
+    let heartbeatText = "Đang thao tác";
+    if (diffSec > 60) {
+      heartbeatDot = "var(--warning)";
+      heartbeatText = `${Math.floor(diffSec/60)}p trước`;
+    } else if (diffSec > 10) {
+      heartbeatText = `${diffSec}s trước`;
+    }
+
+    const curQ = sess.currentQuestionLabel || `Câu ${(sess.currentQuestionGlobalIdx || 0) + 1}`;
+
+    html += `
+      <tr>
+        <td>
+          <div class="student-cell">
+            <div class="student-avatar" style="background:${avatarBg};">${initials}</div>
+            <div>
+              <div class="student-name-text">${escapeHtml(sess.studentName)}</div>
+              <div class="student-device-text">${escapeHtml(devTag)}</div>
+            </div>
+          </div>
+        </td>
+        <td>
+          <span class="subject-tag ${subTagClass}">${subShort}</span>
+          <div style="font-size:0.72rem; color:var(--text-tertiary); margin-top:2px;">
+            ${sess.practiceMode === 'full' ? 'Toàn bộ đề' : 'Theo chuyên đề'}
+          </div>
+        </td>
+        <td>
+          <div style="font-weight:700; color:var(--text-primary); font-family:var(--font-mono); font-size:0.8rem;">
+            ${answered} / ${total} câu (${pct}%)
+          </div>
+          <div class="progress-mini-bar">
+            <div class="progress-mini-fill" style="width:${pct}%;"></div>
+          </div>
+        </td>
+        <td>
+          <span class="score-pill-provisional ${scoreClass}">
+            ${grade.toFixed(1)} / 10
+          </span>
+          <div style="font-size:0.7rem; color:var(--text-tertiary); margin-top:2px;">
+            Đúng: ${sess.correctCount || 0} · Sai: ${sess.wrongCount || 0}
+          </div>
+        </td>
+        <td>
+          <span style="font-family:var(--font-mono); font-weight:600; color:#fff;">${curQ}</span>
+        </td>
+        <td>
+          <span style="font-family:var(--font-mono);">${elapsed}</span>
+        </td>
+        <td>
+          <span style="display:inline-flex; align-items:center; gap:5px; font-size:0.75rem;">
+            <span style="width:7px; height:7px; border-radius:50%; background:${heartbeatDot}; display:inline-block;"></span>
+            ${heartbeatText}
+          </span>
+        </td>
+        <td>
+          <button class="action-btn-spy" onclick="openSpyModal('${sess.sessionId}')">
+            <svg class="v-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+            <span>Soi bài làm</span>
+          </button>
+        </td>
+      </tr>
+    `;
+  });
+
+  tbody.innerHTML = html;
+}
+
+// --- RENDER TAB 2: STUDENTS LEADERBOARD & ATTEMPTS ---
+function filterStudentSubject(sub, btn) {
+  studentSubjectFilter = sub;
+  btn.parentElement.querySelectorAll(".pill-filter").forEach(b => b.classList.remove("active"));
+  btn.classList.add("active");
+  renderStudentsTable();
+}
+
+function renderStudentsTable() {
+  const tbody = document.getElementById("tbodyStudentsList");
+  const emptyState = document.getElementById("studentsEmptyState");
+  const searchKeyword = (document.getElementById("txtSearchStudents").value || "").trim().toLowerCase();
+
+  // Filter submissions by subject
+  let subs = allSubmissionsList.filter(s => {
+    if (studentSubjectFilter !== "all" && (s.subject || 'english') !== studentSubjectFilter) return false;
+    if (searchKeyword && !(s.studentName || "").toLowerCase().includes(searchKeyword)) return false;
+    return true;
+  });
+
+  if (subs.length === 0) {
+    tbody.innerHTML = "";
+    emptyState.style.display = "block";
+    return;
+  }
+
+  emptyState.style.display = "none";
+
+  // Group by student name
+  const studentsMap = {};
+  subs.forEach(s => {
+    const key = (s.studentName || "Ẩn danh").trim();
+    if (!studentsMap[key]) {
+      studentsMap[key] = {
+        name: key,
+        attempts: [],
+        subjects: new Set()
+      };
+    }
+    studentsMap[key].attempts.push(s);
+    studentsMap[key].subjects.add(s.subjectName || s.subject || 'Tiếng Anh 11');
+  });
+
+  const studentsList = Object.values(studentsMap);
+
+  // Compute stats per student
+  studentsList.forEach(st => {
+    // Sort attempts by timestamp oldest to newest for timeline
+    st.attempts.sort((a, b) => new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime());
+    const scores = st.attempts.map(a => a.grade10 || 0);
+    st.attemptCount = st.attempts.length;
+    st.bestScore = Math.max(...scores);
+    st.latestScore = scores[scores.length - 1];
+    st.avgScore = Math.round((scores.reduce((a, b) => a + b, 0) / scores.length) * 10) / 10;
+    st.avgElapsed = Math.round(st.attempts.reduce((a, b) => a + (b.elapsedSeconds || 0), 0) / st.attempts.length);
+  });
+
+  // Sort students by Best Score descending, then attempt count descending
+  studentsList.sort((a, b) => b.bestScore - a.bestScore || b.attemptCount - a.attemptCount);
+
+  let html = "";
+  studentsList.forEach((st, idx) => {
+    const avatarBg = stringToColor(st.name);
+    const initials = getInitials(st.name);
+
+    let rankBadge = `<span style="font-family:var(--font-mono); font-weight:800; color:var(--text-tertiary); width:20px; display:inline-block;">#${idx + 1}</span>`;
+    if (idx === 0) rankBadge = `🥇`;
+    else if (idx === 1) rankBadge = `🥈`;
+    else if (idx === 2) rankBadge = `🥉`;
+
+    const timelineChips = st.attempts.map((att, i) => {
+      const g = (att.grade10 || 0).toFixed(1);
+      let col = "#fbbf24";
+      if (att.grade10 >= 8.0) col = "#34d399";
+      else if (att.grade10 < 5.0) col = "#f87171";
+      return `<span class="attempt-chip" onclick="openSubmissionModal('${att.id}')" style="cursor:pointer;" title="Nhấn để xem bài thi lần ${i+1}">Lần ${i+1}: <strong style="color:${col};">${g}</strong></span>`;
+    }).join("");
+
+    html += `
+      <tr>
+        <td>
+          <div class="student-cell">
+            ${rankBadge}
+            <div class="student-avatar" style="background:${avatarBg};">${initials}</div>
+            <div>
+              <div class="student-name-text">${escapeHtml(st.name)}</div>
+              <div class="student-device-text">${Array.from(st.subjects).join(', ')}</div>
+            </div>
+          </div>
+        </td>
+        <td>
+          <strong style="font-family:var(--font-mono); font-size:0.9rem; color:var(--text-primary);">${st.attemptCount}</strong> lần
+        </td>
+        <td>
+          <span class="score-pill-provisional ${st.bestScore >= 8 ? 'score-pill-good' : (st.bestScore < 5 ? 'score-pill-low' : 'score-pill-mid')}">
+            ${st.bestScore.toFixed(1)}
+          </span>
+        </td>
+        <td>
+          <span style="font-family:var(--font-mono); font-weight:700;">${st.latestScore.toFixed(1)}</span>
+        </td>
+        <td>
+          <span style="font-family:var(--font-mono); font-weight:600; color:var(--text-secondary);">${st.avgScore.toFixed(1)}</span>
+        </td>
+        <td>
+          <span style="font-family:var(--font-mono);">${formatElapsed(st.avgElapsed)}</span>
+        </td>
+        <td>
+          <div style="max-width:280px; display:flex; flex-wrap:wrap;">
+            ${timelineChips}
+          </div>
+        </td>
+        <td>
+          <button class="dev-btn" onclick="openSubmissionModal('${st.attempts[st.attempts.length - 1].id}')" title="Xem bài làm lần gần nhất">
+            <span>Xem bài</span>
+          </button>
+        </td>
+      </tr>
+    `;
+  });
+
+  tbody.innerHTML = html;
+}
+
+// --- RENDER TAB 3: ITEM ANALYSIS & GRADE DISTRIBUTION ---
+function renderAnalytics() {
+  const container = document.getElementById("histoContainer");
+  const missedContainer = document.getElementById("missedQuestionsContainer");
+  document.getElementById("analyticsTotalCount").textContent = `${allSubmissionsList.length} bài đã nộp`;
+
+  if (allSubmissionsList.length === 0) {
+    container.innerHTML = `<div class="empty-state-box"><p>Chưa có dữ liệu phổ điểm</p></div>`;
+    missedContainer.innerHTML = `<div class="empty-state-box"><p>Chưa có bài thi để phân tích câu hỏi khó</p></div>`;
+    return;
+  }
+
+  // 1. Grade Distribution Bins
+  const bins = [
+    { label: "0.0 - 2.9 (Kém)", min: 0, max: 2.99, count: 0, color: "#ef4444" },
+    { label: "3.0 - 4.9 (Yếu)", min: 3.0, max: 4.99, count: 0, color: "#f97316" },
+    { label: "5.0 - 6.4 (Trung bình)", min: 5.0, max: 6.49, count: 0, color: "#f59e0b" },
+    { label: "6.5 - 7.9 (Khá)", min: 6.5, max: 7.99, count: 0, color: "#3b82f6" },
+    { label: "8.0 - 8.9 (Giỏi)", min: 8.0, max: 8.99, count: 0, color: "#10b981" },
+    { label: "9.0 - 10 (Xuất sắc)", min: 9.0, max: 10.0, count: 0, color: "#8b5cf6" },
+  ];
+
+  allSubmissionsList.forEach(s => {
+    const g = s.grade10 || 0;
+    for (const b of bins) {
+      if (g >= b.min && g <= b.max) {
+        b.count++;
+        break;
+      }
+    }
+  });
+
+  const maxBinCount = Math.max(...bins.map(b => b.count), 1);
+  let histoHtml = "";
+  bins.forEach(b => {
+    const pct = Math.round((b.count / maxBinCount) * 100);
+    histoHtml += `
+      <div class="histo-row">
+        <div class="histo-label">${b.label.split(' ')[0]}</div>
+        <div class="histo-bar-wrap">
+          <div class="histo-bar-fill" style="width:${pct}%; background:${b.color};"></div>
+        </div>
+        <div class="histo-count">${b.count}</div>
+      </div>
+    `;
+  });
+  container.innerHTML = histoHtml;
+
+  // 2. Most Missed Questions Analysis
+  const qStats = {};
+  allSubmissionsList.forEach(sub => {
+    (sub.breakdown || []).forEach(item => {
+      if (!qStats[item.id]) {
+        qStats[item.id] = {
+          id: item.id,
+          label: item.label || item.id,
+          prompt: item.prompt || "",
+          taskTitle: item.taskTitle || "",
+          subject: sub.subject || "english",
+          totalAttempts: 0,
+          wrongCount: 0,
+          correctAnswer: item.correctLetter || item.model_answer || "Đáp án chuẩn"
+        };
+      }
+      qStats[item.id].totalAttempts++;
+      if (!item.isCorrect) {
+        qStats[item.id].wrongCount++;
+      }
+    });
+  });
+
+  const missedList = Object.values(qStats)
+    .filter(q => q.totalAttempts >= 1)
+    .map(q => {
+      q.failRate = Math.round((q.wrongCount / q.totalAttempts) * 100);
+      return q;
+    })
+    .sort((a, b) => b.failRate - a.failRate || b.wrongCount - a.wrongCount)
+    .slice(0, 10);
+
+  if (missedList.length === 0) {
+    missedContainer.innerHTML = `<div class="empty-state-box"><p>Tất cả câu hỏi đều làm đúng hoặc chưa đủ mẫu dữ liệu.</p></div>`;
+    return;
+  }
+
+  let missedHtml = "";
+  missedList.forEach(q => {
+    missedHtml += `
+      <div class="missed-q-item">
+        <div class="missed-q-header">
+          <span class="missed-q-label">${escapeHtml(q.label)} · ${escapeHtml(q.taskTitle)}</span>
+          <span class="missed-q-rate">Tỷ lệ sai: ${q.failRate}% (${q.wrongCount}/${q.totalAttempts} em)</span>
+        </div>
+        <div class="missed-q-prompt">${escapeHtml(q.prompt)}</div>
+        <div class="missed-q-ans">Đáp án chuẩn: ${escapeHtml(q.correctAnswer)}</div>
+      </div>
+    `;
+  });
+  missedContainer.innerHTML = missedHtml;
+
+  renderMathInElement(missedContainer, {
+    delimiters: [
+      {left: '$$', right: '$$', display: true},
+      {left: '$', right: '$', display: false}
+    ],
+    throwOnError: false
+  });
+}
+
+// --- MODAL 1: LIVE SPY MODAL ---
+function openSpyModal(sessionId) {
+  activeSpySessionId = sessionId;
+  document.getElementById("modalSpy").classList.add("active");
+  updateSpyModalContent();
+}
+
+function closeSpyModal() {
+  activeSpySessionId = null;
+  document.getElementById("modalSpy").classList.remove("active");
+}
+
+function updateSpyModalContent() {
+  if (!activeSpySessionId) return;
+  const sess = activeSessionsMap[activeSpySessionId];
+  const body = document.getElementById("spyModalBody");
+  if (!sess) {
+    body.innerHTML = `<div class="empty-state-box"><p>Phiên làm bài này đã hoàn thành hoặc rời mạng.</p></div>`;
+    return;
+  }
+
+  document.getElementById("spyModalTitle").textContent = `Soi Bài Làm: ${sess.studentName}`;
+  document.getElementById("spyModalSubtitle").textContent = `${sess.subjectName || sess.subject} · ${sess.device ? sess.device.tag : ''} · Làm ${formatElapsed(sess.elapsedSeconds)}`;
+
+  const userAns = sess.userAnswers || {};
+  const answeredCount = sess.answeredCount || 0;
+  const totalCount = sess.totalCount || 0;
+  const grade = (sess.provisionalGrade10 !== undefined) ? sess.provisionalGrade10 : 0;
+
+  let headerHtml = `
+    <div style="display:flex; justify-content:space-between; align-items:center; background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:var(--radius-sm); padding:0.85rem 1rem; margin-bottom:1.25rem; flex-wrap:wrap; gap:0.75rem;">
+      <div>
+        <div style="font-size:0.75rem; color:var(--text-tertiary);">TIẾN ĐỘ THỰC TẾ</div>
+        <div style="font-weight:800; font-family:var(--font-mono); font-size:1.15rem; color:var(--text-primary);">
+          ${answeredCount} / ${totalCount} câu (${sess.progressPct || 0}%)
+        </div>
+      </div>
+      <div>
+        <div style="font-size:0.75rem; color:var(--text-tertiary);">ĐIỂM TẠM TÍNH (LIVE)</div>
+        <div style="font-weight:800; font-family:var(--font-mono); font-size:1.25rem; color:#34d399;">
+          ${grade.toFixed(1)} / 10
+        </div>
+      </div>
+      <div>
+        <div style="font-size:0.75rem; color:var(--text-tertiary);">ĐÚNG / SAI TẠM TÍNH</div>
+        <div style="font-weight:800; font-family:var(--font-mono); font-size:1.1rem;">
+          <span style="color:#34d399;">${sess.correctCount || 0} đúng</span> · <span style="color:#f87171;">${sess.wrongCount || 0} sai</span>
+        </div>
+      </div>
+    </div>
+  `;
+
+  // Build question cards
+  let questionsHtml = ``;
+  const answeredQIds = Object.keys(userAns);
+
+  if (answeredQIds.length === 0) {
+    questionsHtml = `
+      <div class="empty-state-box">
+        <p>Học sinh vừa vào bài thi và chưa chọn đáp án nào. Hãy giữ nguyên màn hình, khi học sinh click đáp án, câu trả lời sẽ hiện ra tại đây.</p>
+      </div>
+    `;
+  } else {
+    answeredQIds.forEach((qid, idx) => {
+      const q = AllQuestionsMap[qid];
+      const val = userAns[qid];
+      if (!q) {
+        questionsHtml += `
+          <div class="spy-q-card">
+            <strong>${qid}</strong>: Đã chọn <code>${JSON.stringify(val)}</code>
+          </div>
+        `;
+        return;
+      }
+
+      // Check MCQ
+      if (q.options && q.answer !== undefined) {
+        const isCor = (val === q.answer);
+        const letters = ['A', 'B', 'C', 'D'];
+        questionsHtml += `
+          <div class="spy-q-card ${isCor ? 'is-correct' : 'is-wrong'}">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+              <span style="font-weight:700; color:var(--text-primary); font-size:0.85rem;">${q.label || ('Câu ' + (idx+1))}</span>
+              <span style="font-weight:800; font-size:0.75rem; color:${isCor ? '#34d399' : '#f87171'};">
+                ${isCor ? '✓ CHỌN ĐÚNG (+1.0)' : '✗ CHỌN SAI'}
+              </span>
+            </div>
+            <div style="font-size:0.83rem; color:var(--text-secondary); margin-bottom:0.5rem;">${q.prompt}</div>
+            <div class="spy-options-list">
+              ${q.options.map((opt, oIdx) => {
+                const picked = (val === oIdx);
+                const isKey = (q.answer === oIdx);
+                let rowCls = '';
+                if (picked) rowCls += ' student-picked';
+                if (isKey) rowCls += ' is-key';
+                return `
+                  <div class="spy-opt-row ${rowCls}">
+                    <strong>${letters[oIdx]}.</strong>
+                    <span>${opt}</span>
+                    ${picked ? '<span style="margin-left:auto; font-size:0.7rem; font-weight:700; background:rgba(255,255,255,0.2); padding:1px 6px; border-radius:4px;">Em đã chọn</span>' : ''}
+                    ${isKey && !picked ? '<span style="margin-left:auto; font-size:0.7rem; color:#34d399;">Đáp án đúng</span>' : ''}
+                  </div>
+                `;
+              }).join('')}
+            </div>
+          </div>
+        `;
+      } else if (q.items) {
+        // True / False
+        questionsHtml += `
+          <div class="spy-q-card">
+            <div style="font-weight:700; margin-bottom:0.4rem; color:var(--text-primary);">${q.label || ('Câu ' + (idx+1))} (Đúng / Sai)</div>
+            <div style="font-size:0.83rem; margin-bottom:0.5rem;">${q.prompt}</div>
+            ${(q.items || []).map(it => {
+              const ch = (val && typeof val === 'object') ? val[it.id] : undefined;
+              const hasCh = (ch !== undefined);
+              const isRight = (ch === it.correct);
+              return `
+                <div style="display:flex; justify-content:space-between; align-items:center; padding:0.35rem 0.5rem; background:rgba(255,255,255,0.02); margin-top:3px; border-radius:4px; font-size:0.8rem;">
+                  <span><strong>${it.id.toUpperCase()}.</strong> ${it.text}</span>
+                  <span>
+                    ${hasCh ? (ch ? '<strong style="color:#34d399;">ĐÚNG</strong>' : '<strong style="color:#f87171;">SAI</strong>') : '<span style="color:var(--text-tertiary);">Chưa chọn</span>'}
+                    ${hasCh ? (isRight ? ' ✓' : ' ✗') : ''}
+                  </span>
+                </div>
+              `;
+            }).join('')}
+          </div>
+        `;
+      } else {
+        // Writing
+        questionsHtml += `
+          <div class="spy-q-card">
+            <div style="font-weight:700; margin-bottom:0.4rem; color:var(--text-primary);">${q.label || ('Câu ' + (idx+1))} (Tự luận / Viết lại)</div>
+            <div style="font-size:0.83rem; margin-bottom:0.4rem;">${q.prompt}</div>
+            <div style="background:rgba(255,255,255,0.04); padding:0.5rem; border-radius:6px; font-family:var(--font-mono); font-size:0.8rem; color:#fff;">
+              ${escapeHtml(String(val))}
+            </div>
+          </div>
+        `;
+      }
+    });
+  }
+
+  body.innerHTML = headerHtml + questionsHtml;
+
+  renderMathInElement(body, {
+    delimiters: [
+      {left: '$$', right: '$$', display: true},
+      {left: '$', right: '$', display: false}
+    ],
+    throwOnError: false
+  });
+}
+
+// --- MODAL 2: SUBMISSION REVIEW MODAL ---
+function openSubmissionModal(subId) {
+  const sub = allSubmissionsList.find(s => s.id === subId);
+  if (!sub) return;
+  document.getElementById("subReviewTitle").textContent = `Bài thi: ${sub.studentName} — ${sub.grade10.toFixed(1)} / 10`;
+  document.getElementById("subReviewSubtitle").textContent = `${sub.subjectName || sub.subject} · Nộp lúc: ${new Date(sub.timestamp).toLocaleString('vi-VN')} · Thời gian: ${formatElapsed(sub.elapsedSeconds)}`;
+
+  const body = document.getElementById("subReviewBody");
+  let html = `
+    <div style="display:flex; justify-content:space-between; align-items:center; background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:var(--radius-sm); padding:0.85rem 1rem; margin-bottom:1.25rem;">
+      <div>
+        <div style="font-size:0.75rem; color:var(--text-tertiary);">ĐIỂM SỐ</div>
+        <div style="font-weight:800; font-family:var(--font-mono); font-size:1.35rem; color:#34d399;">${sub.grade10.toFixed(1)} / 10</div>
+      </div>
+      <div>
+        <div style="font-size:0.75rem; color:var(--text-tertiary);">KẾT QUẢ TRẮC NGHIỆM</div>
+        <div style="font-weight:700; font-family:var(--font-mono); font-size:0.95rem;">${sub.correctMCQ || 0} / ${sub.totalMCQ || 0} câu đúng</div>
+      </div>
+      <div>
+        <div style="font-size:0.75rem; color:var(--text-tertiary);">ĐÚNG / SAI & VIẾT</div>
+        <div style="font-weight:700; font-family:var(--font-mono); font-size:0.95rem;">${sub.tfScore || 0}đ TF · ${sub.writingScore || 0}đ Viết</div>
+      </div>
+    </div>
+  `;
+
+  (sub.breakdown || []).forEach(item => {
+    html += `
+      <div class="spy-q-card ${item.isCorrect ? 'is-correct' : 'is-wrong'}">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.35rem;">
+          <strong style="color:var(--text-primary); font-size:0.85rem;">${escapeHtml(item.label || '')} · ${escapeHtml(item.taskTitle || '')}</strong>
+          <span style="font-weight:800; font-size:0.75rem; color:${item.isCorrect ? '#34d399' : '#f87171'};">
+            ${item.isCorrect ? '✓ ĐÚNG' : '✗ SAI'}
+          </span>
+        </div>
+        <div style="font-size:0.82rem; margin-bottom:0.4rem; color:var(--text-secondary);">${escapeHtml(item.prompt || '')}</div>
+        <div style="font-size:0.78rem;">
+          Học sinh chọn: <strong style="color:#fff;">${escapeHtml(item.userChoice || '')}</strong> · 
+          Đáp án chuẩn: <strong style="color:#34d399;">${escapeHtml(item.correctLetter || item.model_answer || '')}</strong>
+        </div>
+        ${item.explanation ? `<div style="font-size:0.75rem; color:var(--text-tertiary); margin-top:0.35rem;">Giải thích: ${escapeHtml(item.explanation)}</div>` : ''}
+      </div>
+    `;
+  });
+
+  body.innerHTML = html;
+  document.getElementById("modalSubmissionReview").classList.add("active");
+
+  renderMathInElement(body, {
+    delimiters: [
+      {left: '$$', right: '$$', display: true},
+      {left: '$', right: '$', display: false}
+    ],
+    throwOnError: false
+  });
+}
+
+function closeSubmissionModal() {
+  document.getElementById("modalSubmissionReview").classList.remove("active");
+}
+
+// --- CLOUD SYNC CONFIGURATION MODAL ---
+function openCloudModal() {
+  const curUrl = Telemetry ? Telemetry.getCloudUrl() : (localStorage.getItem("luyendecuong_cloud_url") || "");
+  document.getElementById("txtCloudUrl").value = curUrl;
+  document.getElementById("cloudTestResult").textContent = "";
+  document.getElementById("modalCloud").classList.add("active");
+}
+
+function closeCloudModal() {
+  document.getElementById("modalCloud").classList.remove("active");
+}
+
+async function testCloudConnection() {
+  const url = (document.getElementById("txtCloudUrl").value || "").trim();
+  const resEl = document.getElementById("cloudTestResult");
+  if (!url) {
+    resEl.innerHTML = `<span style="color:var(--warning);">Vui lòng nhập URL</span>`;
+    return;
+  }
+  resEl.innerHTML = `<span style="color:var(--text-secondary);">Đang kiểm tra...</span>`;
+  const start = Date.now();
+  try {
+    const clean = url.endsWith('/') ? url.slice(0, -1) : url;
+    const resp = await fetch(`${clean}/.json?shallow=true`);
+    const lat = Date.now() - start;
+    if (resp.ok) {
+      resEl.innerHTML = `<span style="color:#34d399; font-weight:700;">✓ Kết nối tốt (${lat}ms)</span>`;
+    } else {
+      resEl.innerHTML = `<span style="color:#f87171;">Lỗi HTTP ${resp.status}</span>`;
+    }
+  } catch(e) {
+    resEl.innerHTML = `<span style="color:#f87171;">Không thể kết nối (${e.message})</span>`;
+  }
+}
+
+function saveCloudUrl() {
+  const url = (document.getElementById("txtCloudUrl").value || "").trim();
+  if (window.Telemetry) {
+    Telemetry.setCloudUrl(url);
+  } else {
+    if (url) localStorage.setItem("luyendecuong_cloud_url", url);
+    else localStorage.removeItem("luyendecuong_cloud_url");
+  }
+  closeCloudModal();
+  updateCloudBadge();
+  showToast("Đã lưu cấu hình Cloud Sync");
+  fetchAllTelemetryData();
+}
+
+function resetCloudUrl() {
+  document.getElementById("txtCloudUrl").value = "";
+  saveCloudUrl();
+}
+
+function updateCloudBadge() {
+  const url = Telemetry ? Telemetry.getCloudUrl() : (localStorage.getItem("luyendecuong_cloud_url") || "");
+  const btn = document.getElementById("cloudBtnLabel");
+  const statusEl = document.getElementById("liveSyncStatus");
+  if (url) {
+    btn.textContent = "Cloud: Đã Bật";
+    statusEl.textContent = `Kết nối: Firebase Realtime Database (${url.replace(/https?:\/\//, '').split('.')[0]}) + BroadcastChannel`;
+  } else {
+    btn.textContent = "Cloud Sync";
+    statusEl.textContent = `Kết nối: Sẵn sàng · BroadcastChannel (0ms) & LocalStorage Sync`;
+  }
+}
+
+// --- CSV EXPORTER ---
+function exportFullCSV() {
+  if (allSubmissionsList.length === 0) {
+    alert("Chưa có lượt nộp bài nào để xuất.");
+    return;
+  }
+
+  const headers = [
+    "Mã Bài Thi",
+    "Môn Học",
+    "Họ Và Tên",
+    "Chế Độ Ôn",
+    "Điểm Hệ 10",
+    "Số Câu Đúng",
+    "Tổng Câu",
+    "Thời Gian (giây)",
+    "Thời Gian (phút:giây)",
+    "Thời Điểm Nộp"
+  ];
+
+  const rows = allSubmissionsList.map(s => [
+    `"${s.id}"`,
+    `"${s.subjectName || s.subject}"`,
+    `"${(s.studentName || '').replace(/"/g, '""')}"`,
+    `"${s.practiceMode === 'full' ? 'Toàn bộ đề' : s.practiceMode}"`,
+    s.grade10,
+    s.correctMCQ,
+    s.totalMCQ,
+    s.elapsedSeconds,
+    `"${formatElapsed(s.elapsedSeconds)}"`,
+    `"${new Date(s.timestamp).toLocaleString('vi-VN')}"`
+  ]);
+
+  const csvContent = "\uFEFF" + [headers.join(","), ...rows.map(r => r.join(","))].join("\r\n");
+  const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = `Danh_Sach_Diem_THPT_Vinh_Thuan_${new Date().toISOString().slice(0,10)}.csv`;
+  link.click();
+  showToast("Đã xuất file Excel (CSV) thành công");
+}
+
+// --- CLEAR DATA ---
+async function promptClearAllData() {
+  if (confirm("CẢNH BÁO: Thao tác này sẽ xóa toàn bộ các phiên active và lịch sử bài thi đã lưu trên máy và Cloud. Bạn có chắc chắn muốn xóa?")) {
+    if (window.Telemetry) {
+      await Telemetry.clearAllDevData();
+    } else {
+      localStorage.removeItem("luyendecuong_live_sessions");
+      localStorage.removeItem("quiz_student_records_v2");
+    }
+    showToast("Đã xóa sạch dữ liệu thử nghiệm");
+    fetchAllTelemetryData();
+  }
+}
+
+// --- AUTO-REFRESH CONTROLLER ---
+function manualRefresh() {
+  const btn = document.getElementById("btnManualRefresh");
+  btn.style.opacity = "0.6";
+  fetchAllTelemetryData().then(() => {
+    btn.style.opacity = "1";
+    showToast("Đã làm mới dữ liệu mới nhất");
+  });
+}
+
+function changeRefreshInterval() {
+  const val = parseInt(document.getElementById("selRefreshInterval").value, 10);
+  if (refreshTimer) clearInterval(refreshTimer);
+  if (val > 0) {
+    refreshTimer = setInterval(() => {
+      fetchAllTelemetryData();
+    }, val);
+    showToast(`Tự động làm mới mỗi ${val/1000}s`);
+  } else {
+    showToast("Đã tắt tự động làm mới");
+  }
+}
+
+function escapeHtml(str) {
+  if (!str) return "";
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+// --- INITIALIZATION ---
+document.addEventListener("DOMContentLoaded", () => {
+  initAllQuestionsLookup();
+  updateCloudBadge();
+  fetchAllTelemetryData();
+
+  // Listen to live messages via BroadcastChannel or storage events
+  if (window.Telemetry) {
+    Telemetry.onMessage((msg) => {
+      // Immediate re-fetch on any telemetry event
+      fetchAllTelemetryData();
+    });
+  }
+
+  // Start default 5s interval
+  changeRefreshInterval();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,383 @@
+/**
+ * TELEMETRY & LIVE TRACKING ENGINE FOR LUYENDECUONG
+ * Supports:
+ * 1. BroadcastChannel (0ms real-time sync across tabs/windows on same device)
+ * 2. LocalStorage Events (fallback local sync)
+ * 3. Firebase Realtime Database REST API (Zero-SDK cloud sync across all student phones and computers globally)
+ */
+
+(function(window) {
+  const CLOUD_URL_KEY = "luyendecuong_cloud_url";
+  const LIVE_SESSIONS_LOCAL_KEY = "luyendecuong_live_sessions";
+  const BC_CHANNEL_NAME = "luyendecuong_telemetry_bc";
+
+  let bc = null;
+  try {
+    if (typeof window.BroadcastChannel === "function") {
+      bc = new BroadcastChannel(BC_CHANNEL_NAME);
+    }
+  } catch(e) {
+    bc = null;
+  }
+
+  let currentSessionId = sessionStorage.getItem("luyendecuong_sess_id") || null;
+  let heartbeatTimer = null;
+
+  function getCloudUrl() {
+    let url = localStorage.getItem(CLOUD_URL_KEY) || window.LUYENDECUONG_DEFAULT_CLOUD_URL || "";
+    if (url && url.endsWith("/")) url = url.slice(0, -1);
+    return url;
+  }
+
+  function setCloudUrl(url) {
+    if (url) {
+      url = url.trim();
+      if (url.endsWith("/")) url = url.slice(0, -1);
+      localStorage.setItem(CLOUD_URL_KEY, url);
+    } else {
+      localStorage.removeItem(CLOUD_URL_KEY);
+    }
+  }
+
+  function detectDevice() {
+    const ua = navigator.userAgent || "";
+    let isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(ua);
+    let os = "Desktop";
+    if (/iPhone|iPad|iPod/i.test(ua)) os = "iOS";
+    else if (/Android/i.test(ua)) os = "Android";
+    else if (/Windows/i.test(ua)) os = "Windows";
+    else if (/Macintosh|Mac OS X/i.test(ua)) os = "macOS";
+    else if (/Linux/i.test(ua)) os = "Linux";
+
+    let browser = "Browser";
+    if (/Edg/i.test(ua)) browser = "Edge";
+    else if (/Chrome/i.test(ua)) browser = "Chrome";
+    else if (/Safari/i.test(ua)) browser = "Safari";
+    else if (/Firefox/i.test(ua)) browser = "Firefox";
+
+    return {
+      isMobile,
+      os,
+      browser,
+      tag: (isMobile ? "📱 " : "💻 ") + os + " · " + browser
+    };
+  }
+
+  // Calculate live provisional score for any set of questions and user answers
+  function calculateProvisionalScore(questions, userAnswers) {
+    if (!questions || !questions.length) return { score: 0, grade10: 0, answered: 0, total: 0, correct: 0, wrong: 0 };
+    
+    let totalQuestions = questions.length;
+    let answeredCount = 0;
+    let earnedWeight = 0;
+    let correctCount = 0;
+    let wrongCount = 0;
+
+    questions.forEach(q => {
+      const uAns = userAnswers[q.id];
+      if (q.type === "true_false" || q.items) {
+        if (uAns && typeof uAns === "object" && Object.keys(uAns).length > 0) {
+          answeredCount++;
+          let subCor = 0;
+          (q.items || []).forEach(it => {
+            if (uAns[it.id] === it.correct) subCor++;
+          });
+          let tfPoint = 0;
+          if (subCor === 4) tfPoint = 1.0;
+          else if (subCor === 3) tfPoint = 0.5;
+          else if (subCor === 2) tfPoint = 0.25;
+          else if (subCor === 1) tfPoint = 0.1;
+
+          earnedWeight += tfPoint;
+          if (tfPoint >= 0.5) correctCount++;
+          else wrongCount++;
+        }
+      } else if (q.model_answer) {
+        if (uAns && typeof uAns === "string" && uAns.trim().length > 0) {
+          answeredCount++;
+          // Basic heuristic / auto-grade if helper exists
+          let writingScore = 0;
+          if (typeof window.gradeWritingAnswer === "function") {
+            const res = window.gradeWritingAnswer(uAns, q);
+            writingScore = res.score;
+          } else {
+            writingScore = (uAns.trim().toLowerCase() === q.model_answer.trim().toLowerCase()) ? 1.0 : 0.5;
+          }
+          earnedWeight += writingScore;
+          if (writingScore >= 0.5) correctCount++;
+          else wrongCount++;
+        }
+      } else {
+        if (uAns !== undefined && uAns !== null && uAns !== "") {
+          answeredCount++;
+          if (uAns === q.answer) {
+            earnedWeight += 1;
+            correctCount++;
+          } else {
+            wrongCount++;
+          }
+        }
+      }
+    });
+
+    const grade10 = totalQuestions > 0 ? Math.round((earnedWeight / totalQuestions) * 10 * 10) / 10 : 0;
+    return {
+      earnedWeight: Math.round(earnedWeight * 10) / 10,
+      grade10,
+      answered: answeredCount,
+      total: totalQuestions,
+      correct: correctCount,
+      wrong: wrongCount,
+      progressPct: totalQuestions > 0 ? Math.round((answeredCount / totalQuestions) * 100) : 0
+    };
+  }
+
+  // Save live session state locally
+  function saveLocalActiveSession(sessionData) {
+    try {
+      let sessions = JSON.parse(localStorage.getItem(LIVE_SESSIONS_LOCAL_KEY) || "{}");
+      sessions[sessionData.sessionId] = sessionData;
+      // Clean up sessions older than 30 minutes
+      const now = Date.now();
+      Object.keys(sessions).forEach(k => {
+        if (now - (sessions[k].lastActive || 0) > 30 * 60 * 1000) {
+          delete sessions[k];
+        }
+      });
+      localStorage.setItem(LIVE_SESSIONS_LOCAL_KEY, JSON.stringify(sessions));
+    } catch(e) {}
+  }
+
+  function removeLocalActiveSession(sessionId) {
+    try {
+      let sessions = JSON.parse(localStorage.getItem(LIVE_SESSIONS_LOCAL_KEY) || "{}");
+      delete sessions[sessionId];
+      localStorage.setItem(LIVE_SESSIONS_LOCAL_KEY, JSON.stringify(sessions));
+    } catch(e) {}
+  }
+
+  // Post to Cloud (Firebase Realtime Database REST API)
+  async function pushToCloud(endpoint, method, data) {
+    const cloudUrl = getCloudUrl();
+    if (!cloudUrl) return null;
+    try {
+      const resp = await fetch(`${cloudUrl}/${endpoint}.json`, {
+        method: method || "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: data ? JSON.stringify(data) : null
+      });
+      return await resp.json();
+    } catch(err) {
+      console.warn("[Telemetry] Cloud push failed:", err);
+      return null;
+    }
+  }
+
+  // --- PUBLIC API ---
+  const Telemetry = {
+    getCloudUrl,
+    setCloudUrl,
+    detectDevice,
+    calculateProvisionalScore,
+
+    getSessionId() {
+      if (!currentSessionId) {
+        currentSessionId = "sess_" + Date.now() + "_" + Math.random().toString(36).substr(2, 6);
+        sessionStorage.setItem("luyendecuong_sess_id", currentSessionId);
+      }
+      return currentSessionId;
+    },
+
+    startSession(meta) {
+      const sessionId = Telemetry.getSessionId();
+      const sessionData = {
+        sessionId,
+        studentName: meta.studentName,
+        subject: meta.subject || "english",
+        subjectName: meta.subjectName || "Tiếng Anh 11",
+        practiceMode: meta.practiceMode || "full",
+        totalCount: meta.totalCount || 0,
+        answeredCount: 0,
+        provisionalScore: 0,
+        provisionalGrade10: 0,
+        correctCount: 0,
+        wrongCount: 0,
+        progressPct: 0,
+        startTime: Date.now(),
+        lastActive: Date.now(),
+        elapsedSeconds: 0,
+        device: detectDevice(),
+        status: "active",
+        userAnswers: {}
+      };
+
+      saveLocalActiveSession(sessionData);
+      if (bc) bc.postMessage({ type: "SESSION_STARTED", session: sessionData });
+      pushToCloud(`active_sessions/${sessionId}`, "PUT", sessionData);
+
+      // Start periodic heartbeat
+      if (heartbeatTimer) clearInterval(heartbeatTimer);
+      heartbeatTimer = setInterval(() => {
+        Telemetry.heartbeat();
+      }, 12000);
+
+      return sessionData;
+    },
+
+    updateProgress(updateData) {
+      const sessionId = Telemetry.getSessionId();
+      const sessionData = {
+        sessionId,
+        studentName: updateData.studentName,
+        subject: updateData.subject,
+        subjectName: updateData.subjectName,
+        practiceMode: updateData.practiceMode,
+        totalCount: updateData.totalCount,
+        answeredCount: updateData.answeredCount,
+        provisionalScore: updateData.provisionalScore,
+        provisionalGrade10: updateData.provisionalGrade10,
+        correctCount: updateData.correctCount,
+        wrongCount: updateData.wrongCount,
+        progressPct: updateData.progressPct,
+        currentQuestionGlobalIdx: updateData.currentQuestionGlobalIdx,
+        currentQuestionLabel: updateData.currentQuestionLabel,
+        elapsedSeconds: updateData.elapsedSeconds,
+        lastActive: Date.now(),
+        device: detectDevice(),
+        status: "active",
+        userAnswers: updateData.userAnswers || {}
+      };
+
+      saveLocalActiveSession(sessionData);
+      if (bc) bc.postMessage({ type: "PROGRESS_UPDATED", session: sessionData });
+      pushToCloud(`active_sessions/${sessionId}`, "PUT", sessionData);
+    },
+
+    heartbeat() {
+      const sessionId = Telemetry.getSessionId();
+      const now = Date.now();
+      try {
+        let sessions = JSON.parse(localStorage.getItem(LIVE_SESSIONS_LOCAL_KEY) || "{}");
+        if (sessions[sessionId]) {
+          sessions[sessionId].lastActive = now;
+          if (window.AppState) {
+            sessions[sessionId].elapsedSeconds = window.AppState.elapsedSeconds || sessions[sessionId].elapsedSeconds;
+          }
+          localStorage.setItem(LIVE_SESSIONS_LOCAL_KEY, JSON.stringify(sessions));
+        }
+      } catch(e) {}
+
+      pushToCloud(`active_sessions/${sessionId}/lastActive`, "PUT", now);
+    },
+
+    completeSession(submissionRecord) {
+      const sessionId = Telemetry.getSessionId();
+      if (heartbeatTimer) clearInterval(heartbeatTimer);
+
+      removeLocalActiveSession(sessionId);
+      if (bc) bc.postMessage({ type: "SESSION_FINISHED", sessionId, submission: submissionRecord });
+
+      // Remove from active_sessions in cloud
+      pushToCloud(`active_sessions/${sessionId}`, "DELETE");
+
+      // Save submission record to cloud
+      if (submissionRecord && submissionRecord.id) {
+        pushToCloud(`submissions/${submissionRecord.id}`, "PUT", submissionRecord);
+      }
+
+      sessionStorage.removeItem("luyendecuong_sess_id");
+      currentSessionId = null;
+    },
+
+    // --- DEV DASHBOARD METHODS ---
+    async getActiveSessions() {
+      let merged = {};
+
+      // 1. Local sessions
+      try {
+        const local = JSON.parse(localStorage.getItem(LIVE_SESSIONS_LOCAL_KEY) || "{}");
+        Object.assign(merged, local);
+      } catch(e) {}
+
+      // 2. Cloud sessions
+      const cloudUrl = getCloudUrl();
+      if (cloudUrl) {
+        try {
+          const resp = await fetch(`${cloudUrl}/active_sessions.json`);
+          if (resp.ok) {
+            const cloudData = await resp.json();
+            if (cloudData && typeof cloudData === "object") {
+              Object.assign(merged, cloudData);
+            }
+          }
+        } catch(e) {
+          console.warn("[Telemetry] Fetch cloud active sessions failed:", e);
+        }
+      }
+
+      return merged;
+    },
+
+    async getAllSubmissions() {
+      let list = [];
+      // 1. Local submissions
+      try {
+        const local = JSON.parse(localStorage.getItem("quiz_submissions_v2") || "[]");
+        list = [...local];
+      } catch(e) {}
+
+      // 2. Cloud submissions
+      const cloudUrl = getCloudUrl();
+      if (cloudUrl) {
+        try {
+          const resp = await fetch(`${cloudUrl}/submissions.json`);
+          if (resp.ok) {
+            const cloudData = await resp.json();
+            if (cloudData && typeof cloudData === "object") {
+              const cloudList = Object.values(cloudData);
+              // Merge by id
+              const existingIds = new Set(list.map(r => r.id));
+              cloudList.forEach(r => {
+                if (r && r.id && !existingIds.has(r.id)) {
+                  list.push(r);
+                  existingIds.add(r.id);
+                }
+              });
+            }
+          }
+        } catch(e) {
+          console.warn("[Telemetry] Fetch cloud submissions failed:", e);
+        }
+      }
+
+      // Sort by newest first
+      list.sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime());
+      return list;
+    },
+
+    async clearAllDevData() {
+      localStorage.removeItem(LIVE_SESSIONS_LOCAL_KEY);
+      localStorage.removeItem("quiz_submissions_v2");
+      const cloudUrl = getCloudUrl();
+      if (cloudUrl) {
+        try {
+          await fetch(`${cloudUrl}/active_sessions.json`, { method: "DELETE" });
+          await fetch(`${cloudUrl}/submissions.json`, { method: "DELETE" });
+        } catch(e) {}
+      }
+    },
+
+    onMessage(callback) {
+      if (bc) {
+        bc.onmessage = (event) => callback(event.data);
+      }
+      window.addEventListener("storage", (e) => {
+        if (e.key === LIVE_SESSIONS_LOCAL_KEY || e.key === "quiz_submissions_v2") {
+          callback({ type: "STORAGE_CHANGE", key: e.key });
+        }
+      });
+    }
+  };
+
+  window.Telemetry = Telemetry;
+})(window);
