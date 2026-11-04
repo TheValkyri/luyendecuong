@@ -1313,7 +1313,7 @@ tr:hover td {
 <script src="quiz_data.js?v=20261102_2215"></script>
 <script src="physics_quiz_data.js?v=20261103_01"></script>
 <script src="history_quiz_data.js?v=20261104_2015"></script>
-<script src="telemetry_sync.js?v=20261104_2145"></script>
+<script src="telemetry_sync.js?v=20261104_2245"></script>
 
 <script>
 /* ==========================================================================
@@ -1418,6 +1418,7 @@ function switchDevTab(tab) {
   if (tab === "live") {
     document.getElementById("tabBtnLive").classList.add("active");
     document.getElementById("paneLive").classList.add("active");
+    renderLiveTable();
   } else if (tab === "students") {
     document.getElementById("tabBtnStudents").classList.add("active");
     document.getElementById("paneStudents").classList.add("active");
@@ -1604,6 +1605,7 @@ function renderLiveTable() {
   const tbody = document.getElementById("tbodyLiveSessions");
   const emptyState = document.getElementById("liveEmptyState");
   const searchKeyword = (document.getElementById("txtSearchLive").value || "").trim().toLowerCase();
+  const now = Date.now();
 
   const dedupActive = getDeduplicatedActiveSessions();
   let list = dedupActive.filter(s => {
