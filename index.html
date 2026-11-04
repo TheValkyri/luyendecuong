@@ -10,7 +10,7 @@
 <script>
   // AUTO-REDIRECT CACHE BUSTER FOR ALL USERS
   (function() {
-    var APP_BUILD_TAG = "20261104_1130";
+    var APP_BUILD_TAG = "20261104_1155";
     var p = new URLSearchParams(window.location.search);
     if (p.get("v") !== APP_BUILD_TAG) {
       p.set("v", APP_BUILD_TAG);
@@ -417,8 +417,8 @@ a {
 
 /* INTRO / WELCOME SCREEN */
 .welcome-container {
-  max-width: 520px;
-  margin: 2.5rem auto;
+  max-width: 640px;
+  margin: 2rem auto;
   text-align: center;
 }
 .welcome-card {
@@ -1303,24 +1303,108 @@ a {
 
 
 /* ==========================================================================
-   SUBJECT SELECTOR & PHYSICS / KATEX / IMAGE STYLING
+   SUBJECT SELECTOR & CARDS (ANTI-OVERFLOW RESPONSIVE DESIGN)
    ========================================================================== */
 .subject-picker-row {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.65rem;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
 }
-@media (max-width: 640px) {
-  .subject-picker-row {
-    grid-template-columns: 1fr;
-  }
+.subject-picker-row .subject-pill-btn {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  gap: 0.65rem 0.35rem;
+  align-items: center;
+  padding: 0.85rem 0.85rem;
+  min-width: 0;
+  min-height: 104px;
+  box-sizing: border-box;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--border-subtle);
+  background: var(--bg-surface-elevated);
+  transition: all var(--transition);
+  cursor: pointer;
+  text-align: left;
+  overflow: hidden;
 }
-@media (max-width: 540px) {
-  .subject-picker-row {
-    grid-template-columns: 1fr;
-  }
+.subject-picker-row .subject-pill-btn:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-2px);
+  background: var(--bg-card-hover);
 }
+.subject-picker-row .subject-pill-btn.active {
+  border-color: var(--accent-base);
+  background: var(--accent-soft);
+  box-shadow: 0 0 16px var(--accent-glow);
+}
+.subject-picker-row .subject-pill-btn .subject-icon-wrap {
+  grid-column: 1;
+  grid-row: 1;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  color: var(--accent-base);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all var(--transition);
+}
+.subject-picker-row .subject-pill-btn.active .subject-icon-wrap {
+  background: var(--accent-base);
+  color: #ffffff;
+  border-color: var(--accent-base);
+  box-shadow: 0 2px 8px var(--accent-glow);
+}
+.subject-picker-row .subject-pill-btn .subject-pill-badge {
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: end;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.18rem 0.5rem;
+  border-radius: 999px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+.subject-picker-row .subject-pill-btn.active .subject-pill-badge {
+  background: var(--accent-base);
+  color: #fff;
+  border-color: var(--accent-base);
+}
+.subject-picker-row .subject-pill-btn .subject-info-wrap {
+  grid-column: 1 / span 2;
+  grid-row: 2;
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+.subject-picker-row .subject-pill-btn .subject-title {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 0.15rem;
+}
+.subject-picker-row .subject-pill-btn .subject-subtitle {
+  font-size: 0.72rem;
+  color: var(--text-tertiary);
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Modal subject pills keep horizontal flex layout */
 .subject-pill-btn {
   display: flex;
   align-items: center;
@@ -1365,6 +1449,40 @@ a {
   color: #ffffff;
   border-color: var(--accent-base);
   box-shadow: 0 2px 8px var(--accent-glow);
+}
+
+@media (max-width: 580px) {
+  .welcome-container {
+    margin: 1.25rem auto;
+    padding: 0 0.25rem;
+  }
+  .welcome-card {
+    padding: 1.5rem 1rem;
+  }
+  .subject-picker-row {
+    grid-template-columns: 1fr;
+    gap: 0.55rem;
+  }
+  .subject-picker-row .subject-pill-btn {
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto;
+    gap: 0.75rem;
+    padding: 0.75rem 0.95rem;
+    min-height: auto;
+  }
+  .subject-picker-row .subject-pill-btn .subject-icon-wrap {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .subject-picker-row .subject-pill-btn .subject-info-wrap {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .subject-picker-row .subject-pill-btn .subject-pill-badge {
+    grid-column: 3;
+    grid-row: 1;
+    justify-self: end;
+  }
 }
 .opt-badge svg {
   width: 12px;
@@ -1910,7 +2028,7 @@ a {
 <!-- LOAD QUESTION DATA -->
 <script src="quiz_data.js?v=20261102_2215"></script>
 <script src="physics_quiz_data.js?v=20261103_01"></script>
-<script src="history_quiz_data.js?v=20261104_1130"></script>
+<script src="history_quiz_data.js?v=20261104_1155"></script>
 
 <script>
 /* ==========================================================================
@@ -2668,35 +2786,29 @@ function renderWelcomeScreen() {
         
         <!-- SUBJECT SELECTOR PILLS -->
         <div class="subject-picker-row">
-          <button class="subject-pill-btn ${AppState.currentSubject === 'english' ? 'active' : ''}" onclick="switchSubject('english')">
-            <div class="subject-pill-left">
-              <span class="subject-icon-wrap">${ICONS.languages}</span>
-              <div>
-                <span class="subject-title">Tiếng Anh 11</span>
-                <span class="subject-subtitle">Global Success · HK1</span>
-              </div>
+          <button class="subject-pill-btn ${AppState.currentSubject === 'english' ? 'active' : ''}" onclick="switchSubject('english')" title="Tiếng Anh 11">
+            <span class="subject-icon-wrap">${ICONS.languages}</span>
+            <div class="subject-info-wrap">
+              <span class="subject-title">Tiếng Anh 11</span>
+              <span class="subject-subtitle">Global Success · HK1</span>
             </div>
             <span class="subject-pill-badge">${engCount} câu</span>
           </button>
           
-          <button class="subject-pill-btn ${AppState.currentSubject === 'physics' ? 'active' : ''}" onclick="switchSubject('physics')">
-            <div class="subject-pill-left">
-              <span class="subject-icon-wrap">${ICONS.atom}</span>
-              <div>
-                <span class="subject-title">Vật Lí 11</span>
-                <span class="subject-subtitle">Chuyên đề 1: Dao động</span>
-              </div>
+          <button class="subject-pill-btn ${AppState.currentSubject === 'physics' ? 'active' : ''}" onclick="switchSubject('physics')" title="Vật Lí 11">
+            <span class="subject-icon-wrap">${ICONS.atom}</span>
+            <div class="subject-info-wrap">
+              <span class="subject-title">Vật Lí 11</span>
+              <span class="subject-subtitle">Chuyên đề 1: Dao động</span>
             </div>
             <span class="subject-pill-badge">${phyCount} câu</span>
           </button>
 
-          <button class="subject-pill-btn ${AppState.currentSubject === 'history' ? 'active' : ''}" onclick="switchSubject('history')">
-            <div class="subject-pill-left">
-              <span class="subject-icon-wrap">${ICONS.landmark}</span>
-              <div>
-                <span class="subject-title">Lịch Sử 11</span>
-                <span class="subject-subtitle">Chủ đề 1 & 2 · Đúng/Sai</span>
-              </div>
+          <button class="subject-pill-btn ${AppState.currentSubject === 'history' ? 'active' : ''}" onclick="switchSubject('history')" title="Lịch Sử 11">
+            <span class="subject-icon-wrap">${ICONS.landmark}</span>
+            <div class="subject-info-wrap">
+              <span class="subject-title">Lịch Sử 11</span>
+              <span class="subject-subtitle">Chủ đề 1 & 2 · Đúng/Sai</span>
             </div>
             <span class="subject-pill-badge">${hisCount} câu</span>
           </button>
