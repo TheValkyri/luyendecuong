@@ -7,6 +7,7 @@
  */
 
 (function(window) {
+  const DEFAULT_CLOUD_URL = "https://thptvttn-default-rtdb.asia-southeast1.firebasedatabase.app";
   const CLOUD_URL_KEY = "luyendecuong_cloud_url";
   const LIVE_SESSIONS_LOCAL_KEY = "luyendecuong_live_sessions";
   const BC_CHANNEL_NAME = "luyendecuong_telemetry_bc";
@@ -24,7 +25,7 @@
   let heartbeatTimer = null;
 
   function getCloudUrl() {
-    let url = localStorage.getItem(CLOUD_URL_KEY) || window.LUYENDECUONG_DEFAULT_CLOUD_URL || "";
+    let url = localStorage.getItem(CLOUD_URL_KEY) || DEFAULT_CLOUD_URL || window.LUYENDECUONG_DEFAULT_CLOUD_URL || "";
     if (url && url.endsWith("/")) url = url.slice(0, -1);
     return url;
   }
