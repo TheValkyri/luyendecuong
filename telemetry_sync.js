@@ -293,11 +293,59 @@
     async getActiveSessions() {
       let merged = {};
 
-      // 1. Local sessions
+      // 1. Local telemetry sessions
       try {
         const local = JSON.parse(localStorage.getItem(LIVE_SESSIONS_LOCAL_KEY) || "{}");
         Object.assign(merged, local);
       } catch(e) {}
+
+      // 1b. Check pre-existing active sessions in browser from before dev update!
+      const legacyActiveKeys = [
+        { key: "quiz_active_session_english", sub: "english", name: "Tiếng Anh 11" },
+        { key: "quiz_active_session_physics", sub: "physics", name: "Vật Lí 11" },
+        { key: "quiz_active_session_history", sub: "history", name: "Lịch Sử 11" },
+        { key: "eng11_thpt_vinhtuan_active_session", sub: "english", name: "Tiếng Anh 11" }
+      ];
+      legacyActiveKeys.forEach(item => {
+        try {
+          const raw = localStorage.getItem(item.key);
+          if (raw) {
+            const data = JSON.parse(raw);
+            if (data && data.studentName) {
+              const sessId = "sess_" + (data.subject || item.sub) + "_" + data.studentName.replace(/\s+/g, '_');
+              if (!merged[sessId]) {
+                const sub = data.subject || item.sub;
+                const subName = item.name;
+                const uAns = data.userAnswers || {};
+                const ansCount = Object.keys(uAns).length;
+                const totCount = (sub === "history" ? 166 : (sub === "physics" ? 160 : 89));
+
+                merged[sessId] = {
+                  sessionId: sessId,
+                  studentName: data.studentName,
+                  subject: sub,
+                  subjectName: subName,
+                  practiceMode: data.practiceMode || "full",
+                  totalCount: totCount,
+                  answeredCount: ansCount,
+                  provisionalScore: 0,
+                  provisionalGrade10: 0,
+                  correctCount: 0,
+                  wrongCount: 0,
+                  progressPct: Math.round((ansCount / totCount) * 100),
+                  currentQuestionGlobalIdx: data.activeQuestionGlobalIdx || 0,
+                  currentQuestionLabel: `Câu ${(data.activeQuestionGlobalIdx || 0) + 1}`,
+                  elapsedSeconds: data.elapsedSeconds || 0,
+                  lastActive: data.timestamp || Date.now(),
+                  device: { isMobile: false, os: "Web", browser: "Browser", tag: "📱 Phiên làm bài trước update" },
+                  status: "active",
+                  userAnswers: uAns
+                };
+              }
+            }
+          }
+        } catch(e) {}
+      });
 
       // 2. Cloud sessions
       const cloudUrl = getCloudUrl();
@@ -320,10 +368,22 @@
 
     async getAllSubmissions() {
       let list = [];
-      // 1. Local submissions
+      // 1. Local submissions from all primary & legacy storage keys
       try {
-        const local = JSON.parse(localStorage.getItem("quiz_submissions_v2") || "[]");
-        list = [...local];
+        const primary = JSON.parse(localStorage.getItem("quiz_student_records_v2") || "[]");
+        const legacy = JSON.parse(localStorage.getItem("eng11_thpt_vinhtuan_student_records") || "[]");
+        const v2 = JSON.parse(localStorage.getItem("quiz_submissions_v2") || "[]");
+
+        const existingIds = new Set();
+        [...primary, ...legacy, ...v2].forEach(r => {
+          if (r && (r.id || r.timestamp)) {
+            const id = r.id || ("sub_" + new Date(r.timestamp).getTime());
+            if (!existingIds.has(id)) {
+              existingIds.add(id);
+              list.push({ ...r, id });
+            }
+          }
+        });
       } catch(e) {}
 
       // 2. Cloud submissions
@@ -358,6 +418,13 @@
     async clearAllDevData() {
       localStorage.removeItem(LIVE_SESSIONS_LOCAL_KEY);
       localStorage.removeItem("quiz_submissions_v2");
+      localStorage.removeItem("quiz_student_records_v2");
+      localStorage.removeItem("eng11_thpt_vinhtuan_student_records");
+      localStorage.removeItem("quiz_active_session_english");
+      localStorage.removeItem("quiz_active_session_physics");
+      localStorage.removeItem("quiz_active_session_history");
+      localStorage.removeItem("eng11_thpt_vinhtuan_active_session");
+
       const cloudUrl = getCloudUrl();
       if (cloudUrl) {
         try {

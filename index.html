@@ -10,7 +10,7 @@
 <script>
   // AUTO-REDIRECT CACHE BUSTER FOR ALL USERS
   (function() {
-    var APP_BUILD_TAG = "20261104_2145";
+    var APP_BUILD_TAG = "20261104_2155";
     var p = new URLSearchParams(window.location.search);
     if (p.get("v") !== APP_BUILD_TAG) {
       p.set("v", APP_BUILD_TAG);
@@ -23,9 +23,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
 <!-- KaTeX for Physics Mathematical Formulas -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <style>
 /* ==========================================================================
    DESIGN TOKENS & HIGH-END THEMES
@@ -3117,6 +3117,7 @@ function startExam() {
   
   AudioFX.success();
   launchExamUI();
+  saveSessionDebounced();
 }
 
 function resumeSavedSession() {
@@ -3135,6 +3136,7 @@ function resumeSavedSession() {
   AppState.isFinished = false;
   
   launchExamUI();
+  saveSessionDebounced();
 }
 
 function discardSavedSession() {

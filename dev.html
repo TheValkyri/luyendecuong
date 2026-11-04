@@ -13,9 +13,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <!-- KaTeX for physics mathematical formulas -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <style>
 :root {
@@ -1439,6 +1439,44 @@ async function fetchAllTelemetryData() {
       activeSessionsMap = JSON.parse(localStorage.getItem("luyendecuong_live_sessions") || "{}");
       allSubmissionsList = JSON.parse(localStorage.getItem("quiz_student_records_v2") || "[]");
     }
+
+    // On-the-fly provisional score calculation for sessions loaded before update
+    Object.values(activeSessionsMap).forEach(s => {
+      if (s && s.userAnswers && (!s.provisionalGrade10 || s.provisionalGrade10 === 0)) {
+        let earned = 0;
+        let cor = 0;
+        let wrg = 0;
+        const qids = Object.keys(s.userAnswers);
+        qids.forEach(qid => {
+          const q = AllQuestionsMap[qid];
+          const ans = s.userAnswers[qid];
+          if (q) {
+            if (q.options && q.answer !== undefined) {
+              if (ans === q.answer) { earned += 1; cor++; }
+              else { wrg++; }
+            } else if (q.items) {
+              let sc = 0;
+              (q.items || []).forEach(it => {
+                if (ans && ans[it.id] === it.correct) sc++;
+              });
+              let tfPoint = 0;
+              if (sc === 4) tfPoint = 1.0;
+              else if (sc === 3) tfPoint = 0.5;
+              else if (sc === 2) tfPoint = 0.25;
+              else if (sc === 1) tfPoint = 0.1;
+              earned += tfPoint;
+              if (tfPoint >= 0.5) cor++; else wrg++;
+            }
+          }
+        });
+        const tot = s.totalCount || 89;
+        s.provisionalGrade10 = Math.round((earned / tot) * 10 * 10) / 10;
+        s.correctCount = cor;
+        s.wrongCount = wrg;
+        s.answeredCount = qids.length;
+        s.progressPct = Math.round((qids.length / tot) * 100);
+      }
+    });
   } catch(e) {
     console.warn("Failed fetching telemetry:", e);
   }
@@ -1453,9 +1491,9 @@ async function fetchAllTelemetryData() {
 // --- KPI METRICS ---
 function updateKPICards() {
   const now = Date.now();
-  // Filter sessions active within last 15 minutes
+  // Filter sessions active within last 24 hours
   const activeList = Object.values(activeSessionsMap).filter(s => {
-    return s && s.studentName && (now - (s.lastActive || 0) < 15 * 60 * 1000);
+    return s && s.studentName && (now - (s.lastActive || 0) < 24 * 60 * 60 * 1000);
   });
 
   document.getElementById("kpiOnlineCount").textContent = activeList.length;
@@ -1520,8 +1558,8 @@ function renderLiveTable() {
   const now = Date.now();
   let list = Object.values(activeSessionsMap).filter(s => {
     if (!s || !s.studentName) return false;
-    // Hide stale sessions older than 20 minutes
-    if (now - (s.lastActive || 0) > 20 * 60 * 1000) return false;
+    // Show active sessions from the last 24 hours
+    if (now - (s.lastActive || 0) > 24 * 60 * 60 * 1000) return false;
     if (liveSubjectFilter !== "all" && s.subject !== liveSubjectFilter) return false;
     if (searchKeyword && !s.studentName.toLowerCase().includes(searchKeyword)) return false;
     return true;
@@ -1562,7 +1600,10 @@ function renderLiveTable() {
     const diffSec = Math.floor((now - (sess.lastActive || 0)) / 1000);
     let heartbeatDot = "var(--success)";
     let heartbeatText = "Đang thao tác";
-    if (diffSec > 60) {
+    if (diffSec > 300) {
+      heartbeatDot = "var(--text-tertiary)";
+      heartbeatText = `Tạm dừng (${diffSec > 3600 ? Math.floor(diffSec/3600) + 'h trước' : Math.floor(diffSec/60) + 'p trước'})`;
+    } else if (diffSec > 60) {
       heartbeatDot = "var(--warning)";
       heartbeatText = `${Math.floor(diffSec/60)}p trước`;
     } else if (diffSec > 10) {
