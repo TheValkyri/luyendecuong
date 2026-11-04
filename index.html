@@ -10,7 +10,7 @@
 <script>
   // AUTO-REDIRECT CACHE BUSTER FOR ALL USERS
   (function() {
-    var APP_BUILD_TAG = "20261104_1155";
+    var APP_BUILD_TAG = "20261104_2015";
     var p = new URLSearchParams(window.location.search);
     if (p.get("v") !== APP_BUILD_TAG) {
       p.set("v", APP_BUILD_TAG);
@@ -1619,6 +1619,188 @@ a {
   color: var(--accent-base);
 }
 
+/* ==========================================================================
+   TRUE / FALSE (ĐÚNG / SAI) INTERACTIVE WIDGET STYLES
+   ========================================================================== */
+.tf-container {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.tf-instruction-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--accent-base);
+  background: var(--accent-soft);
+  border: 1px solid var(--border-accent);
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-sm);
+  margin-bottom: 0.25rem;
+  width: fit-content;
+}
+.tf-instruction-tag svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+.tf-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.tf-item-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 1.1rem;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--border-subtle);
+  background: var(--bg-surface);
+  transition: all var(--transition);
+}
+.tf-item-card:hover {
+  border-color: var(--border-strong);
+  background: var(--bg-surface-elevated);
+}
+.tf-item-card.answered {
+  border-color: var(--accent-base);
+  background: var(--bg-card);
+}
+.tf-item-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  flex: 1;
+}
+.tf-item-badge {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--accent-base);
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-xs);
+  background: var(--accent-soft);
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+.tf-item-text {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+.tf-btn-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+.tf-choice-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  min-width: 82px;
+  padding: 0.45rem 0.85rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border-subtle);
+  background: var(--bg-surface-elevated);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition);
+  user-select: none;
+}
+.tf-choice-btn svg {
+  width: 14px;
+  height: 14px;
+}
+.tf-choice-btn:hover {
+  transform: translateY(-1px);
+}
+.tf-choice-btn.btn-true:hover {
+  border-color: #16a34a;
+  color: #16a34a;
+}
+.tf-choice-btn.btn-false:hover {
+  border-color: #dc2626;
+  color: #dc2626;
+}
+.tf-choice-btn.btn-true.active {
+  background: #16a34a;
+  border-color: #16a34a;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(22, 163, 74, 0.35);
+}
+.tf-choice-btn.btn-false.active {
+  background: #dc2626;
+  border-color: #dc2626;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.35);
+}
+
+@media (max-width: 600px) {
+  .tf-item-card {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+    padding: 0.75rem 0.85rem;
+  }
+  .tf-btn-group {
+    justify-content: flex-end;
+    width: 100%;
+  }
+  .tf-choice-btn {
+    flex: 1;
+    min-width: 0;
+    padding: 0.55rem;
+  }
+}
+
+/* TRUE / FALSE REVIEW STYLES */
+.review-tf-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 0.85rem 0;
+}
+.review-tf-row {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 1rem;
+  transition: all var(--transition);
+}
+.review-tf-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.45rem;
+}
+.review-tf-text {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--text-primary);
+  font-weight: 500;
+  flex: 1;
+}
+.review-tf-verdict {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.8rem;
+  padding-top: 0.45rem;
+  border-top: 1px dashed var(--border-subtle);
+}
+
 /* IMAGE ZOOM MODAL */
 .image-modal-backdrop {
   z-index: 9999;
@@ -2028,7 +2210,7 @@ a {
 <!-- LOAD QUESTION DATA -->
 <script src="quiz_data.js?v=20261102_2215"></script>
 <script src="physics_quiz_data.js?v=20261103_01"></script>
-<script src="history_quiz_data.js?v=20261104_1155"></script>
+<script src="history_quiz_data.js?v=20261104_2015"></script>
 
 <script>
 /* ==========================================================================
@@ -3145,11 +3327,19 @@ function renderListMode() {
 function renderSingleQuestionCard(q, displayNum, totalCount) {
   const isFlagged = AppState.flaggedQuestions.has(q.id);
   const userAns = AppState.userAnswers[q.id];
-  const isAnswered = (userAns !== undefined && userAns !== "");
+  
+  let isAnswered = false;
+  if (q.type === 'true_false' || q.items) {
+    isAnswered = (userAns && typeof userAns === 'object' && Object.keys(userAns).length > 0);
+  } else {
+    isAnswered = (userAns !== undefined && userAns !== "");
+  }
   
   let contentHtml = "";
   
-  if (q.sentences && Object.keys(q.sentences).length > 0) {
+  if (q.type === 'true_false' || q.items) {
+    contentHtml = renderTrueFalseWidget(q, userAns);
+  } else if (q.sentences && Object.keys(q.sentences).length > 0) {
     contentHtml = renderSentenceOrderWidget(q, userAns);
   } else if (q.model_answer) {
     contentHtml = renderWritingWidget(q, userAns);
@@ -3212,18 +3402,18 @@ function renderTrueFalseWidget(q, userAns) {
     
     html += `
       <div class="tf-item-card ${val !== undefined ? 'answered' : ''}">
-        <div class="tf-item-header">
+        <div class="tf-item-content">
           <span class="tf-item-badge">${it.id.toUpperCase()})</span>
-          <span class="tf-item-text">${renderMathAndText(it.text)}</span>
+          <div class="tf-item-text">${renderMathAndText(it.text)}</div>
         </div>
         <div class="tf-btn-group">
           <button type="button" class="tf-choice-btn btn-true ${isTrue ? 'active' : ''}" onclick="selectTrueFalseChoice('${q.id}', '${it.id}', true)">
             ${ICONS.check}
-            <span>Đúng</span>
+            <span>ĐÚNG</span>
           </button>
           <button type="button" class="tf-choice-btn btn-false ${isFalse ? 'active' : ''}" onclick="selectTrueFalseChoice('${q.id}', '${it.id}', false)">
             ${ICONS.x}
-            <span>Sai</span>
+            <span>SAI</span>
           </button>
         </div>
       </div>
@@ -3250,15 +3440,19 @@ function selectTrueFalseChoice(qid, subId, isTrue) {
   
   saveSessionDebounced();
   
+  updateProgressUI();
+
   if (AppState.viewMode === "focus") {
     renderFocusMode();
   } else {
     const card = document.getElementById("card-" + qid);
     if (card) {
-      const q = findQuestionById(qid);
-      const displayNum = FlatQuestions.findIndex(x => x.id === qid) + 1;
+      const subset = getActiveQuestionsSubset();
+      const subIdx = subset.findIndex(x => x.id === qid);
+      const displayNum = (subIdx !== -1) ? (subIdx + 1) : 1;
+      const q = (subIdx !== -1) ? subset[subIdx] : findQuestionById(qid);
       const tmp = document.createElement("div");
-      tmp.innerHTML = renderSingleQuestionCard(q, displayNum, FlatQuestions.length);
+      tmp.innerHTML = renderSingleQuestionCard(q, displayNum, subset.length);
       card.replaceWith(tmp.firstElementChild);
       triggerMathTypesetting(document.getElementById("card-" + qid));
     }
@@ -3725,6 +3919,9 @@ function updateProgressUI() {
   const subset = getActiveQuestionsSubset();
   const answeredCount = subset.filter(q => {
     const ans = AppState.userAnswers[q.id];
+    if (q.type === 'true_false' || q.items) {
+      return (ans && typeof ans === 'object' && Object.keys(ans).length > 0);
+    }
     return ans !== undefined && ans !== "";
   }).length;
   
@@ -3753,7 +3950,13 @@ function renderMatrixGrid() {
   
   let html = "";
   subset.forEach((q, idx) => {
-    const isAnswered = (AppState.userAnswers[q.id] !== undefined && AppState.userAnswers[q.id] !== "");
+    const ans = AppState.userAnswers[q.id];
+    let isAnswered = false;
+    if (q.type === 'true_false' || q.items) {
+      isAnswered = (ans && typeof ans === 'object' && Object.keys(ans).length > 0);
+    } else {
+      isAnswered = (ans !== undefined && ans !== "");
+    }
     const isFlagged = AppState.flaggedQuestions.has(q.id);
     const isCur = (idx === AppState.activeQuestionGlobalIdx);
     
@@ -3794,7 +3997,13 @@ function confirmSubmitExam() {
   AudioFX.init();
   AudioFX.tap();
   const subset = getActiveQuestionsSubset();
-  const unanswered = subset.filter(q => AppState.userAnswers[q.id] === undefined || AppState.userAnswers[q.id] === "");
+  const unanswered = subset.filter(q => {
+    const ans = AppState.userAnswers[q.id];
+    if (q.type === 'true_false' || q.items) {
+      return !ans || typeof ans !== 'object' || Object.keys(ans).length === 0;
+    }
+    return ans === undefined || ans === "";
+  });
   const flagged = subset.filter(q => AppState.flaggedQuestions.has(q.id));
   
   let msg = "Bạn có chắc chắn muốn nộp bài thi không?";
