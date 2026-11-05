@@ -157,15 +157,20 @@
     } catch(e) {}
   }
 
+  function sanitizeStudentKey(name) {
+    return String(name || 'anonymous').trim().replace(/[.#$\[\]\/'"\\?]/g, '_');
+  }
+
   // Post to Cloud (Firebase Realtime Database REST API)
   async function pushToCloud(endpoint, method, data) {
     const cloudUrl = getCloudUrl();
     if (!cloudUrl) return null;
     try {
+      const bodyPayload = (data !== undefined) ? JSON.stringify(data) : JSON.stringify(null);
       const resp = await fetch(`${cloudUrl}/${endpoint}.json`, {
         method: method || "PUT",
         headers: { "Content-Type": "application/json" },
-        body: data ? JSON.stringify(data) : null
+        body: bodyPayload
       });
       return await resp.json();
     } catch(err) {
@@ -218,7 +223,7 @@
 
       // Record student attempt history in Cloud
       if (meta.studentName) {
-        const safeKey = meta.studentName.trim().replace(/[.#$\[\]\/]/g, '_');
+        const safeKey = sanitizeStudentKey(meta.studentName);
         pushToCloud(`student_history/${safeKey}/studentName`, "PUT", meta.studentName);
         pushToCloud(`student_history/${safeKey}/lastSeen`, "PUT", Date.now());
         pushToCloud(`student_history/${safeKey}/lastSubject`, "PUT", meta.subject || "english");
@@ -269,7 +274,7 @@
       pushToCloud(`active_sessions/${sessionId}`, "PUT", sessionData);
 
       if (updateData.studentName) {
-        const safeKey = updateData.studentName.trim().replace(/[.#$\[\]\/]/g, '_');
+        const safeKey = sanitizeStudentKey(updateData.studentName);
         pushToCloud(`student_history/${safeKey}/lastSeen`, "PUT", Date.now());
         pushToCloud(`student_history/${safeKey}/attempts/${sessionId}/lastActive`, "PUT", Date.now());
         pushToCloud(`student_history/${safeKey}/attempts/${sessionId}/progress`, "PUT", `${updateData.answeredCount}/${updateData.totalCount}`);
@@ -310,7 +315,7 @@
       }
 
       if (submissionRecord && submissionRecord.studentName) {
-        const safeKey = submissionRecord.studentName.trim().replace(/[.#$\[\]\/]/g, '_');
+        const safeKey = sanitizeStudentKey(submissionRecord.studentName);
         pushToCloud(`student_history/${safeKey}/attempts/${sessionId}/status`, "PUT", "completed");
         pushToCloud(`student_history/${safeKey}/attempts/${sessionId}/completedTime`, "PUT", Date.now());
         pushToCloud(`student_history/${safeKey}/attempts/${sessionId}/grade10`, "PUT", submissionRecord.grade10);

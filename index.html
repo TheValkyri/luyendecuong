@@ -10,7 +10,7 @@
 <script>
   // AUTO-REDIRECT CACHE BUSTER FOR ALL USERS
   (function() {
-    var APP_BUILD_TAG = "20261105_2050";
+    var APP_BUILD_TAG = "20261105_2150";
     var p = new URLSearchParams(window.location.search);
     if (p.get("v") !== APP_BUILD_TAG) {
       p.set("v", APP_BUILD_TAG);
@@ -2229,7 +2229,7 @@ a {
 <script src="quiz_data.js?v=20261102_2215"></script>
 <script src="physics_quiz_data.js?v=20261105_2050"></script>
 <script src="history_quiz_data.js?v=20261104_2015"></script>
-<script src="telemetry_sync.js?v=20261104_2145"></script>
+<script src="telemetry_sync.js?v=20261105_2150"></script>
 
 <script>
 /* ==========================================================================
@@ -3387,6 +3387,14 @@ function renderListMode() {
 // ==========================================================================
 // QUESTION CARD HTML BUILDER
 // ==========================================================================
+function renderQuestionPromptWithBanner(raw) {
+  let p = renderMathAndText(raw);
+  if (p && p.startsWith("[")) {
+    p = p.replace(/^\[(.*?)\](?:\s*<br\s*\/?>|\n|\s)*/i, '<div class="group-context-pill"><svg class="v-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg><span>$1</span></div>');
+  }
+  return p;
+}
+
 function renderSingleQuestionCard(q, displayNum, totalCount) {
   const isFlagged = AppState.flaggedQuestions.has(q.id);
   const userAns = AppState.userAnswers[q.id];
@@ -4716,7 +4724,7 @@ function renderReviewItems(breakdown, filterMode) {
           </div>
         </div>
         
-        <div class="q-prompt-text" style="margin-bottom:0.85rem;font-weight:600;font-size:0.95rem;">${renderMathAndText(item.prompt)}</div>
+        <div class="q-prompt-text" style="margin-bottom:0.85rem;font-weight:600;font-size:0.95rem;">${renderQuestionPromptWithBanner(item.prompt)}</div>
         
         ${reviewImgHtml}
         ${bodyContent}
