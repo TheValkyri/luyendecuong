@@ -23,7 +23,7 @@
   (function() {
     try {
       if (typeof window === "undefined" || !window.location) return;
-      var DASHBOARD_BUILD = "20261105_2225";
+      var DASHBOARD_BUILD = "20261105_2255";
       var p = new URLSearchParams(window.location.search);
       if (p.get("v") !== DASHBOARD_BUILD) {
         p.set("v", DASHBOARD_BUILD);
@@ -1355,7 +1355,7 @@ tr:hover td {
 <script src="quiz_data.js?v=20261102_2215"></script>
 <script src="physics_quiz_data.js?v=20261103_01"></script>
 <script src="history_quiz_data.js?v=20261104_2015"></script>
-<script src="telemetry_sync.js?v=20261105_2225"></script>
+<script src="telemetry_sync.js?v=20261105_2255"></script>
 
 <script>
 /* ==========================================================================
@@ -1658,6 +1658,7 @@ function updateKPICards() {
   // Truly online students: heartbeat within last 5 minutes (300s)
   const trulyOnline = allActive.filter(s => (now - (s.lastActive || 0)) <= 5 * 60 * 1000);
   const idleSessions = allActive.filter(s => (now - (s.lastActive || 0)) > 5 * 60 * 1000);
+  const activeList = trulyOnline.length > 0 ? trulyOnline : allActive;
 
   document.getElementById("kpiOnlineCount").textContent = trulyOnline.length;
   document.getElementById("badgeLiveCount").textContent = trulyOnline.length;
@@ -1720,8 +1721,15 @@ function updateKPICards() {
   }
 
   // Unique students count
-  const studentNames = new Set(allSubmissionsList.map(s => (s.studentName || "").trim().toLowerCase()));
-  activeList.forEach(s => studentNames.add((s.studentName || "").trim().toLowerCase()));
+  const studentNames = new Set();
+  effectiveSubmissions.forEach(s => {
+    const name = (s.studentName || "").trim().toLowerCase();
+    if (name) studentNames.add(name);
+  });
+  allActive.forEach(s => {
+    const name = (s.studentName || "").trim().toLowerCase();
+    if (name) studentNames.add(name);
+  });
   document.getElementById("badgeStudentCount").textContent = studentNames.size;
 }
 
