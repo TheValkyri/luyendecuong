@@ -23,7 +23,7 @@
   (function() {
     try {
       if (typeof window === "undefined" || !window.location) return;
-      var DASHBOARD_BUILD = "20261105_2150";
+      var DASHBOARD_BUILD = "20261105_2200";
       var p = new URLSearchParams(window.location.search);
       if (p.get("v") !== DASHBOARD_BUILD) {
         p.set("v", DASHBOARD_BUILD);
@@ -1122,9 +1122,15 @@ tr:hover td {
         <button class="pill-filter" onclick="filterLiveSubject('history', this)">Lịch Sử 11</button>
       </div>
 
-      <div class="search-input-box">
-        <svg class="v-icon search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-        <input type="text" id="txtSearchLive" placeholder="Tìm tên học sinh..." oninput="renderLiveTable()">
+      <div style="display:flex;align-items:center;gap:0.6rem;flex-wrap:wrap;">
+        <label style="display:inline-flex;align-items:center;gap:0.4rem;font-size:0.8rem;color:var(--text-secondary);cursor:pointer;white-space:nowrap;user-select:none;background:var(--bg-card);padding:0.45rem 0.75rem;border-radius:var(--radius-sm);border:1px solid var(--border-subtle);">
+          <input type="checkbox" class="chk-valid-name-toggle" checked onchange="toggleValidNameFilter(this)">
+          <span>🛡️ Ẩn tên troll/rác</span>
+        </label>
+        <div class="search-input-box">
+          <svg class="v-icon search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <input type="text" id="txtSearchLive" placeholder="Tìm tên học sinh..." oninput="renderLiveTable()">
+        </div>
       </div>
     </div>
 
@@ -1170,9 +1176,15 @@ tr:hover td {
         <button class="pill-filter" onclick="filterStudentSubject('history', this)">Lịch Sử 11</button>
       </div>
 
-      <div class="search-input-box">
-        <svg class="v-icon search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-        <input type="text" id="txtSearchStudents" placeholder="Tìm tên học sinh..." oninput="renderStudentsTable()">
+      <div style="display:flex;align-items:center;gap:0.6rem;flex-wrap:wrap;">
+        <label style="display:inline-flex;align-items:center;gap:0.4rem;font-size:0.8rem;color:var(--text-secondary);cursor:pointer;white-space:nowrap;user-select:none;background:var(--bg-card);padding:0.45rem 0.75rem;border-radius:var(--radius-sm);border:1px solid var(--border-subtle);">
+          <input type="checkbox" class="chk-valid-name-toggle" checked onchange="toggleValidNameFilter(this)">
+          <span>🛡️ Ẩn tên troll/rác</span>
+        </label>
+        <div class="search-input-box">
+          <svg class="v-icon search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <input type="text" id="txtSearchStudents" placeholder="Tìm tên học sinh..." oninput="renderStudentsTable()">
+        </div>
       </div>
     </div>
 
@@ -1338,7 +1350,7 @@ tr:hover td {
 <script src="quiz_data.js?v=20261102_2215"></script>
 <script src="physics_quiz_data.js?v=20261103_01"></script>
 <script src="history_quiz_data.js?v=20261104_2015"></script>
-<script src="telemetry_sync.js?v=20261105_2150"></script>
+<script src="telemetry_sync.js?v=20261105_2200"></script>
 
 <script>
 /* ==========================================================================
@@ -1514,6 +1526,46 @@ async function fetchAllTelemetryData() {
   if (activeSpySessionId) updateSpyModalContent();
 }
 
+function isValidStudentName(name) {
+  if (!name || typeof name !== "string") return false;
+  const trimmed = name.trim().replace(/\s+/g, ' ');
+  if (trimmed.length < 5 || trimmed.length > 50) return false;
+  const firstCharRegex = /^[a-zA-ZàáảãạăắằẳẵặâấầẩẫậèéẻẽẹêếềểễệìíỉĩịòóỏõọôốồổỗộơớờởỡợùúủũụưứừửữựỳýỷỹỵđÀÁẢÃẠĂẮẰẲẴẶÂẤẦẨẪẬÈÉẺẼẸÊẾỀỂỄỆÌÍỈĨỊÒÓỎÕỌÔỐỒỔỖỘƠỚỜỞỠỢÙÚỦŨỤƯỨỪỬỮỰỲÝỶỸỴĐ]/u;
+  if (!firstCharRegex.test(trimmed)) return false;
+  const words = trimmed.split(' ').filter(Boolean);
+  if (words.length < 2) return false;
+  const validCharsRegex = /^[a-zA-Z0-9àáảãạăắằẳẵặâấầẩẫậèéẻẽẹêếềểễệìíỉĩịòóỏõọôốồổỗộơớờởỡợùúủũụưứừửữựỳýỷỹỵđÀÁẢÃẠĂẮẰẲẴẶÂẤẦẨẪẬÈÉẺẼẸÊẾỀỂỄỆÌÍỈĨỊÒÓỎÕỌÔỐỒỔỖỘƠỚỜỞỠỢÙÚỦŨỤƯỨỪỬỮỰỲÝỶỸỴĐ\s\/\(\).\-–—]+$/u;
+  if (!validCharsRegex.test(trimmed)) return false;
+  if (/(.)\1{3,}/i.test(trimmed)) return false;
+  const lowerOrig = trimmed.toLowerCase();
+  const lowerUnsigned = lowerOrig.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  const badPhrases = ['femboy', 'bo liem', 'bố liêm', 'bố m', 'oc cho', 'óc chó', 'cuc cuc', 'cục cức'];
+  for (const bp of badPhrases) {
+    if (lowerOrig.includes(bp) || lowerUnsigned.includes(bp)) return false;
+  }
+  const forbiddenTokens = new Set([
+    'ngu', 'cho', 'chó', 'di', 'đĩ', 'du', 'đụ', 'dit', 'địt', 'cac', 'cặc', 
+    'lon', 'lồn', 'buoi', 'buồi', 'dm', 'dkm', 'đkm', 'vcl', 'fuck', 'bitch', 'shit', 'fck'
+  ]);
+  const tokens = lowerOrig.split(/[\s\-_/().,]+/);
+  for (const t of tokens) {
+    if (forbiddenTokens.has(t)) return false;
+    const unsignedT = t.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    if (forbiddenTokens.has(unsignedT)) return false;
+  }
+  return true;
+}
+
+let filterValidNamesOnly = true;
+
+function toggleValidNameFilter(chk) {
+  filterValidNamesOnly = chk ? chk.checked : true;
+  document.querySelectorAll(".chk-valid-name-toggle").forEach(c => c.checked = filterValidNamesOnly);
+  updateKPICards();
+  renderLiveTable();
+  if (currentTab === "students") renderStudentsTable();
+}
+
 function getDeduplicatedActiveSessions() {
   const now = Date.now();
   const rawList = Object.values(activeSessionsMap).filter(s => {
@@ -1550,7 +1602,12 @@ function getDeduplicatedActiveSessions() {
 
 // --- KPI METRICS ---
 function updateKPICards() {
-  const activeList = getDeduplicatedActiveSessions();
+  let activeList = getDeduplicatedActiveSessions();
+  let effectiveSubmissions = allSubmissionsList;
+  if (filterValidNamesOnly) {
+    activeList = activeList.filter(s => isValidStudentName(s.studentName));
+    effectiveSubmissions = allSubmissionsList.filter(s => isValidStudentName(s.studentName));
+  }
 
   document.getElementById("kpiOnlineCount").textContent = activeList.length;
   document.getElementById("badgeLiveCount").textContent = activeList.length;
@@ -1561,26 +1618,26 @@ function updateKPICards() {
   document.getElementById("kpiOnlineBreakdown").textContent = `Anh: ${engLive} · Lý: ${phyLive} · Sử: ${hisLive}`;
 
   // Submissions KPI
-  const subCount = allSubmissionsList.length;
+  const subCount = effectiveSubmissions.length;
   document.getElementById("kpiTotalSubmissions").textContent = subCount;
 
-  const engSub = allSubmissionsList.filter(s => (s.subject || 'english') === "english").length;
-  const phySub = allSubmissionsList.filter(s => s.subject === "physics").length;
-  const hisSub = allSubmissionsList.filter(s => s.subject === "history").length;
+  const engSub = effectiveSubmissions.filter(s => (s.subject || 'english') === "english").length;
+  const phySub = effectiveSubmissions.filter(s => s.subject === "physics").length;
+  const hisSub = effectiveSubmissions.filter(s => s.subject === "history").length;
   document.getElementById("kpiSubmissionSubjectSplit").textContent = `Anh: ${engSub} · Lý: ${phySub} · Sử: ${hisSub}`;
 
   // Average & Pass rate
   if (subCount > 0) {
-    const sum = allSubmissionsList.reduce((acc, s) => acc + (s.grade10 || 0), 0);
+    const sum = effectiveSubmissions.reduce((acc, s) => acc + (s.grade10 || 0), 0);
     const avg = (sum / subCount).toFixed(1);
     document.getElementById("kpiAvgScore").textContent = avg;
 
-    const passCount = allSubmissionsList.filter(s => (s.grade10 || 0) >= 5.0).length;
+    const passCount = effectiveSubmissions.filter(s => (s.grade10 || 0) >= 5.0).length;
     const passPct = Math.round((passCount / subCount) * 100);
     document.getElementById("kpiPassRate").textContent = `Tỷ lệ đạt (≥ 5.0): ${passPct}% (${passCount}/${subCount})`;
 
-    let maxSub = allSubmissionsList[0];
-    allSubmissionsList.forEach(s => {
+    let maxSub = effectiveSubmissions[0];
+    effectiveSubmissions.forEach(s => {
       if ((s.grade10 || 0) > (maxSub.grade10 || 0)) maxSub = s;
     });
     document.getElementById("kpiMaxScore").textContent = (maxSub.grade10 || 0).toFixed(1);
@@ -1634,6 +1691,7 @@ function renderLiveTable() {
 
   const dedupActive = getDeduplicatedActiveSessions();
   let list = dedupActive.filter(s => {
+    if (filterValidNamesOnly && !isValidStudentName(s.studentName)) return false;
     if (liveSubjectFilter !== "all" && s.subject !== liveSubjectFilter) return false;
     if (searchKeyword && !s.studentName.toLowerCase().includes(searchKeyword)) return false;
     return true;
@@ -1796,8 +1854,9 @@ function renderStudentsTable() {
     });
   });
 
-  // Filter by subject & search
+  // Filter by subject & search & valid names
   let filteredAttempts = allAttempts.filter(a => {
+    if (filterValidNamesOnly && !isValidStudentName(a.studentName)) return false;
     if (studentSubjectFilter !== "all" && (a.subject || 'english') !== studentSubjectFilter) return false;
     if (searchKeyword && !(a.studentName || "").toLowerCase().includes(searchKeyword)) return false;
     return true;
