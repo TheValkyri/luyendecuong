@@ -347,7 +347,9 @@
           const raw = localStorage.getItem(item.key);
           if (raw) {
             const data = JSON.parse(raw);
-            if (data && data.studentName) {
+            const nowTime = Date.now();
+            const lastAct = data.timestamp || data.lastActive || 0;
+            if (data && data.studentName && (nowTime - lastAct < 2 * 60 * 60 * 1000)) {
               const sessId = "sess_" + (data.subject || item.sub) + "_" + data.studentName.replace(/\s+/g, '_');
               if (!merged[sessId]) {
                 const sub = data.subject || item.sub;
@@ -383,7 +385,7 @@
         } catch(e) {}
       });
 
-      // 2. Cloud sessions
+      // 2. Cloud sessions with auto-prune for dead sessions older than 2 hours
       const cloudUrl = getCloudUrl();
       if (cloudUrl) {
         try {
@@ -391,6 +393,14 @@
           if (resp.ok) {
             const cloudData = await resp.json();
             if (cloudData && typeof cloudData === "object") {
+              const now = Date.now();
+              Object.keys(cloudData).forEach(sessId => {
+                const s = cloudData[sessId];
+                if (s && s.lastActive && (now - s.lastActive > 2 * 60 * 60 * 1000)) {
+                  fetch(`${cloudUrl}/active_sessions/${sessId}.json`, { method: "DELETE" }).catch(() => {});
+                  delete cloudData[sessId];
+                }
+              });
               Object.assign(merged, cloudData);
             }
           }

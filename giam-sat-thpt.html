@@ -23,7 +23,7 @@
   (function() {
     try {
       if (typeof window === "undefined" || !window.location) return;
-      var DASHBOARD_BUILD = "20261105_2200";
+      var DASHBOARD_BUILD = "20261105_2225";
       var p = new URLSearchParams(window.location.search);
       if (p.get("v") !== DASHBOARD_BUILD) {
         p.set("v", DASHBOARD_BUILD);
@@ -1024,6 +1024,11 @@ tr:hover td {
       <span>Làm mới</span>
     </button>
 
+    <button class="dev-btn" onclick="cleanupStaleSessions()" id="btnCleanStale" title="Dọn dẹp các phiên học sinh đã ngắt kết nối / offline">
+      <svg class="v-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="10" y1="11" x2="10" y2="17"/><line x1="14" y1="11" x2="14" y2="17"/></svg>
+      <span>🧹 Dọn Phiên Treo</span>
+    </button>
+
     <button class="dev-btn" onclick="openCloudModal()" title="Cấu hình Firebase Realtime Database">
       <svg class="v-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>
       <span id="cloudBtnLabel">Cloud Sync</span>
@@ -1350,7 +1355,7 @@ tr:hover td {
 <script src="quiz_data.js?v=20261102_2215"></script>
 <script src="physics_quiz_data.js?v=20261103_01"></script>
 <script src="history_quiz_data.js?v=20261104_2015"></script>
-<script src="telemetry_sync.js?v=20261105_2200"></script>
+<script src="telemetry_sync.js?v=20261105_2225"></script>
 
 <script>
 /* ==========================================================================
@@ -1566,10 +1571,50 @@ function toggleValidNameFilter(chk) {
   if (currentTab === "students") renderStudentsTable();
 }
 
+async function cleanupStaleSessions(silent = false) {
+  const now = Date.now();
+  const cloudUrl = (window.Telemetry && window.Telemetry.getCloudUrl) ? window.Telemetry.getCloudUrl() : null;
+  const allSessions = Object.values(activeSessionsMap);
+  // Find sessions where lastActive was more than 10 minutes ago
+  const staleSessions = allSessions.filter(s => (now - (s.lastActive || 0)) > 10 * 60 * 1000);
+
+  if (staleSessions.length === 0) {
+    if (!silent) alert("Không có phiên treo nào cần dọn dẹp. Mọi học sinh trong danh sách hiện tại đều đang hoạt động tốt!");
+    return;
+  }
+
+  if (!silent) {
+    if (!confirm(`Phát hiện ${staleSessions.length} phiên đã ngắt kết nối (offline > 10 phút). Bạn có muốn dọn dẹp các phiên này khỏi danh sách trực tuyến? (Điểm số và lịch sử làm bài của học sinh vẫn được bảo lưu an toàn 100%).`)) {
+      return;
+    }
+  }
+
+  let deletedCount = 0;
+  for (const s of staleSessions) {
+    if (s.sessionId) {
+      delete activeSessionsMap[s.sessionId];
+      if (cloudUrl) {
+        try {
+          fetch(`${cloudUrl}/active_sessions/${s.sessionId}.json`, { method: "DELETE" }).catch(() => {});
+          deletedCount++;
+        } catch(e) {}
+      }
+    }
+  }
+
+  updateKPICards();
+  renderLiveTable();
+  if (currentTab === "students") renderStudentsTable();
+
+  if (!silent) {
+    alert(`Đã dọn dẹp thành công ${staleSessions.length} phiên ngoại tuyến! Bảng trực tuyến hiện chỉ còn học sinh đang làm bài.`);
+  }
+}
+
 function getDeduplicatedActiveSessions() {
   const now = Date.now();
   const rawList = Object.values(activeSessionsMap).filter(s => {
-    return s && s.studentName && (now - (s.lastActive || 0) < 24 * 60 * 60 * 1000);
+    return s && s.studentName && (now - (s.lastActive || 0) < 2 * 60 * 60 * 1000);
   });
 
   const dedupMap = {};
@@ -1602,20 +1647,25 @@ function getDeduplicatedActiveSessions() {
 
 // --- KPI METRICS ---
 function updateKPICards() {
-  let activeList = getDeduplicatedActiveSessions();
+  const now = Date.now();
+  let allActive = getDeduplicatedActiveSessions();
   let effectiveSubmissions = allSubmissionsList;
   if (filterValidNamesOnly) {
-    activeList = activeList.filter(s => isValidStudentName(s.studentName));
+    allActive = allActive.filter(s => isValidStudentName(s.studentName));
     effectiveSubmissions = allSubmissionsList.filter(s => isValidStudentName(s.studentName));
   }
 
-  document.getElementById("kpiOnlineCount").textContent = activeList.length;
-  document.getElementById("badgeLiveCount").textContent = activeList.length;
+  // Truly online students: heartbeat within last 5 minutes (300s)
+  const trulyOnline = allActive.filter(s => (now - (s.lastActive || 0)) <= 5 * 60 * 1000);
+  const idleSessions = allActive.filter(s => (now - (s.lastActive || 0)) > 5 * 60 * 1000);
 
-  const engLive = activeList.filter(s => s.subject === "english").length;
-  const phyLive = activeList.filter(s => s.subject === "physics").length;
-  const hisLive = activeList.filter(s => s.subject === "history").length;
-  document.getElementById("kpiOnlineBreakdown").textContent = `Anh: ${engLive} · Lý: ${phyLive} · Sử: ${hisLive}`;
+  document.getElementById("kpiOnlineCount").textContent = trulyOnline.length;
+  document.getElementById("badgeLiveCount").textContent = trulyOnline.length;
+
+  const engLive = trulyOnline.filter(s => s.subject === "english").length;
+  const phyLive = trulyOnline.filter(s => s.subject === "physics").length;
+  const hisLive = trulyOnline.filter(s => s.subject === "history").length;
+  document.getElementById("kpiOnlineBreakdown").textContent = `Anh: ${engLive} · Lý: ${phyLive} · Sử: ${hisLive}${idleSessions.length > 0 ? ` (Tạm dừng: ${idleSessions.length})` : ''}`;
 
   // Submissions KPI
   const subCount = effectiveSubmissions.length;
@@ -1697,8 +1747,13 @@ function renderLiveTable() {
     return true;
   });
 
-  // Sort by last active newest first
-  list.sort((a, b) => (b.lastActive || 0) - (a.lastActive || 0));
+  // Sort truly online students (<5m) first, then by last active newest first
+  list.sort((a, b) => {
+    const aOnline = (now - (a.lastActive || 0)) <= 5 * 60 * 1000 ? 1 : 0;
+    const bOnline = (now - (b.lastActive || 0)) <= 5 * 60 * 1000 ? 1 : 0;
+    if (aOnline !== bOnline) return bOnline - aOnline;
+    return (b.lastActive || 0) - (a.lastActive || 0);
+  });
 
   if (list.length === 0) {
     tbody.innerHTML = "";
@@ -1733,20 +1788,26 @@ function renderLiveTable() {
     const diffSec = Math.floor((nowTime - (sess.lastActive || 0)) / 1000);
     let heartbeatDot = "var(--success)";
     let heartbeatText = "Đang thao tác";
+    const isLiveOnline = (diffSec <= 300);
+
     if (diffSec > 300) {
       heartbeatDot = "var(--text-tertiary)";
-      heartbeatText = `Tạm dừng (${diffSec > 3600 ? Math.floor(diffSec/3600) + 'h trước' : Math.floor(diffSec/60) + 'p trước'})`;
+      const idleTimeStr = diffSec > 3600 ? Math.floor(diffSec/3600) + 'h trước' : Math.floor(diffSec/60) + 'p trước';
+      heartbeatText = `<span style="color:var(--text-tertiary); display:inline-flex; align-items:center; gap:4px;"><span style="width:6px; height:6px; border-radius:50%; background:var(--text-tertiary); display:inline-block;"></span>Ngoại tuyến (${idleTimeStr})</span>`;
     } else if (diffSec > 60) {
       heartbeatDot = "var(--warning)";
-      heartbeatText = `${Math.floor(diffSec/60)}p trước`;
+      heartbeatText = `<span style="color:var(--warning); display:inline-flex; align-items:center; gap:4px;"><span class="beacon-dot" style="width:6px; height:6px; background:var(--warning);"></span>${Math.floor(diffSec/60)}p trước</span>`;
     } else if (diffSec > 10) {
-      heartbeatText = `${diffSec}s trước`;
+      heartbeatText = `<span style="color:var(--success); display:inline-flex; align-items:center; gap:4px;"><span class="beacon-dot" style="width:6px; height:6px;"></span>${diffSec}s trước</span>`;
+    } else {
+      heartbeatText = `<span style="color:var(--success); display:inline-flex; align-items:center; gap:4px;"><span class="beacon-dot" style="width:6px; height:6px;"></span>Đang thao tác</span>`;
     }
 
     const curQ = sess.currentQuestionLabel || `Câu ${(sess.currentQuestionGlobalIdx || 0) + 1}`;
+    const rowStyle = isLiveOnline ? '' : 'opacity:0.75; background:rgba(255,255,255,0.01);';
 
     html += `
-      <tr>
+      <tr style="${rowStyle}">
         <td>
           <div class="student-cell">
             <div class="student-avatar" style="background:${avatarBg};">${initials}</div>
@@ -1870,7 +1931,8 @@ function renderStudentsTable() {
 
   emptyState.style.display = "none";
 
-  // Group by student name
+  // Group by student name with accurate online detection
+  const nowTime = Date.now();
   const studentsMap = {};
   filteredAttempts.forEach(att => {
     const key = (att.studentName || "Ẩn danh").trim();
@@ -1880,6 +1942,8 @@ function renderStudentsTable() {
         attempts: [],
         subjects: new Set(),
         hasActive: false,
+        isOnline: false,
+        lastActiveTime: 0,
         activeSessId: null
       };
     }
@@ -1888,6 +1952,13 @@ function renderStudentsTable() {
     if (!att.isCompleted) {
       studentsMap[key].hasActive = true;
       studentsMap[key].activeSessId = att.id;
+      const sessLastActive = att.lastActive || att.attemptTime || 0;
+      if (nowTime - sessLastActive <= 5 * 60 * 1000) {
+        studentsMap[key].isOnline = true;
+      }
+      if (sessLastActive > studentsMap[key].lastActiveTime) {
+        studentsMap[key].lastActiveTime = sessLastActive;
+      }
     }
   });
 
@@ -1930,9 +2001,16 @@ function renderStudentsTable() {
       }
     }).join("");
 
-    const statusPill = st.hasActive 
-      ? `<span style="font-size:0.7rem; color:#34d399; display:inline-flex; align-items:center; gap:4px; margin-top:2px;"><span class="beacon-dot" style="width:6px; height:6px;"></span>Đang online</span>`
-      : `<span style="font-size:0.7rem; color:var(--text-tertiary); margin-top:2px;">Đã hoàn thành</span>`;
+    let statusPill = `<span style="font-size:0.7rem; color:var(--text-tertiary); margin-top:2px;">Đã hoàn thành</span>`;
+    if (st.hasActive) {
+      if (st.isOnline) {
+        statusPill = `<span style="font-size:0.7rem; color:#34d399; display:inline-flex; align-items:center; gap:4px; margin-top:2px;"><span class="beacon-dot" style="width:6px; height:6px;"></span>Đang online</span>`;
+      } else {
+        const idleSec = Math.floor((nowTime - (st.lastActiveTime || 0)) / 1000);
+        const idleStr = idleSec > 3600 ? Math.floor(idleSec / 3600) + 'h trước' : (idleSec > 60 ? Math.floor(idleSec / 60) + 'p trước' : 'vừa xong');
+        statusPill = `<span style="font-size:0.7rem; color:var(--text-tertiary); display:inline-flex; align-items:center; gap:4px; margin-top:2px;"><span style="width:6px; height:6px; border-radius:50%; background:var(--text-tertiary); display:inline-block;"></span>Ngoại tuyến (${idleStr})</span>`;
+      }
+    }
 
     html += `
       <tr>
@@ -1948,7 +2026,7 @@ function renderStudentsTable() {
         </td>
         <td>
           <strong style="font-family:var(--font-mono); font-size:0.95rem; color:var(--text-primary);">${st.attemptCount}</strong> lần
-          ${st.hasActive ? '<span style="font-size:0.7rem; color:#6b95ff; display:block;">(1 đang làm)</span>' : ''}
+          ${st.hasActive ? (st.isOnline ? '<span style="font-size:0.7rem; color:#6b95ff; display:block;">(1 đang làm)</span>' : '<span style="font-size:0.7rem; color:var(--text-tertiary); display:block;">(bỏ dở/tạm dừng)</span>') : ''}
         </td>
         <td>
           <span class="score-pill-provisional ${st.bestScore >= 8 ? 'score-pill-good' : (st.bestScore < 5 ? 'score-pill-low' : 'score-pill-mid')}">
