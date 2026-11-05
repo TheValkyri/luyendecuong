@@ -23,7 +23,7 @@
   (function() {
     try {
       if (typeof window === "undefined" || !window.location) return;
-      var DASHBOARD_BUILD = "20261105_2255";
+      var DASHBOARD_BUILD = "20261105_2315";
       var p = new URLSearchParams(window.location.search);
       if (p.get("v") !== DASHBOARD_BUILD) {
         p.set("v", DASHBOARD_BUILD);
@@ -1355,7 +1355,7 @@ tr:hover td {
 <script src="quiz_data.js?v=20261102_2215"></script>
 <script src="physics_quiz_data.js?v=20261103_01"></script>
 <script src="history_quiz_data.js?v=20261104_2015"></script>
-<script src="telemetry_sync.js?v=20261105_2255"></script>
+<script src="telemetry_sync.js?v=20261105_2315"></script>
 
 <script>
 /* ==========================================================================
@@ -1449,6 +1449,29 @@ function showToast(text) {
   txt.textContent = text;
   el.classList.add("show");
   setTimeout(() => el.classList.remove("show"), 2600);
+}
+
+function getSubjectDisplayName(subject, subjectName) {
+  if (subjectName) return subjectName;
+  if (subject === "physics") return "Vật Lí 11";
+  if (subject === "history") return "Lịch Sử 11";
+  return "Tiếng Anh 11";
+}
+
+function renderKaTeXSafely(element) {
+  if (typeof renderMathInElement === "function" && element) {
+    try {
+      renderMathInElement(element, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false}
+        ],
+        throwOnError: false
+      });
+    } catch(e) {
+      console.warn("KaTeX rendering notice:", e);
+    }
+  }
 }
 
 // --- TAB SWITCHING ---
@@ -1569,12 +1592,13 @@ function toggleValidNameFilter(chk) {
   updateKPICards();
   renderLiveTable();
   if (currentTab === "students") renderStudentsTable();
+  if (currentTab === "analytics") renderAnalytics();
 }
 
 async function cleanupStaleSessions(silent = false) {
   const now = Date.now();
   const cloudUrl = (window.Telemetry && window.Telemetry.getCloudUrl) ? window.Telemetry.getCloudUrl() : null;
-  const allSessions = Object.values(activeSessionsMap);
+  const allSessions = Object.values(activeSessionsMap || {});
   // Find sessions where lastActive was more than 10 minutes ago
   const staleSessions = allSessions.filter(s => (now - (s.lastActive || 0)) > 10 * 60 * 1000);
 
@@ -1605,6 +1629,7 @@ async function cleanupStaleSessions(silent = false) {
   updateKPICards();
   renderLiveTable();
   if (currentTab === "students") renderStudentsTable();
+  if (currentTab === "analytics") renderAnalytics();
 
   if (!silent) {
     alert(`Đã dọn dẹp thành công ${staleSessions.length} phiên ngoại tuyến! Bảng trực tuyến hiện chỉ còn học sinh đang làm bài.`);
@@ -1648,17 +1673,17 @@ function getDeduplicatedActiveSessions() {
 // --- KPI METRICS ---
 function updateKPICards() {
   const now = Date.now();
-  let allActive = getDeduplicatedActiveSessions();
-  let effectiveSubmissions = allSubmissionsList;
+  let allActive = getDeduplicatedActiveSessions() || [];
+  let effectiveSubmissions = allSubmissionsList || [];
   if (filterValidNamesOnly) {
     allActive = allActive.filter(s => isValidStudentName(s.studentName));
-    effectiveSubmissions = allSubmissionsList.filter(s => isValidStudentName(s.studentName));
+    effectiveSubmissions = effectiveSubmissions.filter(s => isValidStudentName(s.studentName));
   }
 
   // Truly online students: heartbeat within last 5 minutes (300s)
   const trulyOnline = allActive.filter(s => (now - (s.lastActive || 0)) <= 5 * 60 * 1000);
   const idleSessions = allActive.filter(s => (now - (s.lastActive || 0)) > 5 * 60 * 1000);
-  const activeList = trulyOnline.length > 0 ? trulyOnline : allActive;
+  const activeList = allActive;
 
   document.getElementById("kpiOnlineCount").textContent = trulyOnline.length;
   document.getElementById("badgeLiveCount").textContent = trulyOnline.length;
@@ -1692,9 +1717,15 @@ function updateKPICards() {
       if ((s.grade10 || 0) > (maxSub.grade10 || 0)) maxSub = s;
     });
     document.getElementById("kpiMaxScore").textContent = (maxSub.grade10 || 0).toFixed(1);
-    document.getElementById("kpiTopStudent").textContent = `${maxSub.studentName} (${maxSub.subjectName || maxSub.subject})`;
-  } else if (activeList.length > 0) {
-    const activeWithScore = activeList.filter(s => (s.provisionalGrade10 || 0) > 0);
+    const subName = getSubjectDisplayName(maxSub.subject, maxSub.subjectName);
+    document.getElementById("kpiTopStudent").textContent = `${maxSub.studentName || 'Học sinh'} (${subName})`;
+  } else if (allActive.length > 0) {
+    // Prefer scores from truly online students; fallback to any active session if online students have not scored yet
+    const onlineWithScore = trulyOnline.filter(s => (s.provisionalGrade10 || 0) > 0);
+    const activeWithScore = onlineWithScore.length > 0
+      ? onlineWithScore
+      : allActive.filter(s => (s.provisionalGrade10 || 0) > 0);
+
     if (activeWithScore.length > 0) {
       const liveSum = activeWithScore.reduce((acc, s) => acc + (s.provisionalGrade10 || 0), 0);
       const liveAvg = (liveSum / activeWithScore.length).toFixed(1);
@@ -1706,7 +1737,8 @@ function updateKPICards() {
         if ((s.provisionalGrade10 || 0) > (maxActive.provisionalGrade10 || 0)) maxActive = s;
       });
       document.getElementById("kpiMaxScore").textContent = (maxActive.provisionalGrade10 || 0).toFixed(1);
-      document.getElementById("kpiTopStudent").textContent = `${maxActive.studentName} (Đang làm: ${maxActive.subjectName || maxActive.subject})`;
+      const subName = getSubjectDisplayName(maxActive.subject, maxActive.subjectName);
+      document.getElementById("kpiTopStudent").textContent = `${maxActive.studentName || 'Học sinh'} (Đang làm: ${subName})`;
     } else {
       document.getElementById("kpiAvgScore").textContent = "0.0";
       document.getElementById("kpiPassRate").textContent = "Đang chờ học sinh làm bài";
@@ -2077,9 +2109,13 @@ function renderStudentsTable() {
 function renderAnalytics() {
   const container = document.getElementById("histoContainer");
   const missedContainer = document.getElementById("missedQuestionsContainer");
-  document.getElementById("analyticsTotalCount").textContent = `${allSubmissionsList.length} bài đã nộp`;
+  const submissions = (filterValidNamesOnly 
+    ? allSubmissionsList.filter(s => isValidStudentName(s.studentName))
+    : allSubmissionsList) || [];
 
-  if (allSubmissionsList.length === 0) {
+  document.getElementById("analyticsTotalCount").textContent = `${submissions.length} bài đã nộp`;
+
+  if (submissions.length === 0) {
     container.innerHTML = `<div class="empty-state-box"><p>Chưa có dữ liệu phổ điểm</p></div>`;
     missedContainer.innerHTML = `<div class="empty-state-box"><p>Chưa có bài thi để phân tích câu hỏi khó</p></div>`;
     return;
@@ -2095,7 +2131,7 @@ function renderAnalytics() {
     { label: "9.0 - 10 (Xuất sắc)", min: 9.0, max: 10.0, count: 0, color: "#8b5cf6" },
   ];
 
-  allSubmissionsList.forEach(s => {
+  submissions.forEach(s => {
     const g = s.grade10 || 0;
     for (const b of bins) {
       if (g >= b.min && g <= b.max) {
@@ -2123,7 +2159,7 @@ function renderAnalytics() {
 
   // 2. Most Missed Questions Analysis
   const qStats = {};
-  allSubmissionsList.forEach(sub => {
+  submissions.forEach(sub => {
     (sub.breakdown || []).forEach(item => {
       if (!qStats[item.id]) {
         qStats[item.id] = {
@@ -2173,13 +2209,7 @@ function renderAnalytics() {
   });
   missedContainer.innerHTML = missedHtml;
 
-  renderMathInElement(missedContainer, {
-    delimiters: [
-      {left: '$$', right: '$$', display: true},
-      {left: '$', right: '$', display: false}
-    ],
-    throwOnError: false
-  });
+  renderKaTeXSafely(missedContainer);
 }
 
 // --- MODAL 1: LIVE SPY MODAL ---
@@ -2203,8 +2233,8 @@ function updateSpyModalContent() {
     return;
   }
 
-  document.getElementById("spyModalTitle").textContent = `Soi Bài Làm: ${sess.studentName}`;
-  document.getElementById("spyModalSubtitle").textContent = `${sess.subjectName || sess.subject} · ${sess.device ? sess.device.tag : ''} · Làm ${formatElapsed(sess.elapsedSeconds)}`;
+  document.getElementById("spyModalTitle").textContent = `Soi Bài Làm: ${sess.studentName || 'Học sinh'}`;
+  document.getElementById("spyModalSubtitle").textContent = `${getSubjectDisplayName(sess.subject, sess.subjectName)} · ${sess.device ? sess.device.tag : ''} · Làm ${formatElapsed(sess.elapsedSeconds)}`;
 
   const userAns = sess.userAnswers || {};
   const answeredCount = sess.answeredCount || 0;
@@ -2328,28 +2358,24 @@ function updateSpyModalContent() {
 
   body.innerHTML = headerHtml + questionsHtml;
 
-  renderMathInElement(body, {
-    delimiters: [
-      {left: '$$', right: '$$', display: true},
-      {left: '$', right: '$', display: false}
-    ],
-    throwOnError: false
-  });
+  renderKaTeXSafely(body);
 }
 
 // --- MODAL 2: SUBMISSION REVIEW MODAL ---
 function openSubmissionModal(subId) {
   const sub = allSubmissionsList.find(s => s.id === subId);
   if (!sub) return;
-  document.getElementById("subReviewTitle").textContent = `Bài thi: ${sub.studentName} — ${sub.grade10.toFixed(1)} / 10`;
-  document.getElementById("subReviewSubtitle").textContent = `${sub.subjectName || sub.subject} · Nộp lúc: ${new Date(sub.timestamp).toLocaleString('vi-VN')} · Thời gian: ${formatElapsed(sub.elapsedSeconds)}`;
+  const gradeStr = (sub.grade10 !== undefined && sub.grade10 !== null) ? sub.grade10.toFixed(1) : "0.0";
+  const subSubjectName = getSubjectDisplayName(sub.subject, sub.subjectName);
+  document.getElementById("subReviewTitle").textContent = `Bài thi: ${sub.studentName || 'Học sinh'} — ${gradeStr} / 10`;
+  document.getElementById("subReviewSubtitle").textContent = `${subSubjectName} · Nộp lúc: ${new Date(sub.timestamp || Date.now()).toLocaleString('vi-VN')} · Thời gian: ${formatElapsed(sub.elapsedSeconds)}`;
 
   const body = document.getElementById("subReviewBody");
   let html = `
     <div style="display:flex; justify-content:space-between; align-items:center; background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:var(--radius-sm); padding:0.85rem 1rem; margin-bottom:1.25rem;">
       <div>
         <div style="font-size:0.75rem; color:var(--text-tertiary);">ĐIỂM SỐ</div>
-        <div style="font-weight:800; font-family:var(--font-mono); font-size:1.35rem; color:#34d399;">${sub.grade10.toFixed(1)} / 10</div>
+        <div style="font-weight:800; font-family:var(--font-mono); font-size:1.35rem; color:#34d399;">${gradeStr} / 10</div>
       </div>
       <div>
         <div style="font-size:0.75rem; color:var(--text-tertiary);">KẾT QUẢ TRẮC NGHIỆM</div>
@@ -2384,13 +2410,7 @@ function openSubmissionModal(subId) {
   body.innerHTML = html;
   document.getElementById("modalSubmissionReview").classList.add("active");
 
-  renderMathInElement(body, {
-    delimiters: [
-      {left: '$$', right: '$$', display: true},
-      {left: '$', right: '$', display: false}
-    ],
-    throwOnError: false
-  });
+  renderKaTeXSafely(body);
 }
 
 function closeSubmissionModal() {
@@ -2466,8 +2486,12 @@ function updateCloudBadge() {
 
 // --- CSV EXPORTER ---
 function exportFullCSV() {
-  if (allSubmissionsList.length === 0) {
-    alert("Chưa có lượt nộp bài nào để xuất.");
+  const exportList = (filterValidNamesOnly
+    ? allSubmissionsList.filter(s => isValidStudentName(s.studentName))
+    : allSubmissionsList) || [];
+
+  if (exportList.length === 0) {
+    alert("Chưa có lượt nộp bài hợp lệ nào để xuất.");
     return;
   }
 
@@ -2484,17 +2508,17 @@ function exportFullCSV() {
     "Thời Điểm Nộp"
   ];
 
-  const rows = allSubmissionsList.map(s => [
-    `"${s.id}"`,
-    `"${s.subjectName || s.subject}"`,
+  const rows = exportList.map(s => [
+    `"${s.id || ''}"`,
+    `"${getSubjectDisplayName(s.subject, s.subjectName)}"`,
     `"${(s.studentName || '').replace(/"/g, '""')}"`,
-    `"${s.practiceMode === 'full' ? 'Toàn bộ đề' : s.practiceMode}"`,
-    s.grade10,
-    s.correctMCQ,
-    s.totalMCQ,
-    s.elapsedSeconds,
+    `"${s.practiceMode === 'full' ? 'Toàn bộ đề' : (s.practiceMode || '')}"`,
+    (s.grade10 !== undefined && s.grade10 !== null) ? s.grade10 : 0,
+    s.correctMCQ || 0,
+    s.totalMCQ || 0,
+    s.elapsedSeconds || 0,
     `"${formatElapsed(s.elapsedSeconds)}"`,
-    `"${new Date(s.timestamp).toLocaleString('vi-VN')}"`
+    `"${new Date(s.timestamp || Date.now()).toLocaleString('vi-VN')}"`
   ]);
 
   const csvContent = "\uFEFF" + [headers.join(","), ...rows.map(r => r.join(","))].join("\r\n");

@@ -38,7 +38,8 @@ function createElement(tag = 'div', id = '') {
       return null;
     },
     addEventListener() {},
-    removeEventListener() {}
+    removeEventListener() {},
+    click() {}
   };
 }
 
@@ -59,6 +60,9 @@ const document = {
     if (selector === '.chk-valid-name-toggle') {
       return [elementsMap['chkValidNames'] || createElement('input')];
     }
+    if (selector === '.tab-btn' || selector === '.tab-pane' || selector === '.pill-filter') {
+      return [createElement('div')];
+    }
     return [];
   },
   querySelector(selector) {
@@ -78,10 +82,18 @@ const mockStorage = {
   clear() { Object.keys(storageStore).forEach(k => delete storageStore[k]); }
 };
 
+// Mock Blob and URL
+class MockBlob {
+  constructor(content, options) {
+    this.content = content;
+    this.options = options;
+  }
+}
+
 // Mock window and context
 const windowObj = {
   location: {
-    search: '?v=20261105_2255',
+    search: '?v=20261105_2315',
     pathname: '/giam-sat-thpt.html',
     hash: '',
     replace() {}
@@ -93,7 +105,7 @@ const windowObj = {
   },
   setInterval() {},
   clearInterval() {},
-  setTimeout(fn) { return fn; },
+  setTimeout(fn) { return typeof fn === 'function' ? fn() : fn; },
   clearTimeout() {},
   alert() {},
   confirm() { return true; },
@@ -108,6 +120,10 @@ const windowObj = {
   String: String,
   Number: Number,
   URLSearchParams: URLSearchParams,
+  Blob: MockBlob,
+  URL: {
+    createObjectURL(blob) { return 'blob:mock-url'; }
+  },
   fetch: () => Promise.resolve({ ok: true, json: () => Promise.resolve({}) })
 };
 windowObj.window = windowObj;
@@ -202,6 +218,7 @@ console.log('kpiOnlineCount:', document.getElementById('kpiOnlineCount').textCon
 console.log('kpiAvgScore:', document.getElementById('kpiAvgScore').textContent);
 console.log('kpiMaxScore:', document.getElementById('kpiMaxScore').textContent);
 console.log('kpiPassRate:', document.getElementById('kpiPassRate').textContent);
+console.log('kpiTopStudent:', document.getElementById('kpiTopStudent').textContent);
 console.log('badgeStudentCount:', document.getElementById('badgeStudentCount').textContent); // should be 2
 
 if (document.getElementById('kpiOnlineCount').textContent !== 1) throw new Error('Online count should be 1 (only truly online)');
@@ -256,6 +273,67 @@ console.log('Scenario B3 kpiPassRate:', document.getElementById('kpiPassRate').t
 if (document.getElementById('kpiPassRate').textContent !== 'Đang chờ học sinh làm bài') throw new Error('Scenario B3 kpiPassRate mismatch');
 console.log('[PASS] Scenario B3 passed');
 
+// Scenario B4: 0 submissions, 1 online student with provisionalGrade10 = 0, 1 idle student with provisionalGrade10 = 8.5
+console.log('Testing Scenario B4: 0 submissions, 1 online student with score 0, 1 idle student with score 8.5');
+vm.runInContext(`
+  allSubmissionsList = [];
+  activeSessionsMap = {
+    sess_online_new: {
+      sessionId: 'sess_online_new',
+      studentName: 'Đỗ Văn G',
+      subject: 'physics',
+      provisionalGrade10: 0,
+      lastActive: ${now - 5000} // 5s ago (online)
+    },
+    sess_idle_scored: {
+      sessionId: 'sess_idle_scored',
+      studentName: 'Bùi Thị H',
+      subject: 'history',
+      provisionalGrade10: 8.5,
+      lastActive: ${now - 360000} // 6m ago (idle)
+    }
+  };
+  filterValidNamesOnly = true;
+  updateKPICards();
+`, context);
+
+console.log('Scenario B4 kpiOnlineCount:', document.getElementById('kpiOnlineCount').textContent); // 1
+console.log('Scenario B4 kpiAvgScore:', document.getElementById('kpiAvgScore').textContent); // 8.5
+console.log('Scenario B4 kpiTopStudent:', document.getElementById('kpiTopStudent').textContent); // Bùi Thị H (Đang làm: Lịch Sử 11)
+if (document.getElementById('kpiOnlineCount').textContent !== 1) throw new Error('Scenario B4 kpiOnlineCount mismatch');
+if (document.getElementById('kpiAvgScore').textContent !== '8.5') throw new Error('Scenario B4 kpiAvgScore mismatch');
+if (!document.getElementById('kpiTopStudent').textContent.includes('Lịch Sử 11')) throw new Error('Scenario B4 subjectName mismatch');
+console.log('[PASS] Scenario B4 passed');
+
+// Scenario B5: 0 submissions, 1 online student with score 7.0, 1 idle student with score 9.0
+console.log('Testing Scenario B5: 0 submissions, 1 online with score 7.0, 1 idle with score 9.0 (online preferred)');
+vm.runInContext(`
+  activeSessionsMap = {
+    sess_online_scored: {
+      sessionId: 'sess_online_scored',
+      studentName: 'Mai Văn I',
+      subject: 'physics',
+      provisionalGrade10: 7.0,
+      lastActive: ${now - 15000} // 15s ago (online)
+    },
+    sess_idle_high: {
+      sessionId: 'sess_idle_high',
+      studentName: 'Bùi Thị H',
+      subject: 'history',
+      provisionalGrade10: 9.0,
+      lastActive: ${now - 360000} // 6m ago (idle)
+    }
+  };
+  filterValidNamesOnly = true;
+  updateKPICards();
+`, context);
+
+console.log('Scenario B5 kpiOnlineCount:', document.getElementById('kpiOnlineCount').textContent); // 1
+console.log('Scenario B5 kpiAvgScore:', document.getElementById('kpiAvgScore').textContent); // 7.0 (online prioritized)
+console.log('Scenario B5 kpiTopStudent:', document.getElementById('kpiTopStudent').textContent);
+if (document.getElementById('kpiAvgScore').textContent !== '7.0') throw new Error('Scenario B5 kpiAvgScore mismatch');
+console.log('[PASS] Scenario B5 passed');
+
 // Scenario C: Submissions exist (3 submissions, 2 active sessions)
 console.log('Testing Scenario C: 3 submissions, 2 active sessions');
 vm.runInContext(`
@@ -269,10 +347,12 @@ vm.runInContext(`
 
 console.log('Total submissions:', document.getElementById('kpiTotalSubmissions').textContent);
 console.log('kpiAvgScore:', document.getElementById('kpiAvgScore').textContent);
-console.log('badgeStudentCount:', document.getElementById('badgeStudentCount').textContent); // Nguyễn Văn A, Trần Thị B, Lê Văn C, Phạm Thị D = 4
+console.log('kpiTopStudent:', document.getElementById('kpiTopStudent').textContent);
+console.log('badgeStudentCount:', document.getElementById('badgeStudentCount').textContent); // Nguyễn Văn A, Lê Văn C, Phạm Thị D + Mai Văn I, Bùi Thị H = 5
 
 if (document.getElementById('kpiTotalSubmissions').textContent !== 3) throw new Error('kpiTotalSubmissions should be 3');
-if (document.getElementById('badgeStudentCount').textContent !== 4) throw new Error('badgeStudentCount should be 4');
+if (document.getElementById('badgeStudentCount').textContent !== 5) throw new Error('badgeStudentCount should be 5');
+if (!document.getElementById('kpiTopStudent').textContent.includes('Tiếng Anh 11')) throw new Error('Top student subject formatting mismatch');
 console.log('[PASS] Scenario C passed');
 
 // Scenario D: Name filter testing (valid vs troll names)
@@ -296,20 +376,20 @@ vm.runInContext(`
   updateKPICards();
 `, context);
 const countWithFilter = document.getElementById('badgeStudentCount').textContent;
-console.log('Unique students with filter ON:', countWithFilter); // should remain 4
-if (countWithFilter !== 4) throw new Error(`Expected 4 valid students with filter ON, got ${countWithFilter}`);
+console.log('Unique students with filter ON:', countWithFilter); // should remain 5
+if (countWithFilter !== 5) throw new Error(`Expected 5 valid students with filter ON, got ${countWithFilter}`);
 
 vm.runInContext(`
   filterValidNamesOnly = false;
   updateKPICards();
 `, context);
 const countWithoutFilter = document.getElementById('badgeStudentCount').textContent;
-console.log('Unique students with filter OFF:', countWithoutFilter); // should be 6
-if (countWithoutFilter !== 6) throw new Error(`Expected 6 students with filter OFF, got ${countWithoutFilter}`);
+console.log('Unique students with filter OFF:', countWithoutFilter); // should be 7
+if (countWithoutFilter !== 7) throw new Error(`Expected 7 students with filter OFF, got ${countWithoutFilter}`);
 console.log('[PASS] Scenario D passed');
 
-// Scenario E: toggleValidNameFilter and cleanupStaleSessions
-console.log('\n--- 4. Testing event handlers & table rendering ---');
+// Scenario E: Handlers, Table rendering, Modals & KaTeX-safe rendering
+console.log('\n--- 4. Testing event handlers, table rendering, modals & safe KaTeX ---');
 vm.runInContext(`
   toggleValidNameFilter({ checked: true });
 `, context);
@@ -329,6 +409,71 @@ vm.runInContext(`
   renderStudentsTable();
 `, context);
 console.log('[PASS] renderStudentsTable() passed');
+
+// Test renderAnalytics() with submissions breakdown and NO KaTeX loaded
+console.log('Testing renderAnalytics() with breakdown without KaTeX');
+vm.runInContext(`
+  allSubmissionsList = [
+    {
+      id: 'sub_1',
+      studentName: 'Nguyễn Văn A',
+      grade10: 7.5,
+      subject: 'physics',
+      timestamp: ${now},
+      breakdown: [
+        { id: 'phy_1', label: 'Câu 1', prompt: '$$E = mc^2$$', isCorrect: false, correctLetter: 'A' },
+        { id: 'phy_2', label: 'Câu 2', prompt: '$$F = ma$$', isCorrect: true, correctLetter: 'B' }
+      ]
+    }
+  ];
+  filterValidNamesOnly = true;
+  renderAnalytics();
+`, context);
+console.log('[PASS] renderAnalytics() passed without KaTeX (0 ReferenceError)');
+
+// Test openSpyModal() without KaTeX
+console.log('Testing openSpyModal() without KaTeX');
+vm.runInContext(`
+  activeSessionsMap['sess_spy'] = {
+    sessionId: 'sess_spy',
+    studentName: 'Nguyễn Văn A',
+    subject: 'physics',
+    answeredCount: 1,
+    totalCount: 40,
+    elapsedSeconds: 120,
+    userAnswers: {
+      eng_1: 0
+    }
+  };
+  openSpyModal('sess_spy');
+  closeSpyModal();
+`, context);
+console.log('[PASS] openSpyModal() and closeSpyModal() passed without KaTeX');
+
+// Test openSubmissionModal() without KaTeX
+console.log('Testing openSubmissionModal() without KaTeX');
+vm.runInContext(`
+  openSubmissionModal('sub_1');
+  closeSubmissionModal();
+`, context);
+console.log('[PASS] openSubmissionModal() and closeSubmissionModal() passed');
+
+// Test exportFullCSV()
+console.log('Testing exportFullCSV()');
+vm.runInContext(`
+  exportFullCSV();
+`, context);
+console.log('[PASS] exportFullCSV() passed');
+
+// Test getSubjectDisplayName()
+console.log('Testing getSubjectDisplayName()');
+vm.runInContext(`
+  if (getSubjectDisplayName('physics') !== 'Vật Lí 11') throw new Error('physics name mismatch');
+  if (getSubjectDisplayName('history') !== 'Lịch Sử 11') throw new Error('history name mismatch');
+  if (getSubjectDisplayName('english') !== 'Tiếng Anh 11') throw new Error('english name mismatch');
+  if (getSubjectDisplayName('english', 'Đề kiểm tra 1') !== 'Đề kiểm tra 1') throw new Error('custom name mismatch');
+`, context);
+console.log('[PASS] getSubjectDisplayName() passed');
 
 console.log('\n========================================');
 console.log('ALL TESTS PASSED! 0 ReferenceError, 0 SyntaxError.');
