@@ -13,10 +13,10 @@ window.PHYSICS_QUIZ_DATA = [
         "id": "bai_1",
         "name": "Bài 1: Đại cương & Phương trình dao động điều hòa",
         "title": "Khái niệm dao động, li độ, biên độ, pha dao động & pha ban đầu",
-        "description": "Chuyên đề ôn tập lý thuyết & bài tập Vật lí 11 (21 câu hỏi trắc nghiệm 4 lựa chọn)",
+        "description": "Chuyên đề ôn tập lý thuyết & bài tập Vật lí 11 (20 câu hỏi trắc nghiệm 4 lựa chọn)",
         "questions": [
           {
-            "id": "phys_1_1",
+            "id": "phys_bai_1_1",
             "label": "Câu 1",
             "prompt": "Dao động cơ học là:",
             "options": [
@@ -31,7 +31,7 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_1_2",
+            "id": "phys_bai_1_2",
             "label": "Câu 2",
             "prompt": "Theo định nghĩa. Dao động điều hòa là",
             "options": [
@@ -46,7 +46,7 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_1_3",
+            "id": "phys_bai_1_3",
             "label": "Câu 3",
             "prompt": "Dao động tự do là dao động mà chu kì:",
             "options": [
@@ -61,7 +61,7 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_1_4",
+            "id": "phys_bai_1_4",
             "label": "Câu 4",
             "prompt": "Trong các chuyển động sau đây, chuyển động nào là dao động cơ học?",
             "options": [
@@ -76,7 +76,7 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_1_5",
+            "id": "phys_bai_1_5",
             "label": "Câu 5",
             "prompt": "Một vật chuyển động qua lại đều đặn quanh vị trí cân bằng sau mỗi 2 giây. Chuyển động này là:",
             "options": [
@@ -91,7 +91,7 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_1_6",
+            "id": "phys_bai_1_6",
             "label": "Câu 6",
             "prompt": "Để xác định được một vật có dao động điều hòa hay không, ta cần kiểm tra:",
             "options": [
@@ -106,7 +106,7 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_1_7",
+            "id": "phys_bai_1_7",
             "label": "Câu 7",
             "prompt": "Trong các hiện tượng sau, hiện tượng nào là dao động tuần hoàn đơn giản nhất?",
             "options": [
@@ -121,7 +121,7 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_1_8",
+            "id": "phys_bai_1_8",
             "label": "Câu 8",
             "prompt": "Một học sinh làm thí nghiệm với lò xo gắn vật m và kéo lệch ra rồi buông tay. Hiện tượng nào sau đây đúng?",
             "options": [
@@ -136,7 +136,7 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_1_9",
+            "id": "phys_bai_1_9",
             "label": "Câu 9",
             "prompt": "Trong thực tế, dao động nào sau đây được coi là dao động tự do?",
             "options": [
@@ -151,7 +151,7 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_1_10",
+            "id": "phys_bai_1_10",
             "label": "Câu 10",
             "prompt": "Vật dao động điều hòa theo trục Ox. Phát biểu nào sau đây đúng?",
             "options": [
@@ -166,7 +166,7 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_1_11",
+            "id": "phys_bai_1_11",
             "label": "Câu 11",
             "prompt": "Dao động là chuyển động có",
             "options": [
@@ -181,7 +181,7 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_1_12",
+            "id": "phys_bai_1_12",
             "label": "Câu 12",
             "prompt": "Chuyển động nào sau đây không phải là dao động cơ học?",
             "options": [
@@ -196,7 +196,7 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_1_13",
+            "id": "phys_bai_1_13",
             "label": "Câu 13",
             "prompt": "Phát biểu nào sau đây sai khi nói về dao động điều hòa?",
             "options": [
@@ -211,7 +211,7 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_1_14",
+            "id": "phys_bai_1_14",
             "label": "Câu 14",
             "prompt": "Phương trình dao động điều hòa của một chất điểm có dạng x = Acos(ωt + φ). Độ dài quỹ đạo của dao động là",
             "options": [
@@ -226,7 +226,7 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_1_15",
+            "id": "phys_bai_1_15",
             "label": "Câu 15",
             "prompt": "Đơn vị của pha dao động và pha ban đầu là:",
             "options": [
@@ -241,14 +241,14 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_1_16",
+            "id": "phys_bai_1_16",
             "label": "Câu 16",
             "prompt": "Phương trình dao động điều hòa có dạng:",
             "options": [
               "x = A + ωt + φ",
               "x = Asin(ωt + φ)",
               "x = Aωcos(t + φ)",
-              "x = At^2 + Bt + C"
+              "x = At2 + Bt + C"
             ],
             "answer": 1,
             "answer_letter": "B",
@@ -256,7 +256,7 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_1_17",
+            "id": "phys_bai_1_17",
             "label": "Câu 17",
             "prompt": "Một chất điểm dao động điều hoà có quỹ đạo là một đoạn thẳng dài 10 cm. Biên độ dao động của chất điểm là",
             "options": [
@@ -271,9 +271,9 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_1_18",
+            "id": "phys_bai_1_18",
             "label": "Câu 18",
-            "prompt": "Một chất điểm dao động điều hoà với phương trình Li độ của vật khi pha dao động bằng (π) là:",
+            "prompt": "Một chất điểm dao động điều hoà với phương trình  Li độ của vật khi pha dao động bằng (π) là:",
             "options": [
               "5cm.",
               "-5cm.",
@@ -282,11 +282,11 @@ window.PHYSICS_QUIZ_DATA = [
             ],
             "answer": 1,
             "answer_letter": "B",
-            "explanation": "Đáp án đúng là **B**: *-5cm.*.",
+            "explanation": "Đáp án đúng là **B**.",
             "image": null
           },
           {
-            "id": "phys_1_19",
+            "id": "phys_bai_1_19",
             "label": "Câu 19",
             "prompt": "Một chất điểm dao động điều hoà có phương trình li độ theo thời gian là: Li độ của vật khi pha dao động bằng () là:",
             "options": [
@@ -301,7 +301,7 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_1_20",
+            "id": "phys_bai_1_20",
             "label": "Câu 20",
             "prompt": "Một chất điểm Dao động điều hòa trên trục Ox theo phương trình x = 2πcos(πt + 1,5π) cm, với t là thời gian. Pha dao động là",
             "options": [
@@ -314,21 +314,6 @@ window.PHYSICS_QUIZ_DATA = [
             "answer_letter": "D",
             "explanation": "Đáp án đúng là **D**: *πt + 1,5π.*.",
             "image": null
-          },
-          {
-            "id": "phys_1_21",
-            "label": "Câu 21",
-            "prompt": "Biên độ dao động của vật là:",
-            "options": [
-              "2 cm",
-              "3 cm",
-              "4 cm",
-              "5 cm"
-            ],
-            "answer": 1,
-            "answer_letter": "B",
-            "explanation": "Đáp án đúng là **B**: *3 cm*.",
-            "image": null
           }
         ]
       },
@@ -339,9 +324,24 @@ window.PHYSICS_QUIZ_DATA = [
         "description": "Chuyên đề ôn tập lý thuyết & bài tập Vật lí 11 (16 câu hỏi trắc nghiệm 4 lựa chọn)",
         "questions": [
           {
-            "id": "phys_2_1",
+            "id": "phys_bai_2_1",
             "label": "Câu 1",
-            "prompt": "Kể từ lúc bắt đầu dao động. Chất điểm đi qua vị trí biên dương lần thứ 2 vào thời điểm",
+            "prompt": "[Dữ kiện chung cho Câu 1 – Câu 5: Cho một vật dao động điều hòa có đồ thị li độ phụ thuộc thời gian như hình bên. Mỗi độ chia trên trục Ox là 1 cm, mỗi độ chia trên trục thời gian là 0,1 giây.]\n\nBiên độ dao động của vật là:",
+            "options": [
+              "2 cm",
+              "3 cm",
+              "4 cm",
+              "5 cm"
+            ],
+            "answer": 1,
+            "answer_letter": "B",
+            "explanation": "Từ đồ thị, đỉnh sóng cực đại đạt $x = 3\\text{ cm}$, vậy biên độ dao động của vật là $A = 3\\text{ cm}$.",
+            "image": "assets/images/physics/image41.png"
+          },
+          {
+            "id": "phys_bai_2_2",
+            "label": "Câu 2",
+            "prompt": "[Dữ kiện chung cho Câu 1 – Câu 5 (Xem đồ thị trên)]\n\nKể từ lúc bắt đầu dao động. Chất điểm đi qua vị trí biên dương lần thứ 2 vào thời điểm",
             "options": [
               "0,15 (s)",
               "0,45 (s)",
@@ -350,13 +350,13 @@ window.PHYSICS_QUIZ_DATA = [
             ],
             "answer": 3,
             "answer_letter": "D",
-            "explanation": "Dựa vào đồ thị li độ - thời gian: Đáp án đúng là **D**.",
+            "explanation": "Từ đồ thị, chất điểm đi qua vị trí biên dương lần 1 tại $t = 0\\text{ s}$, lần 2 tại $t = T = 1,2\\text{ s}$.",
             "image": "assets/images/physics/image41.png"
           },
           {
-            "id": "phys_2_2",
-            "label": "Câu 2",
-            "prompt": "Tại thời điểm t = 0, li độ của vật là:",
+            "id": "phys_bai_2_3",
+            "label": "Câu 3",
+            "prompt": "[Dữ kiện chung cho Câu 1 – Câu 5 (Xem đồ thị trên)]\n\nTại thời điểm t = 0, li độ của vật là:",
             "options": [
               "0 cm",
               "–3 cm",
@@ -365,13 +365,13 @@ window.PHYSICS_QUIZ_DATA = [
             ],
             "answer": 2,
             "answer_letter": "C",
-            "explanation": "Dựa vào đồ thị li độ - thời gian: Đáp án đúng là **C**.",
+            "explanation": "Tại thời điểm $t = 0\\text{ s}$, đồ thị cắt trục tung tại giá trị cực đại $x = 3\\text{ cm}$.",
             "image": "assets/images/physics/image41.png"
           },
           {
-            "id": "phys_2_3",
-            "label": "Câu 3",
-            "prompt": "Phương trình dao động phù hợp với đồ thị là:",
+            "id": "phys_bai_2_4",
+            "label": "Câu 4",
+            "prompt": "[Dữ kiện chung cho Câu 1 – Câu 5 (Xem đồ thị trên)]\n\nPhương trình dao động phù hợp với đồ thị là:",
             "options": [
               "x = 3sin(t)",
               "x = 3cos(t)",
@@ -380,28 +380,28 @@ window.PHYSICS_QUIZ_DATA = [
             ],
             "answer": 1,
             "answer_letter": "B",
-            "explanation": "Dựa vào đồ thị li độ - thời gian: Đáp án đúng là **B**.",
+            "explanation": "Tại $t = 0$, $x = +A = 3\\text{ cm} \\implies \\varphi = 0$, chu kì $T = 1,2\\text{ s} \\implies \\omega = \\frac{2\\pi}{T}$. Phương trình dao động có dạng $x = 3\\cos(\\omega t)$.",
             "image": "assets/images/physics/image41.png"
           },
           {
-            "id": "phys_2_4",
-            "label": "Câu 4",
-            "prompt": "Tại thời điểm t = 0,9s, li độ của vật là:",
+            "id": "phys_bai_2_5",
+            "label": "Câu 5",
+            "prompt": "[Dữ kiện chung cho Câu 1 – Câu 5 (Xem đồ thị trên)]\n\nTại thời điểm t = 0,9s, li độ của vật là:",
             "options": [
               "0 cm",
               "3 cm",
               "–6 cm",
-              "–3 cm Dữ kiện trả lời cho câu 6, 7, 8. Đồ thị li độ theo thời gian của chất điểm dao động điều hoà được mô tả như hình vẽ."
+              "–3 cm"
             ],
             "answer": 3,
             "answer_letter": "D",
-            "explanation": "Dựa vào đồ thị li độ - thời gian: Đáp án đúng là **D**.",
+            "explanation": "Tại $t = 0,9\\text{ s} = \\frac{3T}{4}$, chất điểm đang ở vị trí biên âm: $x = -3\\text{ cm}$.",
             "image": "assets/images/physics/image41.png"
           },
           {
-            "id": "phys_2_5",
-            "label": "Câu 5",
-            "prompt": "Biên độ của dao động là:",
+            "id": "phys_bai_2_6",
+            "label": "Câu 6",
+            "prompt": "[Dữ kiện chung cho Câu 6 – Câu 8: Đồ thị li độ theo thời gian của chất điểm dao động điều hoà được mô tả như hình vẽ.]\n\nBiên độ của dao động là:",
             "options": [
               "20 cm",
               "5 cm",
@@ -410,13 +410,13 @@ window.PHYSICS_QUIZ_DATA = [
             ],
             "answer": 3,
             "answer_letter": "D",
-            "explanation": "Dựa vào đồ thị li độ - thời gian: Đáp án đúng là **D**.",
-            "image": "assets/images/physics/image41.png"
+            "explanation": "Từ đồ thị, biên độ dao động cực đại là $A = 10\\text{ cm}$.",
+            "image": "assets/images/physics/image42.png"
           },
           {
-            "id": "phys_2_6",
-            "label": "Câu 6",
-            "prompt": "Tại thời điểm t = 0, li độ của vật là:",
+            "id": "phys_bai_2_7",
+            "label": "Câu 7",
+            "prompt": "[Dữ kiện chung cho Câu 6 – Câu 8 (Xem đồ thị trên)]\n\nTại thời điểm t = 0, li độ của vật là:",
             "options": [
               "0 cm",
               "–10 cm",
@@ -425,13 +425,13 @@ window.PHYSICS_QUIZ_DATA = [
             ],
             "answer": 0,
             "answer_letter": "A",
-            "explanation": "Dựa vào đồ thị li độ - thời gian: Đáp án đúng là **A**.",
+            "explanation": "Tại thời điểm $t = 0$, đường đồ thị đi qua gốc tọa độ nên li độ của vật là $x = 0\\text{ cm}$.",
             "image": "assets/images/physics/image42.png"
           },
           {
-            "id": "phys_2_7",
-            "label": "Câu 7",
-            "prompt": "Tại thời điểm t = 90 ms, li độ của vật là:",
+            "id": "phys_bai_2_8",
+            "label": "Câu 8",
+            "prompt": "[Dữ kiện chung cho Câu 6 – Câu 8 (Xem đồ thị trên)]\n\nTại thời điểm t = 90 ms, li độ của vật là:",
             "options": [
               "0 cm",
               "–10 cm",
@@ -440,28 +440,28 @@ window.PHYSICS_QUIZ_DATA = [
             ],
             "answer": 1,
             "answer_letter": "B",
-            "explanation": "Dựa vào đồ thị li độ - thời gian: Đáp án đúng là **B**.",
+            "explanation": "Dựa vào đồ thị tại $t = 90\\text{ ms}$, chất điểm đang ở vị trí đáy biên âm $x = -10\\text{ cm}$.",
             "image": "assets/images/physics/image42.png"
           },
           {
-            "id": "phys_2_8",
-            "label": "Câu 8",
+            "id": "phys_bai_2_9",
+            "label": "Câu 9",
             "prompt": "Đồ thị dưới đây mô tả sự thay đổi li độ theo thời gian của một vật. Đồ thị này có thể mô tả chuyển đông của vật nào dưới đây?",
             "options": [
               "Một chiếc ô tô chạy đều trên đoạn đường thẳng.",
               "Một con lắc đơn dao động nhẹ quanh vị trí cân bằng.",
               "Một quả bóng ném lên theo phương thẳng đứng rồi rơi tự do.",
-              "Một giọt nước rơi từ trên cao xuống theo phương thẳng đứng. Dữ kiện trả lời cho câu 10, 11, 12, 13, 14. Trên hình vẽ là vị trí của vật nặng trong hệ con lắc lò xo tại các thời điểm khác nhau."
+              "Một giọt nước rơi từ trên cao xuống theo phương thẳng đứng."
             ],
-            "answer": 0,
-            "answer_letter": "A",
-            "explanation": "Dựa vào đồ thị li độ - thời gian: Đáp án đúng là **A**.",
-            "image": "assets/images/physics/image42.png"
+            "answer": 1,
+            "answer_letter": "B",
+            "explanation": "Đồ thị có dạng hình sin lặp lại tuần hoàn quanh vị trí cân bằng, mô tả dao động điều hòa của con lắc đơn dao động nhẹ quanh VTCB.",
+            "image": "assets/images/physics/image43.png"
           },
           {
-            "id": "phys_2_9",
-            "label": "Câu 9",
-            "prompt": "Trong hình, vị trí nào không ứng với biên âm (li độ âm cực đại)?",
+            "id": "phys_bai_2_10",
+            "label": "Câu 10",
+            "prompt": "[Dữ kiện chung cho Câu 10 – Câu 14: Trên hình vẽ là vị trí của vật nặng trong hệ con lắc lò xo tại các thời điểm khác nhau (với các vị trí E, F, G, H, M, N, P, Q, R).]\n\nTrong hình, vị trí nào không ứng với biên âm (li độ âm cực đại)?",
             "options": [
               "M",
               "G",
@@ -470,13 +470,13 @@ window.PHYSICS_QUIZ_DATA = [
             ],
             "answer": 1,
             "answer_letter": "B",
-            "explanation": "Dựa vào đồ thị li độ - thời gian: Đáp án đúng là **B**.",
-            "image": "assets/images/physics/image43.png"
+            "explanation": "Trong hình vẽ, các điểm E, M, R là các vị trí biên âm lò xo dãn cực đại. Điểm G là vị trí biên dương (vị trí lò xo ngắn nhất), không ứng với biên âm.",
+            "image": "assets/images/physics/image44.png"
           },
           {
-            "id": "phys_2_10",
-            "label": "Câu 10",
-            "prompt": "Tại thời điểm vật ở vị trí P, nhận định nào sau đây là đúng?",
+            "id": "phys_bai_2_11",
+            "label": "Câu 11",
+            "prompt": "[Dữ kiện chung cho Câu 10 – Câu 14 (Xem hình hệ con lắc lò xo trên)]\n\nTại thời điểm vật ở vị trí P, nhận định nào sau đây là đúng?",
             "options": [
               "Vật đang ở vị trí cân bằng.",
               "Vật đang chuyển động chậm dần đi xuống.",
@@ -485,13 +485,13 @@ window.PHYSICS_QUIZ_DATA = [
             ],
             "answer": 2,
             "answer_letter": "C",
-            "explanation": "Dựa vào đồ thị li độ - thời gian: Đáp án đúng là **C**.",
+            "explanation": "Tại vị trí P là vị trí biên trên (lò xo nén cực đại), vật bắt đầu chuyển động nhanh dần đi xuống dưới về vị trí cân bằng.",
             "image": "assets/images/physics/image44.png"
           },
           {
-            "id": "phys_2_11",
-            "label": "Câu 11",
-            "prompt": "Các vị trí nào gần nhau nhất và có cùng trạng thái chuyển động?",
+            "id": "phys_bai_2_12",
+            "label": "Câu 12",
+            "prompt": "[Dữ kiện chung cho Câu 10 – Câu 14 (Xem hình hệ con lắc lò xo trên)]\n\nCác vị trí nào gần nhau nhất và có cùng trạng thái chuyển động?",
             "options": [
               "E và G",
               "N và Q",
@@ -500,13 +500,13 @@ window.PHYSICS_QUIZ_DATA = [
             ],
             "answer": 2,
             "answer_letter": "C",
-            "explanation": "Dựa vào đồ thị li độ - thời gian: Đáp án đúng là **C**.",
+            "explanation": "Hai vị trí gần nhau nhất có cùng trạng thái dao động (cùng li độ và cùng hướng chuyển động) là hai điểm cách nhau đúng 1 chu kì dao động: M và R.",
             "image": "assets/images/physics/image44.png"
           },
           {
-            "id": "phys_2_12",
-            "label": "Câu 12",
-            "prompt": "Tại thời điểm t = t1, vật đang ở vị trí:",
+            "id": "phys_bai_2_13",
+            "label": "Câu 13",
+            "prompt": "[Dữ kiện chung cho Câu 10 – Câu 14 (Xem hình hệ con lắc lò xo trên)]\n\nTại thời điểm t = t1, vật đang ở vị trí:",
             "options": [
               "Biên dương",
               "Biên âm",
@@ -515,28 +515,28 @@ window.PHYSICS_QUIZ_DATA = [
             ],
             "answer": 1,
             "answer_letter": "B",
-            "explanation": "Dựa vào đồ thị li độ - thời gian: Đáp án đúng là **B**.",
+            "explanation": "Tại thời điểm $t = t_1$, vật nặng đang ở vị trí biên âm (thấp nhất).",
             "image": "assets/images/physics/image44.png"
           },
           {
-            "id": "phys_2_13",
-            "label": "Câu 13",
-            "prompt": "Tại thời điểm vật ở vị trí H, nhận định nào sau đây là đúng?",
+            "id": "phys_bai_2_14",
+            "label": "Câu 14",
+            "prompt": "[Dữ kiện chung cho Câu 10 – Câu 14 (Xem hình hệ con lắc lò xo trên)]\n\nTại thời điểm vật ở vị trí H, nhận định nào sau đây là đúng?",
             "options": [
               "Vật đang ở vị trí cân bằng.",
               "Vật đang chuyển động chậm dần đi xuống.",
               "Vật bắt đầu chuyển động nhanh dần đi xuống.",
-              "Vật đang chuyển động nhanh nhất. Dữ kiện trả lời cho câu 15, 16. Cho đồ thị của một dao động điều hòa như hình vẽ:"
+              "Vật đang chuyển động nhanh nhất."
             ],
             "answer": 0,
             "answer_letter": "A",
-            "explanation": "Dựa vào đồ thị li độ - thời gian: Đáp án đúng là **A**.",
+            "explanation": "Tại vị trí H, lò xo đi qua vị trí cân bằng của con lắc lò xo treo thẳng đứng.",
             "image": "assets/images/physics/image44.png"
           },
           {
-            "id": "phys_2_14",
-            "label": "Câu 14",
-            "prompt": "Biên độ dao động của vật là:",
+            "id": "phys_bai_2_15",
+            "label": "Câu 15",
+            "prompt": "[Dữ kiện chung cho Câu 15 – Câu 16: Cho đồ thị của một dao động điều hòa như hình vẽ:]\n\nBiên độ dao động của vật là:",
             "options": [
               "2cm",
               "-4cm",
@@ -545,13 +545,13 @@ window.PHYSICS_QUIZ_DATA = [
             ],
             "answer": 3,
             "answer_letter": "D",
-            "explanation": "Dựa vào đồ thị li độ - thời gian: Đáp án đúng là **D**.",
-            "image": "assets/images/physics/image44.png"
+            "explanation": "Từ đồ thị, giá trị li độ cực đại là $x_{max} = 4\\text{ cm}$, do đó biên độ dao động $A = 4\\text{ cm}$.",
+            "image": "assets/images/physics/image45.PNG"
           },
           {
-            "id": "phys_2_15",
-            "label": "Câu 15",
-            "prompt": "Tại thời điểm t = 7s thì li độ của vật bằng:",
+            "id": "phys_bai_2_16",
+            "label": "Câu 16",
+            "prompt": "[Dữ kiện chung cho Câu 15 – Câu 16 (Xem đồ thị trên)]\n\nTại thời điểm t = 7s thì li độ của vật bằng:",
             "options": [
               "0cm",
               "4cm",
@@ -560,12 +560,20 @@ window.PHYSICS_QUIZ_DATA = [
             ],
             "answer": 1,
             "answer_letter": "B",
-            "explanation": "Dựa vào đồ thị li độ - thời gian: Đáp án đúng là **B**.",
+            "explanation": "Từ đồ thị, chu kì $T = 4\\text{ s}$. Tại $t = 7\\text{ s} = 1,75T$, li độ của vật đạt cực đại dương $x = 4\\text{ cm}$.",
             "image": "assets/images/physics/image45.PNG"
-          },
+          }
+        ]
+      },
+      {
+        "id": "bai_3",
+        "name": "Bài 3: Chu kì, tần số, tần số góc",
+        "title": "Mối quan hệ giữa T, f, ω và số dao động toàn phần",
+        "description": "Chuyên đề ôn tập lý thuyết & bài tập Vật lí 11 (17 câu hỏi trắc nghiệm 4 lựa chọn)",
+        "questions": [
           {
-            "id": "phys_2_16",
-            "label": "Câu 16",
+            "id": "phys_bai_3_1",
+            "label": "Câu 1",
             "prompt": "Li độ x trong dao động điều hòa là:",
             "options": [
               "Quãng đường mà vật đi được trong một dao động.",
@@ -576,19 +584,11 @@ window.PHYSICS_QUIZ_DATA = [
             "answer": 2,
             "answer_letter": "C",
             "explanation": "Dựa vào đồ thị li độ - thời gian: Đáp án đúng là **C**.",
-            "image": "assets/images/physics/image45.PNG"
-          }
-        ]
-      },
-      {
-        "id": "bai_3",
-        "name": "Bài 3: Chu kì, tần số, tần số góc",
-        "title": "Mối quan hệ giữa T, f, ω và số dao động toàn phần",
-        "description": "Chuyên đề ôn tập lý thuyết & bài tập Vật lí 11 (15 câu hỏi trắc nghiệm 4 lựa chọn)",
-        "questions": [
+            "image": null
+          },
           {
-            "id": "phys_3_1",
-            "label": "Câu 1",
+            "id": "phys_bai_3_2",
+            "label": "Câu 2",
             "prompt": "Trong phương trình x = Acos(ωt + φ), đại lượng x là:",
             "options": [
               "Quãng đường",
@@ -602,8 +602,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_3_2",
-            "label": "Câu 2",
+            "id": "phys_bai_3_3",
+            "label": "Câu 3",
             "prompt": "Một vật dao động điều hoà với phương trình x = Acosωt. Nếu chọn gốc toạ độ O tại VTCB của vật thì gốc thời gian t = 0 là lúc vật",
             "options": [
               "ở vị trí li độ cực đại thuộc phần dương của trục Ox.",
@@ -617,8 +617,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_3_3",
-            "label": "Câu 3",
+            "id": "phys_bai_3_4",
+            "label": "Câu 4",
             "prompt": "Biên độ A trong dao động điều hòa có đơn vị là:",
             "options": [
               "m/s",
@@ -632,8 +632,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_3_4",
-            "label": "Câu 4",
+            "id": "phys_bai_3_5",
+            "label": "Câu 5",
             "prompt": "Biên độ A trong dao động điều hòa là:",
             "options": [
               "Vận tốc lớn nhất của vật trong suốt quá trình dao động.",
@@ -647,8 +647,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_3_5",
-            "label": "Câu 5",
+            "id": "phys_bai_3_6",
+            "label": "Câu 6",
             "prompt": "Biên độ của hệ dao động điều hòa phụ thuộc yếu tố nào?",
             "options": [
               "Cách kích thích cho vật dao động",
@@ -662,8 +662,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_3_6",
-            "label": "Câu 6",
+            "id": "phys_bai_3_7",
+            "label": "Câu 7",
             "prompt": "Một vật nhỏ dao động điều hòa theo một quỹ đạo thẳng dài 12cm. Dao động này có biên độ là",
             "options": [
               "12 cm.",
@@ -677,8 +677,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_3_7",
-            "label": "Câu 7",
+            "id": "phys_bai_3_8",
+            "label": "Câu 8",
             "prompt": "Trong phương trình dao động điều hoà x = Acos(ωt + φ). Mét (m) là thứ nguyên của đại lượng",
             "options": [
               "A.",
@@ -692,8 +692,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_3_8",
-            "label": "Câu 8",
+            "id": "phys_bai_3_9",
+            "label": "Câu 9",
             "prompt": "Chu kì dao động",
             "options": [
               "Thời gian chuyển động của vật",
@@ -707,8 +707,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_3_9",
-            "label": "Câu 9",
+            "id": "phys_bai_3_10",
+            "label": "Câu 10",
             "prompt": "Chu kì dao động là:",
             "options": [
               "Số dao động toàn phần vật thực hiện được trong 1s",
@@ -722,8 +722,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_3_10",
-            "label": "Câu 10",
+            "id": "phys_bai_3_11",
+            "label": "Câu 11",
             "prompt": "Trong dao động điều hòa, nếu tăng biên độ A gấp đôi thì:",
             "options": [
               "Tần số f tăng gấp đôi.",
@@ -737,8 +737,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_3_11",
-            "label": "Câu 11",
+            "id": "phys_bai_3_12",
+            "label": "Câu 12",
             "prompt": "Một bộ rung siêu âm trong nha khoa dao động với tần số f = 25kHz. Chu kì dao động của nó là:",
             "options": [
               "0,04 ms.",
@@ -752,9 +752,9 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_3_12",
-            "label": "Câu 12",
-            "prompt": "(SBT KNTT). Một chất điểm dao động điều hoà trong thời gian 1 phút vật thực hiện được 30 dao động. Chu kì dao động của vật là",
+            "id": "phys_bai_3_13",
+            "label": "Câu 13",
+            "prompt": "(SBT KNTT).  Một chất điểm dao động điều hoà trong thời gian 1 phút vật thực hiện được 30 dao động. Chu kì dao động của vật là",
             "options": [
               "2s.",
               "30s.",
@@ -763,13 +763,13 @@ window.PHYSICS_QUIZ_DATA = [
             ],
             "answer": 0,
             "answer_letter": "A",
-            "explanation": "Đáp án đúng là **A**: *2s.*.",
+            "explanation": "Đáp án đúng là **A**.",
             "image": null
           },
           {
-            "id": "phys_3_13",
-            "label": "Câu 13",
-            "prompt": "(SBT KNTT). Một chất điểm dao động điều hoà có phương trình li độ theo thời gian là: Chu kì của dao động bằng:",
+            "id": "phys_bai_3_14",
+            "label": "Câu 14",
+            "prompt": "(SBT KNTT).  Một chất điểm dao động điều hoà có phương trình li độ theo thời gian là: Chu kì của dao động bằng:",
             "options": [
               "4s.",
               "2s.",
@@ -778,12 +778,12 @@ window.PHYSICS_QUIZ_DATA = [
             ],
             "answer": 3,
             "answer_letter": "D",
-            "explanation": "Đáp án đúng là **D**: *0,5s.*.",
+            "explanation": "Đáp án đúng là **D**.",
             "image": null
           },
           {
-            "id": "phys_3_14",
-            "label": "Câu 14",
+            "id": "phys_bai_3_15",
+            "label": "Câu 15",
             "prompt": "Một vật dao động điều hoà theo phương trình x = 4cos(8πt + π/6), với x tính bằng cm, t tính bằng s. Chu kì dao động của vật là:",
             "options": [
               "4 s.",
@@ -797,8 +797,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_3_15",
-            "label": "Câu 15",
+            "id": "phys_bai_3_16",
+            "label": "Câu 16",
             "prompt": "Hình bên là đồ thị phụ thuộc thời gian của li độ dao động điều hòa. Chu kì dao động là:",
             "options": [
               "0,75 s",
@@ -810,18 +810,10 @@ window.PHYSICS_QUIZ_DATA = [
             "answer_letter": "C",
             "explanation": "Đáp án đúng là **C**: *3s*.",
             "image": "assets/images/physics/image59.png"
-          }
-        ]
-      },
-      {
-        "id": "bai_4",
-        "name": "Bài 4: Độ lệch pha giữa hai dao động",
-        "title": "Hai dao động cùng pha, ngược pha, vuông pha và độ lệch pha Δφ",
-        "description": "Chuyên đề ôn tập lý thuyết & bài tập Vật lí 11 (13 câu hỏi trắc nghiệm 4 lựa chọn)",
-        "questions": [
+          },
           {
-            "id": "phys_4_1",
-            "label": "Câu 1",
+            "id": "phys_bai_3_17",
+            "label": "Câu 17",
             "prompt": "Một cllx dao động điều hoà, trong 20 (s) con lắc thực hiện được 50 dao động. Chu kì dao động của cllx là",
             "options": [
               "T = 4 (s).",
@@ -833,10 +825,18 @@ window.PHYSICS_QUIZ_DATA = [
             "answer_letter": "B",
             "explanation": "Đáp án đúng là **B**: *T = 0,4 (s).*.",
             "image": null
-          },
+          }
+        ]
+      },
+      {
+        "id": "bai_4",
+        "name": "Bài 4: Độ lệch pha giữa hai dao động",
+        "title": "Hai dao động cùng pha, ngược pha, vuông pha và độ lệch pha Δφ",
+        "description": "Chuyên đề ôn tập lý thuyết & bài tập Vật lí 11 (8 câu hỏi trắc nghiệm 4 lựa chọn)",
+        "questions": [
           {
-            "id": "phys_4_2",
-            "label": "Câu 2",
+            "id": "phys_bai_4_1",
+            "label": "Câu 1",
             "prompt": "Đại lượng nào dưới đây đặc trưng cho độ lệch về thời gian giữa hai dao động điều hòa cùng chu kì?",
             "options": [
               "Li độ",
@@ -850,8 +850,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_4_3",
-            "label": "Câu 3",
+            "id": "phys_bai_4_2",
+            "label": "Câu 2",
             "prompt": "Hai vật dao động đều hòa với biên độ dao động khác nhau nhưng có cùng tần số góc, khi đó ta có thể kết luận gì về hai pha dao động",
             "options": [
               "Hai dao động cùng pha với nhau",
@@ -865,8 +865,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_4_4",
-            "label": "Câu 4",
+            "id": "phys_bai_4_3",
+            "label": "Câu 3",
             "prompt": "Đồ thi biễu diễn hai dao động điều hoà cùng phương, cùng tần số, cùng biên độ A như hình vẽ. Hai dao động này luôn",
             "options": [
               "có li độ đối nhau.",
@@ -877,17 +877,17 @@ window.PHYSICS_QUIZ_DATA = [
             "answer": 0,
             "answer_letter": "A",
             "explanation": "Đáp án đúng là **A**: *có li độ đối nhau.*.",
-            "image": null
+            "image": "assets/images/physics/image75.png"
           },
           {
-            "id": "phys_4_5",
-            "label": "Câu 5",
+            "id": "phys_bai_4_4",
+            "label": "Câu 4",
             "prompt": "Khi vật thực hiện 1 dao động tương ứng với pha dao động sẽ thay đổi 1 lượng:",
             "options": [
               "0 rad",
               "rad",
               "rad",
-              "2 rad Dữ kiện trả lời cho câu 6, 7. Hai vật dao động đều hòa có li độ được biểu diễn trên đồ thị li độ - thời gian như hình 1.1."
+              "2 rad"
             ],
             "answer": 3,
             "answer_letter": "D",
@@ -895,9 +895,9 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_4_6",
-            "label": "Câu 6",
-            "prompt": "Phát biểu nào dưới đây là mô tả đúng tính chất của hai vật?",
+            "id": "phys_bai_4_5",
+            "label": "Câu 5",
+            "prompt": "[Dữ kiện chung cho Câu 5 – Câu 6: Hai vật dao động điều hòa có li độ được biểu diễn trên đồ thị li độ - thời gian như hình vẽ.]\n\nPhát biểu nào dưới đây là mô tả đúng tính chất của hai vật?",
             "options": [
               "Hai vật dao động cùng tần số, cùng pha",
               "Hai vật dao động cùng tần số, vuông pha",
@@ -910,14 +910,14 @@ window.PHYSICS_QUIZ_DATA = [
             "image": "assets/images/physics/image77.png"
           },
           {
-            "id": "phys_4_7",
-            "label": "Câu 7",
-            "prompt": "Khi so sánh về pha dao động của hai vật:",
+            "id": "phys_bai_4_6",
+            "label": "Câu 6",
+            "prompt": "[Dữ kiện chung cho Câu 5 – Câu 6 (Xem đồ thị trên)]\n\nKhi so sánh về pha dao động của hai vật:",
             "options": [
               "Vật 2 sớm pha hơn vật 1.",
               "Vật 1 sớm pha hơn vật 2",
               "Hai dao động sớm pha hay trễ pha hơn nhau phụ thuộc vào thời gian dao động.",
-              "Chưa xác định được vì trên đồ thị không có số liệu cụ thể. Dữ kiện trả lời cho câu 8, 9, 10. Đồ thị biểu diễn hai dao động điều hòa cùng phương, cùng tần số."
+              "Chưa xác định được vì trên đồ thị không có số liệu cụ thể."
             ],
             "answer": 0,
             "answer_letter": "A",
@@ -925,9 +925,9 @@ window.PHYSICS_QUIZ_DATA = [
             "image": "assets/images/physics/image77.png"
           },
           {
-            "id": "phys_4_8",
-            "label": "Câu 8",
-            "prompt": "Tần số của 2 dao động là:",
+            "id": "phys_bai_4_7",
+            "label": "Câu 7",
+            "prompt": "[Dữ kiện chung cho Câu 7 – Câu 8: Đồ thị biểu diễn hai dao động điều hòa cùng phương, cùng tần số x1, x2.]\n\nTần số của 2 dao động là:",
             "options": [
               "0,2 Hz",
               "5.10-2 Hz",
@@ -940,9 +940,9 @@ window.PHYSICS_QUIZ_DATA = [
             "image": "assets/images/physics/image78.png"
           },
           {
-            "id": "phys_4_9",
-            "label": "Câu 9",
-            "prompt": "Tại thời điểm dao động 1 đi qua vị trí biên dương lần thứ 2 thì dao động 2 có li độ bao nhiêu?",
+            "id": "phys_bai_4_8",
+            "label": "Câu 8",
+            "prompt": "[Dữ kiện chung cho Câu 7 – Câu 8 (Xem đồ thị trên)]\n\nTại thời điểm dao động 1 đi qua vị trí biên dương lần thứ 2 thì dao động 2 có li độ bao nhiêu?",
             "options": [
               "x2 = 0 cm",
               "x2 = 6 cm",
@@ -953,10 +953,18 @@ window.PHYSICS_QUIZ_DATA = [
             "answer_letter": "A",
             "explanation": "Đáp án đúng là **A**: *x2 = 0 cm*.",
             "image": "assets/images/physics/image78.png"
-          },
+          }
+        ]
+      },
+      {
+        "id": "bai_5",
+        "name": "Bài 5: Vận tốc & Gia tốc trong dao động điều hòa",
+        "title": "Phương trình vận tốc, gia tốc, giá trị cực đại và mối quan hệ vuông pha",
+        "description": "Chuyên đề ôn tập lý thuyết & bài tập Vật lí 11 (30 câu hỏi trắc nghiệm 4 lựa chọn)",
+        "questions": [
           {
-            "id": "phys_4_10",
-            "label": "Câu 10",
+            "id": "phys_bai_5_1",
+            "label": "Câu 1",
             "prompt": "Véc tơ vận tốc của một vật dao động điều hoà luôn",
             "options": [
               "hướng ra xa VTCB",
@@ -967,11 +975,11 @@ window.PHYSICS_QUIZ_DATA = [
             "answer": 1,
             "answer_letter": "B",
             "explanation": "Đáp án đúng là **B**: *cùng hướng chuyển động.*.",
-            "image": "assets/images/physics/image78.png"
+            "image": null
           },
           {
-            "id": "phys_4_11",
-            "label": "Câu 11",
+            "id": "phys_bai_5_2",
+            "label": "Câu 2",
             "prompt": "Một vật dao động điều hòa với phương trình $x=Acos\\left(ωt+φ\\right)$. Tốc độ cực đại của chất điểm trong quá trình dao động bằng",
             "options": [
               "${v}_{max}={A}^{2}ω$.",
@@ -985,8 +993,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_4_12",
-            "label": "Câu 12",
+            "id": "phys_bai_5_3",
+            "label": "Câu 3",
             "prompt": "Phát biểu nào sau đây về vận tốc trong dao động điều hoà là sai?",
             "options": [
               "Ở biên âm hoặc biên dương vận tốc có giá trị bằng 0.",
@@ -1000,8 +1008,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_4_13",
-            "label": "Câu 13",
+            "id": "phys_bai_5_4",
+            "label": "Câu 4",
             "prompt": "Vận tốc của vật dao động điều hoà có độ lớn cực đại khi",
             "options": [
               "vật ở vị trí có li độ cực đại",
@@ -1013,18 +1021,10 @@ window.PHYSICS_QUIZ_DATA = [
             "answer_letter": "C",
             "explanation": "Đáp án đúng là **C**: *vật ở vị trí có li độ bằng không*.",
             "image": null
-          }
-        ]
-      },
-      {
-        "id": "bai_5",
-        "name": "Bài 5: Vận tốc & Gia tốc trong dao động điều hòa",
-        "title": "Phương trình vận tốc, gia tốc, giá trị cực đại và mối quan hệ vuông pha",
-        "description": "Chuyên đề ôn tập lý thuyết & bài tập Vật lí 11 (30 câu hỏi trắc nghiệm 4 lựa chọn)",
-        "questions": [
+          },
           {
-            "id": "phys_5_1",
-            "label": "Câu 1",
+            "id": "phys_bai_5_5",
+            "label": "Câu 5",
             "prompt": "Chọn phát biểu sai về quan hệ giữa chuyển động tròn đều và dao động điều hoà là hình chiếu của nó.",
             "options": [
               "biên độ của dao động bằng bán kính quỹ đạo của chuyển động tròn đều.",
@@ -1038,8 +1038,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_5_2",
-            "label": "Câu 2",
+            "id": "phys_bai_5_6",
+            "label": "Câu 6",
             "prompt": "Biểu thức li độ của vật dao động điều hoà có dạng x = Acos(2ωt + φ), vận tốc của vật có giá trị cực đại là",
             "options": [
               "vmax = ωA2",
@@ -1053,8 +1053,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_5_3",
-            "label": "Câu 3",
+            "id": "phys_bai_5_7",
+            "label": "Câu 7",
             "prompt": "Chọn hệ thức đúng liên hệ giữa x, A, v, ω trong dao động điều hoà",
             "options": [
               "v2 = ω2(x2 – A2)",
@@ -1068,8 +1068,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_5_4",
-            "label": "Câu 4",
+            "id": "phys_bai_5_8",
+            "label": "Câu 8",
             "prompt": "Chọn hệ thức sai về mối liên hệ giữa x, A, v, ω trong dao động điều hoà:",
             "options": [
               "A2 = x2 + v2/ω2",
@@ -1083,8 +1083,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_5_5",
-            "label": "Câu 5",
+            "id": "phys_bai_5_9",
+            "label": "Câu 9",
             "prompt": "Một vật dao động điều hoà với biên độ A, vận tốc góc ω. Ở li độ x, vật có vận tốc v. Hệ thức nào dưới đây viết sai?",
             "options": [
               "$v=±ω\\sqrt{{A}^{2}-{x}^{2}}$",
@@ -1098,8 +1098,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_5_6",
-            "label": "Câu 6",
+            "id": "phys_bai_5_10",
+            "label": "Câu 10",
             "prompt": "Một vật dao động điều hòa với biên độ A và tốc độ cực đại vmax. Chu kì dao động của vật là:",
             "options": [
               ".",
@@ -1113,8 +1113,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_5_7",
-            "label": "Câu 7",
+            "id": "phys_bai_5_11",
+            "label": "Câu 11",
             "prompt": "Một chất điểm M chuyển động tròn đều trên qũy đạo tâm O bán kính 5 cm với tốc độ 3 m/s. Hình chiếu của điểm M trên trục Ox nằm trong mặt phẳng quỹ đạo dao động điều hòa với tần số góc:",
             "options": [
               "30 (rad/s).",
@@ -1128,8 +1128,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_5_8",
-            "label": "Câu 8",
+            "id": "phys_bai_5_12",
+            "label": "Câu 12",
             "prompt": "Dao động điều hòa có vận tốc cực đại là vmax = 8 cm/s và gia tốc cực đại amax = 162 cm/s2 thì biên độ của dao động là",
             "options": [
               "3 cm.",
@@ -1143,8 +1143,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_5_9",
-            "label": "Câu 9",
+            "id": "phys_bai_5_13",
+            "label": "Câu 13",
             "prompt": "Một vật dao động điều hòa có phương trình (t tính bằng giây). Tốc độ cực đại của vật là:",
             "options": [
               "4π cm/s.",
@@ -1158,9 +1158,9 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_5_10",
-            "label": "Câu 10",
-            "prompt": "Một vật dao động điều hòa dọc theo trục Ox với phương trình li độ là (t tính bằng s). Kết luận nào sau đây không đúng?",
+            "id": "phys_bai_5_14",
+            "label": "Câu 14",
+            "prompt": "Một vật dao động điều hòa dọc theo trục Ox với phương trình li độ là  (t tính bằng s). Kết luận nào sau đây không đúng?",
             "options": [
               "Tốc độ cực đại của vật là 20π cm/s.",
               "Lúc t = 0, vật qua vị trí cân bằng O, ngược chiều dương của trục Ox.",
@@ -1169,12 +1169,12 @@ window.PHYSICS_QUIZ_DATA = [
             ],
             "answer": 3,
             "answer_letter": "D",
-            "explanation": "Đáp án đúng là **D**: *Chiều dài quỹ đạo của vật là $l=20cm$.*.",
+            "explanation": "Đáp án đúng là **D**.",
             "image": null
           },
           {
-            "id": "phys_5_11",
-            "label": "Câu 11",
+            "id": "phys_bai_5_15",
+            "label": "Câu 15",
             "prompt": "Một vật dao động điều hòa với biên độ 4 cm và tốc độ cực đại là 12π cm/s thì có chu kì là",
             "options": [
               "s.",
@@ -1188,8 +1188,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_5_12",
-            "label": "Câu 12",
+            "id": "phys_bai_5_16",
+            "label": "Câu 16",
             "prompt": "Một vật dao động điều hoà có đồ thị li độ – thời gian như Hình 2.1. Tại thời điểm t = 0,5 s, vận tốc của vật có độ lớn là:",
             "options": [
               "$\\frac { π } { 6 }cm/s$",
@@ -1203,8 +1203,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_5_13",
-            "label": "Câu 13",
+            "id": "phys_bai_5_17",
+            "label": "Câu 17",
             "prompt": "Một vật dao động điều hòa với biên độ 4 cm. Khi nó có li độ là 2 cm thì vận tốc là 1 m/s. Tần số dao động là:",
             "options": [
               "$f=1Hz$",
@@ -1218,9 +1218,9 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_5_14",
-            "label": "Câu 14",
-            "prompt": "Một vật dao động điều hòa với chu kì $T=π/5\\left(s\\right)$, khi vật có ly độ x = 2 cm thì vận tốc tương ứng là $20\\sqrt{3}cm/s$, biên độ dao động của vật có trị số",
+            "id": "phys_bai_5_18",
+            "label": "Câu 18",
+            "prompt": "Một vật dao động điều hòa với chu kì  $T=π/5\\left(s\\right)$, khi vật có ly độ x = 2 cm thì vận tốc tương ứng là $20\\sqrt{3}cm/s$, biên độ dao động của vật có trị số",
             "options": [
               "A = 5 cm.",
               "A = $4\\sqrt{3}$ cm.",
@@ -1229,12 +1229,12 @@ window.PHYSICS_QUIZ_DATA = [
             ],
             "answer": 3,
             "answer_letter": "D",
-            "explanation": "Đáp án đúng là **D**: *A = 4 cm.*.",
+            "explanation": "Đáp án đúng là **D**.",
             "image": null
           },
           {
-            "id": "phys_5_15",
-            "label": "Câu 15",
+            "id": "phys_bai_5_19",
+            "label": "Câu 19",
             "prompt": "Một vật dao động điều hòa với biên độ A = 2 cm, tần số góc $5 rad/s$, pha ban đầu $/2 rad$. Phương trình dao động của vật là:",
             "options": [
               "$x=2cos\\left ( { 5πt+\\frac { π } { 2 } } \\right )(cm).$",
@@ -1248,8 +1248,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_5_16",
-            "label": "Câu 16",
+            "id": "phys_bai_5_20",
+            "label": "Câu 20",
             "prompt": "Một vật nhỏ dao động điều hòa dọc theo trục Ox (vị trí cân bằng ở O) với biên độ 4 cm và tần số 10 Hz. Tại thời điểm t = 0, vật có li độ 4 cm. Phương trình dao động của vật là:",
             "options": [
               "x = 4cos(20πt + π) cm",
@@ -1263,8 +1263,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_5_17",
-            "label": "Câu 17",
+            "id": "phys_bai_5_21",
+            "label": "Câu 21",
             "prompt": "Một vật dao động điều hòa với tần số $\\frac { 10 } { π }Hz$. Khi t = 0 vật có li độ $-4cm$ và có vận tốc là $-80cm/s$. Phương trình dao động của vật là:",
             "options": [
               "$x=4cos\\left ( { 20t+\\frac { π } { 4 } } \\right )\\left ( { cm } \\right ).$",
@@ -1278,8 +1278,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_5_18",
-            "label": "Câu 18",
+            "id": "phys_bai_5_22",
+            "label": "Câu 22",
             "prompt": "Một vật nhỏ dao động điều hòa trên quỹ đạo dài 8 cm. Khi đi qua vị trí cân bằng vận tốc có độ lớn $40π cm/s$. Gọi mốc thời gian là lúc vật đi qua vị trí $2\\sqrt{3}cm$ theo chiều dương. Phương trình dao động của vật là",
             "options": [
               "$x=4cos\\left ( { 10πt-\\frac { π } { 6 } } \\right )cm.$",
@@ -1293,8 +1293,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_5_19",
-            "label": "Câu 19",
+            "id": "phys_bai_5_23",
+            "label": "Câu 23",
             "prompt": "Một vật nhỏ dao động có gia tốc biến đổi theo thời gian $a=8cos\\left ( { 20t-\\frac { π } { 2 } } \\right )m/s ^ { 2 } .$ Phương trình dao động của vật là",
             "options": [
               "$x=0,02cos\\left ( { 20t+\\frac { π } { 2 } } \\right )cm.$",
@@ -1308,8 +1308,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_5_20",
-            "label": "Câu 20",
+            "id": "phys_bai_5_24",
+            "label": "Câu 24",
             "prompt": "Tại thời điểm ban đầu (t = 0), vật dao động điều hòa chuyển động qua vị trí x = 2cm ra xa vị trí cân bằng với tốc độ 20cm/s. Biết chu kì dao động T = 0,628s. Viết phương trình dao động cho vật:",
             "options": [
               "$x=2\\sqrt[] { 2 }c{ \\rm{ o } }{ \\rm{ s } }\\left ( { 10t+\\frac { 3π } { 4 } } \\right )cm.$",
@@ -1323,8 +1323,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_5_21",
-            "label": "Câu 21",
+            "id": "phys_bai_5_25",
+            "label": "Câu 25",
             "prompt": "Một vật dao động điều hòa khi qua vị trí cân bằng thì có tốc độ là 4$π$ cm/s và khi ở vị trí biên thì có độ lớn gia tốc là $\\frac { 8 } { 3 }π ^ { 2 }$(cm/s2). Tại t = 0, vật qua vị trí có li độ x = –3cm theo chiều dương. Phương trình dao động của vật là",
             "options": [
               "$x=6cos(\\frac { 2π } { 3 }t+\\frac { 2π } { 3 })$ (cm).",
@@ -1335,12 +1335,12 @@ window.PHYSICS_QUIZ_DATA = [
             "answer": 1,
             "answer_letter": "B",
             "explanation": "Đáp án đúng là **B**: *$x=6cos(\\frac { 2π } { 3 }t-\\frac { 2π } { 3 })$ (cm).*.",
-            "image": null
+            "image": "assets/images/physics/image118.png"
           },
           {
-            "id": "phys_5_22",
-            "label": "Câu 22",
-            "prompt": "Một vật nhỏ dao động điều hòa dọc theo trục Ox với biên độ 4 cm và tần số 1 Hz. Tại thời điểm t = 0, vật có li độ 4 cm. Phương trình dao động của vật là",
+            "id": "phys_bai_5_26",
+            "label": "Câu 26",
+            "prompt": "Một vật nhỏ dao động điều hòa dọc theo trục Ox với biên độ 4 cm và tần số 1 Hz. Tại thời điểm  t = 0, vật có li độ 4 cm. Phương trình dao động của vật là",
             "options": [
               "x = 4cos(2πt + π) (cm).",
               "x = 4cos2πt (cm).",
@@ -1349,12 +1349,12 @@ window.PHYSICS_QUIZ_DATA = [
             ],
             "answer": 1,
             "answer_letter": "B",
-            "explanation": "Đáp án đúng là **B**: *x = 4cos2πt (cm).*.",
+            "explanation": "Đáp án đúng là **B**.",
             "image": null
           },
           {
-            "id": "phys_5_23",
-            "label": "Câu 23",
+            "id": "phys_bai_5_27",
+            "label": "Câu 27",
             "prompt": "Một vật nhỏ dao động điều hòa dọc theo trục Ox với biên độ 5 cm, chu kì 2 s. Tại thời điểm t = 0, vật đi qua cân bằng O theo chiều dương. Phương trình dao động của vật là:",
             "options": [
               "$x=5cos\\left ( { πt-\\frac { π } { 2 } } \\right )(cm).$",
@@ -1368,8 +1368,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_5_24",
-            "label": "Câu 24",
+            "id": "phys_bai_5_28",
+            "label": "Câu 28",
             "prompt": "Một vật nhỏ dao động điều hòa dọc theo trục Ox. Trong thời gian 31,4s chất điểm thực hiện được 100 dao động toàn phần. Gốc thời gian là lúc chất điểm đi qua vị trí có li độ 2 cm theo chiều âm với tốc độ $40\\sqrt{3} cm/s$. Lấy $π=3,14$, phương trình dao động của chất điểm là:",
             "options": [
               "$x=4cos\\left ( { 20t-\\frac { π } { 3 } } \\right )(cm).$",
@@ -1383,8 +1383,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_5_25",
-            "label": "Câu 25",
+            "id": "phys_bai_5_29",
+            "label": "Câu 29",
             "prompt": "Một vật nhỏ dao động điều hòa có phương trình dạng $x=Acos\\left(ωt+φ\\right) (cm)$. Tại thời điểm ban đầu vật cách vị trí cân bằng một khoảng 4 cm, vận tốc và gia tốc của vật lúc đó lần lượt là $-20π\\sqrt{3} cm/s$ và $-100{π}^{2} cm/{s}^{2}$. Phương trình dao động của vật là",
             "options": [
               "$x=8cos\\left ( { 5πt+\\frac { π } { 3 } } \\right )(cm).$",
@@ -1395,11 +1395,11 @@ window.PHYSICS_QUIZ_DATA = [
             "answer": 0,
             "answer_letter": "A",
             "explanation": "Đáp án đúng là **A**: *$x=8cos\\left ( { 5πt+\\frac { π } { 3 } } \\right )(cm).$*.",
-            "image": "assets/images/physics/image118.png"
+            "image": null
           },
           {
-            "id": "phys_5_26",
-            "label": "Câu 26",
+            "id": "phys_bai_5_30",
+            "label": "Câu 30",
             "prompt": "Một vật nhỏ dao động điều hòa theo trục Ox, chọn gốc tọa độ trùng với vị trí cân bằng của vật. Biết khoảng thời gian giữa hai lần liên tiếp vật đi qua vị trí cân bằng là 1s. Lấy ${π}^{2}=10$. Tại thời điểm ban đầu vật có gia tốc $a=-0,1 m/{s}^{2}$ và vận tốc ${v}_{0}=-π\\sqrt{3} cm/s$. Phương trình dao động của vật là",
             "options": [
               "$x=2cos\\left ( { πt-\\frac { 5π } { 6 } } \\right )\\left ( { cm } \\right ).$",
@@ -1411,10 +1411,18 @@ window.PHYSICS_QUIZ_DATA = [
             "answer_letter": "C",
             "explanation": "Đáp án đúng là **C**: *$x=2cos\\left ( { πt+\\frac { π } { 3 } } \\right )\\left ( { cm } \\right ).$*.",
             "image": null
-          },
+          }
+        ]
+      },
+      {
+        "id": "bai_6",
+        "name": "Bài 6: Động năng, thế năng & Cơ năng",
+        "title": "Năng lượng dao động, sự chuyển hóa giữa động năng và thế năng",
+        "description": "Chuyên đề ôn tập lý thuyết & bài tập Vật lí 11 (18 câu hỏi trắc nghiệm 4 lựa chọn)",
+        "questions": [
           {
-            "id": "phys_5_27",
-            "label": "Câu 27",
+            "id": "phys_bai_6_1",
+            "label": "Câu 1",
             "prompt": "Một vật nhỏ dao động điều hòa với vận tốc ban đầu là $4 m/s$ và gia tốc là $40\\sqrt{3} m/{s}^{2}$. Khi vật đi qua vị trí cân bằng thì vật có vận tốc là $8 m/s$. Phương trình dao động của vật là:",
             "options": [
               "$x=0,8cos\\left ( { 10t-\\frac { π } { 6 } } \\right )m.$",
@@ -1428,8 +1436,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_5_28",
-            "label": "Câu 28",
+            "id": "phys_bai_6_2",
+            "label": "Câu 2",
             "prompt": "Một vật dao động điều hòa trên trục Ox với tần số f = 4Hz, biết tọa độ ban đầu của vật là x = 3cm và sau đó 1/24s thì vật trở về tọa độ ban đầu. Phương trình dao động của vật là",
             "options": [
               "$x=3\\sqrt[] { 3 }c{ \\rm{ o } }{ \\rm{ s } }\\left ( { 8πt-π/6 } \\right )cm.$",
@@ -1443,8 +1451,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_5_29",
-            "label": "Câu 29",
+            "id": "phys_bai_6_3",
+            "label": "Câu 3",
             "prompt": "Một chất điểm dao động điều hòa với chu kì 1s. Tại thời điểm t = 2,5s, tính từ lúc bắt đầu dao động, chất điểm đi qua vị trí có li độ $x=-2cm$ và vận tốc $v=-4π\\sqrt{3}cm/s$. Phương trình dao động của chất điểm có thể là",
             "options": [
               "$x=4cos\\left ( { 2πt+2π/3 } \\right )cm.$",
@@ -1458,9 +1466,9 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_5_30",
-            "label": "Câu 30",
-            "prompt": "Một vật nhỏ khối lượng m dao động điều hòa trên trục Ox theo phương trình x = Acosωt. Động năng của vật tại thời điểm t là",
+            "id": "phys_bai_6_4",
+            "label": "Câu 4",
+            "prompt": "Một vật nhỏ khối lượng m dao động điều hòa trên trục Ox theo phương trình  x = Acosωt. Động năng của vật tại thời điểm t là",
             "options": [
               "Wđ = 2mω2A2sin2ωt.",
               "Wđ = ½mω2A2sin2ωt.",
@@ -1469,20 +1477,12 @@ window.PHYSICS_QUIZ_DATA = [
             ],
             "answer": 1,
             "answer_letter": "B",
-            "explanation": "Đáp án đúng là **B**: *Wđ = ½mω2A2sin2ωt.*.",
+            "explanation": "Đáp án đúng là **B**.",
             "image": null
-          }
-        ]
-      },
-      {
-        "id": "bai_6",
-        "name": "Bài 6: Động năng, thế năng & Cơ năng",
-        "title": "Năng lượng dao động, sự chuyển hóa giữa động năng và thế năng",
-        "description": "Chuyên đề ôn tập lý thuyết & bài tập Vật lí 11 (19 câu hỏi trắc nghiệm 4 lựa chọn)",
-        "questions": [
+          },
           {
-            "id": "phys_6_1",
-            "label": "Câu 1",
+            "id": "phys_bai_6_5",
+            "label": "Câu 5",
             "prompt": "Một vật dao động điều hòa theo thời gian có phương trình $x=Acos(ωt+φ)$ thì động năng và thế năng cũng dao động điều hòa với tần số:",
             "options": [
               "$ω'=ω$",
@@ -1496,8 +1496,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_6_2",
-            "label": "Câu 2",
+            "id": "phys_bai_6_6",
+            "label": "Câu 6",
             "prompt": "Đối với một chất điểm dao động cơ điều hòa với chu kì T thì:",
             "options": [
               "Động năng và thế năng đều biến thiên tuần hoàn theo thời gian nhưng không điều hòa.",
@@ -1511,8 +1511,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_6_3",
-            "label": "Câu 3",
+            "id": "phys_bai_6_7",
+            "label": "Câu 7",
             "prompt": "Chọn câu sai. Năng lượng của một vật dao động điều hòa:",
             "options": [
               "Luôn luôn là một hằng số.",
@@ -1526,8 +1526,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_6_4",
-            "label": "Câu 4",
+            "id": "phys_bai_6_8",
+            "label": "Câu 8",
             "prompt": "Điều nào sau đây là đúng khi nói về động năng và thế năng của 1 vật dao động điều hoà:",
             "options": [
               "Động năng của vật tăng và thế năng giảm khi vật đi từ VTCB đến vị trí biên.",
@@ -1541,8 +1541,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_6_5",
-            "label": "Câu 5",
+            "id": "phys_bai_6_9",
+            "label": "Câu 9",
             "prompt": "Kết luận nào sau đây là sai khi nói về chuyển động điều hoà của chất điểm?",
             "options": [
               "Giá trị của thế năng tỉ lệ thuận với tần số góc.",
@@ -1556,8 +1556,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_6_6",
-            "label": "Câu 6",
+            "id": "phys_bai_6_10",
+            "label": "Câu 10",
             "prompt": "Khi nói về dao động điều hoà của một chất điểm, phát biểu nào sau đây sai?",
             "options": [
               "Khi động năng của chất điểm giảm thì thế năng của nó tăng.",
@@ -1571,11 +1571,11 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_6_7",
-            "label": "Câu 7",
+            "id": "phys_bai_6_11",
+            "label": "Câu 11",
             "prompt": "Chọn phát biểu sai khi nói về năng lượng trong dao động điều hoà:",
             "options": [
-              "Tổng năng lượng là đại lượng tỉ lệ với bình phương của biên độ.",
+              "Tổng năng lượng là đại lượng  tỉ lệ với bình phương của biên độ.",
               "Tổng năng lượng là đại lượng biến thiên theo li độ.",
               "Động năng và thế năng là những đại lượng biến thiên tuần hoàn.",
               "Trong quá trình dao động luôn diễn ra hiện tượng : khi động năng tăng thì thế năng giảm và ngược lại ."
@@ -1586,8 +1586,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_6_8",
-            "label": "Câu 8",
+            "id": "phys_bai_6_12",
+            "label": "Câu 12",
             "prompt": "Một vật dao động điều hòa theo một trục cố định (mốc thế năng ở vị trí cân bằng) thì:",
             "options": [
               "động năng của vật cực đại khi gia tốc của vật có độ lớn cực đại.",
@@ -1601,8 +1601,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_6_9",
-            "label": "Câu 9",
+            "id": "phys_bai_6_13",
+            "label": "Câu 13",
             "prompt": "Cơ năng của một chất điểm dao động điều hoà tỉ lệ thuận với",
             "options": [
               "bình phương biên độ dao động.",
@@ -1616,8 +1616,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_6_10",
-            "label": "Câu 10",
+            "id": "phys_bai_6_14",
+            "label": "Câu 14",
             "prompt": "Phát biểu nào sau đây sai? Cơ năng của vật dao động điều hoà:",
             "options": [
               "bằng thế năng khi vật ở vị trí biên.",
@@ -1631,8 +1631,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_6_11",
-            "label": "Câu 11",
+            "id": "phys_bai_6_15",
+            "label": "Câu 15",
             "prompt": "Một vật dao động điều hoà theo chu kì T. Trong quá trình dao động, thế năng dao động có giá trị:",
             "options": [
               "không đổi.",
@@ -1646,8 +1646,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_6_12",
-            "label": "Câu 12",
+            "id": "phys_bai_6_16",
+            "label": "Câu 16",
             "prompt": "Khi nói về một vật dao động điều hoà với biên độ a và tần số $f,$ trong những phát biểu dưới đây:\n(1) Cơ năng biến thiên tuần hoàn với tần số $2f$.\n(2) Cơ năng bằng thế năng tại thời điểm vật ở biên.\n(3) Cơ năng tỉ lệ thuận với biên độ dao động.\n(4) Khi vật đi từ vị trí cân bằng ra biên, thế năng giảm, động năng tăng.\n(5) Khi vật đi từ biên về vị trí cân bằng, thế năng giảm, động năng tăng. Số phát biểu đúng là",
             "options": [
               "1.",
@@ -1661,8 +1661,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_6_13",
-            "label": "Câu 13",
+            "id": "phys_bai_6_17",
+            "label": "Câu 17",
             "prompt": "Trong dao động điều hoà thì tập hợp ba đại lượng nào sau đây không thay đổi theo thời gian?",
             "options": [
               "Lực kéo về; vận tốc; năng lượng toàn phần.",
@@ -1676,23 +1676,31 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_6_14",
-            "label": "Câu 14",
+            "id": "phys_bai_6_18",
+            "label": "Câu 18",
             "prompt": "Một chất điểm có khối lượng $m$, dao động điều hoà với biên độ $A$, tần số góc $ω$. Động năng cực đại của chất điểm là",
             "options": [
-              "$\\frac { mω ^ { 2 } A ^ { 2 } } { 2 }$.",
-              "$\\frac { ω ^ { 2 } A ^ { 2 } } { 2m }$",
-              "$\\frac { mAω ^ { 2 } } { 2 }$",
-              "$\\frac { mωA ^ { 2 } } { 2 }$"
+              "$\\frac { mω ^ { 2 } A ^ { 2 }  } { 2 }$.",
+              "$\\frac { ω ^ { 2 } A ^ { 2 }  } { 2m }$",
+              "$\\frac { mAω ^ { 2 }  } { 2 }$",
+              "$\\frac { mωA ^ { 2 }  } { 2 }$"
             ],
             "answer": 0,
             "answer_letter": "A",
             "explanation": "Đáp án đúng là **A**: *$\\frac { mω ^ { 2 } A ^ { 2 } } { 2 }$.*.",
             "image": null
-          },
+          }
+        ]
+      },
+      {
+        "id": "bai_7",
+        "name": "Bài 7: Con lắc lò xo",
+        "title": "Chu kì, tần số góc, lực kéo về và cơ năng của con lắc lò xo",
+        "description": "Chuyên đề ôn tập lý thuyết & bài tập Vật lí 11 (16 câu hỏi trắc nghiệm 4 lựa chọn)",
+        "questions": [
           {
-            "id": "phys_6_15",
-            "label": "Câu 15",
+            "id": "phys_bai_7_1",
+            "label": "Câu 1",
             "prompt": "Một con lắc lò xo gồm lò xo khối lượng không đáng kể, độ cứng k, một đầu cố định và một đầu gắn với viên bi nhỏ khối lượng m. Con lắc này đang dao động điều hoà có cơ năng",
             "options": [
               "tỉ lệ nghịch với độ cứng k của lò xo.",
@@ -1706,8 +1714,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_6_16",
-            "label": "Câu 16",
+            "id": "phys_bai_7_2",
+            "label": "Câu 2",
             "prompt": "Đại lượng nào sau đây tăng gấp đôi khi biên độ của dao động điều hoà của con lắc lò xo tăng gấp đôi?",
             "options": [
               "Cơ năng của con lắc.",
@@ -1721,8 +1729,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_6_17",
-            "label": "Câu 17",
+            "id": "phys_bai_7_3",
+            "label": "Câu 3",
             "prompt": "Một con lắc lò xo nằm ngang, đang thực hiện dao động điều hoà. Tìm phát biểu sai.",
             "options": [
               "Động năng của vật nặng và thế năng đàn hồi của lò xo là hai thành phần tạo thành cơ năng của con lắc.",
@@ -1736,8 +1744,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_6_18",
-            "label": "Câu 18",
+            "id": "phys_bai_7_4",
+            "label": "Câu 4",
             "prompt": "Một con lắc lò xo dao động điều hoà, cơ năng toàn phần có giá trị là W thì:",
             "options": [
               "Tại vị trí biên dao động: động năng bằng W.",
@@ -1751,8 +1759,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_6_19",
-            "label": "Câu 19",
+            "id": "phys_bai_7_5",
+            "label": "Câu 5",
             "prompt": "Chọn phát biểu sai khi nói về năng lượng trong dao động điều hòa của con lắc lò xo",
             "options": [
               "Cơ năng của con lắc tỉ lệ với bình phương biên độ dao động.",
@@ -1764,23 +1772,15 @@ window.PHYSICS_QUIZ_DATA = [
             "answer_letter": "C",
             "explanation": "Đáp án đúng là **C**: *Cơ năng là 1 hàm số sin theo thời gian với tần số bằng tần số dao động*.",
             "image": null
-          }
-        ]
-      },
-      {
-        "id": "bai_7",
-        "name": "Bài 7: Con lắc lò xo",
-        "title": "Chu kì, tần số góc, lực kéo về và cơ năng của con lắc lò xo",
-        "description": "Chuyên đề ôn tập lý thuyết & bài tập Vật lí 11 (14 câu hỏi trắc nghiệm 4 lựa chọn)",
-        "questions": [
+          },
           {
-            "id": "phys_7_1",
-            "label": "Câu 1",
+            "id": "phys_bai_7_6",
+            "label": "Câu 6",
             "prompt": "Một con lắc lò xo dao động điều hoà với phương trình x = Acosωt và có cơ năng là E. Động năng của vật tại thời điểm t là",
             "options": [
               "Eđ = E/2cosωt.",
               "Eđ = E/4sinωt.",
-              "Eđ = Esin2ωt.",
+              "Eđ  = Esin2ωt.",
               "Eđ = Ecos2ωt."
             ],
             "answer": 2,
@@ -1789,12 +1789,12 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_7_2",
-            "label": "Câu 2",
+            "id": "phys_bai_7_7",
+            "label": "Câu 7",
             "prompt": "Một con lắc lò xo gồm vật nhỏ và lò xo nhẹ có độ cứng k, đang dao động điều hòa. Mốc thế năng tại VTCB. Biểu thức thế năng của con lắc ở li độ x là:",
             "options": [
               "2kx2.",
-              "$\\frac { kx ^ { 2 } } { 2 }$",
+              "$\\frac { kx ^ { 2 }  } { 2 }$",
               "$\\frac { kx } { 2 }$",
               "2kx"
             ],
@@ -1804,8 +1804,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_7_3",
-            "label": "Câu 3",
+            "id": "phys_bai_7_8",
+            "label": "Câu 8",
             "prompt": "Chọn câu đúng:",
             "options": [
               "Năng lượng của dao động điều hòa biến thiên theo thời gian.",
@@ -1819,8 +1819,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_7_4",
-            "label": "Câu 4",
+            "id": "phys_bai_7_9",
+            "label": "Câu 9",
             "prompt": "Một con lắc lò xo dao động điều hoà có",
             "options": [
               "chu kì tỉ lệ với khối lượng vật.",
@@ -1834,8 +1834,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_7_5",
-            "label": "Câu 5",
+            "id": "phys_bai_7_10",
+            "label": "Câu 10",
             "prompt": "Một con lắc lò xo gồm vật nhỏ và lò xo nhẹ, đang dao động điều hòa trên mặt phẳng nằm ngang. Động năng của con lắc đạt giá trị cực tiểu khi:",
             "options": [
               "lò xo không biến dạng",
@@ -1849,8 +1849,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_7_6",
-            "label": "Câu 6",
+            "id": "phys_bai_7_11",
+            "label": "Câu 11",
             "prompt": "Công thức tính tần số góc của con lắc lò xo là",
             "options": [
               "$ω=\\sqrt[] { \\frac { m } { k } }$",
@@ -1864,8 +1864,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_7_7",
-            "label": "Câu 7",
+            "id": "phys_bai_7_12",
+            "label": "Câu 12",
             "prompt": "Công thức tính tần số dao động của con lắc lò xo",
             "options": [
               "$f=2π\\sqrt[] { \\frac { m } { k } }$",
@@ -1879,8 +1879,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_7_8",
-            "label": "Câu 8",
+            "id": "phys_bai_7_13",
+            "label": "Câu 13",
             "prompt": "Công thức tính chu kì dao động của con lắc lò xo là",
             "options": [
               "$T=2π\\sqrt[] { \\frac { m } { k } }$",
@@ -1894,8 +1894,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_7_9",
-            "label": "Câu 9",
+            "id": "phys_bai_7_14",
+            "label": "Câu 14",
             "prompt": "Chu kì dao động điều hoà của con lắc lò xo phụ thuộc vào",
             "options": [
               "biên độ dao động.",
@@ -1909,8 +1909,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_7_10",
-            "label": "Câu 10",
+            "id": "phys_bai_7_15",
+            "label": "Câu 15",
             "prompt": "Một con lắc lò xo dao động điều hoà, nếu không thay đổi cấu tạo của con lắc, không thay đổi cách kích thích dao động nhưng thay đổi cách chọn gốc thời gian thì",
             "options": [
               "biên độ, chu kì, pha của dao động sẽ không thay đổi",
@@ -1924,8 +1924,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_7_11",
-            "label": "Câu 11",
+            "id": "phys_bai_7_16",
+            "label": "Câu 16",
             "prompt": "Con lắc lò xo dao động điều hoà theo phương thẳng đứng trong thang máy đứng yên, khi thang máy đi lên nhanh dần đều, đại lượng vật lí nào không thay đổi:",
             "options": [
               "VTCB.",
@@ -1937,10 +1937,18 @@ window.PHYSICS_QUIZ_DATA = [
             "answer_letter": "B",
             "explanation": "Đáp án đúng là **B**: *Chu kì*.",
             "image": null
-          },
+          }
+        ]
+      },
+      {
+        "id": "bai_8",
+        "name": "Bài 8: Con lắc đơn",
+        "title": "Chu kì con lắc đơn, sự phụ thuộc vào chiều dài dây và gia tốc g",
+        "description": "Chuyên đề ôn tập lý thuyết & bài tập Vật lí 11 (13 câu hỏi trắc nghiệm 4 lựa chọn)",
+        "questions": [
           {
-            "id": "phys_7_12",
-            "label": "Câu 12",
+            "id": "phys_bai_8_1",
+            "label": "Câu 1",
             "prompt": "Tại một nơi xác định, chu kì của con lắc đơn tỉ lệ thuận với",
             "options": [
               "căn bậc hai gia tốc trọng trưởng.",
@@ -1954,8 +1962,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_7_13",
-            "label": "Câu 13",
+            "id": "phys_bai_8_2",
+            "label": "Câu 2",
             "prompt": "Tại cùng một nơi, nếu chiều dài con lắc đơn tăng 4 lần thì chu kì dao động điều hoà của nó",
             "options": [
               "giảm 2 lần.",
@@ -1969,8 +1977,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_7_14",
-            "label": "Câu 14",
+            "id": "phys_bai_8_3",
+            "label": "Câu 3",
             "prompt": "Con lắc đơn có chiều dài ℓ1 dao động với chu kì T1, con lắc đơn có chiều dài ℓ2 thì dao động với chu kì T2. Khi con lắc đơn có chiều dài ℓ2 + ℓ1 sẽ dao động với chu kì là",
             "options": [
               "T = T2 – T1.",
@@ -1982,18 +1990,10 @@ window.PHYSICS_QUIZ_DATA = [
             "answer_letter": "B",
             "explanation": "Đáp án đúng là **B**: *T2 = ${T}_{1}^{2}+{T}_{2}^{2}$*.",
             "image": null
-          }
-        ]
-      },
-      {
-        "id": "bai_8",
-        "name": "Bài 8: Con lắc đơn",
-        "title": "Chu kì con lắc đơn, sự phụ thuộc vào chiều dài dây và gia tốc g",
-        "description": "Chuyên đề ôn tập lý thuyết & bài tập Vật lí 11 (16 câu hỏi trắc nghiệm 4 lựa chọn)",
-        "questions": [
+          },
           {
-            "id": "phys_8_1",
-            "label": "Câu 1",
+            "id": "phys_bai_8_4",
+            "label": "Câu 4",
             "prompt": "Con lắc đơn có chiều dài ℓ1 dao động với chu kì T1, con lắc đơn có chiều dài ℓ2 > ℓ1 thì dao động với chu kì T2. Khi con lắc đơn có chiều dài ℓ2 – ℓ1 sẽ dao động với chu kì là",
             "options": [
               "T = T2 – T1.",
@@ -2007,8 +2007,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_8_2",
-            "label": "Câu 2",
+            "id": "phys_bai_8_5",
+            "label": "Câu 5",
             "prompt": "Một con lắc đơn chiều dài ℓ dao động điều hoà tại nơi có gia tốc trọng trường g với biên độ góc nhỏ. Tần số của dao động là",
             "options": [
               "$f=\\frac { 1 } { 2π }\\sqrt[] { \\frac { l } { g } }$",
@@ -2022,8 +2022,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_8_3",
-            "label": "Câu 3",
+            "id": "phys_bai_8_6",
+            "label": "Câu 6",
             "prompt": "Tại 1 nơi, tần số dao động điều hoà của con lắc đơn tỉ lệ thuận với",
             "options": [
               "gia tốc trọng trường.",
@@ -2037,8 +2037,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_8_4",
-            "label": "Câu 4",
+            "id": "phys_bai_8_7",
+            "label": "Câu 7",
             "prompt": "Khi chiều dài con lắc đơn tăng gấp 4 lần thì tần số dao động điều hoà của nó",
             "options": [
               "giảm 2 lần.",
@@ -2052,8 +2052,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_8_5",
-            "label": "Câu 5",
+            "id": "phys_bai_8_8",
+            "label": "Câu 8",
             "prompt": "Treo quả cầu vào sợi dây mảnh không co giãn để tạo thành một con lắc đơn. Trong quá trình dao động điều hoà của con lắc đơn đó, có sự biến đổi qua lại giữa:",
             "options": [
               "động năng và thế năng đàn hồi.",
@@ -2067,8 +2067,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_8_6",
-            "label": "Câu 6",
+            "id": "phys_bai_8_9",
+            "label": "Câu 9",
             "prompt": "Một con lắc đơn dao động điều hoà từ vị trí biên độ cực đại đến vị trí cân bằng có:",
             "options": [
               "thế năng tăng dần",
@@ -2082,8 +2082,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_8_7",
-            "label": "Câu 7",
+            "id": "phys_bai_8_10",
+            "label": "Câu 10",
             "prompt": "Với gốc thế năng tại vị trí cân bằng. Chọn câu sai khi nói về cơ năng của con lắc đơn khi dao động điều hòa.",
             "options": [
               "Cơ năng bằng thế năng của vật ở vị trí biên",
@@ -2097,8 +2097,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_8_8",
-            "label": "Câu 8",
+            "id": "phys_bai_8_11",
+            "label": "Câu 11",
             "prompt": "Trong dao động điều hoà của con lắc đơn, cơ năng của nó bằng:",
             "options": [
               "Động năng của vật khi qua vị trí cân bằng",
@@ -2112,8 +2112,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_8_9",
-            "label": "Câu 9",
+            "id": "phys_bai_8_12",
+            "label": "Câu 12",
             "prompt": "(I) Trong điều kiện bỏ qua mọi lực cản thì dao động của con lắc đơn là dao động điều hoà, có biên độ không đổi; (II) Vì nếu không có lực cản thì cơ năng của con lắc được bảo toàn.\nChọn phương án đúng:",
             "options": [
               "Phát biểu (I) đúng, phát biểu (II) sai.",
@@ -2127,8 +2127,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_8_10",
-            "label": "Câu 10",
+            "id": "phys_bai_8_13",
+            "label": "Câu 13",
             "prompt": "Một con lắc đơn dao động điều hoà từ vị trí biên độ cực đại đến vị trí cân bằng có:",
             "options": [
               "thế năng tăng dần",
@@ -2140,10 +2140,18 @@ window.PHYSICS_QUIZ_DATA = [
             "answer_letter": "B",
             "explanation": "Đáp án đúng là **B**: *động năng tăng dần*.",
             "image": null
-          },
+          }
+        ]
+      },
+      {
+        "id": "bai_9",
+        "name": "Bài 9: Dao động tắt dần & Dao động duy trì",
+        "title": "Đặc điểm biên độ giảm dần, nguyên nhân lực cản ma sát và ứng dụng",
+        "description": "Chuyên đề ôn tập lý thuyết & bài tập Vật lí 11 (16 câu hỏi trắc nghiệm 4 lựa chọn)",
+        "questions": [
           {
-            "id": "phys_8_11",
-            "label": "Câu 11",
+            "id": "phys_bai_9_1",
+            "label": "Câu 1",
             "prompt": "Nguyên nhân gây ra dao động tắt dần của con lắc đơn trong không khí là do",
             "options": [
               "trọng lực tác dụng lên vật.",
@@ -2157,8 +2165,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_8_12",
-            "label": "Câu 12",
+            "id": "phys_bai_9_2",
+            "label": "Câu 2",
             "prompt": "Dao động tắt dần",
             "options": [
               "có biên độ không đổi theo thời gian.",
@@ -2172,8 +2180,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_8_13",
-            "label": "Câu 13",
+            "id": "phys_bai_9_3",
+            "label": "Câu 3",
             "prompt": "Một vật dao động tắt dần có các đại lượng giảm liên tục theo thời gian là:",
             "options": [
               "biên độ và gia tốc",
@@ -2187,8 +2195,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_8_14",
-            "label": "Câu 14",
+            "id": "phys_bai_9_4",
+            "label": "Câu 4",
             "prompt": "Phát biểu nào sau đây là sai khi nói về dao động tắt dần?",
             "options": [
               "Dao động tắt dần là dao động có biên độ giảm dần theo thời gian.",
@@ -2198,12 +2206,12 @@ window.PHYSICS_QUIZ_DATA = [
             ],
             "answer": 2,
             "answer_letter": "C",
-            "explanation": "Đáp án đúng là **C**: *Trong dầu, thời gian dao động của vật kéo dài hơn so với khi vật dao động trong không khí.*.",
+            "explanation": "Đáp án đúng là **A**: *Tần số của dao động càng lớn thì dao động tắt dần càng chậm.*.",
             "image": null
           },
           {
-            "id": "phys_8_15",
-            "label": "Câu 15",
+            "id": "phys_bai_9_5",
+            "label": "Câu 5",
             "prompt": "Phát biểu nào sau đây là sai khi nói về dao động tắt dần?",
             "options": [
               "Tần số của dao động càng lớn thì dao động tắt dần càng chậm.",
@@ -2217,8 +2225,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_8_16",
-            "label": "Câu 16",
+            "id": "phys_bai_9_6",
+            "label": "Câu 6",
             "prompt": "Nhận định nào sau đây sai khi nói về dao động cơ học tắt dần?",
             "options": [
               "Trong dao động tắt dần, cơ năng giảm dần theo thời gian",
@@ -2230,18 +2238,10 @@ window.PHYSICS_QUIZ_DATA = [
             "answer_letter": "D",
             "explanation": "Đáp án đúng là **D**: *Dao động tắt dần có động năng giảm dần còn thế năng biến thiên điều hòa.*.",
             "image": null
-          }
-        ]
-      },
-      {
-        "id": "bai_9",
-        "name": "Bài 9: Dao động tắt dần & Dao động duy trì",
-        "title": "Đặc điểm biên độ giảm dần, nguyên nhân lực cản ma sát và ứng dụng",
-        "description": "Chuyên đề ôn tập lý thuyết & bài tập Vật lí 11 (11 câu hỏi trắc nghiệm 4 lựa chọn)",
-        "questions": [
+          },
           {
-            "id": "phys_9_1",
-            "label": "Câu 1",
+            "id": "phys_bai_9_7",
+            "label": "Câu 7",
             "prompt": "Chọn phát biểu sai khi nói về dao động tắt dần",
             "options": [
               "Ma sát, lực cản sinh công làm tiêu hao năng lượng của dao động",
@@ -2255,12 +2255,12 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_9_2",
-            "label": "Câu 2",
+            "id": "phys_bai_9_8",
+            "label": "Câu 8",
             "prompt": "Khi nói về dao động cơ tắt dần của một vật, phát biểu nào sau đây đúng?",
             "options": [
               "Lực cản của môi trường tác dụng lên vật càng nhỏ thì dao động tắt dần càng nhanh",
-              "Cơ năng của vật không thay đổi theo thời gian.",
+              "Cơ  năng của vật không thay đổi theo thời gian.",
               "Động năng của vật biến thiên theo hàm bậc nhất của thời gian.",
               "Biên độ dao động của vật giảm dần theo thời gian."
             ],
@@ -2270,8 +2270,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_9_3",
-            "label": "Câu 3",
+            "id": "phys_bai_9_9",
+            "label": "Câu 9",
             "prompt": "Tìm phát biểu sai về hệ dao động:",
             "options": [
               "Động năng là một dạng năng lượng phụ thuộc vào vận tốc.",
@@ -2285,8 +2285,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_9_4",
-            "label": "Câu 4",
+            "id": "phys_bai_9_10",
+            "label": "Câu 10",
             "prompt": "Khi nói về dao động tắt dần, phát biểu nào dưới đây là không đúng?",
             "options": [
               "Biên độ giảm dần theo thời gian",
@@ -2300,8 +2300,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_9_5",
-            "label": "Câu 5",
+            "id": "phys_bai_9_11",
+            "label": "Câu 11",
             "prompt": "Phát biểu nào sau đây là đúng?",
             "options": [
               "Dao động duy trì là dao động tắt dần mà người ta đã làm mất lực cản của môi trường đối với vật dao động.",
@@ -2315,8 +2315,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_9_6",
-            "label": "Câu 6",
+            "id": "phys_bai_9_12",
+            "label": "Câu 12",
             "prompt": "Dao động duy trì là dao động tắt dần mà người ta đã:",
             "options": [
               "Làm mất lực cản của môi trường đối với vật chuyển động.",
@@ -2330,8 +2330,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_9_7",
-            "label": "Câu 7",
+            "id": "phys_bai_9_13",
+            "label": "Câu 13",
             "prompt": "Dao động của con lắc đồng hồ là",
             "options": [
               "dao động cưỡng bức.",
@@ -2345,8 +2345,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_9_8",
-            "label": "Câu 8",
+            "id": "phys_bai_9_14",
+            "label": "Câu 14",
             "prompt": "Dao động duy trì là dao động tắt dần mà ta đã:",
             "options": [
               "Làm mát lực cản môi trường đối với vật chuyển động",
@@ -2360,8 +2360,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_9_9",
-            "label": "Câu 9",
+            "id": "phys_bai_9_15",
+            "label": "Câu 15",
             "prompt": "Dao động tự do của vật là dao động có:",
             "options": [
               "Tần số không đổi.",
@@ -2375,8 +2375,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_9_10",
-            "label": "Câu 10",
+            "id": "phys_bai_9_16",
+            "label": "Câu 16",
             "prompt": "Chọn các tính chất sau đây điền vào chỗ trống cho đúng nghĩa. Dao động … là chuyển động của 1 vật có li độ phụ thuộc vào thời gian theo dạng sin hay cos",
             "options": [
               "Điều hòa",
@@ -2388,10 +2388,18 @@ window.PHYSICS_QUIZ_DATA = [
             "answer_letter": "A",
             "explanation": "Đáp án đúng là **A**: *Điều hòa*.",
             "image": null
-          },
+          }
+        ]
+      },
+      {
+        "id": "bai_10",
+        "name": "Bài 10: Dao động cưỡng bức & Hiện tượng cộng hưởng",
+        "title": "Tần số lực cưỡng bức, điều kiện biên độ cực đại khi f = f0",
+        "description": "Chuyên đề ôn tập lý thuyết & bài tập Vật lí 11 (6 câu hỏi trắc nghiệm 4 lựa chọn)",
+        "questions": [
           {
-            "id": "phys_9_11",
-            "label": "Câu 11",
+            "id": "phys_bai_10_1",
+            "label": "Câu 1",
             "prompt": "Chọn các tính chất sau đây điền vào chỗ trống cho đúng nghĩa. Dao động ………………… là dao động của một hệ chịu ảnh hưởng của nội lực.",
             "options": [
               "Điều hòa",
@@ -2403,18 +2411,10 @@ window.PHYSICS_QUIZ_DATA = [
             "answer_letter": "B",
             "explanation": "Đáp án đúng là **B**: *Tự do*.",
             "image": null
-          }
-        ]
-      },
-      {
-        "id": "bai_10",
-        "name": "Bài 10: Dao động cưỡng bức & Hiện tượng cộng hưởng",
-        "title": "Tần số lực cưỡng bức, điều kiện biên độ cực đại khi f = f0",
-        "description": "Chuyên đề ôn tập lý thuyết & bài tập Vật lí 11 (5 câu hỏi trắc nghiệm 4 lựa chọn)",
-        "questions": [
+          },
           {
-            "id": "phys_10_1",
-            "label": "Câu 1",
+            "id": "phys_bai_10_2",
+            "label": "Câu 2",
             "prompt": "Dao động dưới tác dụng của ngoại lực biến thiên điều hoà F = F0sin(ωt + φ) gọi là dao động:",
             "options": [
               "Điều hoà",
@@ -2428,8 +2428,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_10_2",
-            "label": "Câu 2",
+            "id": "phys_bai_10_3",
+            "label": "Câu 3",
             "prompt": "Khi nói về dao động cưỡng bức, phát biểu nào sau đây sai?",
             "options": [
               "Biên độ của dao động cưỡng bức phụ thuộc vào biên độ của lực cưỡng bức.",
@@ -2443,8 +2443,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_10_3",
-            "label": "Câu 3",
+            "id": "phys_bai_10_4",
+            "label": "Câu 4",
             "prompt": "Phát biểu nào sau đây là sai khi nói về dao động cơ học?",
             "options": [
               "Tần số của dao động cưỡng bức bằng tần số của ngoại lực cưỡng bức.",
@@ -2458,8 +2458,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_10_4",
-            "label": "Câu 4",
+            "id": "phys_bai_10_5",
+            "label": "Câu 5",
             "prompt": "Trong những trường hợp cộng hưởng sau, trường hợp nào cộng hưởng có hại",
             "options": [
               "Hiện tượng cộng hưởng ở lò vi sóng",
@@ -2473,8 +2473,8 @@ window.PHYSICS_QUIZ_DATA = [
             "image": null
           },
           {
-            "id": "phys_10_5",
-            "label": "Câu 5",
+            "id": "phys_bai_10_6",
+            "label": "Câu 6",
             "prompt": "Trên hình vẽ là một hệ dao động. Khi cho con lắc M dao động, thì các con lắc (1), (2), (3), (4) cũng dao động cưỡng bức theo. Hỏi con lắc nào dao động mạnh nhất trong 4 con lắc?",
             "options": [
               "(1)",

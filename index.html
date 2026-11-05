@@ -10,7 +10,7 @@
 <script>
   // AUTO-REDIRECT CACHE BUSTER FOR ALL USERS
   (function() {
-    var APP_BUILD_TAG = "20261104_2230";
+    var APP_BUILD_TAG = "20261105_2050";
     var p = new URLSearchParams(window.location.search);
     if (p.get("v") !== APP_BUILD_TAG) {
       p.set("v", APP_BUILD_TAG);
@@ -634,6 +634,24 @@ a {
 .flag-btn:hover, .flag-btn.active {
   color: var(--warning);
   background: var(--warning-soft);
+}
+.group-context-pill {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+  padding: 0.55rem 0.85rem;
+  background: var(--surface-secondary, rgba(255, 255, 255, 0.05));
+  border-left: 3.5px solid var(--accent-base);
+  border-radius: 6px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--accent-base);
+  margin-bottom: 0.85rem;
+  line-height: 1.45;
+}
+.group-context-pill svg {
+  flex-shrink: 0;
+  margin-top: 2px;
 }
 .q-prompt-text {
   font-size: 0.96rem;
@@ -2209,7 +2227,7 @@ a {
 
 <!-- LOAD QUESTION DATA -->
 <script src="quiz_data.js?v=20261102_2215"></script>
-<script src="physics_quiz_data.js?v=20261103_01"></script>
+<script src="physics_quiz_data.js?v=20261105_2050"></script>
 <script src="history_quiz_data.js?v=20261104_2015"></script>
 <script src="telemetry_sync.js?v=20261104_2145"></script>
 
@@ -3420,7 +3438,7 @@ function renderSingleQuestionCard(q, displayNum, totalCount) {
         </button>
       </div>
       
-      <div class="q-prompt-text">${renderMathAndText(q.prompt)}</div>
+      <div class="q-prompt-text">${renderQuestionPromptWithBanner(q.prompt)}</div>
       
       ${imageHtml}
       ${contentHtml}
