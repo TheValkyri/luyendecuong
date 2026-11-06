@@ -269,7 +269,7 @@
           {
             "id": "phys_bai_1_18",
             "label": "Câu 18",
-            "prompt": "Một chất điểm dao động điều hoà với phương trình  Li độ của vật khi pha dao động bằng (π) là:",
+            "prompt": "Một chất điểm dao động điều hoà với phương trình $x = 5\\cos(10\\pi t + \\pi/3)\\text{ cm}$. Li độ của vật khi pha dao động bằng $\\pi\\text{ rad}$ là:",
             "options": [
               "5cm.",
               "-5cm.",
@@ -278,13 +278,13 @@
             ],
             "answer": 1,
             "answer_letter": "B",
-            "explanation": "Đáp án đúng là **B**.",
+            "explanation": "Phương trình: $x = 5\\cos(10\\pi t + \\pi/3)\\text{ cm}$. Khi pha dao động bằng $\\pi\\text{ rad}$ thì li độ là $x = 5\\cos(\\pi) = -5\\text{ cm}$. Đáp án đúng là **B**: *-5cm.*",
             "image": null
           },
           {
             "id": "phys_bai_1_19",
             "label": "Câu 19",
-            "prompt": "Một chất điểm dao động điều hoà có phương trình li độ theo thời gian là: Li độ của vật khi pha dao động bằng () là:",
+            "prompt": "Một chất điểm dao động điều hoà có phương trình li độ theo thời gian là: $x = 6\\cos(10\\pi t - \\pi/4)\\text{ cm}$. Li độ của vật khi pha dao động bằng $\\pi/3\\text{ rad}$ là:",
             "options": [
               "3cm",
               "-3cm",
@@ -293,7 +293,7 @@
             ],
             "answer": 0,
             "answer_letter": "A",
-            "explanation": "Đáp án đúng là **A**: *3cm*.",
+            "explanation": "Phương trình: $x = 6\\cos(10\\pi t - \\pi/4)\\text{ cm}$. Khi pha dao động bằng $\\pi/3\\text{ rad}$ thì li độ là $x = 6\\cos(\\pi/3) = 6 \\times 0,5 = 3\\text{ cm}$. Đáp án đúng là **A**: *3cm*.",
             "image": null
           },
           {
@@ -322,7 +322,7 @@
           {
             "id": "phys_bai_2_1",
             "label": "Câu 1",
-            "prompt": "[Dữ kiện chung cho Câu 1 – Câu 5: Cho một vật dao động điều hòa có đồ thị li độ phụ thuộc thời gian như hình bên. Mỗi độ chia trên trục Ox là 1 cm, mỗi độ chia trên trục thời gian là 0,1 giây.]\n\nBiên độ dao động của vật là:",
+            "prompt": "[Dữ kiện: Cho một vật dao động điều hòa có đồ thị li độ phụ thuộc thời gian như hình bên. Mỗi độ chia trên trục Ox là 1 cm, mỗi độ chia trên trục thời gian là 0,1 giây.]\n\nBiên độ dao động của vật là:",
             "options": [
               "2 cm",
               "3 cm",
@@ -337,7 +337,7 @@
           {
             "id": "phys_bai_2_2",
             "label": "Câu 2",
-            "prompt": "[Dữ kiện chung cho Câu 1 – Câu 5 (Xem đồ thị trên)]\n\nKể từ lúc bắt đầu dao động. Chất điểm đi qua vị trí biên dương lần thứ 2 vào thời điểm",
+            "prompt": "[Dữ kiện: Cho một vật dao động điều hòa có đồ thị li độ phụ thuộc thời gian như hình bên. Mỗi độ chia trên trục Ox là 1 cm, mỗi độ chia trên trục thời gian là 0,1 giây.]\n\nKể từ lúc bắt đầu dao động. Chất điểm đi qua vị trí biên dương lần thứ 2 vào thời điểm",
             "options": [
               "0,15 (s)",
               "0,45 (s)",
@@ -352,7 +352,7 @@
           {
             "id": "phys_bai_2_3",
             "label": "Câu 3",
-            "prompt": "[Dữ kiện chung cho Câu 1 – Câu 5 (Xem đồ thị trên)]\n\nTại thời điểm t = 0, li độ của vật là:",
+            "prompt": "[Dữ kiện: Cho một vật dao động điều hòa có đồ thị li độ phụ thuộc thời gian như hình bên. Mỗi độ chia trên trục Ox là 1 cm, mỗi độ chia trên trục thời gian là 0,1 giây.]\n\nTại thời điểm t = 0, li độ của vật là:",
             "options": [
               "0 cm",
               "–3 cm",
@@ -367,7 +367,7 @@
           {
             "id": "phys_bai_2_4",
             "label": "Câu 4",
-            "prompt": "[Dữ kiện chung cho Câu 1 – Câu 5 (Xem đồ thị trên)]\n\nPhương trình dao động phù hợp với đồ thị là:",
+            "prompt": "[Dữ kiện: Cho một vật dao động điều hòa có đồ thị li độ phụ thuộc thời gian như hình bên. Mỗi độ chia trên trục Ox là 1 cm, mỗi độ chia trên trục thời gian là 0,1 giây.]\n\nPhương trình dao động phù hợp với đồ thị là:",
             "options": [
               "x = 3sin(t)",
               "x = 3cos(t)",
@@ -382,7 +382,7 @@
           {
             "id": "phys_bai_2_5",
             "label": "Câu 5",
-            "prompt": "[Dữ kiện chung cho Câu 1 – Câu 5 (Xem đồ thị trên)]\n\nTại thời điểm t = 0,9s, li độ của vật là:",
+            "prompt": "[Dữ kiện: Cho một vật dao động điều hòa có đồ thị li độ phụ thuộc thời gian như hình bên. Mỗi độ chia trên trục Ox là 1 cm, mỗi độ chia trên trục thời gian là 0,1 giây.]\n\nTại thời điểm t = 0,9s, li độ của vật là:",
             "options": [
               "0 cm",
               "3 cm",
@@ -397,7 +397,7 @@
           {
             "id": "phys_bai_2_6",
             "label": "Câu 6",
-            "prompt": "[Dữ kiện chung cho Câu 6 – Câu 8: Đồ thị li độ theo thời gian của chất điểm dao động điều hoà được mô tả như hình vẽ.]\n\nBiên độ của dao động là:",
+            "prompt": "[Dữ kiện: Đồ thị li độ theo thời gian của chất điểm dao động điều hoà được mô tả như hình vẽ.]\n\nBiên độ của dao động là:",
             "options": [
               "20 cm",
               "5 cm",
@@ -412,7 +412,7 @@
           {
             "id": "phys_bai_2_7",
             "label": "Câu 7",
-            "prompt": "[Dữ kiện chung cho Câu 6 – Câu 8 (Xem đồ thị trên)]\n\nTại thời điểm t = 0, li độ của vật là:",
+            "prompt": "[Dữ kiện: Đồ thị li độ theo thời gian của chất điểm dao động điều hoà được mô tả như hình vẽ.]\n\nTại thời điểm t = 0, li độ của vật là:",
             "options": [
               "0 cm",
               "–10 cm",
@@ -427,7 +427,7 @@
           {
             "id": "phys_bai_2_8",
             "label": "Câu 8",
-            "prompt": "[Dữ kiện chung cho Câu 6 – Câu 8 (Xem đồ thị trên)]\n\nTại thời điểm t = 90 ms, li độ của vật là:",
+            "prompt": "[Dữ kiện: Đồ thị li độ theo thời gian của chất điểm dao động điều hoà được mô tả như hình vẽ.]\n\nTại thời điểm t = 90 ms, li độ của vật là:",
             "options": [
               "0 cm",
               "–10 cm",
@@ -457,7 +457,7 @@
           {
             "id": "phys_bai_2_10",
             "label": "Câu 10",
-            "prompt": "[Dữ kiện chung cho Câu 10 – Câu 14: Trên hình vẽ là vị trí của vật nặng trong hệ con lắc lò xo tại các thời điểm khác nhau (với các vị trí E, F, G, H, M, N, P, Q, R).]\n\nTrong hình, vị trí nào không ứng với biên âm (li độ âm cực đại)?",
+            "prompt": "[Dữ kiện: Trên hình vẽ là vị trí của vật nặng trong hệ con lắc lò xo tại các thời điểm khác nhau.]\n\nTrong hình, vị trí nào không ứng với biên âm (li độ âm cực đại)?",
             "options": [
               "M",
               "G",
@@ -472,7 +472,7 @@
           {
             "id": "phys_bai_2_11",
             "label": "Câu 11",
-            "prompt": "[Dữ kiện chung cho Câu 10 – Câu 14 (Xem hình hệ con lắc lò xo trên)]\n\nTại thời điểm vật ở vị trí P, nhận định nào sau đây là đúng?",
+            "prompt": "[Dữ kiện: Trên hình vẽ là vị trí của vật nặng trong hệ con lắc lò xo tại các thời điểm khác nhau.]\n\nTại thời điểm vật ở vị trí P, nhận định nào sau đây là đúng?",
             "options": [
               "Vật đang ở vị trí cân bằng.",
               "Vật đang chuyển động chậm dần đi xuống.",
@@ -487,7 +487,7 @@
           {
             "id": "phys_bai_2_12",
             "label": "Câu 12",
-            "prompt": "[Dữ kiện chung cho Câu 10 – Câu 14 (Xem hình hệ con lắc lò xo trên)]\n\nCác vị trí nào gần nhau nhất và có cùng trạng thái chuyển động?",
+            "prompt": "[Dữ kiện: Trên hình vẽ là vị trí của vật nặng trong hệ con lắc lò xo tại các thời điểm khác nhau.]\n\nCác vị trí nào gần nhau nhất và có cùng trạng thái chuyển động?",
             "options": [
               "E và G",
               "N và Q",
@@ -502,7 +502,7 @@
           {
             "id": "phys_bai_2_13",
             "label": "Câu 13",
-            "prompt": "[Dữ kiện chung cho Câu 10 – Câu 14 (Xem hình hệ con lắc lò xo trên)]\n\nTại thời điểm t = t1, vật đang ở vị trí:",
+            "prompt": "[Dữ kiện: Trên hình vẽ là vị trí của vật nặng trong hệ con lắc lò xo tại các thời điểm khác nhau.]\n\nTại thời điểm t = t1, vật đang ở vị trí:",
             "options": [
               "Biên dương",
               "Biên âm",
@@ -517,7 +517,7 @@
           {
             "id": "phys_bai_2_14",
             "label": "Câu 14",
-            "prompt": "[Dữ kiện chung cho Câu 10 – Câu 14 (Xem hình hệ con lắc lò xo trên)]\n\nTại thời điểm vật ở vị trí H, nhận định nào sau đây là đúng?",
+            "prompt": "[Dữ kiện: Trên hình vẽ là vị trí của vật nặng trong hệ con lắc lò xo tại các thời điểm khác nhau.]\n\nTại thời điểm vật ở vị trí H, nhận định nào sau đây là đúng?",
             "options": [
               "Vật đang ở vị trí cân bằng.",
               "Vật đang chuyển động chậm dần đi xuống.",
@@ -532,7 +532,7 @@
           {
             "id": "phys_bai_2_15",
             "label": "Câu 15",
-            "prompt": "[Dữ kiện chung cho Câu 15 – Câu 16: Cho đồ thị của một dao động điều hòa như hình vẽ:]\n\nBiên độ dao động của vật là:",
+            "prompt": "[Dữ kiện: Cho đồ thị của một dao động điều hòa như hình vẽ:]\n\nBiên độ dao động của vật là:",
             "options": [
               "2cm",
               "-4cm",
@@ -547,7 +547,7 @@
           {
             "id": "phys_bai_2_16",
             "label": "Câu 16",
-            "prompt": "[Dữ kiện chung cho Câu 15 – Câu 16 (Xem đồ thị trên)]\n\nTại thời điểm t = 7s thì li độ của vật bằng:",
+            "prompt": "[Dữ kiện: Cho đồ thị của một dao động điều hòa như hình vẽ:]\n\nTại thời điểm t = 7s thì li độ của vật bằng:",
             "options": [
               "0cm",
               "4cm",
@@ -893,7 +893,7 @@
           {
             "id": "phys_bai_4_5",
             "label": "Câu 5",
-            "prompt": "[Dữ kiện chung cho Câu 5 – Câu 6: Hai vật dao động điều hòa có li độ được biểu diễn trên đồ thị li độ - thời gian như hình vẽ.]\n\nPhát biểu nào dưới đây là mô tả đúng tính chất của hai vật?",
+            "prompt": "[Dữ kiện: Hai vật dao động điều hòa có li độ được biểu diễn trên đồ thị li độ - thời gian như hình vẽ.]\n\nPhát biểu nào dưới đây là mô tả đúng tính chất của hai vật?",
             "options": [
               "Hai vật dao động cùng tần số, cùng pha",
               "Hai vật dao động cùng tần số, vuông pha",
@@ -908,7 +908,7 @@
           {
             "id": "phys_bai_4_6",
             "label": "Câu 6",
-            "prompt": "[Dữ kiện chung cho Câu 5 – Câu 6 (Xem đồ thị trên)]\n\nKhi so sánh về pha dao động của hai vật:",
+            "prompt": "[Dữ kiện: Hai vật dao động điều hòa có li độ được biểu diễn trên đồ thị li độ - thời gian như hình vẽ.]\n\nKhi so sánh về pha dao động của hai vật:",
             "options": [
               "Vật 2 sớm pha hơn vật 1.",
               "Vật 1 sớm pha hơn vật 2",
@@ -923,7 +923,7 @@
           {
             "id": "phys_bai_4_7",
             "label": "Câu 7",
-            "prompt": "[Dữ kiện chung cho Câu 7 – Câu 8: Đồ thị biểu diễn hai dao động điều hòa cùng phương, cùng tần số x1, x2.]\n\nTần số của 2 dao động là:",
+            "prompt": "[Dữ kiện: Đồ thị biểu diễn hai dao động điều hòa cùng phương, cùng tần số.]\n\nTần số của 2 dao động là:",
             "options": [
               "0,2 Hz",
               "5.10-2 Hz",
@@ -938,7 +938,7 @@
           {
             "id": "phys_bai_4_8",
             "label": "Câu 8",
-            "prompt": "[Dữ kiện chung cho Câu 7 – Câu 8 (Xem đồ thị trên)]\n\nTại thời điểm dao động 1 đi qua vị trí biên dương lần thứ 2 thì dao động 2 có li độ bao nhiêu?",
+            "prompt": "[Dữ kiện: Đồ thị biểu diễn hai dao động điều hòa cùng phương, cùng tần số.]\n\nTại thời điểm dao động 1 đi qua vị trí biên dương lần thứ 2 thì dao động 2 có li độ bao nhiêu?",
             "options": [
               "x2 = 0 cm",
               "x2 = 6 cm",
@@ -1196,7 +1196,7 @@
             "answer": 1,
             "answer_letter": "B",
             "explanation": "Đáp án đúng là **B**: *$\\frac { 2π } { 5 }cm/s$*.",
-            "image": null
+            "image": "assets/images/physics/image108.png"
           },
           {
             "id": "phys_bai_5_17",
@@ -1331,7 +1331,7 @@
             "answer": 1,
             "answer_letter": "B",
             "explanation": "Đáp án đúng là **B**: *$x=6cos(\\frac { 2π } { 3 }t-\\frac { 2π } { 3 })$ (cm).*.",
-            "image": "assets/images/physics/image118.png"
+            "image": null
           },
           {
             "id": "phys_bai_5_26",
@@ -2481,7 +2481,7 @@
             "answer": 0,
             "answer_letter": "A",
             "explanation": "Hiện tượng cộng hưởng xảy ra khi tần số của lực cưỡng bức bằng tần số dao động riêng của hệ ($f = f_0$), khi đó biên độ dao động đạt giá trị cực đại.",
-            "image": "assets/images/physics/image246.png"
+            "image": "assets/images/physics/image261.png"
           }
         ]
       }

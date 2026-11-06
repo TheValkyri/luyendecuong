@@ -10,7 +10,7 @@
 <script>
   // AUTO-REDIRECT CACHE BUSTER FOR ALL USERS
   (function() {
-    var APP_BUILD_TAG = "20261105_2200";
+    var APP_BUILD_TAG = "20261106_1200";
     var p = new URLSearchParams(window.location.search);
     if (p.get("v") !== APP_BUILD_TAG) {
       p.set("v", APP_BUILD_TAG);
@@ -2264,7 +2264,7 @@ a {
 
 <!-- LOAD QUESTION DATA -->
 <script src="quiz_data.js?v=20261102_2215"></script>
-<script src="physics_quiz_data.js?v=20261105_2050"></script>
+<script src="physics_quiz_data.js?v=20261106_1200"></script>
 <script src="history_quiz_data.js?v=20261104_2015"></script>
 <script src="telemetry_sync.js?v=20261105_2315"></script>
 
@@ -2298,7 +2298,8 @@ const ICONS = {
   languages: `<svg class="v-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></svg>`,
   landmark: `<svg class="v-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="2" y1="22" x2="22" y2="22"/><line x1="12" y1="2" x2="2" y2="7"/><line x1="22" y1="7" x2="12" y2="2"/><line x1="2" y1="7" x2="22" y2="7"/><line x1="4" y1="7" x2="4" y2="22"/><line x1="9" y1="7" x2="9" y2="22"/><line x1="15" y1="7" x2="15" y2="22"/><line x1="20" y1="7" x2="20" y2="22"/></svg>`,
   atom: `<svg class="v-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2.5"/><ellipse cx="12" cy="12" rx="9" ry="3.8" transform="rotate(0 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="3.8" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="3.8" transform="rotate(120 12 12)"/></svg>`,
-  bulb: `<svg class="v-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>`
+  bulb: `<svg class="v-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>`,
+  shuffle: `<svg class="v-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 18h1.4c1.3 0 2.5-.6 3.3-1.7l6.1-8.6c.8-1.1 2-1.7 3.3-1.7H22"/><path d="m18 2 4 4-4 4"/><path d="M2 6h1.4c1.3 0 2.5.6 3.3 1.7l6.1 8.6c.8 1.1 2 1.7 3.3 1.7H22"/><path d="m18 22 4-4-4-4"/></svg>`
 };
 
 /* ==========================================================================
@@ -2357,7 +2358,20 @@ const AppState = {
   timerInterval: null,
   isFinished: false,
   reviewOnlyWrong: false,
+  activeQuestions: null
 };
+
+// Fisher-Yates shuffle algorithm for question randomization
+function shuffleArray(arr) {
+  const result = [...arr];
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const temp = result[i];
+    result[i] = result[j];
+    result[j] = temp;
+  }
+  return result;
+}
 
 let FlatQuestions = [];
 let historySubjectFilter = "all";
@@ -2796,6 +2810,9 @@ function saveSessionDebounced() {
         selfGrades: AppState.selfGrades,
         flaggedQuestions: Array.from(AppState.flaggedQuestions),
         elapsedSeconds: AppState.elapsedSeconds,
+        shuffledQuestionIds: (AppState.currentSubject === "physics" && AppState.activeQuestions)
+          ? AppState.activeQuestions.map(q => q.id)
+          : null,
         timestamp: Date.now()
       };
       localStorage.setItem(getActiveSessionKey(), JSON.stringify(payload));
@@ -2881,6 +2898,7 @@ function switchSubject(subject) {
   AppState.practiceMode = "full";
   AppState.activeSectionIdx = -1;
   AppState.activeQuestionGlobalIdx = 0;
+  AppState.activeQuestions = null;
   AppState.userAnswers = {};
   AppState.selfGrades = {};
   AppState.flaggedQuestions = new Set();
@@ -3181,6 +3199,12 @@ function renderWelcomeScreen() {
         
         <h1 class="exam-title">${escapeHtml(cfg.title)}</h1>
         <p class="exam-subtitle">${escapeHtml(cfg.subtitle)}</p>
+        ${isPhy ? `
+          <div style="display:inline-flex;align-items:center;gap:0.45rem;padding:0.4rem 0.85rem;background:rgba(14,165,233,0.12);color:var(--accent-base);border:1px solid rgba(14,165,233,0.3);border-radius:9999px;font-size:0.78rem;font-weight:700;margin-bottom:1rem;">
+            ${ICONS.shuffle}
+            <span>Xáo trộn ngẫu nhiên tất cả câu mỗi lần làm (Anti-khuôn)</span>
+          </div>
+        ` : ''}
         
         <div class="meta-grid">
           <div class="meta-item">
@@ -3285,6 +3309,25 @@ function startExam() {
   AppState.flaggedQuestions = new Set();
   AppState.activeQuestionGlobalIdx = 0;
   AppState.isFinished = false;
+
+  // PHYSICS RANDOM QUESTION SHUFFLING (Deliverable A)
+  // "mỗi lần làm bài là nó sẽ random câu đi không phải theo khuông, làm với vật lí thôi còn 2 môn kia khỏi, ý là random câu ví dụ câu 63 trước thì là câu 1 chứ 0 phải câu 63, kiểu random tất cả câu"
+  if (AppState.currentSubject === "physics") {
+    let baseSubset = FlatQuestions;
+    if (AppState.practiceMode !== "full") {
+      const bySec = FlatQuestions.filter(q => q.sectionId === AppState.practiceMode);
+      const byTask = FlatQuestions.filter(q => q.taskId === AppState.practiceMode);
+      baseSubset = bySec.length > 0 ? bySec : (byTask.length > 0 ? byTask : FlatQuestions);
+    }
+    const shuffled = shuffleArray(baseSubset);
+    AppState.activeQuestions = shuffled.map((q, idx) => ({
+      ...q,
+      label: `Câu ${idx + 1}`,
+      displayNum: idx + 1
+    }));
+  } else {
+    AppState.activeQuestions = null;
+  }
   
   AudioFX.success();
   launchExamUI();
@@ -3308,17 +3351,31 @@ function resumeSavedSession() {
   AppState.elapsedSeconds = saved.elapsedSeconds || 0;
   AppState.startTime = Date.now() - (AppState.elapsedSeconds * 1000);
   AppState.isFinished = false;
+
+  if (AppState.currentSubject === "physics" && Array.isArray(saved.shuffledQuestionIds) && saved.shuffledQuestionIds.length > 0) {
+    const qMap = new Map(FlatQuestions.map(q => [q.id, q]));
+    AppState.activeQuestions = saved.shuffledQuestionIds.map((id, idx) => {
+      const orig = qMap.get(id);
+      return orig ? { ...orig, label: `Câu ${idx + 1}`, displayNum: idx + 1 } : null;
+    }).filter(Boolean);
+  } else {
+    AppState.activeQuestions = null;
+  }
   
   launchExamUI();
   saveSessionDebounced();
 }
 
 function discardSavedSession() {
+  AppState.activeQuestions = null;
   clearSession();
   renderWelcomeScreen();
 }
 
 function getActiveQuestionsSubset() {
+  if (AppState.activeQuestions && AppState.activeQuestions.length > 0) {
+    return AppState.activeQuestions;
+  }
   if (AppState.practiceMode === "full") return FlatQuestions;
   const bySec = FlatQuestions.filter(q => q.sectionId === AppState.practiceMode);
   if (bySec.length > 0) return bySec;
@@ -3347,12 +3404,15 @@ function launchExamUI() {
   }
   document.getElementById("topHeaderTitle").textContent = AppState.studentName;
   document.getElementById("progressStrip").style.display = "block";
-  document.getElementById("sectionTabsBar").style.display = "block";
+  const isShuffledPhy = (AppState.currentSubject === "physics" && AppState.activeQuestions && AppState.activeQuestions.length > 0);
+  document.getElementById("sectionTabsBar").style.display = isShuffledPhy ? "none" : "block";
   document.getElementById("modeToggleBar").style.display = "flex";
   document.getElementById("bottomDock").style.display = "block";
   document.getElementById("btnMatrixTrigger").style.display = "inline-flex";
   
-  renderSectionTabs();
+  if (!isShuffledPhy) {
+    renderSectionTabs();
+  }
   startTimer();
   
   if (AppState.viewMode === "focus") {
@@ -3506,21 +3566,24 @@ function renderListMode() {
   
   let html = `<div style="max-width:760px;margin:0 auto;">`;
   
+  const isShuffledPhy = (AppState.currentSubject === "physics" && AppState.activeQuestions && AppState.activeQuestions.length > 0);
   let lastGroupKey = "";
   let headingIdx = 0;
   
   subset.forEach((q, idx) => {
-    const groupKey = (AppState.currentSubject === 'physics' || AppState.currentSubject === 'history') ? (q.taskId || q.sectionId) : q.sectionId;
-    const groupTitle = (AppState.currentSubject === 'physics' || AppState.currentSubject === 'history') ? (q.taskName || q.taskTitle) : q.sectionTitle;
-    
-    if (groupKey !== lastGroupKey) {
-      lastGroupKey = groupKey;
-      html += `
-        <div id="sec-heading-${headingIdx}" style="margin:2.5rem 0 1rem;padding-bottom:0.5rem;border-bottom:2px solid var(--border-accent);">
-          <div style="font-size:0.75rem;font-weight:700;color:var(--accent-base);letter-spacing:0.1em;text-transform:uppercase;">${escapeHtml(groupTitle)}</div>
-        </div>
-      `;
-      headingIdx++;
+    if (!isShuffledPhy) {
+      const groupKey = (AppState.currentSubject === 'physics' || AppState.currentSubject === 'history') ? (q.taskId || q.sectionId) : q.sectionId;
+      const groupTitle = (AppState.currentSubject === 'physics' || AppState.currentSubject === 'history') ? (q.taskName || q.taskTitle) : q.sectionTitle;
+      
+      if (groupKey !== lastGroupKey) {
+        lastGroupKey = groupKey;
+        html += `
+          <div id="sec-heading-${headingIdx}" style="margin:2.5rem 0 1rem;padding-bottom:0.5rem;border-bottom:2px solid var(--border-accent);">
+            <div style="font-size:0.75rem;font-weight:700;color:var(--accent-base);letter-spacing:0.1em;text-transform:uppercase;">${escapeHtml(groupTitle)}</div>
+          </div>
+        `;
+        headingIdx++;
+      }
     }
     
     if (q.passage && q.taskName && AppState.currentSubject === 'english' && (idx === 0 || subset[idx-1].taskName !== q.taskName)) {
@@ -4272,7 +4335,7 @@ function finalizeExam() {
   let tfMax = 0;
   let totalTF = 0;
 
-  subset.forEach(q => {
+  subset.forEach((q, idx) => {
     if (q.model_answer) {
       writingMax += 1;
       const userText = AppState.userAnswers[q.id] || "";
@@ -4287,7 +4350,7 @@ function finalizeExam() {
       writingScore += finalScore;
       breakdown.push({
         id: q.id,
-        label: q.label,
+        label: q.label || (`Câu ${idx + 1}`),
         prompt: q.prompt,
         cue: q.cue,
         userAns: userText,
@@ -4328,7 +4391,7 @@ function finalizeExam() {
 
       breakdown.push({
         id: q.id,
-        label: q.label,
+        label: q.label || (`Câu ${idx + 1}`),
         prompt: q.prompt,
         type: 'true_false',
         isTrueFalse: true,
@@ -4351,7 +4414,7 @@ function finalizeExam() {
       const letters = ['A', 'B', 'C', 'D'];
       breakdown.push({
         id: q.id,
-        label: q.label,
+        label: q.label || (`Câu ${idx + 1}`),
         prompt: q.prompt,
         userChoiceIdx: userChoice,
         userChoice: userChoice !== undefined ? letters[userChoice] : "Chưa chọn",
