@@ -51,8 +51,8 @@ export function prepareExamForClient(
     cloned.questions = reordered;
   }
 
-  // Reorder options within questions if option_orders is provided
-  if (sessionRandomization?.option_orders) {
+  // Reorder options within questions if option_orders is provided and exam policy allows
+  if (sessionRandomization?.option_orders && exam.randomization_policy.shuffle_options) {
     for (const q of cloned.questions) {
       const optOrder = sessionRandomization.option_orders[q.id];
       if (optOrder && q.options && q.options.length > 0) {

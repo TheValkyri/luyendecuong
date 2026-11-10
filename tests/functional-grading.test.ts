@@ -332,7 +332,7 @@ describe('Section 7: Functional & Grading Policy Tests', () => {
 
   it('verifies Cong Nghe 11 comprehensive curriculum integrity across all 6 lessons and both question types', () => {
     expect(CONG_NGHE_11_TONG_HOP_EXAM.exam_id).toBe('exam_cong_nghe_11_tong_hop');
-    expect(CONG_NGHE_11_TONG_HOP_EXAM.questions.length).toBe(120);
+    expect(CONG_NGHE_11_TONG_HOP_EXAM.questions.length).toBe(176);
     expect(CONG_NGHE_11_LESSON_EXAMS.length).toBe(7);
 
     // Verify all 6 individual lesson exams are populated
@@ -350,8 +350,8 @@ describe('Section 7: Functional & Grading Policy Tests', () => {
     const singleChoiceList = CONG_NGHE_11_TONG_HOP_EXAM.questions.filter((q) => q.type === 'single_choice');
     const tfClusterList = CONG_NGHE_11_TONG_HOP_EXAM.questions.filter((q) => q.type === 'true_false_cluster');
 
-    expect(singleChoiceList.length).toBe(107);
-    expect(tfClusterList.length).toBe(13);
+    expect(singleChoiceList.length).toBe(157);
+    expect(tfClusterList.length).toBe(19);
 
     // Verify single_choice structure: 4 options, valid key, non-empty stem & options
     for (const q of singleChoiceList) {
@@ -390,7 +390,7 @@ describe('Section 7: Functional & Grading Policy Tests', () => {
 
     expect(clientExam1.questions[0].id).not.toBe(clientExam2.questions[0].id);
     expect(clientExam1.questions[0].number).toBe(1);
-    expect(clientExam1.questions[119].number).toBe(120);
+    expect(clientExam1.questions[175].number).toBe(176);
     // Guarantees zero answer key leakage in Exam Mode
     expect(clientExam1.questions[0].answer_key).toBeUndefined();
     expect(clientExam1.questions[0].explanation).toBeUndefined();

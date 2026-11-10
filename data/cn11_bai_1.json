@@ -1,43 +1,33 @@
 {
   "schema_version": "2.0.0",
   "exam_id": "exam_cn11_bai_1",
-  "exam_version": 1,
-  "subject_id": "CONG_NGHE_11",
-  "subject_name": "Công Nghệ 11 (Cơ Khí)",
-  "grade_level": 11,
-  "title": "Công Nghệ 11 – Bài 1: Khái Quát Về Cơ Khí Chế Tạo",
-  "published_at": "2026-11-10T12:00:00.000Z",
-  "status": "published",
-  "time_limit": 900,
+  "exam_version": 2,
+  "subject_id": "cong_nghe_11",
+  "title": "Công Nghệ 11 - Bài 1: Khái quát về cơ khí chế tạo",
+  "published_at": "2026-11-10T00:00:00.000Z",
+  "time_limit": 1800,
   "grading_policy": {
-    "policy_id": "thpt_national_2025_standard",
-    "total_max_score": 7.5,
-    "single_choice_default_points": 0.25,
-    "true_false_cluster_scale": {
-      "1": 0.1,
-      "2": 0.25,
-      "3": 0.5,
-      "4": 1.0
-    },
-    "multi_select_mode": "partial_with_penalty",
-    "short_answer_case_sensitive": false,
-    "short_answer_normalize_comma_decimal": true,
+    "rounding_decimals": 2,
     "negative_marking_factor": 0,
-    "rounding_decimals": 2
+    "true_false_matrix": [
+      0.1,
+      0.25,
+      0.5,
+      1.0
+    ],
+    "multi_select_mode": "exact_match",
+    "short_answer_case_sensitive": false,
+    "short_answer_trim_whitespace": true
   },
   "attempt_policy": {
-    "max_attempts": 99,
-    "allow_resume_on_disconnect": true,
-    "grace_period_seconds": 120,
-    "auto_submit_on_timeout": true,
-    "require_session_token": true,
-    "allow_review_after_submit": true
+    "max_attempts": 999,
+    "allow_review_after_submission": true,
+    "allow_offline_attempt": true
   },
   "randomization_policy": {
-    "shuffle_questions_within_section": true,
-    "shuffle_options": true,
-    "preserve_section_order": false,
-    "deterministic_seed_strategy": "hmac_session_student"
+    "shuffle_questions_within_section": false,
+    "preserve_section_order": true,
+    "shuffle_options": false
   },
   "questions": [
     {
@@ -45,19 +35,19 @@
       "number": 1,
       "section": "Bài 1: Khái quát về cơ khí chế tạo",
       "type": "single_choice",
-      "cognitive_level": "comprehension",
+      "cognitive_level": "recall",
       "points": 0.25,
-      "stem": "Cơ khí chế tạo là ngành kỹ thuật công nghệ sử dụng các kiến thức toán học, nguyên lí vật lí và kết quả của ngành nào để thực hiện các quá trình thiết kế, chế tạo, vận hành, bảo dưỡng máy móc thiết bị?",
+      "stem": "Cơ khí chế tạo là ngành kỹ thuật công nghệ sử dụng các kiến thức toán học, nguyên lí của vật lí và kết quả ......... Để nghiên cứu để thực hiện các quá trình thiết kế, chế tạo , vận hành, bão dưỡng, sửa chữa máy móc thiết bị.",
       "stem_blocks": [
         {
           "block_id": "cn11_b1_mcq_01_blk_1",
           "order_index": 0,
           "type": "paragraph",
-          "content": "Cơ khí chế tạo là ngành kỹ thuật công nghệ sử dụng các kiến thức toán học, nguyên lí vật lí và kết quả của ngành nào để thực hiện các quá trình thiết kế, chế tạo, vận hành, bảo dưỡng máy móc thiết bị?"
+          "content": "Cơ khí chế tạo là ngành kỹ thuật công nghệ sử dụng các kiến thức toán học, nguyên lí của vật lí và kết quả ......... Để nghiên cứu để thực hiện các quá trình thiết kế, chế tạo , vận hành, bão dưỡng, sửa chữa máy móc thiết bị."
         }
       ],
       "formulas": [],
-      "explanation": "Cơ khí chế tạo dựa trên kiến thức toán học, nguyên lí vật lí và kết quả nghiên cứu của công nghệ vật liệu.",
+      "explanation": "Đáp án đúng theo đề cương: B.",
       "validation": {
         "confidence": 1.0,
         "needs_review": false,
@@ -69,22 +59,22 @@
         {
           "id": "cn11_b1_mcq_01_opt_A",
           "label": "A",
-          "content": "Khai thác quặng kim loại"
+          "content": "khai thác quặng kim loại"
         },
         {
           "id": "cn11_b1_mcq_01_opt_B",
           "label": "B",
-          "content": "Công nghệ vật liệu"
+          "content": "công nghệ vật liệu"
         },
         {
           "id": "cn11_b1_mcq_01_opt_C",
           "label": "C",
-          "content": "Đúc kim loại"
+          "content": "đúc kim loại"
         },
         {
           "id": "cn11_b1_mcq_01_opt_D",
           "label": "D",
-          "content": "Gia công áp lực"
+          "content": "gia công vật liệu"
         }
       ],
       "answer_key": {
@@ -97,19 +87,19 @@
       "number": 2,
       "section": "Bài 1: Khái quát về cơ khí chế tạo",
       "type": "single_choice",
-      "cognitive_level": "comprehension",
+      "cognitive_level": "recall",
       "points": 0.25,
-      "stem": "Đâu KHÔNG phải là vai trò trực tiếp của ngành cơ khí chế tạo?",
+      "stem": "Đâu không phải là vai trò của cơ khí chế tạo?",
       "stem_blocks": [
         {
           "block_id": "cn11_b1_mcq_02_blk_1",
           "order_index": 0,
           "type": "paragraph",
-          "content": "Đâu KHÔNG phải là vai trò trực tiếp của ngành cơ khí chế tạo?"
+          "content": "Đâu không phải là vai trò của cơ khí chế tạo?"
         }
       ],
       "formulas": [],
-      "explanation": "Chế tạo linh kiện vi mạch điện tử bán dẫn thuộc lĩnh vực công nghiệp điện tử - viễn thông.",
+      "explanation": "Đáp án đúng theo đề cương: D.",
       "validation": {
         "confidence": 1.0,
         "needs_review": false,
@@ -121,27 +111,27 @@
         {
           "id": "cn11_b1_mcq_02_opt_A",
           "label": "A",
-          "content": "Chế tạo công cụ lao động cho các ngành nghề"
+          "content": "Chế tạo ra công cụ"
         },
         {
           "id": "cn11_b1_mcq_02_opt_B",
           "label": "B",
-          "content": "Chế tạo đồ dùng, dụng cụ sinh hoạt gia đình"
+          "content": "Chế tạo ra đồ dùng, dụng cụ"
         },
         {
           "id": "cn11_b1_mcq_02_opt_C",
           "label": "C",
-          "content": "Chế tạo linh kiện vi mạch điện tử bán dẫn"
+          "content": "Chế tạo ra máy móc"
         },
         {
           "id": "cn11_b1_mcq_02_opt_D",
           "label": "D",
-          "content": "Chế tạo máy móc, thiết bị sản xuất"
+          "content": "Chế tạo ra linh kiện điện tử"
         }
       ],
       "answer_key": {
         "question_type": "single_choice",
-        "correct_option_id": "cn11_b1_mcq_02_opt_C"
+        "correct_option_id": "cn11_b1_mcq_02_opt_D"
       }
     },
     {
@@ -149,19 +139,19 @@
       "number": 3,
       "section": "Bài 1: Khái quát về cơ khí chế tạo",
       "type": "single_choice",
-      "cognitive_level": "comprehension",
+      "cognitive_level": "recall",
       "points": 0.25,
-      "stem": "Đối tượng lao động chủ yếu của ngành cơ khí chế tạo là gì?",
+      "stem": "Đối tượng lao động của ngành cơ khí chế tạo là gì?",
       "stem_blocks": [
         {
           "block_id": "cn11_b1_mcq_03_blk_1",
           "order_index": 0,
           "type": "paragraph",
-          "content": "Đối tượng lao động chủ yếu của ngành cơ khí chế tạo là gì?"
+          "content": "Đối tượng lao động của ngành cơ khí chế tạo là gì?"
         }
       ],
       "formulas": [],
-      "explanation": "Đối tượng lao động của cơ khí chế tạo là các vật liệu cơ khí được dùng để tạo ra sản phẩm.",
+      "explanation": "Đáp án đúng theo đề cương: B.",
       "validation": {
         "confidence": 1.0,
         "needs_review": false,
@@ -173,22 +163,22 @@
         {
           "id": "cn11_b1_mcq_03_opt_A",
           "label": "A",
-          "content": "Các máy móc công cụ gia công"
+          "content": "Các máy công cụ"
         },
         {
           "id": "cn11_b1_mcq_03_opt_B",
           "label": "B",
-          "content": "Vật liệu cơ khí (kim loại, hợp kim, phi kim, vật liệu mới)"
+          "content": "Các vật liệu cơ khí"
         },
         {
           "id": "cn11_b1_mcq_03_opt_C",
           "label": "C",
-          "content": "Các loại dao cắt gọt kim loại"
+          "content": "Các loại dao cắt kim loại"
         },
         {
           "id": "cn11_b1_mcq_03_opt_D",
           "label": "D",
-          "content": "Đội ngũ thợ và kỹ sư cơ khí"
+          "content": "Thợ và kỹ sư cơ khí"
         }
       ],
       "answer_key": {
@@ -201,19 +191,19 @@
       "number": 4,
       "section": "Bài 1: Khái quát về cơ khí chế tạo",
       "type": "single_choice",
-      "cognitive_level": "comprehension",
+      "cognitive_level": "recall",
       "points": 0.25,
-      "stem": "Sản phẩm của ngành cơ khí chế tạo bao gồm những gì?",
+      "stem": "Sản phẩm của cơ khí chế tạo là",
       "stem_blocks": [
         {
           "block_id": "cn11_b1_mcq_04_blk_1",
           "order_index": 0,
           "type": "paragraph",
-          "content": "Sản phẩm của ngành cơ khí chế tạo bao gồm những gì?"
+          "content": "Sản phẩm của cơ khí chế tạo là"
         }
       ],
       "formulas": [],
-      "explanation": "Sản phẩm cơ khí bao gồm công trình, máy móc, phương tiện giao thông và thiết bị sinh hoạt.",
+      "explanation": "Đáp án đúng theo đề cương: D.",
       "validation": {
         "confidence": 1.0,
         "needs_review": false,
@@ -225,22 +215,22 @@
         {
           "id": "cn11_b1_mcq_04_opt_A",
           "label": "A",
-          "content": "Các công trình kiến trúc kết cấu thép"
+          "content": "Các công trình"
         },
         {
           "id": "cn11_b1_mcq_04_opt_B",
           "label": "B",
-          "content": "Các loại máy móc thiết bị sản xuất"
+          "content": "Các loại máy móc"
         },
         {
           "id": "cn11_b1_mcq_04_opt_C",
           "label": "C",
-          "content": "Các phương tiện giao thông vận tải"
+          "content": "Các phương tiện giao thông"
         },
         {
           "id": "cn11_b1_mcq_04_opt_D",
           "label": "D",
-          "content": "Tất cả các sản phẩm trên"
+          "content": "Tất cả các đáp án trên"
         }
       ],
       "answer_key": {
@@ -253,19 +243,19 @@
       "number": 5,
       "section": "Bài 1: Khái quát về cơ khí chế tạo",
       "type": "single_choice",
-      "cognitive_level": "comprehension",
+      "cognitive_level": "recall",
       "points": 0.25,
-      "stem": "Đâu là các công việc chính trong ngành cơ khí chế tạo?",
+      "stem": "Đâu là công việc của ngành cơ khí chế tạo?",
       "stem_blocks": [
         {
           "block_id": "cn11_b1_mcq_05_blk_1",
           "order_index": 0,
           "type": "paragraph",
-          "content": "Đâu là các công việc chính trong ngành cơ khí chế tạo?"
+          "content": "Đâu là công việc của ngành cơ khí chế tạo?"
         }
       ],
       "formulas": [],
-      "explanation": "Các công việc cơ khí chế tạo gồm thiết kế, gia công, lắp ráp và bảo dưỡng sửa chữa.",
+      "explanation": "Đáp án đúng theo đề cương: D.",
       "validation": {
         "confidence": 1.0,
         "needs_review": false,
@@ -292,7 +282,7 @@
         {
           "id": "cn11_b1_mcq_05_opt_D",
           "label": "D",
-          "content": "Cả 3 công việc trên"
+          "content": "Cả 3 đáp án trên"
         }
       ],
       "answer_key": {
@@ -307,17 +297,17 @@
       "type": "single_choice",
       "cognitive_level": "comprehension",
       "points": 0.25,
-      "stem": "Vai trò nổi bật của cơ khí chế tạo đối với đời sống con người là gì?",
+      "stem": "Đâu là vai trò của cơ khí chế tạo?",
       "stem_blocks": [
         {
           "block_id": "cn11_b1_mcq_06_blk_1",
           "order_index": 0,
           "type": "paragraph",
-          "content": "Vai trò nổi bật của cơ khí chế tạo đối với đời sống con người là gì?"
+          "content": "Đâu là vai trò của cơ khí chế tạo?"
         }
       ],
       "formulas": [],
-      "explanation": "Cơ khí chế tạo phục vụ sản xuất, đời sống và khoa học công nghệ.",
+      "explanation": "Đáp án đúng theo đề cương: D.",
       "validation": {
         "confidence": 1.0,
         "needs_review": false,
@@ -329,17 +319,17 @@
         {
           "id": "cn11_b1_mcq_06_opt_A",
           "label": "A",
-          "content": "Chế tạo công cụ, máy móc giúp lao động nhẹ nhàng, nâng cao năng suất"
+          "content": "Chế tạo các công cụ, máy móc giúp cho lao động trở nên nhẹ nhàng, nâng cao năng suất lao động, thay thế cho lao động thủ công"
         },
         {
           "id": "cn11_b1_mcq_06_opt_B",
           "label": "B",
-          "content": "Tạo ra đồ dùng tiện nghi, nâng cao chất lượng cuộc sống"
+          "content": "Chế tạo các đồ dùng, dụng cụ giúp cuộc sống của con người trở nên tiện nghi và thú vị, nâng cao chất lượng cuộc sống"
         },
         {
           "id": "cn11_b1_mcq_06_opt_C",
           "label": "C",
-          "content": "Chế tạo thiết bị phục vụ nghiên cứu và chinh phục không gian"
+          "content": "Chế tạo các thiết bị, máy và công cụ phục vụ nghiên cứu, chinh phục thiên nhiên, vũ trụ"
         },
         {
           "id": "cn11_b1_mcq_06_opt_D",
@@ -359,17 +349,17 @@
       "type": "single_choice",
       "cognitive_level": "comprehension",
       "points": 0.25,
-      "stem": "Ngành cơ khí chế tạo được định nghĩa là ngành nghề:",
+      "stem": "Cơ khí chế tạo là ngành nghề",
       "stem_blocks": [
         {
           "block_id": "cn11_b1_mcq_07_blk_1",
           "order_index": 0,
           "type": "paragraph",
-          "content": "Ngành cơ khí chế tạo được định nghĩa là ngành nghề:"
+          "content": "Cơ khí chế tạo là ngành nghề"
         }
       ],
       "formulas": [],
-      "explanation": "Định nghĩa chuẩn của ngành cơ khí chế tạo.",
+      "explanation": "Đáp án đúng theo đề cương: B.",
       "validation": {
         "confidence": 1.0,
         "needs_review": false,
@@ -381,12 +371,12 @@
         {
           "id": "cn11_b1_mcq_07_opt_A",
           "label": "A",
-          "content": "Chỉ thiết kế các loại máy móc và đồ dùng"
+          "content": "Thiết kế ra các loại máy móc, thiết bị, đồ dùng"
         },
         {
           "id": "cn11_b1_mcq_07_opt_B",
           "label": "B",
-          "content": "Thiết kế, chế tạo, vận hành, bảo dưỡng, sửa chữa máy móc thiết bị"
+          "content": "Thiết kế, chế tạo, vận hành, bảo dưỡng, sửa chữa các loại máy móc, thiết bị, đồ dùng"
         },
         {
           "id": "cn11_b1_mcq_07_opt_C",
@@ -396,7 +386,7 @@
         {
           "id": "cn11_b1_mcq_07_opt_D",
           "label": "D",
-          "content": "Chăn nuôi và chế biến thực phẩm"
+          "content": "Chăn nuôi để sản xuất thực phẩm"
         }
       ],
       "answer_key": {
@@ -411,17 +401,17 @@
       "type": "single_choice",
       "cognitive_level": "comprehension",
       "points": 0.25,
-      "stem": "Sản phẩm cơ khí chế tạo nào sau đây giúp nâng cao chất lượng tiện nghi trong gia đình?",
+      "stem": "Sản phẩm nào của cơ khí chế tạo giúp nâng cao chất lượng cuộc sống?",
       "stem_blocks": [
         {
           "block_id": "cn11_b1_mcq_08_blk_1",
           "order_index": 0,
           "type": "paragraph",
-          "content": "Sản phẩm cơ khí chế tạo nào sau đây giúp nâng cao chất lượng tiện nghi trong gia đình?"
+          "content": "Sản phẩm nào của cơ khí chế tạo giúp nâng cao chất lượng cuộc sống?"
         }
       ],
       "formulas": [],
-      "explanation": "Máy điều hòa là thiết bị cơ điện lạnh gia dụng nâng cao tiện nghi.",
+      "explanation": "Đáp án đúng theo đề cương: C.",
       "validation": {
         "confidence": 1.0,
         "needs_review": false,
@@ -448,7 +438,7 @@
         {
           "id": "cn11_b1_mcq_08_opt_D",
           "label": "D",
-          "content": "Máy thi công cầu đường"
+          "content": "Máy thi công đường"
         }
       ],
       "answer_key": {
@@ -461,19 +451,19 @@
       "number": 9,
       "section": "Bài 1: Khái quát về cơ khí chế tạo",
       "type": "single_choice",
-      "cognitive_level": "comprehension",
+      "cognitive_level": "recall",
       "points": 0.25,
-      "stem": "Đâu KHÔNG phải là sản phẩm trực tiếp của cơ khí chế tạo?",
+      "stem": "Đâu không là sản phẩm của cơ khí chế tạo?",
       "stem_blocks": [
         {
           "block_id": "cn11_b1_mcq_09_blk_1",
           "order_index": 0,
           "type": "paragraph",
-          "content": "Đâu KHÔNG phải là sản phẩm trực tiếp của cơ khí chế tạo?"
+          "content": "Đâu không là sản phẩm của cơ khí chế tạo?"
         }
       ],
       "formulas": [],
-      "explanation": "Trung tâm thương mại là công trình xây dựng - dịch vụ.",
+      "explanation": "Đáp án đúng theo đề cương: B.",
       "validation": {
         "confidence": 1.0,
         "needs_review": false,
@@ -485,22 +475,22 @@
         {
           "id": "cn11_b1_mcq_09_opt_A",
           "label": "A",
-          "content": "Nhà xưởng khung thép"
+          "content": "Nhà xưởng"
         },
         {
           "id": "cn11_b1_mcq_09_opt_B",
           "label": "B",
-          "content": "Trung tâm thương mại tổng hợp"
+          "content": "Trung tâm thương mại"
         },
         {
           "id": "cn11_b1_mcq_09_opt_C",
           "label": "C",
-          "content": "Tàu thủy chở hàng"
+          "content": "Tàu thủy"
         },
         {
           "id": "cn11_b1_mcq_09_opt_D",
           "label": "D",
-          "content": "Máy bơm nước tưới tiêu"
+          "content": "Máy bơm nước"
         }
       ],
       "answer_key": {
@@ -513,19 +503,19 @@
       "number": 10,
       "section": "Bài 1: Khái quát về cơ khí chế tạo",
       "type": "single_choice",
-      "cognitive_level": "comprehension",
+      "cognitive_level": "recall",
       "points": 0.25,
-      "stem": "Sản phẩm nào dưới đây là sản phẩm tiêu biểu của ngành cơ khí chế tạo?",
+      "stem": "Đâu là sản phẩm của cơ khí chế tạo?",
       "stem_blocks": [
         {
           "block_id": "cn11_b1_mcq_10_blk_1",
           "order_index": 0,
           "type": "paragraph",
-          "content": "Sản phẩm nào dưới đây là sản phẩm tiêu biểu của ngành cơ khí chế tạo?"
+          "content": "Đâu là sản phẩm của cơ khí chế tạo?"
         }
       ],
       "formulas": [],
-      "explanation": "Tất cả đều là sản phẩm của ngành cơ khí chế tạo.",
+      "explanation": "Đáp án đúng theo đề cương: D.",
       "validation": {
         "confidence": 1.0,
         "needs_review": false,
@@ -537,22 +527,22 @@
         {
           "id": "cn11_b1_mcq_10_opt_A",
           "label": "A",
-          "content": "Ô tô, xe máy"
+          "content": "Ô tô"
         },
         {
           "id": "cn11_b1_mcq_10_opt_B",
           "label": "B",
-          "content": "Máy giặt, quạt gió"
+          "content": "Máy giặt"
         },
         {
           "id": "cn11_b1_mcq_10_opt_C",
           "label": "C",
-          "content": "Giàn khoan dầu khí"
+          "content": "Giàn khoan"
         },
         {
           "id": "cn11_b1_mcq_10_opt_D",
           "label": "D",
-          "content": "Tất cả các sản phẩm trên"
+          "content": "Tất cả các đáp án trên"
         }
       ],
       "answer_key": {
@@ -567,17 +557,17 @@
       "type": "single_choice",
       "cognitive_level": "comprehension",
       "points": 0.25,
-      "stem": "Đâu KHÔNG phải là đặc điểm của ngành cơ khí chế tạo?",
+      "stem": "Đâu không phải đặc điểm của ngành cơ khí chế tạo?",
       "stem_blocks": [
         {
           "block_id": "cn11_b1_mcq_11_blk_1",
           "order_index": 0,
           "type": "paragraph",
-          "content": "Đâu KHÔNG phải là đặc điểm của ngành cơ khí chế tạo?"
+          "content": "Đâu không phải đặc điểm của ngành cơ khí chế tạo?"
         }
       ],
       "formulas": [],
-      "explanation": "Sản phẩm cơ khí có mặt khắp nơi trong đời sống và sản xuất.",
+      "explanation": "Đáp án đúng theo đề cương: D.",
       "validation": {
         "confidence": 1.0,
         "needs_review": false,
@@ -589,22 +579,22 @@
         {
           "id": "cn11_b1_mcq_11_opt_A",
           "label": "A",
-          "content": "Đối tượng lao động là vật liệu cơ khí kim loại, phi kim loại"
+          "content": "Đối tượng lao động của ngành cơ khí chế tạo là các vật liệu cơ khí gồm vật liệu kim loại và hợp kim; vật liệu phi kim loại và một số loại vật liệu khác."
         },
         {
           "id": "cn11_b1_mcq_11_opt_B",
           "label": "B",
-          "content": "Công cụ lao động là máy tiện, phay, bào, hàn, gia công"
+          "content": "Công cụ lao động của ngành cơ khí chế tạo là các máy công cụ như tiện, phay, bào, hàn,... để thực hiện các phương pháp gia công như tiện, phay, bào, hàn...."
         },
         {
           "id": "cn11_b1_mcq_11_opt_C",
           "label": "C",
-          "content": "Hồ sơ kỹ thuật sản xuất gồm bản vẽ kỹ thuật và quy trình công nghệ"
+          "content": "Để sản xuất ra sản phẩm trong ngành cơ khí chế tạo đòi hỏi phải có hồ sơ kĩ thuật gồm các bản vẽ kĩ thuật, quy trình gia công sản phẩm,..."
         },
         {
           "id": "cn11_b1_mcq_11_opt_D",
           "label": "D",
-          "content": "Sản phẩm cơ khí không phổ biến và chỉ dùng trong phạm vi hẹp"
+          "content": "Các sản phẩm của ngành cơ khí chế tạo không phổ biến, có mặt trong tất cả các lĩnh vực của đời sống, xã hội cũng như lao động, sản xuất"
         }
       ],
       "answer_key": {
@@ -629,7 +619,7 @@
         }
       ],
       "formulas": [],
-      "explanation": "Bản vẽ kỹ thuật là ngôn ngữ chung xuyên suốt từ thiết kế, chế tạo đến sử dụng.",
+      "explanation": "Đáp án đúng theo đề cương: D.",
       "validation": {
         "confidence": 1.0,
         "needs_review": false,
@@ -641,17 +631,17 @@
         {
           "id": "cn11_b1_mcq_12_opt_A",
           "label": "A",
-          "content": "Căn cứ thiết kế, bảo đảm yêu cầu kỹ thuật cho quá trình chế tạo"
+          "content": "Nâng cao hiệu quả, đảm bảo yêu cầu kĩ thuật cho quá trình chế tạo"
         },
         {
           "id": "cn11_b1_mcq_12_opt_B",
           "label": "B",
-          "content": "Giúp người sử dụng vận hành và bảo trì máy móc đúng cách"
+          "content": "Giúp người tiêu dùng sử dụng các sản phẩm một cách hiệu quả và an toàn"
         },
         {
           "id": "cn11_b1_mcq_12_opt_C",
           "label": "C",
-          "content": "Cung cấp đầy đủ thông tin kích thước, dung sai cho gia công lắp ráp"
+          "content": "Cung cấp thông tin cho quá trình gia công, lắp ráp"
         },
         {
           "id": "cn11_b1_mcq_12_opt_D",
@@ -671,17 +661,17 @@
       "type": "single_choice",
       "cognitive_level": "comprehension",
       "points": 0.25,
-      "stem": "Đặc điểm quan trọng giúp phân biệt cơ khí chế tạo với các ngành nghề khác là gì?",
+      "stem": "Đặc điểm giúp phân biệt cơ khí chế tạo với các ngành nghề khác là?",
       "stem_blocks": [
         {
           "block_id": "cn11_b1_mcq_13_blk_1",
           "order_index": 0,
           "type": "paragraph",
-          "content": "Đặc điểm quan trọng giúp phân biệt cơ khí chế tạo với các ngành nghề khác là gì?"
+          "content": "Đặc điểm giúp phân biệt cơ khí chế tạo với các ngành nghề khác là?"
         }
       ],
       "formulas": [],
-      "explanation": "Sử dụng bản vẽ kỹ thuật là ngôn ngữ đặc trưng của ngành cơ khí chế tạo.",
+      "explanation": "Đáp án đúng theo đề cương: A.",
       "validation": {
         "confidence": 1.0,
         "needs_review": false,
@@ -693,22 +683,22 @@
         {
           "id": "cn11_b1_mcq_13_opt_A",
           "label": "A",
-          "content": "Sử dụng bản vẽ kĩ thuật trong suốt quá trình chế tạo"
+          "content": "Sử dụng bản vẽ kĩ thuật chế tạo sản phẩm"
         },
         {
           "id": "cn11_b1_mcq_13_opt_B",
           "label": "B",
-          "content": "Mọi thiết bị sản xuất chỉ dùng máy tính"
+          "content": "Các thiết bị sản xuất chủ yếu là các máy tính"
         },
         {
           "id": "cn11_b1_mcq_13_opt_C",
           "label": "C",
-          "content": "Vật liệu chế tạo chỉ dùng gỗ tự nhiên"
+          "content": "Sử dụng các loài vật liệu chế tạo chủ yếu là gỗ"
         },
         {
           "id": "cn11_b1_mcq_13_opt_D",
           "label": "D",
-          "content": "Quy trình làm việc tùy tiện, không cần tiêu chuẩn"
+          "content": "Thực hiện quy trình một cách linh hoạt, có thể tự điều chỉnh"
         }
       ],
       "answer_key": {
@@ -723,17 +713,17 @@
       "type": "single_choice",
       "cognitive_level": "comprehension",
       "points": 0.25,
-      "stem": "Cơ khí chế tạo đóng vai trò thúc đẩy các ngành kinh tế khác phát triển vì:",
+      "stem": "Vì sao cơ khí chế tạo thúc đẩy, hỗ trợ các ngành nghề khác phát triển?",
       "stem_blocks": [
         {
           "block_id": "cn11_b1_mcq_14_blk_1",
           "order_index": 0,
           "type": "paragraph",
-          "content": "Cơ khí chế tạo đóng vai trò thúc đẩy các ngành kinh tế khác phát triển vì:"
+          "content": "Vì sao cơ khí chế tạo thúc đẩy, hỗ trợ các ngành nghề khác phát triển?"
         }
       ],
       "formulas": [],
-      "explanation": "Cơ khí chế tạo là ngành công nghiệp xương sống.",
+      "explanation": "Đáp án đúng theo đề cương: D.",
       "validation": {
         "confidence": 1.0,
         "needs_review": false,
@@ -745,22 +735,22 @@
         {
           "id": "cn11_b1_mcq_14_opt_A",
           "label": "A",
-          "content": "Cung cấp toàn bộ máy móc, công cụ phục vụ đời sống"
+          "content": "Vì nó tạo ra các máy móc phục vụ cho đời sống con người."
         },
         {
           "id": "cn11_b1_mcq_14_opt_B",
           "label": "B",
-          "content": "Cung cấp máy móc, trang thiết bị kỹ thuật cho mọi ngành kinh tế"
+          "content": "Vì nó tạo ra các máy móc phục vụ cho các ngành nghề khác."
         },
         {
           "id": "cn11_b1_mcq_14_opt_C",
           "label": "C",
-          "content": "Nâng cao năng suất và hiệu quả kỹ thuật cho toàn bộ xã hội"
+          "content": "Vì nó nâng cao hiệu quả và đảm bảo yêu cầu kĩ thuật cho quá trình chế tạo."
         },
         {
           "id": "cn11_b1_mcq_14_opt_D",
           "label": "D",
-          "content": "Cả 3 lý do trên"
+          "content": "Cả 3 đáp án trên"
         }
       ],
       "answer_key": {
@@ -775,17 +765,17 @@
       "type": "single_choice",
       "cognitive_level": "comprehension",
       "points": 0.25,
-      "stem": "Việc sử dụng các sản phẩm cơ khí chế tạo trong sản xuất mang lại điều gì?",
+      "stem": "Việc sử dụng các sản phẩm cơ khí chế tạo trong sản xuất sẽ đem lại điều gì?",
       "stem_blocks": [
         {
           "block_id": "cn11_b1_mcq_15_blk_1",
           "order_index": 0,
           "type": "paragraph",
-          "content": "Việc sử dụng các sản phẩm cơ khí chế tạo trong sản xuất mang lại điều gì?"
+          "content": "Việc sử dụng các sản phẩm cơ khí chế tạo trong sản xuất sẽ đem lại điều gì?"
         }
       ],
       "formulas": [],
-      "explanation": "Cơ khí hóa giúp giải phóng sức lao động và tăng năng suất.",
+      "explanation": "Đáp án đúng theo đề cương: D.",
       "validation": {
         "confidence": 1.0,
         "needs_review": false,
@@ -797,17 +787,17 @@
         {
           "id": "cn11_b1_mcq_15_opt_A",
           "label": "A",
-          "content": "Giảm nhẹ sức lao động cơ bắp của con người"
+          "content": "Giảm sức lao động"
         },
         {
           "id": "cn11_b1_mcq_15_opt_B",
           "label": "B",
-          "content": "Tăng năng suất và độ chính xác gia công"
+          "content": "Tăng năng suất"
         },
         {
           "id": "cn11_b1_mcq_15_opt_C",
           "label": "C",
-          "content": "Tiết kiệm nguyên vật liệu và năng lượng"
+          "content": "Tiết kiệm tài nguyên"
         },
         {
           "id": "cn11_b1_mcq_15_opt_D",
@@ -825,19 +815,19 @@
       "number": 16,
       "section": "Bài 1: Khái quát về cơ khí chế tạo",
       "type": "single_choice",
-      "cognitive_level": "comprehension",
+      "cognitive_level": "recall",
       "points": 0.25,
-      "stem": "Việc thiết kế cơ khí thường do chức danh nào sau đây đảm nhận?",
+      "stem": "Việc thiết kế cơ khí thường được thực hiện bởi",
       "stem_blocks": [
         {
           "block_id": "cn11_b1_mcq_16_blk_1",
           "order_index": 0,
           "type": "paragraph",
-          "content": "Việc thiết kế cơ khí thường do chức danh nào sau đây đảm nhận?"
+          "content": "Việc thiết kế cơ khí thường được thực hiện bởi"
         }
       ],
       "formulas": [],
-      "explanation": "Kỹ sư cơ khí được đào tạo chuyên sâu về thiết kế và tính toán cơ học.",
+      "explanation": "Đáp án đúng theo đề cương: A.",
       "validation": {
         "confidence": 1.0,
         "needs_review": false,
@@ -854,17 +844,17 @@
         {
           "id": "cn11_b1_mcq_16_opt_B",
           "label": "B",
-          "content": "Kĩ sư hóa học"
+          "content": "Kĩ sư cơ học"
         },
         {
           "id": "cn11_b1_mcq_16_opt_C",
           "label": "C",
-          "content": "Thợ hàn áp lực"
+          "content": "Thợ gia công cơ khí"
         },
         {
           "id": "cn11_b1_mcq_16_opt_D",
           "label": "D",
-          "content": "Thợ điện dân dụng"
+          "content": "Thợ lắp ráp cơ khí"
         }
       ],
       "answer_key": {
@@ -879,17 +869,17 @@
       "type": "single_choice",
       "cognitive_level": "comprehension",
       "points": 0.25,
-      "stem": "Lí do vật liệu kim loại và hợp kim trở thành vật liệu chế tạo cơ khí chủ yếu là:",
+      "stem": "Lí do gì khiến vật liệu kim loại trở thành vật liệu chế tạo chủ yếu?",
       "stem_blocks": [
         {
           "block_id": "cn11_b1_mcq_17_blk_1",
           "order_index": 0,
           "type": "paragraph",
-          "content": "Lí do vật liệu kim loại và hợp kim trở thành vật liệu chế tạo cơ khí chủ yếu là:"
+          "content": "Lí do gì khiến vật liệu kim loại trở thành vật liệu chế tạo chủ yếu?"
         }
       ],
       "formulas": [],
-      "explanation": "Kim loại và hợp kim hội tụ đầy đủ cơ tính và tính công nghệ.",
+      "explanation": "Đáp án đúng theo đề cương: D.",
       "validation": {
         "confidence": 1.0,
         "needs_review": false,
@@ -901,17 +891,17 @@
         {
           "id": "cn11_b1_mcq_17_opt_A",
           "label": "A",
-          "content": "Có tính gia công tốt (đúc, hàn, cắt gọt)"
+          "content": "Tính gia công tốt"
         },
         {
           "id": "cn11_b1_mcq_17_opt_B",
           "label": "B",
-          "content": "Độ cứng và độ bền cao"
+          "content": "Độ cứng cao"
         },
         {
           "id": "cn11_b1_mcq_17_opt_C",
           "label": "C",
-          "content": "Độ bền nhiệt và khả năng chịu tải vượt trội"
+          "content": "Độ bền cao"
         },
         {
           "id": "cn11_b1_mcq_17_opt_D",
@@ -931,17 +921,17 @@
       "type": "single_choice",
       "cognitive_level": "comprehension",
       "points": 0.25,
-      "stem": "Tại sao người tham gia sản xuất cơ khí cần phải tuân thủ nghiêm ngặt quy trình thiết kế?",
+      "stem": "Tại sao người tham quá trình sản xuất cơ khí cần phải tuân thủ đúng các quy trình thiết kế?",
       "stem_blocks": [
         {
           "block_id": "cn11_b1_mcq_18_blk_1",
           "order_index": 0,
           "type": "paragraph",
-          "content": "Tại sao người tham gia sản xuất cơ khí cần phải tuân thủ nghiêm ngặt quy trình thiết kế?"
+          "content": "Tại sao người tham quá trình sản xuất cơ khí cần phải tuân thủ đúng các quy trình thiết kế?"
         }
       ],
       "formulas": [],
-      "explanation": "Tuân thủ quy trình bảo đảm chất lượng, an toàn và hiệu quả.",
+      "explanation": "Đáp án đúng theo đề cương: D.",
       "validation": {
         "confidence": 1.0,
         "needs_review": false,
@@ -953,17 +943,17 @@
         {
           "id": "cn11_b1_mcq_18_opt_A",
           "label": "A",
-          "content": "Để bảo đảm tính kĩ thuật và độ chính xác của sản phẩm"
+          "content": "Để đảm bảo tính kĩ thuật"
         },
         {
           "id": "cn11_b1_mcq_18_opt_B",
           "label": "B",
-          "content": "Để bảo đảm tính an toàn lao động và tuổi thọ máy móc"
+          "content": "Để đảm bảo tính mĩ thuật"
         },
         {
           "id": "cn11_b1_mcq_18_opt_C",
           "label": "C",
-          "content": "Để bảo đảm hiệu quả kinh tế và tính thẩm mỹ"
+          "content": "Để đảm bảo an toàn lao động"
         },
         {
           "id": "cn11_b1_mcq_18_opt_D",
@@ -981,19 +971,19 @@
       "number": 19,
       "section": "Bài 1: Khái quát về cơ khí chế tạo",
       "type": "single_choice",
-      "cognitive_level": "comprehension",
+      "cognitive_level": "application",
       "points": 0.25,
-      "stem": "Sắp xếp các bước đúng theo quy trình chế tạo cơ khí thông thường:",
+      "stem": "Sắp xếp các bước sau sao cho đúng với quy trình chế tạo cơ khí:\n1. Thực hiện gia công các chi tiết máy của sản phẩm\n2. Đọc bản vẽ chi tiết\n3. Xử lí và bảo vệ bề mặt của sản phẩm\n4. Chế tạo phôi\n5. Lắp ráp và kiểm tra chất lượng của sản phẩm",
       "stem_blocks": [
         {
           "block_id": "cn11_b1_mcq_19_blk_1",
           "order_index": 0,
           "type": "paragraph",
-          "content": "Sắp xếp các bước đúng theo quy trình chế tạo cơ khí thông thường:"
+          "content": "Sắp xếp các bước sau sao cho đúng với quy trình chế tạo cơ khí:\n1. Thực hiện gia công các chi tiết máy của sản phẩm\n2. Đọc bản vẽ chi tiết\n3. Xử lí và bảo vệ bề mặt của sản phẩm\n4. Chế tạo phôi\n5. Lắp ráp và kiểm tra chất lượng của sản phẩm"
         }
       ],
       "formulas": [],
-      "explanation": "Quy trình: Đọc bản vẽ -> Chế tạo phôi -> Gia công cắt gọt -> Xử lý bề mặt -> Lắp ráp và kiểm tra.",
+      "explanation": "Đáp án đúng theo đề cương: B.",
       "validation": {
         "confidence": 1.0,
         "needs_review": false,
@@ -1005,27 +995,27 @@
         {
           "id": "cn11_b1_mcq_19_opt_A",
           "label": "A",
-          "content": "1. Đọc bản vẽ chi tiết -> 2. Chế tạo phôi -> 3. Gia công chi tiết máy -> 4. Xử lí bề mặt -> 5. Lắp ráp và kiểm tra"
+          "content": "1 - 2 - 3 - 4 - 5"
         },
         {
           "id": "cn11_b1_mcq_19_opt_B",
           "label": "B",
-          "content": "1. Chế tạo phôi -> 2. Đọc bản vẽ chi tiết -> 3. Xử lí bề mặt -> 4. Gia công chi tiết -> 5. Lắp ráp"
+          "content": "2 - 4 - 1 - 3 - 5"
         },
         {
           "id": "cn11_b1_mcq_19_opt_C",
           "label": "C",
-          "content": "1. Gia công chi tiết -> 2. Chế tạo phôi -> 3. Đọc bản vẽ -> 4. Lắp ráp -> 5. Xử lí bề mặt"
+          "content": "2 - 4 - 5 - 3 - 1"
         },
         {
           "id": "cn11_b1_mcq_19_opt_D",
           "label": "D",
-          "content": "1. Lắp ráp -> 2. Kiểm tra -> 3. Chế tạo phôi -> 4. Gia công chi tiết -> 5. Đọc bản vẽ"
+          "content": "4 - 1 - 2 - 5 - 3"
         }
       ],
       "answer_key": {
         "question_type": "single_choice",
-        "correct_option_id": "cn11_b1_mcq_19_opt_A"
+        "correct_option_id": "cn11_b1_mcq_19_opt_B"
       }
     },
     {
@@ -1035,17 +1025,17 @@
       "type": "single_choice",
       "cognitive_level": "comprehension",
       "points": 0.25,
-      "stem": "Trong quy trình chế tạo cơ khí, bước nào quyết định trực tiếp việc tạo hình và độ chính xác chi tiết máy?",
+      "stem": "Trong quy trình chế tạo cơ khí, bước nào quyết định đến việc tạo hình, độ chính xác của chi tiết chế tạo?",
       "stem_blocks": [
         {
           "block_id": "cn11_b1_mcq_20_blk_1",
           "order_index": 0,
           "type": "paragraph",
-          "content": "Trong quy trình chế tạo cơ khí, bước nào quyết định trực tiếp việc tạo hình và độ chính xác chi tiết máy?"
+          "content": "Trong quy trình chế tạo cơ khí, bước nào quyết định đến việc tạo hình, độ chính xác của chi tiết chế tạo?"
         }
       ],
       "formulas": [],
-      "explanation": "Gia công cắt gọt tạo nên hình dáng, kích thước và độ nhẵn bóng chính xác.",
+      "explanation": "Đáp án đúng theo đề cương: D.",
       "validation": {
         "confidence": 1.0,
         "needs_review": false,
@@ -1067,17 +1057,17 @@
         {
           "id": "cn11_b1_mcq_20_opt_C",
           "label": "C",
-          "content": "Thực hiện gia công các chi tiết máy (tiện, phay, mài,...)"
+          "content": "Thực hiện gia công các chi tiết máy của sản phẩm"
         },
         {
           "id": "cn11_b1_mcq_20_opt_D",
           "label": "D",
-          "content": "Xử lí và bảo vệ bề mặt"
+          "content": "Xử lí và bảo vệ bề mặt của sản phẩm"
         }
       ],
       "answer_key": {
         "question_type": "single_choice",
-        "correct_option_id": "cn11_b1_mcq_20_opt_C"
+        "correct_option_id": "cn11_b1_mcq_20_opt_D"
       }
     },
     {
@@ -1087,17 +1077,17 @@
       "type": "single_choice",
       "cognitive_level": "comprehension",
       "points": 0.25,
-      "stem": "Bước lập quy trình công nghệ gia công, chọn thiết bị, dụng cụ và chế độ cắt thuộc giai đoạn nào?",
+      "stem": "Trong quy trình chế tạo cơ khí, bước lập quy trình công nghệ gia công chi tiết, chọn thiết bị, dụng cụ, xác định chế độ cắt, các bước thực hiện gia công, ... là?",
       "stem_blocks": [
         {
           "block_id": "cn11_b1_mcq_21_blk_1",
           "order_index": 0,
           "type": "paragraph",
-          "content": "Bước lập quy trình công nghệ gia công, chọn thiết bị, dụng cụ và chế độ cắt thuộc giai đoạn nào?"
+          "content": "Trong quy trình chế tạo cơ khí, bước lập quy trình công nghệ gia công chi tiết, chọn thiết bị, dụng cụ, xác định chế độ cắt, các bước thực hiện gia công, ... là?"
         }
       ],
       "formulas": [],
-      "explanation": "Chuẩn bị công nghệ gia công chi tiết.",
+      "explanation": "Đáp án đúng theo đề cương: D.",
       "validation": {
         "confidence": 1.0,
         "needs_review": false,
@@ -1109,22 +1099,22 @@
         {
           "id": "cn11_b1_mcq_21_opt_A",
           "label": "A",
-          "content": "Đọc và phân tích bản vẽ kỹ thuật chi tiết"
+          "content": "Đọc bản vẽ chi tiết"
         },
         {
           "id": "cn11_b1_mcq_21_opt_B",
           "label": "B",
-          "content": "Chế tạo phôi thô"
+          "content": "Chế tạo phôi"
         },
         {
           "id": "cn11_b1_mcq_21_opt_C",
           "label": "C",
-          "content": "Xử lí và bảo vệ bề mặt"
+          "content": "Xử lí và bảo vệ bề mặt của sản phẩm"
         },
         {
           "id": "cn11_b1_mcq_21_opt_D",
           "label": "D",
-          "content": "Gia công các chi tiết máy"
+          "content": "Thực hiện gia công các chi tiết máy của sản phẩm"
         }
       ],
       "answer_key": {
@@ -1139,17 +1129,17 @@
       "type": "single_choice",
       "cognitive_level": "comprehension",
       "points": 0.25,
-      "stem": "Cho các phát biểu sau: (1) Sản phẩm cơ khí có thể là máy móc, công trình, đồ dùng gia đình; (2) Quá trình sản xuất cơ khí rất đơn giản, không cần quy trình; (3) Sản phẩm cơ khí có mặt khắp nơi trong đời sống; (4) Kĩ sư cơ khí là người được đào tạo lắp ráp tại cơ sở chuyên nghiệp; (5) Tháp Eiffel là một sản phẩm cơ khí kết cấu thép. Có bao nhiêu phát biểu đúng?",
+      "stem": "Cho các phát biểu sau. Số phát biểu đúng là?\n1. Sản phẩm của cơ khí chế tạo có thể là các công trình, máy móc, phương tiện giao thông, đồ dùng gia đình\n2. Quá trình sản xuất cơ khí là một quá trình đơn giản và ít công đoạn\n3. Các sản phẩm của cơ khí chế tạo không góp phần nâng cao đời sống con người\n4. Kĩ sư cơ khí là những người được đào tạo lắp ráp tại các cơ sở chuyên nghiệp\n5. Tháp Eiffel là một sản phẩm của cơ khí chế tạo",
       "stem_blocks": [
         {
           "block_id": "cn11_b1_mcq_22_blk_1",
           "order_index": 0,
           "type": "paragraph",
-          "content": "Cho các phát biểu sau: (1) Sản phẩm cơ khí có thể là máy móc, công trình, đồ dùng gia đình; (2) Quá trình sản xuất cơ khí rất đơn giản, không cần quy trình; (3) Sản phẩm cơ khí có mặt khắp nơi trong đời sống; (4) Kĩ sư cơ khí là người được đào tạo lắp ráp tại cơ sở chuyên nghiệp; (5) Tháp Eiffel là một sản phẩm cơ khí kết cấu thép. Có bao nhiêu phát biểu đúng?"
+          "content": "Cho các phát biểu sau. Số phát biểu đúng là?\n1. Sản phẩm của cơ khí chế tạo có thể là các công trình, máy móc, phương tiện giao thông, đồ dùng gia đình\n2. Quá trình sản xuất cơ khí là một quá trình đơn giản và ít công đoạn\n3. Các sản phẩm của cơ khí chế tạo không góp phần nâng cao đời sống con người\n4. Kĩ sư cơ khí là những người được đào tạo lắp ráp tại các cơ sở chuyên nghiệp\n5. Tháp Eiffel là một sản phẩm của cơ khí chế tạo"
         }
       ],
       "formulas": [],
-      "explanation": "Các phát biểu (1), (3), (4), (5) đúng. Phát biểu (2) sai vì cơ khí đòi hỏi quy trình công nghệ nghiêm ngặt.",
+      "explanation": "Đáp án đúng theo đề cương: B.",
       "validation": {
         "confidence": 1.0,
         "needs_review": false,
@@ -1181,7 +1171,7 @@
       ],
       "answer_key": {
         "question_type": "single_choice",
-        "correct_option_id": "cn11_b1_mcq_22_opt_D"
+        "correct_option_id": "cn11_b1_mcq_22_opt_B"
       }
     },
     {
@@ -1191,17 +1181,17 @@
       "type": "true_false_cluster",
       "cognitive_level": "comprehension",
       "points": 1.0,
-      "stem": "Khi nói về vai trò của cơ khí chế tạo, phát biểu nào sau đây đúng hay sai?",
+      "stem": "Khi nói về vai trò của cơ khí chế tạo thì phát biểu nào đúng, phát biểu nào sai?",
       "stem_blocks": [
         {
           "block_id": "cn11_b1_tf_01_blk_1",
           "order_index": 0,
           "type": "paragraph",
-          "content": "Khi nói về vai trò của cơ khí chế tạo, phát biểu nào sau đây đúng hay sai?"
+          "content": "Khi nói về vai trò của cơ khí chế tạo thì phát biểu nào đúng, phát biểu nào sai?"
         }
       ],
       "formulas": [],
-      "explanation": "Ngành cơ khí chế tạo cơ khí, không chế tạo hóa chất tổng hợp hay sản xuất cáp điện lực viễn thông.",
+      "explanation": "Đánh giá Đúng/Sai theo chuẩn kiến thức đề cương bài học.",
       "validation": {
         "confidence": 1.0,
         "needs_review": false,
@@ -1212,23 +1202,23 @@
       "statements": [
         {
           "id": "cn11_b1_tf_01_stmt_a",
-          "label": "a",
-          "content": "Chế tạo ra các công cụ, máy móc giúp cho lao động trở nên nhẹ nhàng hơn."
+          "key": "a",
+          "content": "Chế tạo ra các công cụ, máy giúp cho lao động nhẹ nhàng hơn"
         },
         {
           "id": "cn11_b1_tf_01_stmt_b",
-          "label": "b",
-          "content": "Chế tạo ra các thiết bị, máy để nghiên cứu, chinh phục vũ trụ."
+          "key": "b",
+          "content": "Chế tạo ra các thiết bị, máy để nghiên cứu, chinh phục vũ trụ"
         },
         {
           "id": "cn11_b1_tf_01_stmt_c",
-          "label": "c",
-          "content": "Chế tạo ra các hợp chất hoá học để thay đổi tính chất vật liệu cơ khí."
+          "key": "c",
+          "content": "Chế tạo ra các hợp chất hoá học để thay đổi tính chất vật liệu cơ khí"
         },
         {
           "id": "cn11_b1_tf_01_stmt_d",
-          "label": "d",
-          "content": "Chế tạo dây dẫn điện phục vụ cho ngành điện lực, viễn thông."
+          "key": "d",
+          "content": "Chế tạo dây dẫn điện phục vụ cho ngành điện lực, viễn thông"
         }
       ],
       "answer_key": {
@@ -1248,17 +1238,17 @@
       "type": "true_false_cluster",
       "cognitive_level": "comprehension",
       "points": 1.0,
-      "stem": "Phát biểu nào sau đây đúng hay sai khi nói về đặc điểm của ngành cơ khí chế tạo?",
+      "stem": "Phát biểu nào đúng, phát biểu nào sai khi nói về đặc điểm của cơ khí chế tạo?",
       "stem_blocks": [
         {
           "block_id": "cn11_b1_tf_02_blk_1",
           "order_index": 0,
           "type": "paragraph",
-          "content": "Phát biểu nào sau đây đúng hay sai khi nói về đặc điểm của ngành cơ khí chế tạo?"
+          "content": "Phát biểu nào đúng, phát biểu nào sai khi nói về đặc điểm của cơ khí chế tạo?"
         }
       ],
       "formulas": [],
-      "explanation": "Đối tượng lao động là vật liệu cơ khí (không phải con người). Sản xuất cơ khí bắt buộc phải có hồ sơ kỹ thuật.",
+      "explanation": "Đánh giá Đúng/Sai theo chuẩn kiến thức đề cương bài học.",
       "validation": {
         "confidence": 1.0,
         "needs_review": false,
@@ -1269,23 +1259,23 @@
       "statements": [
         {
           "id": "cn11_b1_tf_02_stmt_a",
-          "label": "a",
+          "key": "a",
           "content": "Đối tượng lao động của ngành cơ khí chế tạo là thợ hoặc kỹ sư ngành cơ khí."
         },
         {
           "id": "cn11_b1_tf_02_stmt_b",
-          "label": "b",
-          "content": "Công cụ lao động là các máy công cụ như máy tiện, máy phay, máy bào, máy hàn,..."
+          "key": "b",
+          "content": "Công cụ lao động là các máy công cụ như máy tiện, phay, bào ..."
         },
         {
           "id": "cn11_b1_tf_02_stmt_c",
-          "label": "c",
-          "content": "Trong quá trình sản xuất ra sản phẩm không cần có hồ sơ kỹ thuật."
+          "key": "c",
+          "content": "Trong quá trình sản xuất ra sản phẩm không cần có hồ sơ kỹ thuật"
         },
         {
           "id": "cn11_b1_tf_02_stmt_d",
-          "label": "d",
-          "content": "Các sản phẩm của cơ khí rất phổ biến, có mặt trong tất cả các lĩnh vực đời sống."
+          "key": "d",
+          "content": "Các sản phẩm của cơ khí rất phổ biến, có mặt trong tất cả các lĩnh vực của đời sống"
         }
       ],
       "answer_key": {

@@ -1,63 +1,53 @@
 {
   "schema_version": "2.0.0",
   "exam_id": "exam_cn11_bai_4",
-  "exam_version": 1,
-  "subject_id": "CONG_NGHE_11",
-  "subject_name": "Công Nghệ 11 (Cơ Khí)",
-  "grade_level": 11,
-  "title": "Công Nghệ 11 – Bài 4: Nhận Biết Kim Loại & Hợp Kim",
-  "published_at": "2026-11-10T12:00:00.000Z",
-  "status": "published",
-  "time_limit": 900,
+  "exam_version": 2,
+  "subject_id": "cong_nghe_11",
+  "title": "Công Nghệ 11 - Bài 4: Vật liệu kim loại và hợp kim",
+  "published_at": "2026-11-10T00:00:00.000Z",
+  "time_limit": 2700,
   "grading_policy": {
-    "policy_id": "thpt_national_2025_standard",
-    "total_max_score": 5.75,
-    "single_choice_default_points": 0.25,
-    "true_false_cluster_scale": {
-      "1": 0.1,
-      "2": 0.25,
-      "3": 0.5,
-      "4": 1.0
-    },
-    "multi_select_mode": "partial_with_penalty",
-    "short_answer_case_sensitive": false,
-    "short_answer_normalize_comma_decimal": true,
+    "rounding_decimals": 2,
     "negative_marking_factor": 0,
-    "rounding_decimals": 2
+    "true_false_matrix": [
+      0.1,
+      0.25,
+      0.5,
+      1.0
+    ],
+    "multi_select_mode": "exact_match",
+    "short_answer_case_sensitive": false,
+    "short_answer_trim_whitespace": true
   },
   "attempt_policy": {
-    "max_attempts": 99,
-    "allow_resume_on_disconnect": true,
-    "grace_period_seconds": 120,
-    "auto_submit_on_timeout": true,
-    "require_session_token": true,
-    "allow_review_after_submit": true
+    "max_attempts": 999,
+    "allow_review_after_submission": true,
+    "allow_offline_attempt": true
   },
   "randomization_policy": {
-    "shuffle_questions_within_section": true,
-    "shuffle_options": true,
-    "preserve_section_order": false,
-    "deterministic_seed_strategy": "hmac_session_student"
+    "shuffle_questions_within_section": false,
+    "preserve_section_order": true,
+    "shuffle_options": false
   },
   "questions": [
     {
       "id": "cn11_b4_mcq_01",
-      "number": 70,
-      "section": "Bài 4: Nhận biết tính chất kim loại và hợp kim",
+      "number": 1,
+      "section": "Bài 4: Vật liệu kim loại và hợp kim",
       "type": "single_choice",
-      "cognitive_level": "comprehension",
+      "cognitive_level": "recall",
       "points": 0.25,
-      "stem": "Vật liệu kim loại và hợp kim được chia thành 2 nhóm lớn cơ bản là:",
+      "stem": "Vật liệu kim loại và hợp kim được chia thành mấy nhóm cơ bản?",
       "stem_blocks": [
         {
           "block_id": "cn11_b4_mcq_01_blk_1",
           "order_index": 0,
           "type": "paragraph",
-          "content": "Vật liệu kim loại và hợp kim được chia thành 2 nhóm lớn cơ bản là:"
+          "content": "Vật liệu kim loại và hợp kim được chia thành mấy nhóm cơ bản?"
         }
       ],
       "formulas": [],
-      "explanation": "Phân loại tiêu chuẩn: Kim loại đen (sắt, gang, thép) và Kim loại màu (nhôm, đồng, titan,...).",
+      "explanation": "Đáp án đúng theo đề cương: A.",
       "validation": {
         "confidence": 1.0,
         "needs_review": false,
@@ -69,22 +59,22 @@
         {
           "id": "cn11_b4_mcq_01_opt_A",
           "label": "A",
-          "content": "Kim loại đen và kim loại màu"
+          "content": "2"
         },
         {
           "id": "cn11_b4_mcq_01_opt_B",
           "label": "B",
-          "content": "Kim loại nặng và kim loại nhẹ"
+          "content": "3"
         },
         {
           "id": "cn11_b4_mcq_01_opt_C",
           "label": "C",
-          "content": "Kim loại quý và kim loại rẻ tiền"
+          "content": "4"
         },
         {
           "id": "cn11_b4_mcq_01_opt_D",
           "label": "D",
-          "content": "Kim loại dẻo và kim loại giòn"
+          "content": "5"
         }
       ],
       "answer_key": {
@@ -94,22 +84,22 @@
     },
     {
       "id": "cn11_b4_mcq_02",
-      "number": 71,
-      "section": "Bài 4: Nhận biết tính chất kim loại và hợp kim",
+      "number": 2,
+      "section": "Bài 4: Vật liệu kim loại và hợp kim",
       "type": "single_choice",
-      "cognitive_level": "comprehension",
+      "cognitive_level": "recall",
       "points": 0.25,
-      "stem": "Kim loại đen là hợp kim của nguyên tố nào là thành phần chủ yếu?",
+      "stem": "Vật liệu kim loại và hợp kim được dùng chủ yếu trong",
       "stem_blocks": [
         {
           "block_id": "cn11_b4_mcq_02_blk_1",
           "order_index": 0,
           "type": "paragraph",
-          "content": "Kim loại đen là hợp kim của nguyên tố nào là thành phần chủ yếu?"
+          "content": "Vật liệu kim loại và hợp kim được dùng chủ yếu trong"
         }
       ],
       "formulas": [],
-      "explanation": "Kim loại đen là sắt và các hợp kim của sắt với carbon.",
+      "explanation": "Đáp án đúng theo đề cương: B.",
       "validation": {
         "confidence": 1.0,
         "needs_review": false,
@@ -121,47 +111,47 @@
         {
           "id": "cn11_b4_mcq_02_opt_A",
           "label": "A",
-          "content": "Sắt (Fe) và Carbon (C)"
+          "content": "ngành dệt may."
         },
         {
           "id": "cn11_b4_mcq_02_opt_B",
           "label": "B",
-          "content": "Đồng (Cu) và Thiếc (Sn)"
+          "content": "sản xuất cơ khí"
         },
         {
           "id": "cn11_b4_mcq_02_opt_C",
           "label": "C",
-          "content": "Nhôm (Al) và Silic (Si)"
+          "content": "chế biến nông lâm thủy sản."
         },
         {
           "id": "cn11_b4_mcq_02_opt_D",
           "label": "D",
-          "content": "Niken (Ni) và Crom (Cr)"
+          "content": "điện tử."
         }
       ],
       "answer_key": {
         "question_type": "single_choice",
-        "correct_option_id": "cn11_b4_mcq_02_opt_A"
+        "correct_option_id": "cn11_b4_mcq_02_opt_B"
       }
     },
     {
       "id": "cn11_b4_mcq_03",
-      "number": 72,
-      "section": "Bài 4: Nhận biết tính chất kim loại và hợp kim",
+      "number": 3,
+      "section": "Bài 4: Vật liệu kim loại và hợp kim",
       "type": "single_choice",
-      "cognitive_level": "comprehension",
+      "cognitive_level": "recall",
       "points": 0.25,
-      "stem": "Hợp kim là gì?",
+      "stem": "Hợp kim là",
       "stem_blocks": [
         {
           "block_id": "cn11_b4_mcq_03_blk_1",
           "order_index": 0,
           "type": "paragraph",
-          "content": "Hợp kim là gì?"
+          "content": "Hợp kim là"
         }
       ],
       "formulas": [],
-      "explanation": "Hợp kim là sự kết hợp kim loại với các nguyên tố khác để cải thiện cơ tính.",
+      "explanation": "Đáp án đúng theo đề cương: B.",
       "validation": {
         "confidence": 1.0,
         "needs_review": false,
@@ -173,47 +163,47 @@
         {
           "id": "cn11_b4_mcq_03_opt_A",
           "label": "A",
-          "content": "Vật liệu kim loại chứa từ hai nguyên tố trở lên, trong đó có ít nhất một nguyên tố kim loại chủ đạo"
+          "content": "vật liệu được tạo thành từ 2 nguyên tố trở lên."
         },
         {
           "id": "cn11_b4_mcq_03_opt_B",
           "label": "B",
-          "content": "Hỗn hợp cơ học của các hạt cát và đá"
+          "content": "vật liệu được tạo ra từ ít nhất 2 nguyên tố, trong đó có một nguyên tố kim loại chính."
         },
         {
           "id": "cn11_b4_mcq_03_opt_C",
           "label": "C",
-          "content": "Hợp chất hữu cơ cao phân tử"
+          "content": "vật liệu được tạo thành từ ít nhất 2 nguyên tố, trong đó có một nguyên tố phi kim."
         },
         {
           "id": "cn11_b4_mcq_03_opt_D",
           "label": "D",
-          "content": "Kim loại hoàn toàn tinh khiết 100%"
+          "content": "vật liệu được tạo ra từ ít nhất 2 nguyên tố, trong đó có một nguyên tố á kim."
         }
       ],
       "answer_key": {
         "question_type": "single_choice",
-        "correct_option_id": "cn11_b4_mcq_03_opt_A"
+        "correct_option_id": "cn11_b4_mcq_03_opt_B"
       }
     },
     {
       "id": "cn11_b4_mcq_04",
-      "number": 73,
-      "section": "Bài 4: Nhận biết tính chất kim loại và hợp kim",
+      "number": 4,
+      "section": "Bài 4: Vật liệu kim loại và hợp kim",
       "type": "single_choice",
       "cognitive_level": "comprehension",
       "points": 0.25,
-      "stem": "Căn cứ vào hàm lượng carbon, kim loại đen được phân chia thành 2 loại là:",
+      "stem": "Phát biểu nào sau đây đúng?",
       "stem_blocks": [
         {
           "block_id": "cn11_b4_mcq_04_blk_1",
           "order_index": 0,
           "type": "paragraph",
-          "content": "Căn cứ vào hàm lượng carbon, kim loại đen được phân chia thành 2 loại là:"
+          "content": "Phát biểu nào sau đây đúng?"
         }
       ],
       "formulas": [],
-      "explanation": "Thép có hàm lượng C <= 2.14%, Gang có hàm lượng C > 2.14%.",
+      "explanation": "Đáp án đúng theo đề cương: A.",
       "validation": {
         "confidence": 1.0,
         "needs_review": false,
@@ -225,22 +215,22 @@
         {
           "id": "cn11_b4_mcq_04_opt_A",
           "label": "A",
-          "content": "Thép (C <= 2.14%) và Gang (C > 2.14%)"
+          "content": "Hợp kim là vật liệu kim loại có chứa một kim loại cơ bản và một số kim loại hoặc phi kim khác"
         },
         {
           "id": "cn11_b4_mcq_04_opt_B",
           "label": "B",
-          "content": "Sắt non và sắt già"
+          "content": "Hợp kim không có tính dẫn điện, dẫn nhiệt, tính dẻo và ánh kim"
         },
         {
           "id": "cn11_b4_mcq_04_opt_C",
           "label": "C",
-          "content": "Đồng đỏ và đồng thau"
+          "content": "Hợp kim hay bị gỉ, mềm, chịu nhiệt tốt, chịu ma sát tốt"
         },
         {
           "id": "cn11_b4_mcq_04_opt_D",
           "label": "D",
-          "content": "Nhôm dẻo và nhôm đúc"
+          "content": "Hợp kim là vật liệu kim loại có chứa hai kim loại cơ bản"
         }
       ],
       "answer_key": {
@@ -250,22 +240,22 @@
     },
     {
       "id": "cn11_b4_mcq_05",
-      "number": 74,
-      "section": "Bài 4: Nhận biết tính chất kim loại và hợp kim",
+      "number": 5,
+      "section": "Bài 4: Vật liệu kim loại và hợp kim",
       "type": "single_choice",
       "cognitive_level": "comprehension",
       "points": 0.25,
-      "stem": "Đặc tính nổi bật của gang so với thép là:",
+      "stem": "Tính chất của hợp kim là",
       "stem_blocks": [
         {
           "block_id": "cn11_b4_mcq_05_blk_1",
           "order_index": 0,
           "type": "paragraph",
-          "content": "Đặc tính nổi bật của gang so với thép là:"
+          "content": "Tính chất của hợp kim là"
         }
       ],
       "formulas": [],
-      "explanation": "Gang đúc rất tốt, chịu nén tốt nhưng giòn và chịu uốn, va đập kém.",
+      "explanation": "Đáp án đúng theo đề cương: A.",
       "validation": {
         "confidence": 1.0,
         "needs_review": false,
@@ -277,22 +267,22 @@
         {
           "id": "cn11_b4_mcq_05_opt_A",
           "label": "A",
-          "content": "Tính đúc tốt, độ cứng cao nhưng giòn, chịu va đập kém"
+          "content": "đồng nhất và duy trì các tính chất của kim loại."
         },
         {
           "id": "cn11_b4_mcq_05_opt_B",
           "label": "B",
-          "content": "Độ dẻo rất cao, dễ rèn và kéo sợi mỏng"
+          "content": "đồng nhất và duy trì các tính chất của á kim."
         },
         {
           "id": "cn11_b4_mcq_05_opt_C",
           "label": "C",
-          "content": "Tính hàn tuyệt vời, không nứt khi hàn"
+          "content": "không đồng nhất và duy trì các tính chất của kim loại."
         },
         {
           "id": "cn11_b4_mcq_05_opt_D",
           "label": "D",
-          "content": "Không dẫn nhiệt và không dẫn điện"
+          "content": "không đồng nhất và duy trì các tính chất của á kim."
         }
       ],
       "answer_key": {
@@ -302,22 +292,22 @@
     },
     {
       "id": "cn11_b4_mcq_06",
-      "number": 75,
-      "section": "Bài 4: Nhận biết tính chất kim loại và hợp kim",
+      "number": 6,
+      "section": "Bài 4: Vật liệu kim loại và hợp kim",
       "type": "single_choice",
-      "cognitive_level": "comprehension",
+      "cognitive_level": "recall",
       "points": 0.25,
-      "stem": "Thép có tính chất cơ học ưu việt hơn gang ở điểm nào?",
+      "stem": "Vật liệu kim loại và hợp kim chia thành 2 nhóm:",
       "stem_blocks": [
         {
           "block_id": "cn11_b4_mcq_06_blk_1",
           "order_index": 0,
           "type": "paragraph",
-          "content": "Thép có tính chất cơ học ưu việt hơn gang ở điểm nào?"
+          "content": "Vật liệu kim loại và hợp kim chia thành 2 nhóm:"
         }
       ],
       "formulas": [],
-      "explanation": "Thép có độ dẻo và độ dai cao, dễ gia công áp lực (rèn, dập, cán).",
+      "explanation": "Đáp án đúng theo đề cương: B.",
       "validation": {
         "confidence": 1.0,
         "needs_review": false,
@@ -329,47 +319,47 @@
         {
           "id": "cn11_b4_mcq_06_opt_A",
           "label": "A",
-          "content": "Độ bền, độ dẻo, độ dai va đập cao, dễ uốn, rèn và dập"
+          "content": "Thép và hợp kim của thép, kim loại và hợp kim màu."
         },
         {
           "id": "cn11_b4_mcq_06_opt_B",
           "label": "B",
-          "content": "Nhiệt độ nóng chảy thấp hơn nhiều so với gang"
+          "content": "Sắt và hợp kim của sắt, kim loại và hợp kim màu."
         },
         {
           "id": "cn11_b4_mcq_06_opt_C",
           "label": "C",
-          "content": "Giòn hơn gang rất nhiều"
+          "content": "Sắt và hợp kim của sắt, nhôm và hợp kim nhôm."
         },
         {
           "id": "cn11_b4_mcq_06_opt_D",
           "label": "D",
-          "content": "Không thể hàn được"
+          "content": "Thép và hợp kim của thép, đồng và hợp kim đồng."
         }
       ],
       "answer_key": {
         "question_type": "single_choice",
-        "correct_option_id": "cn11_b4_mcq_06_opt_A"
+        "correct_option_id": "cn11_b4_mcq_06_opt_B"
       }
     },
     {
       "id": "cn11_b4_mcq_07",
-      "number": 76,
-      "section": "Bài 4: Nhận biết tính chất kim loại và hợp kim",
+      "number": 7,
+      "section": "Bài 4: Vật liệu kim loại và hợp kim",
       "type": "single_choice",
-      "cognitive_level": "comprehension",
+      "cognitive_level": "recall",
       "points": 0.25,
-      "stem": "Kim loại nào sau đây thuộc nhóm kim loại màu?",
+      "stem": "Vật liệu thép có các loại là",
       "stem_blocks": [
         {
           "block_id": "cn11_b4_mcq_07_blk_1",
           "order_index": 0,
           "type": "paragraph",
-          "content": "Kim loại nào sau đây thuộc nhóm kim loại màu?"
+          "content": "Vật liệu thép có các loại là"
         }
       ],
       "formulas": [],
-      "explanation": "Tất cả kim loại không phải sắt và hợp kim sắt đều là kim loại màu.",
+      "explanation": "Đáp án đúng theo đề cương: A.",
       "validation": {
         "confidence": 1.0,
         "needs_review": false,
@@ -381,22 +371,22 @@
         {
           "id": "cn11_b4_mcq_07_opt_A",
           "label": "A",
-          "content": "Nhôm (Al), đồng (Cu), niken (Ni), titan (Ti)"
+          "content": "Thép carbon và thép hợp kim."
         },
         {
           "id": "cn11_b4_mcq_07_opt_B",
           "label": "B",
-          "content": "Gang xám"
+          "content": "Thép carbon và thép kim loại."
         },
         {
           "id": "cn11_b4_mcq_07_opt_C",
           "label": "C",
-          "content": "Thép carbon CT3"
+          "content": "Thép silic và thép hợp kim"
         },
         {
           "id": "cn11_b4_mcq_07_opt_D",
           "label": "D",
-          "content": "Sắt nguyên chất"
+          "content": "Thép silic và thép kim loại."
         }
       ],
       "answer_key": {
@@ -406,22 +396,22 @@
     },
     {
       "id": "cn11_b4_mcq_08",
-      "number": 77,
-      "section": "Bài 4: Nhận biết tính chất kim loại và hợp kim",
+      "number": 8,
+      "section": "Bài 4: Vật liệu kim loại và hợp kim",
       "type": "single_choice",
-      "cognitive_level": "comprehension",
+      "cognitive_level": "recall",
       "points": 0.25,
-      "stem": "Phương pháp nhận biết kim loại đơn giản bằng cách quan sát màu sắc bề mặt cho thấy:",
+      "stem": "Kim loại màu gồm có:",
       "stem_blocks": [
         {
           "block_id": "cn11_b4_mcq_08_blk_1",
           "order_index": 0,
           "type": "paragraph",
-          "content": "Phương pháp nhận biết kim loại đơn giản bằng cách quan sát màu sắc bề mặt cho thấy:"
+          "content": "Kim loại màu gồm có:"
         }
       ],
       "formulas": [],
-      "explanation": "Quan sát màu sắc và mặt gãy là phương pháp cảm quan nhanh chóng.",
+      "explanation": "Đáp án đúng theo đề cương: A.",
       "validation": {
         "confidence": 1.0,
         "needs_review": false,
@@ -433,22 +423,22 @@
         {
           "id": "cn11_b4_mcq_08_opt_A",
           "label": "A",
-          "content": "Đồng có màu đỏ hoặc vàng ánh đỏ; nhôm có màu trắng bạc; gang có mặt gãy xám tối"
+          "content": "Nhôm, đồng, nickel, titanium."
         },
         {
           "id": "cn11_b4_mcq_08_opt_B",
           "label": "B",
-          "content": "Tất cả các kim loại đều có màu đen kịt"
+          "content": "Nhôm, đồng, sắt, titanium."
         },
         {
           "id": "cn11_b4_mcq_08_opt_C",
           "label": "C",
-          "content": "Nhôm có màu vàng rực như vàng 24K"
+          "content": "Nhôm, thép, nickel, titanium."
         },
         {
           "id": "cn11_b4_mcq_08_opt_D",
           "label": "D",
-          "content": "Thép có màu xanh lục"
+          "content": "Gang, đồng, nickel, sắt."
         }
       ],
       "answer_key": {
@@ -458,22 +448,22 @@
     },
     {
       "id": "cn11_b4_mcq_09",
-      "number": 78,
-      "section": "Bài 4: Nhận biết tính chất kim loại và hợp kim",
+      "number": 9,
+      "section": "Bài 4: Vật liệu kim loại và hợp kim",
       "type": "single_choice",
       "cognitive_level": "comprehension",
       "points": 0.25,
-      "stem": "Khi dùng búa đập thử để kiểm tra tính dẻo và tính giòn của mẫu thử kim loại:",
+      "stem": "Phân biệt giữa gang với thép",
       "stem_blocks": [
         {
           "block_id": "cn11_b4_mcq_09_blk_1",
           "order_index": 0,
           "type": "paragraph",
-          "content": "Khi dùng búa đập thử để kiểm tra tính dẻo và tính giòn của mẫu thử kim loại:"
+          "content": "Phân biệt giữa gang với thép"
         }
       ],
       "formulas": [],
-      "explanation": "Thử nghiệm cơ tính đơn giản bằng búa phân biệt tính dẻo và tính giòn.",
+      "explanation": "Đáp án đúng theo đề cương: B.",
       "validation": {
         "confidence": 1.0,
         "needs_review": false,
@@ -485,47 +475,47 @@
         {
           "id": "cn11_b4_mcq_09_opt_A",
           "label": "A",
-          "content": "Mẫu vật liệu dẻo (nhôm, đồng, thép mềm) sẽ bị bẹp, biến dạng; mẫu giòn (gang) dễ bị nứt hoặc vỡ vụn"
+          "content": "theo tỉ lệ thành phần silic."
         },
         {
           "id": "cn11_b4_mcq_09_opt_B",
           "label": "B",
-          "content": "Mẫu gang sẽ dạt mỏng như tờ giấy"
+          "content": "theo tỉ lệ thành phần cacbon."
         },
         {
           "id": "cn11_b4_mcq_09_opt_C",
           "label": "C",
-          "content": "Mẫu đồng sẽ vỡ vụn thành bột"
+          "content": "theo tỉ lệ thành phần mangan."
         },
         {
           "id": "cn11_b4_mcq_09_opt_D",
           "label": "D",
-          "content": "Mọi kim loại đều phản ứng giống hệt nhau"
+          "content": "theo tỉ lệ thành phần photpho."
         }
       ],
       "answer_key": {
         "question_type": "single_choice",
-        "correct_option_id": "cn11_b4_mcq_09_opt_A"
+        "correct_option_id": "cn11_b4_mcq_09_opt_B"
       }
     },
     {
       "id": "cn11_b4_mcq_10",
-      "number": 79,
-      "section": "Bài 4: Nhận biết tính chất kim loại và hợp kim",
+      "number": 10,
+      "section": "Bài 4: Vật liệu kim loại và hợp kim",
       "type": "single_choice",
       "cognitive_level": "comprehension",
       "points": 0.25,
-      "stem": "Kim loại màu nào có khả năng chống ăn mòn hóa học cao trong khí quyển nhờ lớp màng oxit tự nhiên bảo vệ?",
+      "stem": "Phát biểu nào sau đây đúng?",
       "stem_blocks": [
         {
           "block_id": "cn11_b4_mcq_10_blk_1",
           "order_index": 0,
           "type": "paragraph",
-          "content": "Kim loại màu nào có khả năng chống ăn mòn hóa học cao trong khí quyển nhờ lớp màng oxit tự nhiên bảo vệ?"
+          "content": "Phát biểu nào sau đây đúng?"
         }
       ],
       "formulas": [],
-      "explanation": "Lớp màng Al2O3 mỏng, mịn và bền vững ngăn oxy xâm nhập sâu vào bên trong.",
+      "explanation": "Đáp án đúng theo đề cương: A.",
       "validation": {
         "confidence": 1.0,
         "needs_review": false,
@@ -537,22 +527,22 @@
         {
           "id": "cn11_b4_mcq_10_opt_A",
           "label": "A",
-          "content": "Nhôm (Al)"
+          "content": "Sắt và hợp kim của sắt có từ tính cao."
         },
         {
           "id": "cn11_b4_mcq_10_opt_B",
           "label": "B",
-          "content": "Sắt (Fe)"
+          "content": "Kim loại và hợp kim màu có từ tính cao."
         },
         {
           "id": "cn11_b4_mcq_10_opt_C",
           "label": "C",
-          "content": "Thép carbon thường"
+          "content": "Kim loại và hợp kim màu ít có khả năng chống ăn mòn."
         },
         {
           "id": "cn11_b4_mcq_10_opt_D",
           "label": "D",
-          "content": "Gang trắng"
+          "content": "Sắt và hợp kim của sắt có độ nóng chảy không quá cao."
         }
       ],
       "answer_key": {
@@ -562,22 +552,22 @@
     },
     {
       "id": "cn11_b4_mcq_11",
-      "number": 80,
-      "section": "Bài 4: Nhận biết tính chất kim loại và hợp kim",
+      "number": 11,
+      "section": "Bài 4: Vật liệu kim loại và hợp kim",
       "type": "single_choice",
       "cognitive_level": "comprehension",
       "points": 0.25,
-      "stem": "Đồng và hợp kim của đồng được sử dụng rộng rãi để chế tạo chi tiết nào trong cơ khí và điện tử?",
+      "stem": "Gang là hợp kim có tính chất nào sau đây?",
       "stem_blocks": [
         {
           "block_id": "cn11_b4_mcq_11_blk_1",
           "order_index": 0,
           "type": "paragraph",
-          "content": "Đồng và hợp kim của đồng được sử dụng rộng rãi để chế tạo chi tiết nào trong cơ khí và điện tử?"
+          "content": "Gang là hợp kim có tính chất nào sau đây?"
         }
       ],
       "formulas": [],
-      "explanation": "Đồng dẫn điện tốt, hệ số ma sát thấp nên làm bạc lót trượt rất tốt.",
+      "explanation": "Đáp án đúng theo đề cương: B.",
       "validation": {
         "confidence": 1.0,
         "needs_review": false,
@@ -589,47 +579,47 @@
         {
           "id": "cn11_b4_mcq_11_opt_A",
           "label": "A",
-          "content": "Lõi dây dẫn điện, bạc lót, bánh vít, chi tiết trao đổi nhiệt"
+          "content": "Tính dẻo."
         },
         {
           "id": "cn11_b4_mcq_11_opt_B",
           "label": "B",
-          "content": "Vỏ máy bay siêu âm"
+          "content": "Tính giòn."
         },
         {
           "id": "cn11_b4_mcq_11_opt_C",
           "label": "C",
-          "content": "Lưỡi dao máy tiện cắt gọt thép cứng"
+          "content": "Tính đàn hồi."
         },
         {
           "id": "cn11_b4_mcq_11_opt_D",
           "label": "D",
-          "content": "Đá mài mòn"
+          "content": "Tính chịu ăn mòn tốt."
         }
       ],
       "answer_key": {
         "question_type": "single_choice",
-        "correct_option_id": "cn11_b4_mcq_11_opt_A"
+        "correct_option_id": "cn11_b4_mcq_11_opt_B"
       }
     },
     {
       "id": "cn11_b4_mcq_12",
-      "number": 81,
-      "section": "Bài 4: Nhận biết tính chất kim loại và hợp kim",
+      "number": 12,
+      "section": "Bài 4: Vật liệu kim loại và hợp kim",
       "type": "single_choice",
       "cognitive_level": "comprehension",
       "points": 0.25,
-      "stem": "Tại sao thân máy tiện, vỏ động cơ cỡ lớn thường được chế tạo bằng gang xám?",
+      "stem": "Nhôm và hợp kim của nhôm có đặc điểm là",
       "stem_blocks": [
         {
           "block_id": "cn11_b4_mcq_12_blk_1",
           "order_index": 0,
           "type": "paragraph",
-          "content": "Tại sao thân máy tiện, vỏ động cơ cỡ lớn thường được chế tạo bằng gang xám?"
+          "content": "Nhôm và hợp kim của nhôm có đặc điểm là"
         }
       ],
       "formulas": [],
-      "explanation": "Gang xám có tính giảm chấn, khử rung động vượt trội, rất thích hợp làm bệ máy.",
+      "explanation": "Đáp án đúng theo đề cương: D.",
       "validation": {
         "confidence": 1.0,
         "needs_review": false,
@@ -641,47 +631,47 @@
         {
           "id": "cn11_b4_mcq_12_opt_A",
           "label": "A",
-          "content": "Gang xám đúc tốt, giảm rung động tốt và giá thành tương đối rẻ"
+          "content": "tính nhiệt luyện tốt."
         },
         {
           "id": "cn11_b4_mcq_12_opt_B",
           "label": "B",
-          "content": "Gang xám rất nhẹ và nổi được trên nước"
+          "content": "tính chịu ăn mòn kém."
         },
         {
           "id": "cn11_b4_mcq_12_opt_C",
           "label": "C",
-          "content": "Gang xám uốn cong được nhiều lần"
+          "content": "độ bền và tính dẻo thấp."
         },
         {
           "id": "cn11_b4_mcq_12_opt_D",
           "label": "D",
-          "content": "Gang xám có màu sắc sặc sỡ"
+          "content": "tính dẫn điện và dẫn nhiệt cao."
         }
       ],
       "answer_key": {
         "question_type": "single_choice",
-        "correct_option_id": "cn11_b4_mcq_12_opt_A"
+        "correct_option_id": "cn11_b4_mcq_12_opt_D"
       }
     },
     {
       "id": "cn11_b4_mcq_13",
-      "number": 82,
-      "section": "Bài 4: Nhận biết tính chất kim loại và hợp kim",
+      "number": 13,
+      "section": "Bài 4: Vật liệu kim loại và hợp kim",
       "type": "single_choice",
       "cognitive_level": "comprehension",
       "points": 0.25,
-      "stem": "Thép hợp kim là loại thép được bổ sung thêm các nguyên tố nào nhằm nâng cao cơ tính và tính chống gỉ?",
+      "stem": "Phương pháp nào sau đây không phải là phương pháp để nhận biết tính chất cơ bản của kim loại?",
       "stem_blocks": [
         {
           "block_id": "cn11_b4_mcq_13_blk_1",
           "order_index": 0,
           "type": "paragraph",
-          "content": "Thép hợp kim là loại thép được bổ sung thêm các nguyên tố nào nhằm nâng cao cơ tính và tính chống gỉ?"
+          "content": "Phương pháp nào sau đây không phải là phương pháp để nhận biết tính chất cơ bản của kim loại?"
         }
       ],
       "formulas": [],
-      "explanation": "Các nguyên tố hợp kim hóa Cr, Ni, Mo, W tạo ra thép không gỉ, thép gió, thép chịu nhiệt.",
+      "explanation": "Đáp án đúng theo đề cương: D.",
       "validation": {
         "confidence": 1.0,
         "needs_review": false,
@@ -693,47 +683,47 @@
         {
           "id": "cn11_b4_mcq_13_opt_A",
           "label": "A",
-          "content": "Crom (Cr), Niken (Ni), Mangan (Mn), Molipden (Mo), Vonfram (W)"
+          "content": "Quan sát màu sắc và mặt gãy của các mẫu."
         },
         {
           "id": "cn11_b4_mcq_13_opt_B",
           "label": "B",
-          "content": "Cát thạch anh và lưu huỳnh"
+          "content": "Xác định tính cứng, tính dẻo."
         },
         {
           "id": "cn11_b4_mcq_13_opt_C",
           "label": "C",
-          "content": "Gỗ và tro rơm"
+          "content": "Xác định khả năng biến dạng."
         },
         {
           "id": "cn11_b4_mcq_13_opt_D",
           "label": "D",
-          "content": "Đất sét và vôi sống"
+          "content": "Quan sát đặc trưng quang học."
         }
       ],
       "answer_key": {
         "question_type": "single_choice",
-        "correct_option_id": "cn11_b4_mcq_13_opt_A"
+        "correct_option_id": "cn11_b4_mcq_13_opt_D"
       }
     },
     {
       "id": "cn11_b4_mcq_14",
-      "number": 83,
-      "section": "Bài 4: Nhận biết tính chất kim loại và hợp kim",
+      "number": 14,
+      "section": "Bài 4: Vật liệu kim loại và hợp kim",
       "type": "single_choice",
       "cognitive_level": "comprehension",
       "points": 0.25,
-      "stem": "Phương pháp xác định khối lượng riêng của kim loại được thực hiện bằng cách:",
+      "stem": "Vật liệu nào hay bị oxi hóa, chịu ăn mòn kém trong các môi trường acid, muối, ...?",
       "stem_blocks": [
         {
           "block_id": "cn11_b4_mcq_14_blk_1",
           "order_index": 0,
           "type": "paragraph",
-          "content": "Phương pháp xác định khối lượng riêng của kim loại được thực hiện bằng cách:"
+          "content": "Vật liệu nào hay bị oxi hóa, chịu ăn mòn kém trong các môi trường acid, muối, ...?"
         }
       ],
       "formulas": [],
-      "explanation": "D = m / V là công thức đo khối lượng riêng thực nghiệm chuẩn.",
+      "explanation": "Đáp án đúng theo đề cương: A.",
       "validation": {
         "confidence": 1.0,
         "needs_review": false,
@@ -745,22 +735,22 @@
         {
           "id": "cn11_b4_mcq_14_opt_A",
           "label": "A",
-          "content": "Đo khối lượng bằng cân và đo thể tích bằng bình chia độ hoặc hình học, sau đó tính D = m / V"
+          "content": "Sắt và hợp kim của sắt."
         },
         {
           "id": "cn11_b4_mcq_14_opt_B",
           "label": "B",
-          "content": "Đốt cháy mẫu và đo nhiệt độ ngọn lửa"
+          "content": "Nhôm và hợp kim của nhôm."
         },
         {
           "id": "cn11_b4_mcq_14_opt_C",
           "label": "C",
-          "content": "Ngâm mẫu trong nước muối 30 ngày"
+          "content": "Đồng và hợp kim của đồng."
         },
         {
           "id": "cn11_b4_mcq_14_opt_D",
           "label": "D",
-          "content": "Đập búa xem có phát ra tia lửa không"
+          "content": "Nickel và hợp kim của nickel."
         }
       ],
       "answer_key": {
@@ -770,22 +760,22 @@
     },
     {
       "id": "cn11_b4_mcq_15",
-      "number": 84,
-      "section": "Bài 4: Nhận biết tính chất kim loại và hợp kim",
+      "number": 15,
+      "section": "Bài 4: Vật liệu kim loại và hợp kim",
       "type": "single_choice",
       "cognitive_level": "comprehension",
       "points": 0.25,
-      "stem": "Nhận định nào sau đây là ĐÚNG khi so sánh khối lượng riêng của nhôm và thép?",
+      "stem": "Phát biểu nào sau đây là đúng?",
       "stem_blocks": [
         {
           "block_id": "cn11_b4_mcq_15_blk_1",
           "order_index": 0,
           "type": "paragraph",
-          "content": "Nhận định nào sau đây là ĐÚNG khi so sánh khối lượng riêng của nhôm và thép?"
+          "content": "Phát biểu nào sau đây là đúng?"
         }
       ],
       "formulas": [],
-      "explanation": "Nhôm nhẹ bằng xấp xỉ 1/3 thép, là kim loại nhẹ tiêu biểu.",
+      "explanation": "Đáp án đúng theo đề cương: B.",
       "validation": {
         "confidence": 1.0,
         "needs_review": false,
@@ -797,47 +787,1087 @@
         {
           "id": "cn11_b4_mcq_15_opt_A",
           "label": "A",
-          "content": "Khối lượng riêng của nhôm (~2.7 g/cm3) chỉ bằng khoảng 1/3 của thép (~7.8 g/cm3)"
+          "content": "Thép hợp kim có tính cơ học không cao bằng thép carbon."
         },
         {
           "id": "cn11_b4_mcq_15_opt_B",
           "label": "B",
-          "content": "Nhôm nặng gấp 3 lần thép"
+          "content": "Thép carbon dễ bị ăn mòn hóa học."
         },
         {
           "id": "cn11_b4_mcq_15_opt_C",
           "label": "C",
-          "content": "Nhôm và thép có khối lượng riêng hoàn toàn bằng nhau"
+          "content": "Thép carbon là thép có thêm các nguyên tố khác như Cr, Ni, Mn, ..."
         },
         {
           "id": "cn11_b4_mcq_15_opt_D",
           "label": "D",
-          "content": "Thép nhẹ hơn nhôm rất nhiều"
+          "content": "Thép hợp kim được dùng chế tạo các chi tiết tải trọng nhỏ và vừa."
         }
       ],
       "answer_key": {
         "question_type": "single_choice",
-        "correct_option_id": "cn11_b4_mcq_15_opt_A"
+        "correct_option_id": "cn11_b4_mcq_15_opt_B"
+      }
+    },
+    {
+      "id": "cn11_b4_mcq_16",
+      "number": 16,
+      "section": "Bài 4: Vật liệu kim loại và hợp kim",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Vật liệu có màu trắng bạc, khối lượng riêng nhỏ, tính dẫn điện, dẫn nhiệt cao, chống ăn mòn tốt, dẻo là",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b4_mcq_16_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Vật liệu có màu trắng bạc, khối lượng riêng nhỏ, tính dẫn điện, dẫn nhiệt cao, chống ăn mòn tốt, dẻo là"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Đáp án đúng theo đề cương: C.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b4_mcq_16_opt_A",
+          "label": "A",
+          "content": "gang."
+        },
+        {
+          "id": "cn11_b4_mcq_16_opt_B",
+          "label": "B",
+          "content": "thép."
+        },
+        {
+          "id": "cn11_b4_mcq_16_opt_C",
+          "label": "C",
+          "content": "hợp kim nhôm."
+        },
+        {
+          "id": "cn11_b4_mcq_16_opt_D",
+          "label": "D",
+          "content": "hợp kim đồng."
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b4_mcq_16_opt_C"
+      }
+    },
+    {
+      "id": "cn11_b4_mcq_17",
+      "number": 17,
+      "section": "Bài 4: Vật liệu kim loại và hợp kim",
+      "type": "single_choice",
+      "cognitive_level": "recall",
+      "points": 0.25,
+      "stem": "Vật liệu nào là thành phần không thể thiếu trong các loại thép không gỉ, nam châm?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b4_mcq_17_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Vật liệu nào là thành phần không thể thiếu trong các loại thép không gỉ, nam châm?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Đáp án đúng theo đề cương: D.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b4_mcq_17_opt_A",
+          "label": "A",
+          "content": "Gang."
+        },
+        {
+          "id": "cn11_b4_mcq_17_opt_B",
+          "label": "B",
+          "content": "Nhôm và hợp kim của nhôm."
+        },
+        {
+          "id": "cn11_b4_mcq_17_opt_C",
+          "label": "C",
+          "content": "Đồng và hợp kim của đồng."
+        },
+        {
+          "id": "cn11_b4_mcq_17_opt_D",
+          "label": "D",
+          "content": "Nickel và hợp kim của nickel."
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b4_mcq_17_opt_D"
+      }
+    },
+    {
+      "id": "cn11_b4_mcq_18",
+      "number": 18,
+      "section": "Bài 4: Vật liệu kim loại và hợp kim",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Vật liệu không có khả năng rèn, dập là",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b4_mcq_18_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Vật liệu không có khả năng rèn, dập là"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Đáp án đúng theo đề cương: A.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b4_mcq_18_opt_A",
+          "label": "A",
+          "content": "gang"
+        },
+        {
+          "id": "cn11_b4_mcq_18_opt_B",
+          "label": "B",
+          "content": "thép carbon"
+        },
+        {
+          "id": "cn11_b4_mcq_18_opt_C",
+          "label": "C",
+          "content": "thép hợp kim"
+        },
+        {
+          "id": "cn11_b4_mcq_18_opt_D",
+          "label": "D",
+          "content": "đồng và hợp kim đồng"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b4_mcq_18_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b4_mcq_19",
+      "number": 19,
+      "section": "Bài 4: Vật liệu kim loại và hợp kim",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Tính chất cơ bản của vật liệu kim loại và hợp kim bao gồm:",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b4_mcq_19_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Tính chất cơ bản của vật liệu kim loại và hợp kim bao gồm:"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Đáp án đúng theo đề cương: A.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b4_mcq_19_opt_A",
+          "label": "A",
+          "content": "tính cơ học, tính vật lí, tính hóa học, tính công nghệ"
+        },
+        {
+          "id": "cn11_b4_mcq_19_opt_B",
+          "label": "B",
+          "content": "tính chịu ăn mòn, tính đúc, tính cắt gọt."
+        },
+        {
+          "id": "cn11_b4_mcq_19_opt_C",
+          "label": "C",
+          "content": "tính dẫn điện, dẫn nhiệt, tính giãn nở vì nhiệt."
+        },
+        {
+          "id": "cn11_b4_mcq_19_opt_D",
+          "label": "D",
+          "content": "tính dẻo, đàn hồi, có độ bền kéo, độ bền nén nhất định"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b4_mcq_19_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b4_mcq_20",
+      "number": 20,
+      "section": "Bài 4: Vật liệu kim loại và hợp kim",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Tính chất cơ học của vật liệu kim loại và hợp kim bao gồm:",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b4_mcq_20_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Tính chất cơ học của vật liệu kim loại và hợp kim bao gồm:"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Đáp án đúng theo đề cương: A.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b4_mcq_20_opt_A",
+          "label": "A",
+          "content": "tính dẻo, đàn hồi, có độ bền kéo, độ bền nén nhất định"
+        },
+        {
+          "id": "cn11_b4_mcq_20_opt_B",
+          "label": "B",
+          "content": "tính chịu ăn mòn, tính đúc, tính cắt gọt."
+        },
+        {
+          "id": "cn11_b4_mcq_20_opt_C",
+          "label": "C",
+          "content": "tính dẫn điện, dẫn nhiệt, tính giãn nở vì nhiệt."
+        },
+        {
+          "id": "cn11_b4_mcq_20_opt_D",
+          "label": "D",
+          "content": "khả năng dẫn điện, tính đúc, tính cắt gọt."
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b4_mcq_20_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b4_mcq_21",
+      "number": 21,
+      "section": "Bài 4: Vật liệu kim loại và hợp kim",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Tính chất vật lí của vật liệu kim loại và hợp kim thể hiện qua",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b4_mcq_21_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Tính chất vật lí của vật liệu kim loại và hợp kim thể hiện qua"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Đáp án đúng theo đề cương: D.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b4_mcq_21_opt_A",
+          "label": "A",
+          "content": "khối lượng riêng, nhiệt độ nóng chảy, tính dẻo, dẫn điện, dẫn nhiệt."
+        },
+        {
+          "id": "cn11_b4_mcq_21_opt_B",
+          "label": "B",
+          "content": "khối lượng riêng, độ bền kéo, độ bền nén, tính giãn nở."
+        },
+        {
+          "id": "cn11_b4_mcq_21_opt_C",
+          "label": "C",
+          "content": "nhiệt độ nóng chảy, tính giãn nở, tính chịu ăn mòn."
+        },
+        {
+          "id": "cn11_b4_mcq_21_opt_D",
+          "label": "D",
+          "content": "khối lượng riêng, nhiệt độ nóng chảy, tính giãn nở, dẫn điện, dẫn nhiệt."
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b4_mcq_21_opt_D"
+      }
+    },
+    {
+      "id": "cn11_b4_mcq_22",
+      "number": 22,
+      "section": "Bài 4: Vật liệu kim loại và hợp kim",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Tính chất hóa học của sắt và hợp kim của sắt",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b4_mcq_22_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Tính chất hóa học của sắt và hợp kim của sắt"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Đáp án đúng theo đề cương: D.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b4_mcq_22_opt_A",
+          "label": "A",
+          "content": "khó phản ứng hóa học, không dễ bị oxi hóa."
+        },
+        {
+          "id": "cn11_b4_mcq_22_opt_B",
+          "label": "B",
+          "content": "khó phản ứng hóa học, không bị gỉ."
+        },
+        {
+          "id": "cn11_b4_mcq_22_opt_C",
+          "label": "C",
+          "content": "ít bị oxi hóa, chịu ăn mòn kém."
+        },
+        {
+          "id": "cn11_b4_mcq_22_opt_D",
+          "label": "D",
+          "content": "hay bị oxi hóa, chịu ăn mòn kém."
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b4_mcq_22_opt_D"
+      }
+    },
+    {
+      "id": "cn11_b4_mcq_23",
+      "number": 23,
+      "section": "Bài 4: Vật liệu kim loại và hợp kim",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Tính công nghệ của kim loại và hợp kim màu",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b4_mcq_23_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Tính công nghệ của kim loại và hợp kim màu"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Đáp án đúng theo đề cương: A.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b4_mcq_23_opt_A",
+          "label": "A",
+          "content": "khó phản ứng hóa học, không dễ bị oxi hóa, không bị gỉ."
+        },
+        {
+          "id": "cn11_b4_mcq_23_opt_B",
+          "label": "B",
+          "content": "khó phản ứng hóa học, không bị gỉ."
+        },
+        {
+          "id": "cn11_b4_mcq_23_opt_C",
+          "label": "C",
+          "content": "ít bị oxi hóa, chịu ăn mòn kém."
+        },
+        {
+          "id": "cn11_b4_mcq_23_opt_D",
+          "label": "D",
+          "content": "hay bị oxi hóa, chịu ăn mòn kém."
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b4_mcq_23_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b4_mcq_24",
+      "number": 24,
+      "section": "Bài 4: Vật liệu kim loại và hợp kim",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Nhận định nào sau đây là sai?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b4_mcq_24_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Nhận định nào sau đây là sai?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Đáp án đúng theo đề cương: B.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b4_mcq_24_opt_A",
+          "label": "A",
+          "content": "Nhôm là một kim loại nhẹ, màu trắng bạc"
+        },
+        {
+          "id": "cn11_b4_mcq_24_opt_B",
+          "label": "B",
+          "content": "Nhôm rất dẻo, có thể cách điện, cách nhiệt tốt."
+        },
+        {
+          "id": "cn11_b4_mcq_24_opt_C",
+          "label": "C",
+          "content": "Nhôm có cấu trúc tinh thể là lập phương tâm diện"
+        },
+        {
+          "id": "cn11_b4_mcq_24_opt_D",
+          "label": "D",
+          "content": "Nhôm rất dẻo, có thể dát được lá nhôm mỏng"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b4_mcq_24_opt_B"
+      }
+    },
+    {
+      "id": "cn11_b4_mcq_25",
+      "number": 25,
+      "section": "Bài 4: Vật liệu kim loại và hợp kim",
+      "type": "single_choice",
+      "cognitive_level": "recall",
+      "points": 0.25,
+      "stem": "Kim loại ở thể lỏng là",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b4_mcq_25_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Kim loại ở thể lỏng là"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Đáp án đúng theo đề cương: D.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b4_mcq_25_opt_A",
+          "label": "A",
+          "content": "vàng."
+        },
+        {
+          "id": "cn11_b4_mcq_25_opt_B",
+          "label": "B",
+          "content": "nicken."
+        },
+        {
+          "id": "cn11_b4_mcq_25_opt_C",
+          "label": "C",
+          "content": "nhôm."
+        },
+        {
+          "id": "cn11_b4_mcq_25_opt_D",
+          "label": "D",
+          "content": "thủy ngân."
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b4_mcq_25_opt_D"
+      }
+    },
+    {
+      "id": "cn11_b4_mcq_26",
+      "number": 26,
+      "section": "Bài 4: Vật liệu kim loại và hợp kim",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Nhận định nào sau đây là sai?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b4_mcq_26_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Nhận định nào sau đây là sai?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Đáp án đúng theo đề cương: B.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b4_mcq_26_opt_A",
+          "label": "A",
+          "content": "Đồng dẻo, dễ kéo sợi."
+        },
+        {
+          "id": "cn11_b4_mcq_26_opt_B",
+          "label": "B",
+          "content": "Đồng là kim loại có màu đen."
+        },
+        {
+          "id": "cn11_b4_mcq_26_opt_C",
+          "label": "C",
+          "content": "Đồng có thể dát mỏng hơn giấy viết từ 5 đến 6 lần."
+        },
+        {
+          "id": "cn11_b4_mcq_26_opt_D",
+          "label": "D",
+          "content": "Đồng dẫn nhiệt, điện tốt."
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b4_mcq_26_opt_B"
+      }
+    },
+    {
+      "id": "cn11_b4_mcq_27",
+      "number": 27,
+      "section": "Bài 4: Vật liệu kim loại và hợp kim",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Kết luận nào sau đây không đúng về hợp kim ?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b4_mcq_27_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Kết luận nào sau đây không đúng về hợp kim ?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Đáp án đúng theo đề cương: D.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b4_mcq_27_opt_A",
+          "label": "A",
+          "content": "Tính chất của hợp kim phụ thuộc vào thành phần của các đơn chất tham gia hợp kim và cấu tạo mạng tinh thể của hợp kim."
+        },
+        {
+          "id": "cn11_b4_mcq_27_opt_B",
+          "label": "B",
+          "content": "Hợp kim là vật liệu kim loại có chứa một kim loại cơ bản và một số kim loại hoặc phi kim khác."
+        },
+        {
+          "id": "cn11_b4_mcq_27_opt_C",
+          "label": "C",
+          "content": "Thép là hợp kim của Fe và C."
+        },
+        {
+          "id": "cn11_b4_mcq_27_opt_D",
+          "label": "D",
+          "content": "Nhìn chung hợp kim có những tính chất hoá học khác tính chất của các chất tham gia tạo thành hợp kim."
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b4_mcq_27_opt_D"
+      }
+    },
+    {
+      "id": "cn11_b4_mcq_28",
+      "number": 28,
+      "section": "Bài 4: Vật liệu kim loại và hợp kim",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Người ta thường dựa vào đặc điểm nào để nhận biết gang?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b4_mcq_28_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Người ta thường dựa vào đặc điểm nào để nhận biết gang?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Đáp án đúng theo đề cương: C.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b4_mcq_28_opt_A",
+          "label": "A",
+          "content": "Dựa vào tính đàn hồi của vật liệu."
+        },
+        {
+          "id": "cn11_b4_mcq_28_opt_B",
+          "label": "B",
+          "content": "Dựa vào độ dẻo của vật liệu."
+        },
+        {
+          "id": "cn11_b4_mcq_28_opt_C",
+          "label": "C",
+          "content": "Dựa vào màu xám ở mặt gãy."
+        },
+        {
+          "id": "cn11_b4_mcq_28_opt_D",
+          "label": "D",
+          "content": "Dựa vào màu đen ở mặt gãy."
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b4_mcq_28_opt_C"
+      }
+    },
+    {
+      "id": "cn11_b4_mcq_29",
+      "number": 29,
+      "section": "Bài 4: Vật liệu kim loại và hợp kim",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Vật liệu nào sau đây có khả năng chống ăn mòn kém?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b4_mcq_29_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Vật liệu nào sau đây có khả năng chống ăn mòn kém?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Đáp án đúng theo đề cương: A.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b4_mcq_29_opt_A",
+          "label": "A",
+          "content": "Gang."
+        },
+        {
+          "id": "cn11_b4_mcq_29_opt_B",
+          "label": "B",
+          "content": "Thép hợp kim."
+        },
+        {
+          "id": "cn11_b4_mcq_29_opt_C",
+          "label": "C",
+          "content": "Nhôm và hợp kim nhôm."
+        },
+        {
+          "id": "cn11_b4_mcq_29_opt_D",
+          "label": "D",
+          "content": "Nickel và hợp kim nickel."
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b4_mcq_29_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b4_mcq_30",
+      "number": 30,
+      "section": "Bài 4: Vật liệu kim loại và hợp kim",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Trong các trường hợp cần nâng cao tuổi thọ của thiết bị, giảm nhẹ khối lượng và kính thước máy, người ta sử dụng loại vật liệu cơ khí nào?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b4_mcq_30_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Trong các trường hợp cần nâng cao tuổi thọ của thiết bị, giảm nhẹ khối lượng và kính thước máy, người ta sử dụng loại vật liệu cơ khí nào?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Đáp án đúng theo đề cương: B.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b4_mcq_30_opt_A",
+          "label": "A",
+          "content": "Sắt và hợp kim sắt"
+        },
+        {
+          "id": "cn11_b4_mcq_30_opt_B",
+          "label": "B",
+          "content": "Nhôm và hợp kim nhôm"
+        },
+        {
+          "id": "cn11_b4_mcq_30_opt_C",
+          "label": "C",
+          "content": "Thép hợp kim"
+        },
+        {
+          "id": "cn11_b4_mcq_30_opt_D",
+          "label": "D",
+          "content": "Đồng và hợp kim đồng"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b4_mcq_30_opt_B"
+      }
+    },
+    {
+      "id": "cn11_b4_mcq_31",
+      "number": 31,
+      "section": "Bài 4: Vật liệu kim loại và hợp kim",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Trong cơ khí, đồng và hợp kim đồng dùng để chế tạo:",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b4_mcq_31_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Trong cơ khí, đồng và hợp kim đồng dùng để chế tạo:"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Đáp án đúng theo đề cương: A.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b4_mcq_31_opt_A",
+          "label": "A",
+          "content": "các chi tiết bạc trượt, vỏ máy động cơ, vỏ máy công nghiệp, ..."
+        },
+        {
+          "id": "cn11_b4_mcq_31_opt_B",
+          "label": "B",
+          "content": "các dụng cụ cắt, khuôn dập, dụng cụ đo lường, ..."
+        },
+        {
+          "id": "cn11_b4_mcq_31_opt_C",
+          "label": "C",
+          "content": "thiết bị hàng không, đóng tàu, ..."
+        },
+        {
+          "id": "cn11_b4_mcq_31_opt_D",
+          "label": "D",
+          "content": "các ổ trượt, bánh răng, bánh vít, ..."
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b4_mcq_31_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b4_mcq_32",
+      "number": 32,
+      "section": "Bài 4: Vật liệu kim loại và hợp kim",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Ưu điểm của thép carbon được sử dụng trong chế tạo cơ khí là:",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b4_mcq_32_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Ưu điểm của thép carbon được sử dụng trong chế tạo cơ khí là:"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Đáp án đúng theo đề cương: A.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b4_mcq_32_opt_A",
+          "label": "A",
+          "content": "có khả năng biến dạng dẻo tốt."
+        },
+        {
+          "id": "cn11_b4_mcq_32_opt_B",
+          "label": "B",
+          "content": "có khả năng chống ăn mòn tốt."
+        },
+        {
+          "id": "cn11_b4_mcq_32_opt_C",
+          "label": "C",
+          "content": "có độ giãn dài tốt."
+        },
+        {
+          "id": "cn11_b4_mcq_32_opt_D",
+          "label": "D",
+          "content": "có khả năng dẫn nhiệt kém."
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b4_mcq_32_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b4_mcq_33",
+      "number": 33,
+      "section": "Bài 4: Vật liệu kim loại và hợp kim",
+      "type": "single_choice",
+      "cognitive_level": "application",
+      "points": 0.25,
+      "stem": "Những hợp kim có tính chất nào dưới đây được ứng dụng để chế tạo tên lửa, tàu vũ trụ, máy bay?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b4_mcq_33_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Những hợp kim có tính chất nào dưới đây được ứng dụng để chế tạo tên lửa, tàu vũ trụ, máy bay?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Đáp án đúng theo đề cương: A.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b4_mcq_33_opt_A",
+          "label": "A",
+          "content": "Những hợp kim nhẹ, bền, chịu được nhiệt độ cao, áp suất cao."
+        },
+        {
+          "id": "cn11_b4_mcq_33_opt_B",
+          "label": "B",
+          "content": "Những hợp kim không gỉ, có tính dẻo cao."
+        },
+        {
+          "id": "cn11_b4_mcq_33_opt_C",
+          "label": "C",
+          "content": "Những hợp kim có tính cứng cao."
+        },
+        {
+          "id": "cn11_b4_mcq_33_opt_D",
+          "label": "D",
+          "content": "Những hợp kim có tính dẫn điện tốt."
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b4_mcq_33_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b4_mcq_34",
+      "number": 34,
+      "section": "Bài 4: Vật liệu kim loại và hợp kim",
+      "type": "single_choice",
+      "cognitive_level": "application",
+      "points": 0.25,
+      "stem": "Do Nickel và hợp kim nickel có khả năng chống mài mòn tốt nên ứng dụng để",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b4_mcq_34_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Do Nickel và hợp kim nickel có khả năng chống mài mòn tốt nên ứng dụng để"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Đáp án đúng theo đề cương: A.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b4_mcq_34_opt_A",
+          "label": "A",
+          "content": "chế tạo thép không gỉ."
+        },
+        {
+          "id": "cn11_b4_mcq_34_opt_B",
+          "label": "B",
+          "content": "làm vỏ máy công nghiệp, vỏ động cơ."
+        },
+        {
+          "id": "cn11_b4_mcq_34_opt_C",
+          "label": "C",
+          "content": "dùng làm chất xúc tác."
+        },
+        {
+          "id": "cn11_b4_mcq_34_opt_D",
+          "label": "D",
+          "content": "dùng làm dao cắt kính."
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b4_mcq_34_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b4_mcq_35",
+      "number": 35,
+      "section": "Bài 4: Vật liệu kim loại và hợp kim",
+      "type": "single_choice",
+      "cognitive_level": "application",
+      "points": 0.25,
+      "stem": "Để làm vật liệu xương sống cho ngành công nghiệp người ta thường dùng",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b4_mcq_35_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Để làm vật liệu xương sống cho ngành công nghiệp người ta thường dùng"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Đáp án đúng theo đề cương: A.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b4_mcq_35_opt_A",
+          "label": "A",
+          "content": "Thép carbon"
+        },
+        {
+          "id": "cn11_b4_mcq_35_opt_B",
+          "label": "B",
+          "content": "Gang"
+        },
+        {
+          "id": "cn11_b4_mcq_35_opt_C",
+          "label": "C",
+          "content": "Hợp kim nhôm"
+        },
+        {
+          "id": "cn11_b4_mcq_35_opt_D",
+          "label": "D",
+          "content": "Hợp kim đồng"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b4_mcq_35_opt_A"
       }
     },
     {
       "id": "cn11_b4_tf_01",
-      "number": 85,
-      "section": "Bài 4: Nhận biết tính chất kim loại và hợp kim",
+      "number": 36,
+      "section": "Bài 4: Vật liệu kim loại và hợp kim",
       "type": "true_false_cluster",
       "cognitive_level": "comprehension",
       "points": 1.0,
-      "stem": "Khi nói về kim loại đen (gang và thép), phát biểu sau đúng hay sai?",
+      "stem": "Phát biểu nào đúng, phát biểu nào sai về phân loại kim loại và hợp kim?",
       "stem_blocks": [
         {
           "block_id": "cn11_b4_tf_01_blk_1",
           "order_index": 0,
           "type": "paragraph",
-          "content": "Khi nói về kim loại đen (gang và thép), phát biểu sau đúng hay sai?"
+          "content": "Phát biểu nào đúng, phát biểu nào sai về phân loại kim loại và hợp kim?"
         }
       ],
       "formulas": [],
-      "explanation": "Gang giòn, không rèn được; thép có độ dẻo cao hơn nhiều và rèn cán rất tốt.",
+      "explanation": "Đánh giá Đúng/Sai theo chuẩn kiến thức đề cương bài học.",
       "validation": {
         "confidence": 1.0,
         "needs_review": false,
@@ -848,53 +1878,53 @@
       "statements": [
         {
           "id": "cn11_b4_tf_01_stmt_a",
-          "label": "a",
-          "content": "Thép có hàm lượng carbon nhỏ hơn hoặc bằng 2.14%."
+          "key": "a",
+          "content": "Nhôm là kim loại màu"
         },
         {
           "id": "cn11_b4_tf_01_stmt_b",
-          "label": "b",
-          "content": "Gang có hàm lượng carbon lớn hơn 2.14%."
+          "key": "b",
+          "content": "Thép carbon là hợp kim màu"
         },
         {
           "id": "cn11_b4_tf_01_stmt_c",
-          "label": "c",
-          "content": "Gang có tính dẻo cao hơn thép và dễ rèn thành thanh dài hơn thép."
+          "key": "c",
+          "content": "Gang là hợp kim của sắt"
         },
         {
           "id": "cn11_b4_tf_01_stmt_d",
-          "label": "d",
-          "content": "Thép hợp kim có khả năng chống ăn mòn và độ bền cao hơn thép carbon thông thường."
+          "key": "d",
+          "content": "Kẽm là hợp kim của sắt"
         }
       ],
       "answer_key": {
         "question_type": "true_false_cluster",
         "statement_answers": {
           "cn11_b4_tf_01_stmt_a": true,
-          "cn11_b4_tf_01_stmt_b": true,
-          "cn11_b4_tf_01_stmt_c": false,
-          "cn11_b4_tf_01_stmt_d": true
+          "cn11_b4_tf_01_stmt_b": false,
+          "cn11_b4_tf_01_stmt_c": true,
+          "cn11_b4_tf_01_stmt_d": false
         }
       }
     },
     {
       "id": "cn11_b4_tf_02",
-      "number": 86,
-      "section": "Bài 4: Nhận biết tính chất kim loại và hợp kim",
+      "number": 37,
+      "section": "Bài 4: Vật liệu kim loại và hợp kim",
       "type": "true_false_cluster",
       "cognitive_level": "comprehension",
       "points": 1.0,
-      "stem": "Khi nói về các phương pháp nhận biết tính chất của kim loại và hợp kim, phát biểu sau đúng hay sai?",
+      "stem": "Phát biểu nào đúng, phát biểu nào sai về tính chất cơ bản của kim loại và hợp kim?",
       "stem_blocks": [
         {
           "block_id": "cn11_b4_tf_02_blk_1",
           "order_index": 0,
           "type": "paragraph",
-          "content": "Khi nói về các phương pháp nhận biết tính chất của kim loại và hợp kim, phát biểu sau đúng hay sai?"
+          "content": "Phát biểu nào đúng, phát biểu nào sai về tính chất cơ bản của kim loại và hợp kim?"
         }
       ],
       "formulas": [],
-      "explanation": "Đồng nặng (~8.9 g/cm3) hơn nhôm (~2.7 g/cm3). Kim loại màu không có từ tính (không bị nam châm hút).",
+      "explanation": "Đánh giá Đúng/Sai theo chuẩn kiến thức đề cương bài học.",
       "validation": {
         "confidence": 1.0,
         "needs_review": false,
@@ -905,32 +1935,146 @@
       "statements": [
         {
           "id": "cn11_b4_tf_02_stmt_a",
-          "label": "a",
-          "content": "Quan sát mặt gãy: mặt gãy của gang có màu xám tối và thô nhám hạt tinh thể."
+          "key": "a",
+          "content": "Kim loại và hợp kim có 3 tính chất cơ bản"
         },
         {
           "id": "cn11_b4_tf_02_stmt_b",
-          "label": "b",
-          "content": "Đồng có khối lượng riêng nhẹ hơn nhôm rất nhiều."
+          "key": "b",
+          "content": "Tính chất vật lí của kim loại là dễ bị ăn mòn trong môi trường axit"
         },
         {
           "id": "cn11_b4_tf_02_stmt_c",
-          "label": "c",
-          "content": "Thử tính cứng bằng cách dùng vật cứng hơn ấn hoặc vạch lên bề mặt mẫu thử."
+          "key": "c",
+          "content": "Tính chất công nghệ của kim loại là dẫn nhiệt và dẫn điện tốt"
         },
         {
           "id": "cn11_b4_tf_02_stmt_d",
-          "label": "d",
-          "content": "Tất cả các kim loại màu đều có từ tính mạnh và bị nam châm hút chặt."
+          "key": "d",
+          "content": "Thuỷ ngân là kim loại"
         }
       ],
       "answer_key": {
         "question_type": "true_false_cluster",
         "statement_answers": {
-          "cn11_b4_tf_02_stmt_a": true,
+          "cn11_b4_tf_02_stmt_a": false,
           "cn11_b4_tf_02_stmt_b": false,
-          "cn11_b4_tf_02_stmt_c": true,
-          "cn11_b4_tf_02_stmt_d": false
+          "cn11_b4_tf_02_stmt_c": false,
+          "cn11_b4_tf_02_stmt_d": true
+        }
+      }
+    },
+    {
+      "id": "cn11_b4_tf_03",
+      "number": 38,
+      "section": "Bài 4: Vật liệu kim loại và hợp kim",
+      "type": "true_false_cluster",
+      "cognitive_level": "comprehension",
+      "points": 1.0,
+      "stem": "Phát biểu nào dưới đây đúng, phát biểu nào sai?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b4_tf_03_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Phát biểu nào dưới đây đúng, phát biểu nào sai?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Đánh giá Đúng/Sai theo chuẩn kiến thức đề cương bài học.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "statements": [
+        {
+          "id": "cn11_b4_tf_03_stmt_a",
+          "key": "a",
+          "content": "Gang là hợp kim của sắt với hàm lượng C chiếm 5,14%"
+        },
+        {
+          "id": "cn11_b4_tf_03_stmt_b",
+          "key": "b",
+          "content": "Thép carbon rất dễ bị oxi hoá"
+        },
+        {
+          "id": "cn11_b4_tf_03_stmt_c",
+          "key": "c",
+          "content": "Nhôm và hợp kim nhôm có độ bền cao"
+        },
+        {
+          "id": "cn11_b4_tf_03_stmt_d",
+          "key": "d",
+          "content": "Nikel là một kim loại có màu xanh nhạt"
+        }
+      ],
+      "answer_key": {
+        "question_type": "true_false_cluster",
+        "statement_answers": {
+          "cn11_b4_tf_03_stmt_a": false,
+          "cn11_b4_tf_03_stmt_b": true,
+          "cn11_b4_tf_03_stmt_c": true,
+          "cn11_b4_tf_03_stmt_d": false
+        }
+      }
+    },
+    {
+      "id": "cn11_b4_tf_04",
+      "number": 39,
+      "section": "Bài 4: Vật liệu kim loại và hợp kim",
+      "type": "true_false_cluster",
+      "cognitive_level": "comprehension",
+      "points": 1.0,
+      "stem": "Phát biểu nào dưới đây đúng, phát biểu nào sai về các phương pháp nhận biết tính chất cơ bản của kim loại và hợp kim?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b4_tf_04_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Phát biểu nào dưới đây đúng, phát biểu nào sai về các phương pháp nhận biết tính chất cơ bản của kim loại và hợp kim?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Đánh giá Đúng/Sai theo chuẩn kiến thức đề cương bài học.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "statements": [
+        {
+          "id": "cn11_b4_tf_04_stmt_a",
+          "key": "a",
+          "content": "Xác định nhiệt độ nóng chảy"
+        },
+        {
+          "id": "cn11_b4_tf_04_stmt_b",
+          "key": "b",
+          "content": "Xác định tính đàn hồi"
+        },
+        {
+          "id": "cn11_b4_tf_04_stmt_c",
+          "key": "c",
+          "content": "Xác định khối lượng riêng"
+        },
+        {
+          "id": "cn11_b4_tf_04_stmt_d",
+          "key": "d",
+          "content": "Xác định tính cứng, dẻo"
+        }
+      ],
+      "answer_key": {
+        "question_type": "true_false_cluster",
+        "statement_answers": {
+          "cn11_b4_tf_04_stmt_a": true,
+          "cn11_b4_tf_04_stmt_b": false,
+          "cn11_b4_tf_04_stmt_c": true,
+          "cn11_b4_tf_04_stmt_d": false
         }
       }
     }
