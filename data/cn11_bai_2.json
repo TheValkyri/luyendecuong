@@ -1,0 +1,1256 @@
+{
+  "schema_version": "2.0.0",
+  "exam_id": "exam_cn11_bai_2",
+  "exam_version": 1,
+  "subject_id": "CONG_NGHE_11",
+  "subject_name": "Công Nghệ 11 (Cơ Khí)",
+  "grade_level": 11,
+  "title": "Công Nghệ 11 – Bài 2: Ngành Nghề Cơ Khí Chế Tạo",
+  "published_at": "2026-11-10T12:00:00.000Z",
+  "status": "published",
+  "time_limit": 900,
+  "grading_policy": {
+    "policy_id": "thpt_national_2025_standard",
+    "total_max_score": 8.0,
+    "single_choice_default_points": 0.25,
+    "true_false_cluster_scale": {
+      "1": 0.1,
+      "2": 0.25,
+      "3": 0.5,
+      "4": 1.0
+    },
+    "multi_select_mode": "partial_with_penalty",
+    "short_answer_case_sensitive": false,
+    "short_answer_normalize_comma_decimal": true,
+    "negative_marking_factor": 0,
+    "rounding_decimals": 2
+  },
+  "attempt_policy": {
+    "max_attempts": 99,
+    "allow_resume_on_disconnect": true,
+    "grace_period_seconds": 120,
+    "auto_submit_on_timeout": true,
+    "require_session_token": true,
+    "allow_review_after_submit": true
+  },
+  "randomization_policy": {
+    "shuffle_questions_within_section": true,
+    "shuffle_options": true,
+    "preserve_section_order": false,
+    "deterministic_seed_strategy": "hmac_session_student"
+  },
+  "questions": [
+    {
+      "id": "cn11_b2_mcq_01",
+      "number": 25,
+      "section": "Bài 2: Ngành nghề trong lĩnh vực cơ khí chế tạo",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Ngành nghề trong lĩnh vực cơ khí chế tạo gắn liền với những nhóm công việc chủ yếu nào?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b2_mcq_01_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Ngành nghề trong lĩnh vực cơ khí chế tạo gắn liền với những nhóm công việc chủ yếu nào?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "4 nhóm công việc nền tảng của cơ khí: Thiết kế, Gia công, Lắp ráp, Bảo dưỡng & Sửa chữa.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b2_mcq_01_opt_A",
+          "label": "A",
+          "content": "Thiết kế sản phẩm cơ khí, gia công cơ khí, lắp ráp sản phẩm cơ khí, bảo dưỡng sửa chữa thiết bị cơ khí"
+        },
+        {
+          "id": "cn11_b2_mcq_01_opt_B",
+          "label": "B",
+          "content": "Nghiên cứu thị trường, tìm kiếm khách hàng, vận hành máy phát điện"
+        },
+        {
+          "id": "cn11_b2_mcq_01_opt_C",
+          "label": "C",
+          "content": "Khai thác dầu khí, lọc hóa dầu, vận chuyển nguyên liệu khoáng sản"
+        },
+        {
+          "id": "cn11_b2_mcq_01_opt_D",
+          "label": "D",
+          "content": "Thiết kế vi mạch máy tính, lập trình phần mềm hệ thống mạng"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b2_mcq_01_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b2_mcq_02",
+      "number": 26,
+      "section": "Bài 2: Ngành nghề trong lĩnh vực cơ khí chế tạo",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Công việc chính của người làm nhiệm vụ thiết kế sản phẩm cơ khí là gì?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b2_mcq_02_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Công việc chính của người làm nhiệm vụ thiết kế sản phẩm cơ khí là gì?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Thiết kế cơ khí là quá trình nghiên cứu, tính toán, dựng mô hình và lập bản vẽ chi tiết.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b2_mcq_02_opt_A",
+          "label": "A",
+          "content": "Nghiên cứu, ứng dụng kiến thức toán học, khoa học, kỹ thuật vào chọn vật liệu, thiết kế chi tiết máy đạt yêu cầu kinh tế - kỹ thuật"
+        },
+        {
+          "id": "cn11_b2_mcq_02_opt_B",
+          "label": "B",
+          "content": "Vận hành máy tiện, máy phay để cắt gọt kim loại"
+        },
+        {
+          "id": "cn11_b2_mcq_02_opt_C",
+          "label": "C",
+          "content": "Lắp ráp các linh kiện thành cụm máy hoàn chỉnh"
+        },
+        {
+          "id": "cn11_b2_mcq_02_opt_D",
+          "label": "D",
+          "content": "Sơn phủ bảo vệ và kiểm tra đóng gói xuất xưởng"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b2_mcq_02_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b2_mcq_03",
+      "number": 27,
+      "section": "Bài 2: Ngành nghề trong lĩnh vực cơ khí chế tạo",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Công việc chính của người thực hiện gia công cơ khí là gì?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b2_mcq_03_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Công việc chính của người thực hiện gia công cơ khí là gì?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Gia công cơ khí là quá trình gia công biến phôi thành chi tiết có kích thước và hình dáng yêu cầu.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b2_mcq_03_opt_A",
+          "label": "A",
+          "content": "Dựng bản vẽ phối cảnh và phân tích thị trường"
+        },
+        {
+          "id": "cn11_b2_mcq_03_opt_B",
+          "label": "B",
+          "content": "Sử dụng máy móc, công cụ, công nghệ (tiện, phay, bào, hàn, rèn, dập) để tạo ra các chi tiết máy từ phôi"
+        },
+        {
+          "id": "cn11_b2_mcq_03_opt_C",
+          "label": "C",
+          "content": "Lắp các chi tiết máy thành sản phẩm hoàn chỉnh"
+        },
+        {
+          "id": "cn11_b2_mcq_03_opt_D",
+          "label": "D",
+          "content": "Kiểm định chất lượng sau bảo dưỡng"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b2_mcq_03_opt_B"
+      }
+    },
+    {
+      "id": "cn11_b2_mcq_04",
+      "number": 28,
+      "section": "Bài 2: Ngành nghề trong lĩnh vực cơ khí chế tạo",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Công việc chính của người làm nhiệm vụ lắp ráp sản phẩm cơ khí là gì?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b2_mcq_04_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Công việc chính của người làm nhiệm vụ lắp ráp sản phẩm cơ khí là gì?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Lắp ráp là tổ hợp các chi tiết máy thành thiết bị hoàn chỉnh theo bản vẽ lắp.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b2_mcq_04_opt_A",
+          "label": "A",
+          "content": "Nghiên cứu lý thuyết vật liệu và toán ứng dụng"
+        },
+        {
+          "id": "cn11_b2_mcq_04_opt_B",
+          "label": "B",
+          "content": "Gia công cắt gọt các phôi tấm"
+        },
+        {
+          "id": "cn11_b2_mcq_04_opt_C",
+          "label": "C",
+          "content": "Dựa vào bản vẽ để thiết kế quy trình lắp ráp, liên kết các chi tiết thành cụm máy hoặc sản phẩm hoàn chỉnh"
+        },
+        {
+          "id": "cn11_b2_mcq_04_opt_D",
+          "label": "D",
+          "content": "Bôi trơn dầu mỡ định kì cho thiết bị"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b2_mcq_04_opt_C"
+      }
+    },
+    {
+      "id": "cn11_b2_mcq_05",
+      "number": 29,
+      "section": "Bài 2: Ngành nghề trong lĩnh vực cơ khí chế tạo",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Công việc chính của bộ phận bảo dưỡng, sửa chữa thiết bị cơ khí là gì?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b2_mcq_05_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Công việc chính của bộ phận bảo dưỡng, sửa chữa thiết bị cơ khí là gì?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Bảo dưỡng sửa chữa nhằm duy trì độ tin cậy, an toàn và tuổi thọ làm việc của thiết bị.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b2_mcq_05_opt_A",
+          "label": "A",
+          "content": "Thiết kế bản vẽ sơ đồ động học máy"
+        },
+        {
+          "id": "cn11_b2_mcq_05_opt_B",
+          "label": "B",
+          "content": "Chăm sóc, kiểm tra, chẩn đoán trạng thái kỹ thuật, ngăn ngừa sự cố, sửa chữa hư hỏng nhằm duy trì sự hoạt động ổn định của máy móc"
+        },
+        {
+          "id": "cn11_b2_mcq_05_opt_C",
+          "label": "C",
+          "content": "Chế tạo khuôn đúc và khuôn rèn dập"
+        },
+        {
+          "id": "cn11_b2_mcq_05_opt_D",
+          "label": "D",
+          "content": "Đo đạc kiểm tra phôi kim loại"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b2_mcq_05_opt_B"
+      }
+    },
+    {
+      "id": "cn11_b2_mcq_06",
+      "number": 30,
+      "section": "Bài 2: Ngành nghề trong lĩnh vực cơ khí chế tạo",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Nghề nghiệp nào sau đây thường thực hiện công việc thiết kế sản phẩm cơ khí?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b2_mcq_06_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Nghề nghiệp nào sau đây thường thực hiện công việc thiết kế sản phẩm cơ khí?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Kỹ sư cơ khí, kỹ sư cơ điện tử phụ trách thiết kế sản phẩm.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b2_mcq_06_opt_A",
+          "label": "A",
+          "content": "Kĩ sư cơ khí, kĩ sư cơ điện tử làm việc tại phòng kĩ thuật, R&D"
+        },
+        {
+          "id": "cn11_b2_mcq_06_opt_B",
+          "label": "B",
+          "content": "Kĩ sư điện lực làm việc tại trạm biến áp"
+        },
+        {
+          "id": "cn11_b2_mcq_06_opt_C",
+          "label": "C",
+          "content": "Thợ hàn áp lực làm việc tại công trường"
+        },
+        {
+          "id": "cn11_b2_mcq_06_opt_D",
+          "label": "D",
+          "content": "Thợ tiện làm việc tại xưởng máy công cụ"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b2_mcq_06_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b2_mcq_07",
+      "number": 31,
+      "section": "Bài 2: Ngành nghề trong lĩnh vực cơ khí chế tạo",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Nghề nghiệp nào sau đây thực hiện công việc gia công cơ khí?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b2_mcq_07_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Nghề nghiệp nào sau đây thực hiện công việc gia công cơ khí?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Thợ cơ khí chuyên môn hóa theo các phương pháp gia công: tiện, phay, hàn,...",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b2_mcq_07_opt_A",
+          "label": "A",
+          "content": "Thợ tiện, thợ phay, thợ mài, thợ hàn, thợ rèn dập"
+        },
+        {
+          "id": "cn11_b2_mcq_07_opt_B",
+          "label": "B",
+          "content": "Kĩ sư quản trị kinh doanh xuất nhập khẩu"
+        },
+        {
+          "id": "cn11_b2_mcq_07_opt_C",
+          "label": "C",
+          "content": "Chuyên viên pháp chế doanh nghiệp"
+        },
+        {
+          "id": "cn11_b2_mcq_07_opt_D",
+          "label": "D",
+          "content": "Kĩ sư trắc địa địa chất"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b2_mcq_07_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b2_mcq_08",
+      "number": 32,
+      "section": "Bài 2: Ngành nghề trong lĩnh vực cơ khí chế tạo",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Nhiệm vụ của người làm công tác bảo dưỡng, sửa chữa thiết bị cơ khí đòi hỏi phải:",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b2_mcq_08_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Nhiệm vụ của người làm công tác bảo dưỡng, sửa chữa thiết bị cơ khí đòi hỏi phải:"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Bảo dưỡng sửa chữa đòi hỏi hiểu sâu về kết cấu, cơ cấu động học và hệ thống bôi trơn, truyền động.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b2_mcq_08_opt_A",
+          "label": "A",
+          "content": "Nắm vững nguyên lí hoạt động, cấu tạo máy, chẩn đoán được hư hỏng và thay thế chi tiết hỏng"
+        },
+        {
+          "id": "cn11_b2_mcq_08_opt_B",
+          "label": "B",
+          "content": "Chỉ cần biết lau chùi bên ngoài máy"
+        },
+        {
+          "id": "cn11_b2_mcq_08_opt_C",
+          "label": "C",
+          "content": "Thiết kế ra các cỗ máy hoàn toàn mới"
+        },
+        {
+          "id": "cn11_b2_mcq_08_opt_D",
+          "label": "D",
+          "content": "Quảng cáo bán máy cho khách hàng"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b2_mcq_08_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b2_mcq_09",
+      "number": 33,
+      "section": "Bài 2: Ngành nghề trong lĩnh vực cơ khí chế tạo",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Nghề nghiệp nào sau đây KHÔNG thuộc nhóm công việc gia công cơ khí?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b2_mcq_09_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Nghề nghiệp nào sau đây KHÔNG thuộc nhóm công việc gia công cơ khí?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Thợ mỏ thuộc ngành công nghiệp khai khoáng.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b2_mcq_09_opt_A",
+          "label": "A",
+          "content": "Thợ cắt gọt kim loại (tiện, phay)"
+        },
+        {
+          "id": "cn11_b2_mcq_09_opt_B",
+          "label": "B",
+          "content": "Thợ hàn kim loại"
+        },
+        {
+          "id": "cn11_b2_mcq_09_opt_C",
+          "label": "C",
+          "content": "Thợ mỏ khai khoáng"
+        },
+        {
+          "id": "cn11_b2_mcq_09_opt_D",
+          "label": "D",
+          "content": "Thợ rèn dập nóng"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b2_mcq_09_opt_C"
+      }
+    },
+    {
+      "id": "cn11_b2_mcq_10",
+      "number": 34,
+      "section": "Bài 2: Ngành nghề trong lĩnh vực cơ khí chế tạo",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Mục đích quan trọng nhất của công tác bảo dưỡng định kỳ thiết bị cơ khí là:",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b2_mcq_10_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Mục đích quan trọng nhất của công tác bảo dưỡng định kỳ thiết bị cơ khí là:"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Bảo dưỡng định kỳ duy trì trạng thái làm việc tốt nhất và tránh gián đoạn sản xuất.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b2_mcq_10_opt_A",
+          "label": "A",
+          "content": "Kéo dài tuổi thọ của máy móc và ngăn ngừa tai nạn, hỏng hóc đột xuất"
+        },
+        {
+          "id": "cn11_b2_mcq_10_opt_B",
+          "label": "B",
+          "content": "Thay đổi hoàn toàn công năng của máy móc"
+        },
+        {
+          "id": "cn11_b2_mcq_10_opt_C",
+          "label": "C",
+          "content": "Giúp máy móc có giá trị bán lại cao hơn"
+        },
+        {
+          "id": "cn11_b2_mcq_10_opt_D",
+          "label": "D",
+          "content": "Làm đẹp hình thức bên ngoài của nhà xưởng"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b2_mcq_10_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b2_mcq_11",
+      "number": 35,
+      "section": "Bài 2: Ngành nghề trong lĩnh vực cơ khí chế tạo",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Người thiết kế, chế tạo, thử nghiệm, vận hành và quản lý hệ thống máy móc được gọi là:",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b2_mcq_11_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Người thiết kế, chế tạo, thử nghiệm, vận hành và quản lý hệ thống máy móc được gọi là:"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Kỹ sư cơ khí đảm nhận toàn diện từ thiết kế đến quản lý công nghệ.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b2_mcq_11_opt_A",
+          "label": "A",
+          "content": "Kĩ sư xây dựng dân dụng"
+        },
+        {
+          "id": "cn11_b2_mcq_11_opt_B",
+          "label": "B",
+          "content": "Kĩ sư cơ khí"
+        },
+        {
+          "id": "cn11_b2_mcq_11_opt_C",
+          "label": "C",
+          "content": "Kĩ sư điện gia dụng"
+        },
+        {
+          "id": "cn11_b2_mcq_11_opt_D",
+          "label": "D",
+          "content": "Kĩ thuật viên tin học"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b2_mcq_11_opt_B"
+      }
+    },
+    {
+      "id": "cn11_b2_mcq_12",
+      "number": 36,
+      "section": "Bài 2: Ngành nghề trong lĩnh vực cơ khí chế tạo",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Người thực hiện việc gia công cắt gọt kim loại trên máy công cụ cần được đào tạo trình độ:",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b2_mcq_12_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Người thực hiện việc gia công cắt gọt kim loại trên máy công cụ cần được đào tạo trình độ:"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Công nhân kỹ thuật hoặc thợ cơ khí được đào tạo nghề thực hành bài bản.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b2_mcq_12_opt_A",
+          "label": "A",
+          "content": "Công nhân kỹ thuật hoặc trung cấp nghề cơ khí chế tạo"
+        },
+        {
+          "id": "cn11_b2_mcq_12_opt_B",
+          "label": "B",
+          "content": "Bác sĩ chuyên khoa kỹ thuật"
+        },
+        {
+          "id": "cn11_b2_mcq_12_opt_C",
+          "label": "C",
+          "content": "Thạc sĩ triết học kỹ thuật"
+        },
+        {
+          "id": "cn11_b2_mcq_12_opt_D",
+          "label": "D",
+          "content": "Cử nhân luật kinh tế"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b2_mcq_12_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b2_mcq_13",
+      "number": 37,
+      "section": "Bài 2: Ngành nghề trong lĩnh vực cơ khí chế tạo",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Thiết bị phần mềm hỗ trợ nào hiện nay được các kỹ sư cơ khí sử dụng phổ biến nhất trong thiết kế?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b2_mcq_13_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Thiết bị phần mềm hỗ trợ nào hiện nay được các kỹ sư cơ khí sử dụng phổ biến nhất trong thiết kế?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "CAD/CAM là công cụ không thể thiếu của kỹ sư thiết kế cơ khí hiện đại.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b2_mcq_13_opt_A",
+          "label": "A",
+          "content": "Phần mềm đồ họa 3D CAD/CAM (SolidWorks, AutoCAD, Inventor, NX)"
+        },
+        {
+          "id": "cn11_b2_mcq_13_opt_B",
+          "label": "B",
+          "content": "Phần mềm gõ văn bản thông thường Word"
+        },
+        {
+          "id": "cn11_b2_mcq_13_opt_C",
+          "label": "C",
+          "content": "Phần mềm bảng tính kế toán Excel"
+        },
+        {
+          "id": "cn11_b2_mcq_13_opt_D",
+          "label": "D",
+          "content": "Phần mềm nghe nhạc đa phương tiện"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b2_mcq_13_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b2_mcq_14",
+      "number": 38,
+      "section": "Bài 2: Ngành nghề trong lĩnh vực cơ khí chế tạo",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Môi trường làm việc chủ yếu của thợ lắp ráp cơ khí là:",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b2_mcq_14_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Môi trường làm việc chủ yếu của thợ lắp ráp cơ khí là:"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Lắp ráp cơ khí diễn ra tại dây chuyền, phân xưởng lắp ráp.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b2_mcq_14_opt_A",
+          "label": "A",
+          "content": "Phân xưởng sản xuất, lắp ráp của nhà máy, xí nghiệp chế tạo"
+        },
+        {
+          "id": "cn11_b2_mcq_14_opt_B",
+          "label": "B",
+          "content": "Phòng thu âm phát thanh"
+        },
+        {
+          "id": "cn11_b2_mcq_14_opt_C",
+          "label": "C",
+          "content": "Ngân hàng thương mại"
+        },
+        {
+          "id": "cn11_b2_mcq_14_opt_D",
+          "label": "D",
+          "content": "Vườn ươm giống nông nghiệp"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b2_mcq_14_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b2_mcq_15",
+      "number": 39,
+      "section": "Bài 2: Ngành nghề trong lĩnh vực cơ khí chế tạo",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Công việc 'Kiểm tra độ rơ của ổ trục và bổ sung dầu mỡ bôi trơn cho máy tiện định kỳ' thuộc về nhóm nghề nào?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b2_mcq_15_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Công việc 'Kiểm tra độ rơ của ổ trục và bổ sung dầu mỡ bôi trơn cho máy tiện định kỳ' thuộc về nhóm nghề nào?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Đây là công việc đặc trưng của bảo dưỡng thiết bị cơ khí.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b2_mcq_15_opt_A",
+          "label": "A",
+          "content": "Thiết kế sản phẩm cơ khí"
+        },
+        {
+          "id": "cn11_b2_mcq_15_opt_B",
+          "label": "B",
+          "content": "Bảo dưỡng, sửa chữa thiết bị cơ khí"
+        },
+        {
+          "id": "cn11_b2_mcq_15_opt_C",
+          "label": "C",
+          "content": "Gia công đúc chi tiết"
+        },
+        {
+          "id": "cn11_b2_mcq_15_opt_D",
+          "label": "D",
+          "content": "Kiểm toán tài chính cơ khí"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b2_mcq_15_opt_B"
+      }
+    },
+    {
+      "id": "cn11_b2_mcq_16",
+      "number": 40,
+      "section": "Bài 2: Ngành nghề trong lĩnh vực cơ khí chế tạo",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Công việc 'Sử dụng máy phay CNC để gia công rãnh then trên trục động cơ' thuộc về nhóm nghề nào?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b2_mcq_16_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Công việc 'Sử dụng máy phay CNC để gia công rãnh then trên trục động cơ' thuộc về nhóm nghề nào?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Gia công cơ khí bằng máy cắt gọt CNC.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b2_mcq_16_opt_A",
+          "label": "A",
+          "content": "Gia công cơ khí"
+        },
+        {
+          "id": "cn11_b2_mcq_16_opt_B",
+          "label": "B",
+          "content": "Thiết kế bao bì cơ khí"
+        },
+        {
+          "id": "cn11_b2_mcq_16_opt_C",
+          "label": "C",
+          "content": "Lắp ráp đóng gói"
+        },
+        {
+          "id": "cn11_b2_mcq_16_opt_D",
+          "label": "D",
+          "content": "Vận tải cơ khí"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b2_mcq_16_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b2_mcq_17",
+      "number": 41,
+      "section": "Bài 2: Ngành nghề trong lĩnh vực cơ khí chế tạo",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Công việc 'Ghép nối trục khuỷu, piston và thanh truyền vào thân động cơ theo đúng khe hở kỹ thuật' thuộc về nhóm nghề nào?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b2_mcq_17_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Công việc 'Ghép nối trục khuỷu, piston và thanh truyền vào thân động cơ theo đúng khe hở kỹ thuật' thuộc về nhóm nghề nào?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Tổ hợp các chi tiết thành cụm máy là công việc lắp ráp.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b2_mcq_17_opt_A",
+          "label": "A",
+          "content": "Lắp ráp sản phẩm cơ khí"
+        },
+        {
+          "id": "cn11_b2_mcq_17_opt_B",
+          "label": "B",
+          "content": "Rèn phôi dập nóng"
+        },
+        {
+          "id": "cn11_b2_mcq_17_opt_C",
+          "label": "C",
+          "content": "Gia công tia lửa điện"
+        },
+        {
+          "id": "cn11_b2_mcq_17_opt_D",
+          "label": "D",
+          "content": "Thiết kế mẫu"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b2_mcq_17_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b2_mcq_18",
+      "number": 42,
+      "section": "Bài 2: Ngành nghề trong lĩnh vực cơ khí chế tạo",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Phẩm chất quan trọng hàng đầu của người làm việc trong ngành cơ khí chế tạo là:",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b2_mcq_18_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Phẩm chất quan trọng hàng đầu của người làm việc trong ngành cơ khí chế tạo là:"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Cơ khí đòi hỏi độ chính xác milimet và an toàn tuyệt đối.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b2_mcq_18_opt_A",
+          "label": "A",
+          "content": "Tính cẩn thận, tỉ mỉ, tuân thủ kỷ luật an toàn lao động và quy chuẩn kỹ thuật"
+        },
+        {
+          "id": "cn11_b2_mcq_18_opt_B",
+          "label": "B",
+          "content": "Thích làm việc tự do, không theo bản vẽ"
+        },
+        {
+          "id": "cn11_b2_mcq_18_opt_C",
+          "label": "C",
+          "content": "Chỉ chú trọng tốc độ, bỏ qua dung sai kích thước"
+        },
+        {
+          "id": "cn11_b2_mcq_18_opt_D",
+          "label": "D",
+          "content": "Không cần kiến thức toán học"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b2_mcq_18_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b2_mcq_19",
+      "number": 43,
+      "section": "Bài 2: Ngành nghề trong lĩnh vực cơ khí chế tạo",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Ngành cơ điện tử (Mechatronics) là ngành giao thoa giữa cơ khí chế tạo với các ngành nào?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b2_mcq_19_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Ngành cơ điện tử (Mechatronics) là ngành giao thoa giữa cơ khí chế tạo với các ngành nào?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Cơ điện tử kết hợp cơ khí chính xác, điều khiển điện tử và lập trình thông minh.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b2_mcq_19_opt_A",
+          "label": "A",
+          "content": "Điện tử, tự động hóa và công nghệ thông tin"
+        },
+        {
+          "id": "cn11_b2_mcq_19_opt_B",
+          "label": "B",
+          "content": "Văn học và ngôn ngữ học"
+        },
+        {
+          "id": "cn11_b2_mcq_19_opt_C",
+          "label": "C",
+          "content": "Sinh học phân tử và dược phẩm"
+        },
+        {
+          "id": "cn11_b2_mcq_19_opt_D",
+          "label": "D",
+          "content": "Khai khoáng và địa chất"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b2_mcq_19_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b2_mcq_20",
+      "number": 44,
+      "section": "Bài 2: Ngành nghề trong lĩnh vực cơ khí chế tạo",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Để làm việc tốt ở vị trí kỹ sư thiết kế cơ khí, ngoài kiến thức chuyên môn cần có kỹ năng nào?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b2_mcq_20_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Để làm việc tốt ở vị trí kỹ sư thiết kế cơ khí, ngoài kiến thức chuyên môn cần có kỹ năng nào?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Kỹ sư thiết kế cần tư duy hình học không gian, thành thạo CAD và đọc tài liệu kỹ thuật.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b2_mcq_20_opt_A",
+          "label": "A",
+          "content": "Đọc hiểu bản vẽ, tư duy không gian 3D, sử dụng phần mềm CAD và ngoại ngữ chuyên ngành"
+        },
+        {
+          "id": "cn11_b2_mcq_20_opt_B",
+          "label": "B",
+          "content": "Kỹ năng pha chế đồ uống"
+        },
+        {
+          "id": "cn11_b2_mcq_20_opt_C",
+          "label": "C",
+          "content": "Kỹ năng trồng hoa cây cảnh"
+        },
+        {
+          "id": "cn11_b2_mcq_20_opt_D",
+          "label": "D",
+          "content": "Kỹ năng may mặc trang phục"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b2_mcq_20_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b2_tf_01",
+      "number": 45,
+      "section": "Bài 2: Ngành nghề trong lĩnh vực cơ khí chế tạo",
+      "type": "true_false_cluster",
+      "cognitive_level": "comprehension",
+      "points": 1.0,
+      "stem": "Khi nói về các nhóm công việc trong lĩnh vực cơ khí chế tạo, phát biểu sau đúng hay sai?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b2_tf_01_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Khi nói về các nhóm công việc trong lĩnh vực cơ khí chế tạo, phát biểu sau đúng hay sai?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Gia công tiếp xúc trực tiếp với máy móc tại xưởng. Lắp ráp là công đoạn sau khi các chi tiết đã được gia công hoàn chỉnh.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "statements": [
+        {
+          "id": "cn11_b2_tf_01_stmt_a",
+          "label": "a",
+          "content": "Thiết kế sản phẩm cơ khí sử dụng phần mềm CAD như AutoCAD, SolidWorks để mô phỏng và lập bản vẽ."
+        },
+        {
+          "id": "cn11_b2_tf_01_stmt_b",
+          "label": "b",
+          "content": "Người thực hiện gia công cơ khí chỉ cần làm việc tại văn phòng điều hòa, không cần tiếp xúc với máy công cụ."
+        },
+        {
+          "id": "cn11_b2_tf_01_stmt_c",
+          "label": "c",
+          "content": "Kỹ sư cơ khí có thể đảm nhận vai trò thiết kế, quản lý chất lượng và giám sát quy trình sản xuất."
+        },
+        {
+          "id": "cn11_b2_tf_01_stmt_d",
+          "label": "d",
+          "content": "Lắp ráp cơ khí là công đoạn đầu tiên trước khi chế tạo phôi và gia công chi tiết."
+        }
+      ],
+      "answer_key": {
+        "question_type": "true_false_cluster",
+        "statement_answers": {
+          "cn11_b2_tf_01_stmt_a": true,
+          "cn11_b2_tf_01_stmt_b": false,
+          "cn11_b2_tf_01_stmt_c": true,
+          "cn11_b2_tf_01_stmt_d": false
+        }
+      }
+    },
+    {
+      "id": "cn11_b2_tf_02",
+      "number": 46,
+      "section": "Bài 2: Ngành nghề trong lĩnh vực cơ khí chế tạo",
+      "type": "true_false_cluster",
+      "cognitive_level": "comprehension",
+      "points": 1.0,
+      "stem": "Khi nói về nhóm nghề bảo dưỡng và sửa chữa thiết bị cơ khí, phát biểu sau đúng hay sai?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b2_tf_02_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Khi nói về nhóm nghề bảo dưỡng và sửa chữa thiết bị cơ khí, phát biểu sau đúng hay sai?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Bảo dưỡng phòng ngừa giúp phát hiện lỗi trước khi máy hỏng nặng.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "statements": [
+        {
+          "id": "cn11_b2_tf_02_stmt_a",
+          "label": "a",
+          "content": "Bảo dưỡng cơ khí bao gồm kiểm tra độ mài mòn, bôi trơn, siết chặt và căn chỉnh máy."
+        },
+        {
+          "id": "cn11_b2_tf_02_stmt_b",
+          "label": "b",
+          "content": "Sửa chữa thiết bị chỉ tiến hành khi máy móc đã hỏng hoàn toàn và ngừng hoạt động vĩnh viễn."
+        },
+        {
+          "id": "cn11_b2_tf_02_stmt_c",
+          "label": "c",
+          "content": "Người bảo dưỡng cần có kỹ năng chẩn đoán lỗi, đọc sơ đồ mạch thủy lực và khí nén."
+        },
+        {
+          "id": "cn11_b2_tf_02_stmt_d",
+          "label": "d",
+          "content": "Mục tiêu của bảo dưỡng là nâng cao độ tin cậy và hạn chế tối đa thời gian dừng máy ngoài kế hoạch."
+        }
+      ],
+      "answer_key": {
+        "question_type": "true_false_cluster",
+        "statement_answers": {
+          "cn11_b2_tf_02_stmt_a": true,
+          "cn11_b2_tf_02_stmt_b": false,
+          "cn11_b2_tf_02_stmt_c": true,
+          "cn11_b2_tf_02_stmt_d": true
+        }
+      }
+    },
+    {
+      "id": "cn11_b2_tf_03",
+      "number": 47,
+      "section": "Bài 2: Ngành nghề trong lĩnh vực cơ khí chế tạo",
+      "type": "true_false_cluster",
+      "cognitive_level": "comprehension",
+      "points": 1.0,
+      "stem": "Khi nói về yêu cầu đối với người lao động ngành cơ khí chế tạo, phát biểu sau đúng hay sai?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b2_tf_03_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Khi nói về yêu cầu đối với người lao động ngành cơ khí chế tạo, phát biểu sau đúng hay sai?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Dung sai và tiêu chuẩn là bắt buộc. Mọi thay đổi kết cấu phải được thẩm định kỹ thuật.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "statements": [
+        {
+          "id": "cn11_b2_tf_03_stmt_a",
+          "label": "a",
+          "content": "Cần có sức khỏe tốt, tác phong công nghiệp và ý thức tuân thủ quy định bảo hộ lao động."
+        },
+        {
+          "id": "cn11_b2_tf_03_stmt_b",
+          "label": "b",
+          "content": "Không cần hiểu biết về dung sai lắp ghép và tiêu chuẩn kỹ thuật nhà nước."
+        },
+        {
+          "id": "cn11_b2_tf_03_stmt_c",
+          "label": "c",
+          "content": "Cần có khả năng làm việc nhóm và kỹ năng giải quyết sự cố kỹ thuật."
+        },
+        {
+          "id": "cn11_b2_tf_03_stmt_d",
+          "label": "d",
+          "content": "Người lao động được phép tự ý thay đổi kết cấu máy móc mà không cần phê duyệt của kỹ sư thiết kế."
+        }
+      ],
+      "answer_key": {
+        "question_type": "true_false_cluster",
+        "statement_answers": {
+          "cn11_b2_tf_03_stmt_a": true,
+          "cn11_b2_tf_03_stmt_b": false,
+          "cn11_b2_tf_03_stmt_c": true,
+          "cn11_b2_tf_03_stmt_d": false
+        }
+      }
+    }
+  ],
+  "assets_manifest": []
+}

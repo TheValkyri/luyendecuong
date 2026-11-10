@@ -1,0 +1,939 @@
+{
+  "schema_version": "2.0.0",
+  "exam_id": "exam_cn11_bai_5",
+  "exam_version": 1,
+  "subject_id": "CONG_NGHE_11",
+  "subject_name": "Công Nghệ 11 (Cơ Khí)",
+  "grade_level": 11,
+  "title": "Công Nghệ 11 – Bài 5: Vật Liệu Phi Kim Loại",
+  "published_at": "2026-11-10T12:00:00.000Z",
+  "status": "published",
+  "time_limit": 900,
+  "grading_policy": {
+    "policy_id": "thpt_national_2025_standard",
+    "total_max_score": 5.75,
+    "single_choice_default_points": 0.25,
+    "true_false_cluster_scale": {
+      "1": 0.1,
+      "2": 0.25,
+      "3": 0.5,
+      "4": 1.0
+    },
+    "multi_select_mode": "partial_with_penalty",
+    "short_answer_case_sensitive": false,
+    "short_answer_normalize_comma_decimal": true,
+    "negative_marking_factor": 0,
+    "rounding_decimals": 2
+  },
+  "attempt_policy": {
+    "max_attempts": 99,
+    "allow_resume_on_disconnect": true,
+    "grace_period_seconds": 120,
+    "auto_submit_on_timeout": true,
+    "require_session_token": true,
+    "allow_review_after_submit": true
+  },
+  "randomization_policy": {
+    "shuffle_questions_within_section": true,
+    "shuffle_options": true,
+    "preserve_section_order": false,
+    "deterministic_seed_strategy": "hmac_session_student"
+  },
+  "questions": [
+    {
+      "id": "cn11_b5_mcq_01",
+      "number": 87,
+      "section": "Bài 5: Vật liệu phi kim loại",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Vật liệu phi kim loại thông dụng trong ngành cơ khí gồm những nhóm nào?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b5_mcq_01_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Vật liệu phi kim loại thông dụng trong ngành cơ khí gồm những nhóm nào?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Hai nhóm vật liệu phi kim chủ yếu trong cơ khí là chất dẻo và cao su.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b5_mcq_01_opt_A",
+          "label": "A",
+          "content": "Chất dẻo (nhựa) và cao su"
+        },
+        {
+          "id": "cn11_b5_mcq_01_opt_B",
+          "label": "B",
+          "content": "Sắt và gang"
+        },
+        {
+          "id": "cn11_b5_mcq_01_opt_C",
+          "label": "C",
+          "content": "Đồng và nhôm"
+        },
+        {
+          "id": "cn11_b5_mcq_01_opt_D",
+          "label": "D",
+          "content": "Hợp kim titan"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b5_mcq_01_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b5_mcq_02",
+      "number": 88,
+      "section": "Bài 5: Vật liệu phi kim loại",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Ưu điểm chung nổi bật của vật liệu phi kim loại so với kim loại là gì?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b5_mcq_02_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Ưu điểm chung nổi bật của vật liệu phi kim loại so với kim loại là gì?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Phi kim nhẹ, chống ăn mòn và cách điện, cách nhiệt tuyệt vời.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b5_mcq_02_opt_A",
+          "label": "A",
+          "content": "Khối lượng riêng nhỏ (nhẹ), cách điện, cách nhiệt tốt, bền vững với hóa chất và không bị gỉ"
+        },
+        {
+          "id": "cn11_b5_mcq_02_opt_B",
+          "label": "B",
+          "content": "Chịu nhiệt độ cực cao trên 2000 độ C"
+        },
+        {
+          "id": "cn11_b5_mcq_02_opt_C",
+          "label": "C",
+          "content": "Dẫn điện mạnh hơn bạc"
+        },
+        {
+          "id": "cn11_b5_mcq_02_opt_D",
+          "label": "D",
+          "content": "Độ cứng bề mặt cao hơn kim cương"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b5_mcq_02_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b5_mcq_03",
+      "number": 89,
+      "section": "Bài 5: Vật liệu phi kim loại",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Chất dẻo (Plastic) được chia thành 2 nhóm chính dựa trên tính chất nhiệt là:",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b5_mcq_03_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Chất dẻo (Plastic) được chia thành 2 nhóm chính dựa trên tính chất nhiệt là:"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Phân loại chất dẻo: Nhựa nhiệt dẻo (Thermoplastic) và Nhựa nhiệt rắn (Thermoset).",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b5_mcq_03_opt_A",
+          "label": "A",
+          "content": "Nhựa nhiệt dẻo và nhựa nhiệt rắn"
+        },
+        {
+          "id": "cn11_b5_mcq_03_opt_B",
+          "label": "B",
+          "content": "Nhựa cứng và nhựa mềm"
+        },
+        {
+          "id": "cn11_b5_mcq_03_opt_C",
+          "label": "C",
+          "content": "Nhựa tự nhiên và nhựa hóa học"
+        },
+        {
+          "id": "cn11_b5_mcq_03_opt_D",
+          "label": "D",
+          "content": "Nhựa trong suốt và nhựa đục"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b5_mcq_03_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b5_mcq_04",
+      "number": 90,
+      "section": "Bài 5: Vật liệu phi kim loại",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Đặc tính nổi bật của chất dẻo nhiệt dẻo là gì?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b5_mcq_04_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Đặc tính nổi bật của chất dẻo nhiệt dẻo là gì?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Nhựa nhiệt dẻo có mạch polymer thẳng, liên kết yếu nên tái chế được.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b5_mcq_04_opt_A",
+          "label": "A",
+          "content": "Nóng chảy khi đun nóng và đóng rắn lại khi để nguội, có thể tái sinh nhiều lần"
+        },
+        {
+          "id": "cn11_b5_mcq_04_opt_B",
+          "label": "B",
+          "content": "Khi đun nóng không chảy mà bị cháy thành than ngay"
+        },
+        {
+          "id": "cn11_b5_mcq_04_opt_C",
+          "label": "C",
+          "content": "Không bao giờ bị biến dạng ở bất kỳ nhiệt độ nào"
+        },
+        {
+          "id": "cn11_b5_mcq_04_opt_D",
+          "label": "D",
+          "content": "Dẫn điện rất tốt"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b5_mcq_04_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b5_mcq_05",
+      "number": 91,
+      "section": "Bài 5: Vật liệu phi kim loại",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Đặc tính nổi bật của chất dẻo nhiệt rắn là gì?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b5_mcq_05_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Đặc tính nổi bật của chất dẻo nhiệt rắn là gì?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Nhựa nhiệt rắn có cấu trúc không gian 3 chiều, không tái sinh được.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b5_mcq_05_opt_A",
+          "label": "A",
+          "content": "Sau khi gia nhiệt định hình lần đầu sẽ đóng rắn vĩnh viễn nhờ liên kết lưới không gian, không nóng chảy lại mà bị phân hủy"
+        },
+        {
+          "id": "cn11_b5_mcq_05_opt_B",
+          "label": "B",
+          "content": "Có thể nung chảy và đúc lại hàng trăm lần"
+        },
+        {
+          "id": "cn11_b5_mcq_05_opt_C",
+          "label": "C",
+          "content": "Mềm dẻo như bún ở nhiệt độ phòng"
+        },
+        {
+          "id": "cn11_b5_mcq_05_opt_D",
+          "label": "D",
+          "content": "Dễ tan hoàn toàn trong nước lạnh"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b5_mcq_05_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b5_mcq_06",
+      "number": 92,
+      "section": "Bài 5: Vật liệu phi kim loại",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Loại nhựa nào sau đây thuộc nhóm nhựa nhiệt dẻo thông dụng?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b5_mcq_06_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Loại nhựa nào sau đây thuộc nhóm nhựa nhiệt dẻo thông dụng?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "PE, PP, PVC, ABS, PS là nhựa nhiệt dẻo.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b5_mcq_06_opt_A",
+          "label": "A",
+          "content": "PE (Polyethylene), PP (Polypropylene), PVC (Polyvinyl chloride)"
+        },
+        {
+          "id": "cn11_b5_mcq_06_opt_B",
+          "label": "B",
+          "content": "Nhựa Bakelite (phenol-formaldehyde)"
+        },
+        {
+          "id": "cn11_b5_mcq_06_opt_C",
+          "label": "C",
+          "content": "Nhựa Epoxy liên kết chéo"
+        },
+        {
+          "id": "cn11_b5_mcq_06_opt_D",
+          "label": "D",
+          "content": "Nhựa Polyester không no đúc khuôn"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b5_mcq_06_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b5_mcq_07",
+      "number": 93,
+      "section": "Bài 5: Vật liệu phi kim loại",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Loại nhựa nào thường dùng làm vỏ cách điện phích cắm, tay cầm nồi chảo chịu nhiệt vì không bị nóng chảy?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b5_mcq_07_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Loại nhựa nào thường dùng làm vỏ cách điện phích cắm, tay cầm nồi chảo chịu nhiệt vì không bị nóng chảy?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Tay cầm nồi chảo cần nhựa nhiệt rắn chịu nhiệt độ cao không mềm lún.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b5_mcq_07_opt_A",
+          "label": "A",
+          "content": "Nhựa nhiệt rắn (Bakelite, Melamine)"
+        },
+        {
+          "id": "cn11_b5_mcq_07_opt_B",
+          "label": "B",
+          "content": "Nhựa PE mềm"
+        },
+        {
+          "id": "cn11_b5_mcq_07_opt_C",
+          "label": "C",
+          "content": "Cao su sống chưa lưu hóa"
+        },
+        {
+          "id": "cn11_b5_mcq_07_opt_D",
+          "label": "D",
+          "content": "Nhựa sáp parafin"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b5_mcq_07_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b5_mcq_08",
+      "number": 94,
+      "section": "Bài 5: Vật liệu phi kim loại",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Cao su có đặc tính cơ học nổi bật nhất là gì?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b5_mcq_08_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Cao su có đặc tính cơ học nổi bật nhất là gì?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Độ đàn hồi cực đại và hấp thụ xung lực là đặc tính cốt lõi của cao su.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b5_mcq_08_opt_A",
+          "label": "A",
+          "content": "Tính đàn hồi rất cao (độ giãn dài có thể đạt 700% - 800%) và khả năng giảm chấn, giảm rung động tuyệt vời"
+        },
+        {
+          "id": "cn11_b5_mcq_08_opt_B",
+          "label": "B",
+          "content": "Độ cứng cao nhất trong các chất"
+        },
+        {
+          "id": "cn11_b5_mcq_08_opt_C",
+          "label": "C",
+          "content": "Dễ giòn vỡ vụn khi va chạm nhẹ"
+        },
+        {
+          "id": "cn11_b5_mcq_08_opt_D",
+          "label": "D",
+          "content": "Dẫn nhiệt nhanh như kim loại"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b5_mcq_08_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b5_mcq_09",
+      "number": 95,
+      "section": "Bài 5: Vật liệu phi kim loại",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Dựa vào nguồn gốc, cao su được phân thành mấy loại?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b5_mcq_09_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Dựa vào nguồn gốc, cao su được phân thành mấy loại?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Cao su tự nhiên (mủ cây hevea) và Cao su tổng hợp (từ sản phẩm hóa dầu).",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b5_mcq_09_opt_A",
+          "label": "A",
+          "content": "2 loại: Cao su tự nhiên và Cao su nhân tạo (tổng hợp)"
+        },
+        {
+          "id": "cn11_b5_mcq_09_opt_B",
+          "label": "B",
+          "content": "3 loại: Cao su cứng, cao su lỏng, cao su khí"
+        },
+        {
+          "id": "cn11_b5_mcq_09_opt_C",
+          "label": "C",
+          "content": "4 loại: Cao su đỏ, vàng, trắng, đen"
+        },
+        {
+          "id": "cn11_b5_mcq_09_opt_D",
+          "label": "D",
+          "content": "Chỉ có duy nhất cao su tự nhiên trồng từ cây"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b5_mcq_09_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b5_mcq_10",
+      "number": 96,
+      "section": "Bài 5: Vật liệu phi kim loại",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Sản phẩm nào sau đây được làm chủ yếu từ cao su nhờ tính đàn hồi và giảm chấn?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b5_mcq_10_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Sản phẩm nào sau đây được làm chủ yếu từ cao su nhờ tính đàn hồi và giảm chấn?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Lốp xe, ống dẫn mềm, gioăng đệm làm việc nhờ tính đàn hồi cao của cao su.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b5_mcq_10_opt_A",
+          "label": "A",
+          "content": "Lốp xe, đệm giảm chấn động cơ, phớt chặn dầu, ống mềm dẫn chất lỏng"
+        },
+        {
+          "id": "cn11_b5_mcq_10_opt_B",
+          "label": "B",
+          "content": "Piston động cơ đốt trong"
+        },
+        {
+          "id": "cn11_b5_mcq_10_opt_C",
+          "label": "C",
+          "content": "Trục khuỷu máy nén khí"
+        },
+        {
+          "id": "cn11_b5_mcq_10_opt_D",
+          "label": "D",
+          "content": "Bánh răng hộp số"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b5_mcq_10_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b5_mcq_11",
+      "number": 97,
+      "section": "Bài 5: Vật liệu phi kim loại",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Nhược điểm chung của vật liệu phi kim loại là gì?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b5_mcq_11_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Nhược điểm chung của vật liệu phi kim loại là gì?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Chất dẻo và cao su có nhiệt độ làm việc thấp (< 150-250 độ C) và bị lão hóa.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b5_mcq_11_opt_A",
+          "label": "A",
+          "content": "Độ bền nhiệt độ và độ cứng cơ học thấp hơn nhiều so với kim loại; dễ bị lão hóa dưới ánh nắng và nhiệt"
+        },
+        {
+          "id": "cn11_b5_mcq_11_opt_B",
+          "label": "B",
+          "content": "Quá nặng nề"
+        },
+        {
+          "id": "cn11_b5_mcq_11_opt_C",
+          "label": "C",
+          "content": "Dễ bị gỉ sét mục nát trong không khí ẩm"
+        },
+        {
+          "id": "cn11_b5_mcq_11_opt_D",
+          "label": "D",
+          "content": "Giá thành luôn đắt gấp 100 lần kim loại quý"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b5_mcq_11_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b5_mcq_12",
+      "number": 98,
+      "section": "Bài 5: Vật liệu phi kim loại",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Hiện tượng lão hóa của cao su và chất dẻo biểu hiện qua điều gì?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b5_mcq_12_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Hiện tượng lão hóa của cao su và chất dẻo biểu hiện qua điều gì?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Lão hóa là sự đứt gãy mạch polymer do tia UV, nhiệt độ và oxy hóa.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b5_mcq_12_opt_A",
+          "label": "A",
+          "content": "Vật liệu bị cứng lại, nứt nẻ, giòn vỡ hoặc chảy nhão, suy giảm tính đàn hồi dưới tác dụng của oxy, nhiệt, tia tử ngoại"
+        },
+        {
+          "id": "cn11_b5_mcq_12_opt_B",
+          "label": "B",
+          "content": "Vật liệu biến thành kim loại sắt"
+        },
+        {
+          "id": "cn11_b5_mcq_12_opt_C",
+          "label": "C",
+          "content": "Vật liệu phát sáng trong bóng đêm"
+        },
+        {
+          "id": "cn11_b5_mcq_12_opt_D",
+          "label": "D",
+          "content": "Vật liệu tăng độ dẻo lên gấp đôi"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b5_mcq_12_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b5_mcq_13",
+      "number": 99,
+      "section": "Bài 5: Vật liệu phi kim loại",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Ống dẫn nước hàn nhiệt PPR dùng trong cấp thoát nước sinh hoạt thuộc nhóm vật liệu nào?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b5_mcq_13_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Ống dẫn nước hàn nhiệt PPR dùng trong cấp thoát nước sinh hoạt thuộc nhóm vật liệu nào?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Ống PPR là nhựa nhiệt dẻo, hàn nhiệt nối ống rất thuận tiện.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b5_mcq_13_opt_A",
+          "label": "A",
+          "content": "Nhựa nhiệt dẻo (Polypropylene Random)"
+        },
+        {
+          "id": "cn11_b5_mcq_13_opt_B",
+          "label": "B",
+          "content": "Kim loại gang xám"
+        },
+        {
+          "id": "cn11_b5_mcq_13_opt_C",
+          "label": "C",
+          "content": "Nhựa nhiệt rắn Bakelite"
+        },
+        {
+          "id": "cn11_b5_mcq_13_opt_D",
+          "label": "D",
+          "content": "Hợp kim chì"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b5_mcq_13_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b5_mcq_14",
+      "number": 100,
+      "section": "Bài 5: Vật liệu phi kim loại",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Phương pháp phân biệt đơn giản nhựa nhiệt dẻo và nhựa nhiệt rắn là:",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b5_mcq_14_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Phương pháp phân biệt đơn giản nhựa nhiệt dẻo và nhựa nhiệt rắn là:"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Thử nhiệt phân biệt rõ rệt tính chất nóng chảy của 2 loại nhựa.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b5_mcq_14_opt_A",
+          "label": "A",
+          "content": "Dùng mỏ hàn nóng chạm vào mẫu: nhựa nhiệt dẻo sẽ mềm và chảy dính; nhựa nhiệt rắn không chảy mà bốc khói cháy khét"
+        },
+        {
+          "id": "cn11_b5_mcq_14_opt_B",
+          "label": "B",
+          "content": "Thả vào nước xem có chìm không"
+        },
+        {
+          "id": "cn11_b5_mcq_14_opt_C",
+          "label": "C",
+          "content": "Gõ búa xem có tiếng chuông không"
+        },
+        {
+          "id": "cn11_b5_mcq_14_opt_D",
+          "label": "D",
+          "content": "Nếm thử mùi vị"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b5_mcq_14_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b5_mcq_15",
+      "number": 101,
+      "section": "Bài 5: Vật liệu phi kim loại",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Tại sao các bánh răng nhựa (PA, POM) ngày càng được sử dụng nhiều trong các thiết bị chính xác như máy in, đồng hồ?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b5_mcq_15_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Tại sao các bánh răng nhựa (PA, POM) ngày càng được sử dụng nhiều trong các thiết bị chính xác như máy in, đồng hồ?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Bánh răng kỹ thuật bằng nhựa POM/PA chạy rất êm, sạch và tự giảm ma sát.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b5_mcq_15_opt_A",
+          "label": "A",
+          "content": "Trọng lượng nhẹ, chạy êm, tự bôi trơn, không ồn và không cần bôi dầu mỡ thường xuyên"
+        },
+        {
+          "id": "cn11_b5_mcq_15_opt_B",
+          "label": "B",
+          "content": "Truyền được công suất hàng ngàn mã lực"
+        },
+        {
+          "id": "cn11_b5_mcq_15_opt_C",
+          "label": "C",
+          "content": "Chịu được nhiệt độ nung 1500 độ C"
+        },
+        {
+          "id": "cn11_b5_mcq_15_opt_D",
+          "label": "D",
+          "content": "Dẫn điện tốt"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b5_mcq_15_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b5_tf_01",
+      "number": 102,
+      "section": "Bài 5: Vật liệu phi kim loại",
+      "type": "true_false_cluster",
+      "cognitive_level": "comprehension",
+      "points": 1.0,
+      "stem": "Khi nói về chất dẻo nhiệt dẻo và chất dẻo nhiệt rắn, phát biểu sau đúng hay sai?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b5_tf_01_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Khi nói về chất dẻo nhiệt dẻo và chất dẻo nhiệt rắn, phát biểu sau đúng hay sai?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Nhựa nhiệt rắn không thể tái chế bằng cách nung chảy vì cấu trúc không gian bị cháy phân hủy.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "statements": [
+        {
+          "id": "cn11_b5_tf_01_stmt_a",
+          "label": "a",
+          "content": "Nhựa nhiệt dẻo có khả năng tái chế bằng cách nấu chảy lại nhiều lần."
+        },
+        {
+          "id": "cn11_b5_tf_01_stmt_b",
+          "label": "b",
+          "content": "Nhựa nhiệt rắn có thể tái sinh thành sản phẩm mới dễ dàng như nhựa nhiệt dẻo."
+        },
+        {
+          "id": "cn11_b5_tf_01_stmt_c",
+          "label": "c",
+          "content": "Ống nước PVC và chai nhựa PET thuộc nhóm nhựa nhiệt dẻo."
+        },
+        {
+          "id": "cn11_b5_tf_01_stmt_d",
+          "label": "d",
+          "content": "Vỏ ổ cắm điện làm bằng nhựa nhiệt rắn chịu nhiệt tốt và cách điện an toàn."
+        }
+      ],
+      "answer_key": {
+        "question_type": "true_false_cluster",
+        "statement_answers": {
+          "cn11_b5_tf_01_stmt_a": true,
+          "cn11_b5_tf_01_stmt_b": false,
+          "cn11_b5_tf_01_stmt_c": true,
+          "cn11_b5_tf_01_stmt_d": true
+        }
+      }
+    },
+    {
+      "id": "cn11_b5_tf_02",
+      "number": 103,
+      "section": "Bài 5: Vật liệu phi kim loại",
+      "type": "true_false_cluster",
+      "cognitive_level": "comprehension",
+      "points": 1.0,
+      "stem": "Khi nói về tính chất và ứng dụng của cao su, phát biểu sau đúng hay sai?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b5_tf_02_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Khi nói về tính chất và ứng dụng của cao su, phát biểu sau đúng hay sai?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Cao su là chất cách điện rất tốt, dùng làm vỏ bọc bảo vệ cách điện.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "statements": [
+        {
+          "id": "cn11_b5_tf_02_stmt_a",
+          "label": "a",
+          "content": "Cao su tự nhiên được thu hoạch từ nhựa cây cao su."
+        },
+        {
+          "id": "cn11_b5_tf_02_stmt_b",
+          "label": "b",
+          "content": "Cao su tổng hợp có thể được sản xuất với các tính chất đặc biệt như chịu dầu mỡ, chịu nhiệt cao."
+        },
+        {
+          "id": "cn11_b5_tf_02_stmt_c",
+          "label": "c",
+          "content": "Cao su dẫn điện rất tốt nên thường được dùng làm lõi dây cáp điện."
+        },
+        {
+          "id": "cn11_b5_tf_02_stmt_d",
+          "label": "d",
+          "content": "Lưu hóa cao su với lưu huỳnh giúp tăng độ bền, độ đàn hồi và tính chịu nhiệt của cao su."
+        }
+      ],
+      "answer_key": {
+        "question_type": "true_false_cluster",
+        "statement_answers": {
+          "cn11_b5_tf_02_stmt_a": true,
+          "cn11_b5_tf_02_stmt_b": true,
+          "cn11_b5_tf_02_stmt_c": false,
+          "cn11_b5_tf_02_stmt_d": true
+        }
+      }
+    }
+  ],
+  "assets_manifest": []
+}

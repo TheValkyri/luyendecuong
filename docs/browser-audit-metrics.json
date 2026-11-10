@@ -1,0 +1,135 @@
+{
+  "timestamp": "2026-11-06T16:49:12.633Z",
+  "viewportsTested": [
+    {
+      "viewport": "1440px-desktop",
+      "view": "teacher_monitor",
+      "scrollWidth": 1440,
+      "innerWidth": 1440,
+      "overflowX": false
+    },
+    {
+      "viewport": "1440px-desktop",
+      "view": "teacher_studio",
+      "scrollWidth": 1440,
+      "innerWidth": 1440,
+      "overflowX": false
+    },
+    {
+      "viewport": "1440px-desktop",
+      "view": "student",
+      "scrollWidth": 1440,
+      "innerWidth": 1440,
+      "overflowX": false
+    },
+    {
+      "viewport": "1024px-laptop",
+      "view": "teacher_monitor",
+      "scrollWidth": 1024,
+      "innerWidth": 1024,
+      "overflowX": false
+    },
+    {
+      "viewport": "1024px-laptop",
+      "view": "teacher_studio",
+      "scrollWidth": 1024,
+      "innerWidth": 1024,
+      "overflowX": false
+    },
+    {
+      "viewport": "1024px-laptop",
+      "view": "student",
+      "scrollWidth": 1024,
+      "innerWidth": 1024,
+      "overflowX": false
+    },
+    {
+      "viewport": "768px-tablet",
+      "view": "teacher_monitor",
+      "scrollWidth": 768,
+      "innerWidth": 768,
+      "overflowX": false
+    },
+    {
+      "viewport": "768px-tablet",
+      "view": "teacher_studio",
+      "scrollWidth": 768,
+      "innerWidth": 768,
+      "overflowX": false
+    },
+    {
+      "viewport": "768px-tablet",
+      "view": "student",
+      "scrollWidth": 768,
+      "innerWidth": 768,
+      "overflowX": false
+    },
+    {
+      "viewport": "390px-mobile",
+      "view": "teacher_monitor",
+      "scrollWidth": 390,
+      "innerWidth": 390,
+      "overflowX": false
+    },
+    {
+      "viewport": "390px-mobile",
+      "view": "teacher_studio",
+      "scrollWidth": 390,
+      "innerWidth": 390,
+      "overflowX": false
+    },
+    {
+      "viewport": "390px-mobile",
+      "view": "student",
+      "scrollWidth": 390,
+      "innerWidth": 390,
+      "overflowX": false
+    },
+    {
+      "viewport": "360px-small-mobile",
+      "view": "teacher_monitor",
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "overflowX": false
+    },
+    {
+      "viewport": "360px-small-mobile",
+      "view": "teacher_studio",
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "overflowX": false
+    },
+    {
+      "viewport": "360px-small-mobile",
+      "view": "student",
+      "scrollWidth": 360,
+      "innerWidth": 360,
+      "overflowX": false
+    }
+  ],
+  "e2eChecks": {
+    "zeroFakeDataInitialStateVerified": true,
+    "candidateNameValidationRulesVerified": true,
+    "allQuestionTypesGraded": true,
+    "diagramZoomModalVerified": true,
+    "offlineQueueAndRecoveryVerified": true,
+    "officialServerReceiptVerified": true,
+    "teacherMonitorSlideOverVerified": true,
+    "pythonEtlCorruptedFormulaGateVerified": true,
+    "humanVerificationUnlockVerified": true
+  },
+  "accessibilityChecks": {
+    "skipLinkPresent": true,
+    "zeroHorizontalOverflowAll5Viewports": true,
+    "reducedMotionSupported": true,
+    "darkModeSupported": true,
+    "ariaTimerAndRadiogroupPresent": true
+  },
+  "performanceMetrics": {
+    "coldLoadMs": 736,
+    "domContentLoadedMs": 105,
+    "loadCompleteMs": 106,
+    "domNodesCount": 203
+  },
+  "consoleErrorCount": 0
+}

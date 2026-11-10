@@ -1,0 +1,1199 @@
+{
+  "schema_version": "2.0.0",
+  "exam_id": "exam_cn11_bai_3",
+  "exam_version": 1,
+  "subject_id": "CONG_NGHE_11",
+  "subject_name": "Công Nghệ 11 (Cơ Khí)",
+  "grade_level": 11,
+  "title": "Công Nghệ 11 – Bài 3: Tổng Quan Vật Liệu Cơ Khí",
+  "published_at": "2026-11-10T12:00:00.000Z",
+  "status": "published",
+  "time_limit": 900,
+  "grading_policy": {
+    "policy_id": "thpt_national_2025_standard",
+    "total_max_score": 7.0,
+    "single_choice_default_points": 0.25,
+    "true_false_cluster_scale": {
+      "1": 0.1,
+      "2": 0.25,
+      "3": 0.5,
+      "4": 1.0
+    },
+    "multi_select_mode": "partial_with_penalty",
+    "short_answer_case_sensitive": false,
+    "short_answer_normalize_comma_decimal": true,
+    "negative_marking_factor": 0,
+    "rounding_decimals": 2
+  },
+  "attempt_policy": {
+    "max_attempts": 99,
+    "allow_resume_on_disconnect": true,
+    "grace_period_seconds": 120,
+    "auto_submit_on_timeout": true,
+    "require_session_token": true,
+    "allow_review_after_submit": true
+  },
+  "randomization_policy": {
+    "shuffle_questions_within_section": true,
+    "shuffle_options": true,
+    "preserve_section_order": false,
+    "deterministic_seed_strategy": "hmac_session_student"
+  },
+  "questions": [
+    {
+      "id": "cn11_b3_mcq_01",
+      "number": 48,
+      "section": "Bài 3: Tổng quan về vật liệu cơ khí",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Vật liệu cơ khí là gì?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b3_mcq_01_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Vật liệu cơ khí là gì?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Vật liệu cơ khí là vật liệu được dùng trong sản xuất cơ khí.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b3_mcq_01_opt_A",
+          "label": "A",
+          "content": "Các loại vật liệu được sử dụng trong ngành cơ khí để tạo nên các sản phẩm cơ khí"
+        },
+        {
+          "id": "cn11_b3_mcq_01_opt_B",
+          "label": "B",
+          "content": "Tất cả các chất rắn có trong tự nhiên"
+        },
+        {
+          "id": "cn11_b3_mcq_01_opt_C",
+          "label": "C",
+          "content": "Các loại nhiên liệu dùng để đốt lò nung"
+        },
+        {
+          "id": "cn11_b3_mcq_01_opt_D",
+          "label": "D",
+          "content": "Các loại hóa chất tẩy rửa bề mặt"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b3_mcq_01_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b3_mcq_02",
+      "number": 49,
+      "section": "Bài 3: Tổng quan về vật liệu cơ khí",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Vật liệu cơ khí cần đáp ứng những yêu cầu cơ bản nào?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b3_mcq_02_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Vật liệu cơ khí cần đáp ứng những yêu cầu cơ bản nào?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "3 nhóm yêu cầu trụ cột: Tính sử dụng, Tính công nghệ, Tính kinh tế.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b3_mcq_02_opt_A",
+          "label": "A",
+          "content": "Yêu cầu về tính sử dụng, tính công nghệ và tính kinh tế"
+        },
+        {
+          "id": "cn11_b3_mcq_02_opt_B",
+          "label": "B",
+          "content": "Chỉ cần tính thẩm mỹ"
+        },
+        {
+          "id": "cn11_b3_mcq_02_opt_C",
+          "label": "C",
+          "content": "Chỉ cần giá rẻ nhất"
+        },
+        {
+          "id": "cn11_b3_mcq_02_opt_D",
+          "label": "D",
+          "content": "Chỉ cần nặng nhất có thể"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b3_mcq_02_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b3_mcq_03",
+      "number": 50,
+      "section": "Bài 3: Tổng quan về vật liệu cơ khí",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Căn cứ vào cấu tạo và tính chất, vật liệu cơ khí được chia làm mấy nhóm chính?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b3_mcq_03_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Căn cứ vào cấu tạo và tính chất, vật liệu cơ khí được chia làm mấy nhóm chính?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "3 nhóm: Kim loại & hợp kim; Phi kim loại; Vật liệu mới.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b3_mcq_03_opt_A",
+          "label": "A",
+          "content": "2 nhóm"
+        },
+        {
+          "id": "cn11_b3_mcq_03_opt_B",
+          "label": "B",
+          "content": "3 nhóm"
+        },
+        {
+          "id": "cn11_b3_mcq_03_opt_C",
+          "label": "C",
+          "content": "4 nhóm"
+        },
+        {
+          "id": "cn11_b3_mcq_03_opt_D",
+          "label": "D",
+          "content": "5 nhóm"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b3_mcq_03_opt_B"
+      }
+    },
+    {
+      "id": "cn11_b3_mcq_04",
+      "number": 51,
+      "section": "Bài 3: Tổng quan về vật liệu cơ khí",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Căn cứ vào cấu tạo và tính chất, vật liệu cơ khí được chia thành 3 nhóm cụ thể là:",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b3_mcq_04_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Căn cứ vào cấu tạo và tính chất, vật liệu cơ khí được chia thành 3 nhóm cụ thể là:"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Phân loại chuẩn theo chương trình GDPT 2018.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b3_mcq_04_opt_A",
+          "label": "A",
+          "content": "Vật liệu kim loại & hợp kim, vật liệu phi kim loại, vật liệu mới"
+        },
+        {
+          "id": "cn11_b3_mcq_04_opt_B",
+          "label": "B",
+          "content": "Vật liệu kim loại, vật liệu hữu cơ, vật liệu khoáng sản"
+        },
+        {
+          "id": "cn11_b3_mcq_04_opt_C",
+          "label": "C",
+          "content": "Vật liệu rắn, vật liệu lỏng, vật liệu khí"
+        },
+        {
+          "id": "cn11_b3_mcq_04_opt_D",
+          "label": "D",
+          "content": "Vật liệu tự nhiên, vật liệu nhân tạo, vật liệu tái sinh"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b3_mcq_04_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b3_mcq_05",
+      "number": 52,
+      "section": "Bài 3: Tổng quan về vật liệu cơ khí",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Nhóm vật liệu nào hiện nay vẫn là vật liệu được sử dụng chủ yếu nhất trong sản xuất cơ khí?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b3_mcq_05_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Nhóm vật liệu nào hiện nay vẫn là vật liệu được sử dụng chủ yếu nhất trong sản xuất cơ khí?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Kim loại và hợp kim chiếm tỉ trọng lớn nhất trong kết cấu máy móc.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b3_mcq_05_opt_A",
+          "label": "A",
+          "content": "Vật liệu kim loại và hợp kim"
+        },
+        {
+          "id": "cn11_b3_mcq_05_opt_B",
+          "label": "B",
+          "content": "Vật liệu phi kim loại"
+        },
+        {
+          "id": "cn11_b3_mcq_05_opt_C",
+          "label": "C",
+          "content": "Vật liệu mới"
+        },
+        {
+          "id": "cn11_b3_mcq_05_opt_D",
+          "label": "D",
+          "content": "Vật liệu composite"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b3_mcq_05_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b3_mcq_06",
+      "number": 53,
+      "section": "Bài 3: Tổng quan về vật liệu cơ khí",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Độ bền của vật liệu cơ khí là gì?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b3_mcq_06_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Độ bền của vật liệu cơ khí là gì?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Độ bền đặc trưng cho khả năng chịu tải trọng phá hủy của vật liệu.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b3_mcq_06_opt_A",
+          "label": "A",
+          "content": "Khả năng chống lại tác dụng của ngoại lực mà không bị phá hủy"
+        },
+        {
+          "id": "cn11_b3_mcq_06_opt_B",
+          "label": "B",
+          "content": "Khả năng bị biến dạng khi đun nóng"
+        },
+        {
+          "id": "cn11_b3_mcq_06_opt_C",
+          "label": "C",
+          "content": "Khả năng truyền nhiệt nhanh chóng"
+        },
+        {
+          "id": "cn11_b3_mcq_06_opt_D",
+          "label": "D",
+          "content": "Khả năng không bị gỉ sét trong nước"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b3_mcq_06_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b3_mcq_07",
+      "number": 54,
+      "section": "Bài 3: Tổng quan về vật liệu cơ khí",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Độ dẻo của vật liệu cơ khí thể hiện qua khả năng nào?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b3_mcq_07_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Độ dẻo của vật liệu cơ khí thể hiện qua khả năng nào?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Độ dẻo cho phép vật liệu dát mỏng, uốn cong hoặc kéo sợi mà không đứt gãy.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b3_mcq_07_opt_A",
+          "label": "A",
+          "content": "Khả năng bị biến dạng dẻo dưới tác dụng của ngoại lực mà không bị nứt, vỡ"
+        },
+        {
+          "id": "cn11_b3_mcq_07_opt_B",
+          "label": "B",
+          "content": "Khả năng chống lại sự mài mòn"
+        },
+        {
+          "id": "cn11_b3_mcq_07_opt_C",
+          "label": "C",
+          "content": "Khả năng hút ẩm từ không khí"
+        },
+        {
+          "id": "cn11_b3_mcq_07_opt_D",
+          "label": "D",
+          "content": "Khả năng dẫn điện tốt"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b3_mcq_07_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b3_mcq_08",
+      "number": 55,
+      "section": "Bài 3: Tổng quan về vật liệu cơ khí",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Độ cứng của vật liệu cơ khí là gì?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b3_mcq_08_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Độ cứng của vật liệu cơ khí là gì?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Độ cứng đo khả năng chống lún, chống trầy xước bề mặt.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b3_mcq_08_opt_A",
+          "label": "A",
+          "content": "Khả năng chống lại sự biến dạng dẻo của bề mặt khi có vật cứng hơn ấn vào"
+        },
+        {
+          "id": "cn11_b3_mcq_08_opt_B",
+          "label": "B",
+          "content": "Khối lượng của vật liệu trên một đơn vị thể tích"
+        },
+        {
+          "id": "cn11_b3_mcq_08_opt_C",
+          "label": "C",
+          "content": "Nhiệt độ mà tại đó vật liệu bắt đầu chảy lỏng"
+        },
+        {
+          "id": "cn11_b3_mcq_08_opt_D",
+          "label": "D",
+          "content": "Khả năng chịu va đập"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b3_mcq_08_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b3_mcq_09",
+      "number": 56,
+      "section": "Bài 3: Tổng quan về vật liệu cơ khí",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Các tính chất cơ học (cơ tính) của vật liệu cơ khí bao gồm:",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b3_mcq_09_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Các tính chất cơ học (cơ tính) của vật liệu cơ khí bao gồm:"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Cơ tính bao gồm độ bền, độ dẻo, độ cứng và độ dai va đập.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b3_mcq_09_opt_A",
+          "label": "A",
+          "content": "Độ bền, độ dẻo, độ cứng, độ dai va đập"
+        },
+        {
+          "id": "cn11_b3_mcq_09_opt_B",
+          "label": "B",
+          "content": "Tính dẫn nhiệt, tính dẫn điện, khối lượng riêng"
+        },
+        {
+          "id": "cn11_b3_mcq_09_opt_C",
+          "label": "C",
+          "content": "Tính chịu axit, tính chịu kiềm, tính oxy hóa"
+        },
+        {
+          "id": "cn11_b3_mcq_09_opt_D",
+          "label": "D",
+          "content": "Tính đúc, tính hàn, tính rèn, tính cắt gọt"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b3_mcq_09_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b3_mcq_10",
+      "number": 57,
+      "section": "Bài 3: Tổng quan về vật liệu cơ khí",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Các tính chất vật lý của vật liệu cơ khí bao gồm:",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b3_mcq_10_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Các tính chất vật lý của vật liệu cơ khí bao gồm:"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Nhiệt độ nóng chảy, khối lượng riêng, dẫn nhiệt, dẫn điện là tính chất vật lý.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b3_mcq_10_opt_A",
+          "label": "A",
+          "content": "Nhiệt độ nóng chảy, khối lượng riêng, tính dẫn điện, tính dẫn nhiệt, tính giãn nở nhiệt"
+        },
+        {
+          "id": "cn11_b3_mcq_10_opt_B",
+          "label": "B",
+          "content": "Độ cứng Brinell và giới hạn bền kéo"
+        },
+        {
+          "id": "cn11_b3_mcq_10_opt_C",
+          "label": "C",
+          "content": "Khả năng chống ăn mòn hóa học"
+        },
+        {
+          "id": "cn11_b3_mcq_10_opt_D",
+          "label": "D",
+          "content": "Khả năng gia công trên máy phay"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b3_mcq_10_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b3_mcq_11",
+      "number": 58,
+      "section": "Bài 3: Tổng quan về vật liệu cơ khí",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Tính chất hóa học của vật liệu cơ khí thể hiện ở:",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b3_mcq_11_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Tính chất hóa học của vật liệu cơ khí thể hiện ở:"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Tính chất hóa học liên quan đến phản ứng với môi trường oxy hóa, axit, muối.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b3_mcq_11_opt_A",
+          "label": "A",
+          "content": "Khả năng chống ăn mòn và oxy hóa trong môi trường làm việc"
+        },
+        {
+          "id": "cn11_b3_mcq_11_opt_B",
+          "label": "B",
+          "content": "Khả năng dẫn điện tốt khi nối vào mạch điện"
+        },
+        {
+          "id": "cn11_b3_mcq_11_opt_C",
+          "label": "C",
+          "content": "Khả năng biến dạng đàn hồi"
+        },
+        {
+          "id": "cn11_b3_mcq_11_opt_D",
+          "label": "D",
+          "content": "Khả năng uốn cong không gãy"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b3_mcq_11_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b3_mcq_12",
+      "number": 59,
+      "section": "Bài 3: Tổng quan về vật liệu cơ khí",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Tính công nghệ của vật liệu cơ khí bao gồm các đặc tính nào?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b3_mcq_12_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Tính công nghệ của vật liệu cơ khí bao gồm các đặc tính nào?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Tính công nghệ quyết định khả năng gia công chế tạo chi tiết từ vật liệu đó.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b3_mcq_12_opt_A",
+          "label": "A",
+          "content": "Tính đúc, tính hàn, tính rèn (biến dạng nóng/nguội), tính gia công cắt gọt"
+        },
+        {
+          "id": "cn11_b3_mcq_12_opt_B",
+          "label": "B",
+          "content": "Tính kinh tế và lợi nhuận bán hàng"
+        },
+        {
+          "id": "cn11_b3_mcq_12_opt_C",
+          "label": "C",
+          "content": "Màu sắc bề mặt và độ bóng bẩy"
+        },
+        {
+          "id": "cn11_b3_mcq_12_opt_D",
+          "label": "D",
+          "content": "Khả năng dẫn điện cao"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b3_mcq_12_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b3_mcq_13",
+      "number": 60,
+      "section": "Bài 3: Tổng quan về vật liệu cơ khí",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Kim loại nào sau đây có tính dẫn điện và dẫn nhiệt tốt nhất trong các kim loại thông dụng?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b3_mcq_13_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Kim loại nào sau đây có tính dẫn điện và dẫn nhiệt tốt nhất trong các kim loại thông dụng?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Đồng có độ dẫn điện và dẫn nhiệt rất cao, chỉ sau bạc.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b3_mcq_13_opt_A",
+          "label": "A",
+          "content": "Đồng (và Bạc)"
+        },
+        {
+          "id": "cn11_b3_mcq_13_opt_B",
+          "label": "B",
+          "content": "Sắt"
+        },
+        {
+          "id": "cn11_b3_mcq_13_opt_C",
+          "label": "C",
+          "content": "Gang"
+        },
+        {
+          "id": "cn11_b3_mcq_13_opt_D",
+          "label": "D",
+          "content": "Chì"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b3_mcq_13_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b3_mcq_14",
+      "number": 61,
+      "section": "Bài 3: Tổng quan về vật liệu cơ khí",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Vật liệu nào sau đây thuộc nhóm vật liệu phi kim loại?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b3_mcq_14_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Vật liệu nào sau đây thuộc nhóm vật liệu phi kim loại?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Chất dẻo, cao su và gốm sứ là vật liệu phi kim.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b3_mcq_14_opt_A",
+          "label": "A",
+          "content": "Chất dẻo (nhựa), cao su, gốm sứ"
+        },
+        {
+          "id": "cn11_b3_mcq_14_opt_B",
+          "label": "B",
+          "content": "Thép carbon"
+        },
+        {
+          "id": "cn11_b3_mcq_14_opt_C",
+          "label": "C",
+          "content": "Hợp kim nhôm"
+        },
+        {
+          "id": "cn11_b3_mcq_14_opt_D",
+          "label": "D",
+          "content": "Gang cầu"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b3_mcq_14_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b3_mcq_15",
+      "number": 62,
+      "section": "Bài 3: Tổng quan về vật liệu cơ khí",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Nhôm và hợp kim của nhôm có ưu điểm nổi bật nào về tính chất vật lý?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b3_mcq_15_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Nhôm và hợp kim của nhôm có ưu điểm nổi bật nào về tính chất vật lý?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Nhôm có khối lượng riêng nhẹ (~2.7 g/cm3), bền trong khí quyển nhờ màng Al2O3.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b3_mcq_15_opt_A",
+          "label": "A",
+          "content": "Khối lượng riêng nhỏ (nhẹ) và khả năng dẫn nhiệt, dẫn điện tốt"
+        },
+        {
+          "id": "cn11_b3_mcq_15_opt_B",
+          "label": "B",
+          "content": "Nhiệt độ nóng chảy rất cao trên 3000 độ C"
+        },
+        {
+          "id": "cn11_b3_mcq_15_opt_C",
+          "label": "C",
+          "content": "Độ cứng cao hơn kim cương"
+        },
+        {
+          "id": "cn11_b3_mcq_15_opt_D",
+          "label": "D",
+          "content": "Rất nặng và dễ gỉ sét trong không khí"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b3_mcq_15_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b3_mcq_16",
+      "number": 63,
+      "section": "Bài 3: Tổng quan về vật liệu cơ khí",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Inox (thép không gỉ) là một loại vật liệu thuộc nhóm nào?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b3_mcq_16_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Inox (thép không gỉ) là một loại vật liệu thuộc nhóm nào?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Inox là thép hợp kim có khả năng chống ăn mòn cao nhờ thành phần Cr và Ni.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b3_mcq_16_opt_A",
+          "label": "A",
+          "content": "Vật liệu kim loại và hợp kim (thép hợp kim chứa Cr, Ni)"
+        },
+        {
+          "id": "cn11_b3_mcq_16_opt_B",
+          "label": "B",
+          "content": "Vật liệu phi kim loại"
+        },
+        {
+          "id": "cn11_b3_mcq_16_opt_C",
+          "label": "C",
+          "content": "Vật liệu nano tinh khiết"
+        },
+        {
+          "id": "cn11_b3_mcq_16_opt_D",
+          "label": "D",
+          "content": "Chất dẻo nhiệt rắn"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b3_mcq_16_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b3_mcq_17",
+      "number": 64,
+      "section": "Bài 3: Tổng quan về vật liệu cơ khí",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Vật liệu dùng để chế tạo vỏ máy bay cần ưu tiên tính chất nào hàng đầu?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b3_mcq_17_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Vật liệu dùng để chế tạo vỏ máy bay cần ưu tiên tính chất nào hàng đầu?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Vỏ máy bay dùng hợp kim nhôm (duralumin) hoặc composite sợi carbon siêu nhẹ, siêu bền.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b3_mcq_17_opt_A",
+          "label": "A",
+          "content": "Khối lượng riêng nhẹ kết hợp độ bền cao và chống mỏi tốt"
+        },
+        {
+          "id": "cn11_b3_mcq_17_opt_B",
+          "label": "B",
+          "content": "Càng nặng càng tốt để đầm gió"
+        },
+        {
+          "id": "cn11_b3_mcq_17_opt_C",
+          "label": "C",
+          "content": "Dễ nóng chảy ở nhiệt độ thấp"
+        },
+        {
+          "id": "cn11_b3_mcq_17_opt_D",
+          "label": "D",
+          "content": "Dẫn điện cực mạnh"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b3_mcq_17_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b3_mcq_18",
+      "number": 65,
+      "section": "Bài 3: Tổng quan về vật liệu cơ khí",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Vật liệu dùng để chế tạo lưỡi dao cắt gọt kim loại cần có tính chất nào vượt trội?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b3_mcq_18_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Vật liệu dùng để chế tạo lưỡi dao cắt gọt kim loại cần có tính chất nào vượt trội?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Dụng cụ cắt gọt đòi hỏi độ cứng cao hơn phôi và giữ được độ cứng khi ma sát sinh nhiệt.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b3_mcq_18_opt_A",
+          "label": "A",
+          "content": "Độ cứng cao, chịu nhiệt và chống mài mòn tốt ở nhiệt độ cao"
+        },
+        {
+          "id": "cn11_b3_mcq_18_opt_B",
+          "label": "B",
+          "content": "Độ dẻo cực cao, dễ uốn cong"
+        },
+        {
+          "id": "cn11_b3_mcq_18_opt_C",
+          "label": "C",
+          "content": "Tính dẫn nhiệt kém nhất có thể"
+        },
+        {
+          "id": "cn11_b3_mcq_18_opt_D",
+          "label": "D",
+          "content": "Độ xốp cao"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b3_mcq_18_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b3_mcq_19",
+      "number": 66,
+      "section": "Bài 3: Tổng quan về vật liệu cơ khí",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Vật liệu chế tạo dây mayso điện trở trong nồi cơm điện, lò sưởi cần tính chất gì?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b3_mcq_19_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Vật liệu chế tạo dây mayso điện trở trong nồi cơm điện, lò sưởi cần tính chất gì?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Dây điện trở (nichrome) có điện trở suất lớn và chịu nhiệt độ cao không bị oxy hóa.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b3_mcq_19_opt_A",
+          "label": "A",
+          "content": "Điện trở suất cao, chịu được nhiệt độ cao và không bị oxy hóa ở nhiệt độ cao"
+        },
+        {
+          "id": "cn11_b3_mcq_19_opt_B",
+          "label": "B",
+          "content": "Dẫn điện tốt như đồng siêu dẫn"
+        },
+        {
+          "id": "cn11_b3_mcq_19_opt_C",
+          "label": "C",
+          "content": "Dễ chảy ở 100 độ C"
+        },
+        {
+          "id": "cn11_b3_mcq_19_opt_D",
+          "label": "D",
+          "content": "Độ dẻo như cao su"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b3_mcq_19_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b3_mcq_20",
+      "number": 67,
+      "section": "Bài 3: Tổng quan về vật liệu cơ khí",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Vật liệu chế tạo thân vỏ lốp xe ô tô bắt buộc phải làm từ vật liệu nào?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b3_mcq_20_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Vật liệu chế tạo thân vỏ lốp xe ô tô bắt buộc phải làm từ vật liệu nào?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Lốp xe cần tính đàn hồi, giảm chấn và bám đường của cao su kết hợp khung cốt thép.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b3_mcq_20_opt_A",
+          "label": "A",
+          "content": "Cao su kết hợp lớp bố thép / sợi tổng hợp"
+        },
+        {
+          "id": "cn11_b3_mcq_20_opt_B",
+          "label": "B",
+          "content": "Gang xám đúc nguyên khối"
+        },
+        {
+          "id": "cn11_b3_mcq_20_opt_C",
+          "label": "C",
+          "content": "Gỗ tự nhiên sấy khô"
+        },
+        {
+          "id": "cn11_b3_mcq_20_opt_D",
+          "label": "D",
+          "content": "Nhôm lá dát mỏng"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b3_mcq_20_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b3_tf_01",
+      "number": 68,
+      "section": "Bài 3: Tổng quan về vật liệu cơ khí",
+      "type": "true_false_cluster",
+      "cognitive_level": "comprehension",
+      "points": 1.0,
+      "stem": "Khi nói về các yêu cầu chung đối với vật liệu cơ khí, phát biểu sau đúng hay sai?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b3_tf_01_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Khi nói về các yêu cầu chung đối với vật liệu cơ khí, phát biểu sau đúng hay sai?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Tính kinh tế hướng tới chi phí hợp lý nhất, không lãng phí vật liệu đắt tiền nếu không cần thiết.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "statements": [
+        {
+          "id": "cn11_b3_tf_01_stmt_a",
+          "label": "a",
+          "content": "Tính sử dụng bảo đảm vật liệu đáp ứng đầy đủ điều kiện làm việc của chi tiết máy."
+        },
+        {
+          "id": "cn11_b3_tf_01_stmt_b",
+          "label": "b",
+          "content": "Tính công nghệ cho biết vật liệu có dễ gia công bằng các phương pháp đúc, hàn, gia công cắt gọt hay không."
+        },
+        {
+          "id": "cn11_b3_tf_01_stmt_c",
+          "label": "c",
+          "content": "Tính kinh tế đòi hỏi luôn chọn vật liệu đắt tiền nhất để bảo đảm độ bền."
+        },
+        {
+          "id": "cn11_b3_tf_01_stmt_d",
+          "label": "d",
+          "content": "Lựa chọn vật liệu hợp lý giúp giảm giá thành sản phẩm mà vẫn đạt chất lượng kỹ thuật."
+        }
+      ],
+      "answer_key": {
+        "question_type": "true_false_cluster",
+        "statement_answers": {
+          "cn11_b3_tf_01_stmt_a": true,
+          "cn11_b3_tf_01_stmt_b": true,
+          "cn11_b3_tf_01_stmt_c": false,
+          "cn11_b3_tf_01_stmt_d": true
+        }
+      }
+    },
+    {
+      "id": "cn11_b3_tf_02",
+      "number": 69,
+      "section": "Bài 3: Tổng quan về vật liệu cơ khí",
+      "type": "true_false_cluster",
+      "cognitive_level": "comprehension",
+      "points": 1.0,
+      "stem": "Khi so sánh các nhóm vật liệu cơ khí, phát biểu sau đúng hay sai?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b3_tf_02_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Khi so sánh các nhóm vật liệu cơ khí, phát biểu sau đúng hay sai?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Vật liệu mới (composite, nano, FGM) đang thay thế kim loại trong nhiều lĩnh vực kỹ thuật cao.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "statements": [
+        {
+          "id": "cn11_b3_tf_02_stmt_a",
+          "label": "a",
+          "content": "Vật liệu kim loại và hợp kim thường có khả năng chịu tải trọng và chịu nhiệt tốt hơn chất dẻo thông thường."
+        },
+        {
+          "id": "cn11_b3_tf_02_stmt_b",
+          "label": "b",
+          "content": "Chất dẻo có ưu điểm nổi bật là nhẹ, cách điện, cách nhiệt và không bị gỉ sét."
+        },
+        {
+          "id": "cn11_b3_tf_02_stmt_c",
+          "label": "c",
+          "content": "Vật liệu mới không thể thay thế vật liệu kim loại trong bất kỳ ứng dụng nào."
+        },
+        {
+          "id": "cn11_b3_tf_02_stmt_d",
+          "label": "d",
+          "content": "Vật liệu composite kết hợp các ưu điểm của cả vật liệu cốt và vật liệu nền."
+        }
+      ],
+      "answer_key": {
+        "question_type": "true_false_cluster",
+        "statement_answers": {
+          "cn11_b3_tf_02_stmt_a": true,
+          "cn11_b3_tf_02_stmt_b": true,
+          "cn11_b3_tf_02_stmt_c": false,
+          "cn11_b3_tf_02_stmt_d": true
+        }
+      }
+    }
+  ],
+  "assets_manifest": []
+}

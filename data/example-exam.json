@@ -1,0 +1,426 @@
+{
+  "schema_version": "2.0.0",
+  "exam_id": "exam_thpt_math_phys_2026_01",
+  "exam_version": 2,
+  "title": "Ky Thi Danh Gia Nang Luc Toan Hoc & Vat Ly Chuyen Sau - De Chinh Thuc Ma 204",
+  "subject_id": "math_physics_integrated",
+  "subject_name": "Toan Hoc & Khoa Hoc Tu Nhien",
+  "grade_level": 12,
+  "published_at": "2026-11-06T08:00:00.000Z",
+  "status": "published",
+  "time_limit": 2700,
+  "grading_policy": {
+    "policy_id": "thpt_national_2025_standard",
+    "total_max_score": 10.0,
+    "single_choice_default_points": 1.0,
+    "true_false_cluster_scale": {
+      "1": 0.1,
+      "2": 0.25,
+      "3": 0.5,
+      "4": 1.0
+    },
+    "multi_select_mode": "partial_with_penalty",
+    "short_answer_case_sensitive": false,
+    "short_answer_normalize_comma_decimal": true,
+    "negative_marking_factor": 0,
+    "rounding_decimals": 2
+  },
+  "attempt_policy": {
+    "max_attempts": 1,
+    "allow_resume_on_disconnect": true,
+    "grace_period_seconds": 120,
+    "auto_submit_on_timeout": true,
+    "require_session_token": true,
+    "allow_review_after_submit": true
+  },
+  "randomization_policy": {
+    "shuffle_questions_within_section": false,
+    "shuffle_options": false,
+    "preserve_section_order": true,
+    "deterministic_seed_strategy": "hmac_session_student"
+  },
+  "assets_manifest": [
+    {
+      "asset_id": "asset_svg_cubic_graph_01",
+      "type": "svg_diagram",
+      "mime_type": "image/svg+xml",
+      "sha256": "e4d909c290d0fb1ca068ffaddf22cbd0a7b1192f83412ef8a1240a9c0021b8a1",
+      "width": 520,
+      "height": 300,
+      "alt_text": "Do thi ham so bac ba y = f(x) di qua cuc dai (-1, 3) va cuc tieu (1, -1)"
+    },
+    {
+      "asset_id": "asset_svg_harmonic_wave_02",
+      "type": "svg_diagram",
+      "mime_type": "image/svg+xml",
+      "sha256": "8b1a9953c4611296a827abf8c47804d7e6c49c68a28f004388d17f01a49e1c22",
+      "width": 520,
+      "height": 280,
+      "alt_text": "Do thi li do x(t) cua dao dong dieu hoa voi bien do A = 4 cm va chu ky T = 0.4 s"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q_2026_001",
+      "number": 1,
+      "section": "Phan I. Trac Nghiem Nhieu Phuong An Lua Chon",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 1.5,
+      "stem": "Cho ham so bac ba $y = f(x) = ax^3 + bx^2 + cx + d$ co do thi nhu hinh ve ben duoi. So nghiem thuc phan biet cua phuong trinh $f(x) - 1 = 0$ la bao nhieu?",
+      "stem_blocks": [
+        {
+          "block_id": "b_001_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Cho ham so bac ba $y = f(x) = ax^3 + bx^2 + cx + d$ co do thi nhu hinh ve ben duoi. So nghiem thuc phan biet cua phuong trinh $f(x) - 1 = 0$ la bao nhieu?"
+        },
+        {
+          "block_id": "b_001_2",
+          "order_index": 1,
+          "type": "inline_image",
+          "asset_id": "asset_svg_cubic_graph_01",
+          "alt_text": "Do thi ham so bac ba y = f(x) voi cuc dai tai (-1, 3) va cuc tieu tai (1, -1)"
+        }
+      ],
+      "formulas": [
+        {
+          "formula_id": "f_001_1",
+          "source_format": "mtef_v5",
+          "mtef_version": 5,
+          "latex": "y = f(x) = ax^3 + bx^2 + cx + d",
+          "raw_payload_hex": "050101040a793d66287829",
+          "decodable": true,
+          "confidence": 0.99,
+          "needs_review": false
+        }
+      ],
+      "diagram_asset_id": "asset_svg_cubic_graph_01",
+      "diagram_caption": "Hinh 1.1: Do thi ham so y = f(x) va duong thang y = 1 tren he truc toa do Oxy.",
+      "diagram_svg": "<svg viewBox=\"0 0 520 300\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Do thi ham so bac ba\"><rect width=\"520\" height=\"300\" rx=\"12\" fill=\"#F8FAFC\"/><g stroke=\"#E2E8F0\" stroke-width=\"1\"><line x1=\"40\" y1=\"50\" x2=\"480\" y2=\"50\"/><line x1=\"40\" y1=\"100\" x2=\"480\" y2=\"100\"/><line x1=\"40\" y1=\"150\" x2=\"480\" y2=\"150\"/><line x1=\"40\" y1=\"200\" x2=\"480\" y2=\"200\"/><line x1=\"40\" y1=\"250\" x2=\"480\" y2=\"250\"/><line x1=\"160\" y1=\"20\" x2=\"160\" y2=\"280\"/><line x1=\"260\" y1=\"20\" x2=\"260\" y2=\"280\"/><line x1=\"360\" y1=\"20\" x2=\"360\" y2=\"280\"/></g><g stroke=\"#334155\" stroke-width=\"2\"><line x1=\"40\" y1=\"185\" x2=\"485\" y2=\"185\"/><line x1=\"260\" y1=\"280\" x2=\"260\" y2=\"18\"/><polygon points=\"485,185 476,180 476,190\" fill=\"#334155\"/><polygon points=\"260,18 255,27 265,27\" fill=\"#334155\"/></g><line x1=\"60\" y1=\"135\" x2=\"460\" y2=\"135\" stroke=\"#0369A1\" stroke-width=\"2\" stroke-dasharray=\"6,4\"/><path d=\"M 110 270 C 155 40, 210 40, 260 135 C 310 230, 365 230, 410 25\" fill=\"none\" stroke=\"#0F172A\" stroke-width=\"3\"/><circle cx=\"192\" cy=\"75\" r=\"4.5\" fill=\"#0369A1\"/><circle cx=\"328\" cy=\"195\" r=\"4.5\" fill=\"#0369A1\"/><circle cx=\"138\" cy=\"135\" r=\"5\" fill=\"#DC2626\"/><circle cx=\"260\" cy=\"135\" r=\"5\" fill=\"#DC2626\"/><circle cx=\"382\" cy=\"135\" r=\"5\" fill=\"#DC2626\"/><text x=\"468\" y=\"203\" fill=\"#0F172A\" font-family=\"monospace\" font-size=\"13\">x</text><text x=\"270\" y=\"30\" fill=\"#0F172A\" font-family=\"monospace\" font-size=\"13\">y</text><text x=\"244\" y=\"202\" fill=\"#334155\" font-family=\"monospace\" font-size=\"12\">O</text><text x=\"170\" y=\"65\" fill=\"#0369A1\" font-family=\"monospace\" font-size=\"12\">(-1; 3)</text><text x=\"315\" y=\"218\" fill=\"#0369A1\" font-family=\"monospace\" font-size=\"12\">(1; -1)</text><text x=\"68\" y=\"127\" fill=\"#0369A1\" font-family=\"monospace\" font-size=\"12\">y = 1</text></svg>",
+      "options": [
+        { "id": "q_2026_001_opt_A", "label": "A", "content": "1 nghiem thuc duy nhat", "latex": "1" },
+        { "id": "q_2026_001_opt_B", "label": "B", "content": "2 nghiem thuc phan biet", "latex": "2" },
+        { "id": "q_2026_001_opt_C", "label": "C", "content": "3 nghiem thuc phan biet", "latex": "3" },
+        { "id": "q_2026_001_opt_D", "label": "D", "content": "Vo nghiem tren tap so thuc", "latex": "0" }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "q_2026_001_opt_C"
+      },
+      "explanation": "Phuong trinh $f(x) - 1 = 0 \\Leftrightarrow f(x) = 1$. Vi $-1 < 1 < 3$ (nam giua gia tri cuc tieu $y_{CT} = -1$ va gia tri cuc dai $y_{CD} = 3$), duong thang $y = 1$ cat do thi $y = f(x)$ tai dung 3 diem phan biet.",
+      "validation": {
+        "confidence": 0.99,
+        "needs_review": false,
+        "verified_by_human": true,
+        "verified_at": "2026-11-06T07:30:00.000Z",
+        "verified_by": "TS. Nguyen Hoang Minh",
+        "critical_errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "id": "q_2026_002",
+      "number": 2,
+      "section": "Phan I. Trac Nghiem Nhieu Phuong An Lua Chon",
+      "type": "single_choice",
+      "cognitive_level": "application",
+      "points": 1.5,
+      "stem": "Gia tri تich phan xac dinh $I = \\int_{0}^{\\frac{\\pi}{2}} (2\\sin x + \\cos x)\\,dx$ bang bao nhieu?",
+      "stem_blocks": [
+        {
+          "block_id": "b_002_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Gia tri tich phan xac dinh $I = \\int_{0}^{\\frac{\\pi}{2}} (2\\sin x + \\cos x)\\,dx$ bang bao nhieu?"
+        }
+      ],
+      "formulas": [
+        {
+          "formula_id": "f_002_1",
+          "source_format": "mtef_v5",
+          "mtef_version": 5,
+          "latex": "I = \\int_{0}^{\\frac{\\pi}{2}} (2\\sin x + \\cos x)\\,dx",
+          "raw_payload_hex": "050101040f493d5c696e74",
+          "decodable": true,
+          "confidence": 0.98,
+          "needs_review": false
+        }
+      ],
+      "options": [
+        { "id": "q_2026_002_opt_A", "label": "A", "content": "$I = 1$", "latex": "I = 1" },
+        { "id": "q_2026_002_opt_B", "label": "B", "content": "$I = 2$", "latex": "I = 2" },
+        { "id": "q_2026_002_opt_C", "label": "C", "content": "$I = 3$", "latex": "I = 3" },
+        { "id": "q_2026_002_opt_D", "label": "D", "content": "$I = \\pi + 1$", "latex": "I = \\pi + 1" }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "q_2026_002_opt_C"
+      },
+      "explanation": "Ta co nguyen ham: $I = \\left[-2\\cos x + \\sin x\\right]_{0}^{\\frac{\\pi}{2}} = (0 + 1) - (-2 + 0) = 3$.",
+      "validation": {
+        "confidence": 0.98,
+        "needs_review": false,
+        "verified_by_human": true,
+        "verified_at": "2026-11-06T07:32:00.000Z",
+        "verified_by": "TS. Nguyen Hoang Minh",
+        "critical_errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "id": "q_2026_003",
+      "number": 3,
+      "section": "Phan I. Trac Nghiem Nhieu Phuong An Lua Chon",
+      "type": "single_choice",
+      "cognitive_level": "recognition",
+      "points": 1.5,
+      "stem": "Trong khong gian $Oxyz$, cho mat phang $(P): 2x - y + 3z - 6 = 0$. Vectơ nao duoi day la mot vecto phap tuyen cua mat phang $(P)$?",
+      "stem_blocks": [
+        {
+          "block_id": "b_003_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Trong khong gian $Oxyz$, cho mat phang $(P): 2x - y + 3z - 6 = 0$. Vecto nao duoi day la mot vecto phap tuyen cua mat phang $(P)$?"
+        }
+      ],
+      "formulas": [
+        {
+          "formula_id": "f_003_1",
+          "source_format": "omml",
+          "latex": "(P): 2x - y + 3z - 6 = 0",
+          "decodable": true,
+          "confidence": 1.0,
+          "needs_review": false
+        }
+      ],
+      "options": [
+        { "id": "q_2026_003_opt_A", "label": "A", "content": "$\\vec{n}_1 = (2; 1; 3)$", "latex": "\\vec{n}_1 = (2; 1; 3)" },
+        { "id": "q_2026_003_opt_B", "label": "B", "content": "$\\vec{n}_2 = (2; -1; 3)$", "latex": "\\vec{n}_2 = (2; -1; 3)" },
+        { "id": "q_2026_003_opt_C", "label": "C", "content": "$\\vec{n}_3 = (-1; 3; -6)$", "latex": "\\vec{n}_3 = (-1; 3; -6)" },
+        { "id": "q_2026_003_opt_D", "label": "D", "content": "$\\vec{n}_4 = (2; -1; -6)$", "latex": "\\vec{n}_4 = (2; -1; -6)" }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "q_2026_003_opt_B"
+      },
+      "explanation": "Mat phang $(P): Ax + By + Cz + D = 0$ co vecto phap tuyen la $\\vec{n} = (A; B; C) = (2; -1; 3)$.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "verified_at": "2026-11-06T07:35:00.000Z",
+        "verified_by": "TS. Nguyen Hoang Minh",
+        "critical_errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "id": "q_2026_004",
+      "number": 4,
+      "section": "Phan II. Trac Nghiem Dung Sai (4 Menh De Doc Lap)",
+      "type": "true_false_cluster",
+      "cognitive_level": "application",
+      "points": 2.0,
+      "stem": "Mot chat diem dao dong dieu hoa doc theo truc $Ox$ voi phuong trinh li do $x(t) = 4\\cos\\left(5\\pi t - \\frac{\\pi}{3}\\right)\\text{ (cm)}$, trong do $t$ tinh bang giay (s). Xet tinh Dung hoac Sai cua moi menh de sau:",
+      "stem_blocks": [
+        {
+          "block_id": "b_004_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Mot chat diem dao dong dieu hoa doc theo truc $Ox$ voi phuong trinh li do $x(t) = 4\\cos\\left(5\\pi t - \\frac{\\pi}{3}\\right)\\text{ (cm)}$, trong do $t$ tinh bang giay (s). Xet tinh Dung hoac Sai cua moi menh de sau:"
+        },
+        {
+          "block_id": "b_004_2",
+          "order_index": 1,
+          "type": "inline_image",
+          "asset_id": "asset_svg_harmonic_wave_02",
+          "alt_text": "Do thi dao dong dieu hoa x(t) voi bien do 4 cm"
+        }
+      ],
+      "formulas": [
+        {
+          "formula_id": "f_004_1",
+          "source_format": "mtef_v3",
+          "mtef_version": 3,
+          "latex": "x(t) = 4\\cos\\left(5\\pi t - \\frac{\\pi}{3}\\right)",
+          "raw_payload_hex": "03010100782874293d34636f73",
+          "decodable": true,
+          "confidence": 0.96,
+          "needs_review": false
+        }
+      ],
+      "diagram_asset_id": "asset_svg_harmonic_wave_02",
+      "diagram_caption": "Hinh 2.1: Duong bieu dien li do x(t) theo thoi gian t.",
+      "diagram_svg": "<svg viewBox=\"0 0 520 260\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Do thi dao dong dieu hoa\"><rect width=\"520\" height=\"260\" rx=\"12\" fill=\"#F8FAFC\"/><line x1=\"45\" y1=\"130\" x2=\"485\" y2=\"130\" stroke=\"#334155\" stroke-width=\"2\"/><line x1=\"65\" y1=\"25\" x2=\"65\" y2=\"235\" stroke=\"#334155\" stroke-width=\"2\"/><line x1=\"45\" y1=\"55\" x2=\"475\" y2=\"55\" stroke=\"#CBD5E1\" stroke-dasharray=\"5,5\"/><line x1=\"45\" y1=\"205\" x2=\"475\" y2=\"205\" stroke=\"#CBD5E1\" stroke-dasharray=\"5,5\"/><path d=\"M 65 92 Q 95 55, 115 55 Q 145 55, 165 130 Q 185 205, 215 205 Q 245 205, 265 130 Q 285 55, 315 55 Q 345 55, 365 130 Q 385 205, 415 205 Q 445 205, 465 130\" fill=\"none\" stroke=\"#0369A1\" stroke-width=\"3\"/><text x=\"25\" y=\"60\" fill=\"#0F172A\" font-family=\"monospace\" font-size=\"12\">+4</text><text x=\"25\" y=\"210\" fill=\"#0F172A\" font-family=\"monospace\" font-size=\"12\">-4</text><text x=\"46\" y=\"145\" fill=\"#334155\" font-family=\"monospace\" font-size=\"12\">0</text><text x=\"72\" y=\"35\" fill=\"#0F172A\" font-family=\"monospace\" font-size=\"12\">x (cm)</text><text x=\"460\" y=\"150\" fill=\"#0F172A\" font-family=\"monospace\" font-size=\"12\">t (s)</text></svg>",
+      "statements": [
+        {
+          "id": "stmt_a",
+          "label": "a",
+          "content": "Bien do dao dong cua chat diem la $A = 4\\text{ cm}$.",
+          "latex": "A = 4\\text{ cm}"
+        },
+        {
+          "id": "stmt_b",
+          "label": "b",
+          "content": "Chu ky dao dong cua chat diem la $T = 0.4\\text{ s}$.",
+          "latex": "T = 0.4\\text{ s}"
+        },
+        {
+          "id": "stmt_c",
+          "label": "c",
+          "content": "Tai thoi diem ban dau $t = 0$, chat diem dang o vi tri can bang $x = 0$.",
+          "latex": "x(0) = 0"
+        },
+        {
+          "id": "stmt_d",
+          "label": "d",
+          "content": "Toc do cuc dai cua chat diem trong qua trinh dao dong la $v_{\\max} = 20\\pi\\text{ cm/s}$.",
+          "latex": "v_{\\max} = 20\\pi\\text{ cm/s}"
+        }
+      ],
+      "answer_key": {
+        "question_type": "true_false_cluster",
+        "statement_answers": {
+          "stmt_a": true,
+          "stmt_b": true,
+          "stmt_c": false,
+          "stmt_d": true
+        }
+      },
+      "explanation": "a) Dung: $A = 4\\text{ cm}$. b) Dung: $T = \\frac{2\\pi}{\\omega} = \\frac{2\\pi}{5\\pi} = 0.4\\text{ s}$. c) Sai: Tai $t = 0$, $x(0) = 4\\cos(-\\pi/3) = 2\\text{ cm} \\neq 0$. d) Dung: $v_{\\max} = \\omega A = 5\\pi \\cdot 4 = 20\\pi\\text{ cm/s}$.",
+      "validation": {
+        "confidence": 0.97,
+        "needs_review": false,
+        "verified_by_human": true,
+        "verified_at": "2026-11-06T07:40:00.000Z",
+        "verified_by": "ThS. Le Thanh Tung",
+        "critical_errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "id": "q_2026_005",
+      "number": 5,
+      "section": "Phan III. Trac Nghiem Tra Loi Ngan",
+      "type": "short_answer",
+      "cognitive_level": "high_application",
+      "points": 2.0,
+      "stem": "Cho hinh chop tu giac deu $S.ABCD$ co canh day $AB = 6$ va chieu cao $SO = 4$, voi $O$ la tam cua day $ABCD$. Tinh the tich $V$ cua khoi chop $S.ABCD$ (nhap ket qua la so nguyen).",
+      "stem_blocks": [
+        {
+          "block_id": "b_005_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Cho hinh chop tu giac deu $S.ABCD$ co canh day $AB = 6$ va chieu cao $SO = 4$, voi $O$ la tam cua day $ABCD$. Tinh the tich $V$ cua khoi chop $S.ABCD$ (nhap ket qua la so nguyen)."
+        },
+        {
+          "block_id": "b_005_2",
+          "order_index": 1,
+          "type": "table",
+          "table_rows": [
+            ["Dai luong hinh hoc", "Ky hieu", "Gia tri"],
+            ["Canh hinh vuong day", "AB", "6"],
+            ["Duong cao khoi chop", "SO", "4"],
+            ["Dien tich day ABCD", "S_day", "36"]
+          ]
+        }
+      ],
+      "formulas": [
+        {
+          "formula_id": "f_005_1",
+          "source_format": "mtef_v5",
+          "mtef_version": 5,
+          "latex": "V = \\frac{1}{3} S_{ABCD} \\cdot SO",
+          "raw_payload_hex": "050101040c563d312f335368",
+          "decodable": true,
+          "confidence": 0.99,
+          "needs_review": false
+        }
+      ],
+      "answer_key": {
+        "question_type": "short_answer",
+        "accepted_values": ["48", "48.0", "48,0"],
+        "numeric_value": 48,
+        "numeric_tolerance": 0.001
+      },
+      "explanation": "Dien tich day hinh vuong $S_{ABCD} = AB^2 = 6^2 = 36$. The tich khoi chop $V = \\frac{1}{3} S_{ABCD} \\cdot SO = \\frac{1}{3} \\cdot 36 \\cdot 4 = 48$.",
+      "validation": {
+        "confidence": 0.99,
+        "needs_review": false,
+        "verified_by_human": true,
+        "verified_at": "2026-11-06T07:45:00.000Z",
+        "verified_by": "TS. Nguyen Hoang Minh",
+        "critical_errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "id": "q_2026_006",
+      "number": 6,
+      "section": "Phan IV. Lua Chon Da Dap An (Kiem Tra Tong Hop)",
+      "type": "multi_select",
+      "cognitive_level": "high_application",
+      "points": 1.5,
+      "stem": "Cho ham so $f(x) = x^3 - 3x + 2$. Chon TAT CA cac khang dinh dung trong cac phuong an duoi day:",
+      "stem_blocks": [
+        {
+          "block_id": "b_006_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Cho ham so $f(x) = x^3 - 3x + 2$. Chon TAT CA cac khang dinh dung trong cac phuong an duoi day:"
+        }
+      ],
+      "formulas": [
+        {
+          "formula_id": "f_006_1",
+          "source_format": "latex",
+          "latex": "f'(x) = 3x^2 - 3",
+          "decodable": true,
+          "confidence": 1.0,
+          "needs_review": false
+        }
+      ],
+      "options": [
+        {
+          "id": "q_2026_006_opt_A",
+          "label": "A",
+          "content": "Dao ham cua ham so la $f'(x) = 3x^2 - 3$.",
+          "latex": "f'(x) = 3x^2 - 3"
+        },
+        {
+          "id": "q_2026_006_opt_B",
+          "label": "B",
+          "content": "Ham so dat cuc tieu tai $x = 1$ voi gia tri cuc tieu $f(1) = 0$.",
+          "latex": "f(1) = 0"
+        },
+        {
+          "id": "q_2026_006_opt_C",
+          "label": "C",
+          "content": "Ham so dong bien tren khoang $(-1; 1)$.",
+          "latex": "(-1; 1)"
+        },
+        {
+          "id": "q_2026_006_opt_D",
+          "label": "D",
+          "content": "Gia tri cuc dai cua ham so tren R la $f(-1) = 4$.",
+          "latex": "f(-1) = 4"
+        }
+      ],
+      "answer_key": {
+        "question_type": "multi_select",
+        "correct_option_ids": ["q_2026_006_opt_A", "q_2026_006_opt_B", "q_2026_006_opt_D"]
+      },
+      "explanation": "Ta co $f'(x) = 3x^2 - 3 = 0 \\Leftrightarrow x = \\pm 1$. Tren $(-1; 1)$ thi $f'(x) < 0$ nen ham so nghich bien tren $(-1; 1)$ (do do C sai). Cac khang dinh A, B, D deu dung.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "verified_at": "2026-11-06T07:50:00.000Z",
+        "verified_by": "TS. Nguyen Hoang Minh",
+        "critical_errors": [],
+        "warnings": []
+      }
+    }
+  ]
+}

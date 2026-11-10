@@ -1,0 +1,79 @@
+rules_version = '2';
+
+/**
+ * Section 6.1 & 6.5: Firebase Security Rules (Firestore)
+ * Enforces:
+ * 1. Trust Boundary: Students can read public exam metadata & questions (/exams_public/{examId})
+ *    which NEVER contain answer_key or explanation during Exam Mode.
+ * 2. Answer Keys (/exams_private_keys/{examId}) are strictly restricted to Teacher/Admin or Admin SDK.
+ * 3. Session Isolation: A student can only read/update their own active session (/sessions/{sessionId})
+ *    before submission, and CANNOT write total_score or submission_receipt (server-only).
+ * 4. Audit Trail (/audit_logs/{logId}) is append-only and readable only by Teacher/Admin.
+ */
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function hasRole(role) {
+      return isSignedIn() && request.auth.token.role == role;
+    }
+
+    function isTeacherOrAdmin() {
+      return hasRole('teacher') || hasRole('admin');
+    }
+
+    // Public exam definitions (stripped of answer_key for Exam Mode)
+    match /exams_public/{examId} {
+      allow read: if isSignedIn();
+      allow create, update: if isTeacherOrAdmin()
+        && request.resource.data.schema_version == '2.0.0'
+        && !(resource != null && resource.data.has_active_sessions == true);
+      allow delete: if hasRole('admin');
+    }
+
+    // Authoritative answer keys & explanations (NEVER readable by students in Exam Mode)
+    match /exams_private_keys/{examId} {
+      allow read, write: if isTeacherOrAdmin();
+    }
+
+    // Student Exam Sessions
+    match /sessions/{sessionId} {
+      // Student can only read their own session; Teachers can read all for live monitoring
+      allow read: if isTeacherOrAdmin()
+        || (isSignedIn() && resource.data.student_id == request.auth.uid);
+
+      // Student can only update answers & observable telemetry while status == 'in_progress'
+      // and before expires_at_server; student CANNOT set submission_receipt or total_score!
+      allow update: if isSignedIn()
+        && resource.data.student_id == request.auth.uid
+        && resource.data.status == 'in_progress'
+        && request.time.toMillis() <= resource.data.expires_at_server + 120000
+        && !request.resource.data.diff(resource.data).affectedKeys()
+            .hasAny(['submission_receipt', 'total_score', 'exam_version', 'expires_at_server', 'student_id']);
+
+      allow create: if isSignedIn()
+        && request.resource.data.student_id == request.auth.uid
+        && request.resource.data.status == 'in_progress'
+        && !('submission_receipt' in request.resource.data);
+
+      allow delete: if false; // Sessions are immutable records
+    }
+
+    // Official Graded Receipts (Written exclusively by authoritative backend / Cloud Functions)
+    match /submission_receipts/{receiptId} {
+      allow read: if isTeacherOrAdmin()
+        || (isSignedIn() && resource.data.student_id == request.auth.uid);
+      allow write: if false; // Admin SDK / Backend Server only
+    }
+
+    // Immutable Security & Activity Audit Log
+    match /audit_logs/{logId} {
+      allow read: if isTeacherOrAdmin();
+      allow create: if isTeacherOrAdmin();
+      allow update, delete: if false;
+    }
+  }
+}

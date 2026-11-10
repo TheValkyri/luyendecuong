@@ -1,0 +1,939 @@
+{
+  "schema_version": "2.0.0",
+  "exam_id": "exam_cn11_bai_6",
+  "exam_version": 1,
+  "subject_id": "CONG_NGHE_11",
+  "subject_name": "Công Nghệ 11 (Cơ Khí)",
+  "grade_level": 11,
+  "title": "Công Nghệ 11 – Bài 6: Vật Liệu Mới Tiên Tiến",
+  "published_at": "2026-11-10T12:00:00.000Z",
+  "status": "published",
+  "time_limit": 900,
+  "grading_policy": {
+    "policy_id": "thpt_national_2025_standard",
+    "total_max_score": 5.75,
+    "single_choice_default_points": 0.25,
+    "true_false_cluster_scale": {
+      "1": 0.1,
+      "2": 0.25,
+      "3": 0.5,
+      "4": 1.0
+    },
+    "multi_select_mode": "partial_with_penalty",
+    "short_answer_case_sensitive": false,
+    "short_answer_normalize_comma_decimal": true,
+    "negative_marking_factor": 0,
+    "rounding_decimals": 2
+  },
+  "attempt_policy": {
+    "max_attempts": 99,
+    "allow_resume_on_disconnect": true,
+    "grace_period_seconds": 120,
+    "auto_submit_on_timeout": true,
+    "require_session_token": true,
+    "allow_review_after_submit": true
+  },
+  "randomization_policy": {
+    "shuffle_questions_within_section": true,
+    "shuffle_options": true,
+    "preserve_section_order": false,
+    "deterministic_seed_strategy": "hmac_session_student"
+  },
+  "questions": [
+    {
+      "id": "cn11_b6_mcq_01",
+      "number": 104,
+      "section": "Bài 6: Vật liệu mới",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Vật liệu mới trong cơ khí là gì?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b6_mcq_01_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Vật liệu mới trong cơ khí là gì?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Vật liệu mới sở hữu các cơ tính và tính năng đặc biệt vượt trội.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b6_mcq_01_opt_A",
+          "label": "A",
+          "content": "Các loại vật liệu mới xuất hiện hoặc được cải tiến đột phá, có tính năng vượt trội so với vật liệu truyền thống"
+        },
+        {
+          "id": "cn11_b6_mcq_01_opt_B",
+          "label": "B",
+          "content": "Tất cả các kim loại sắt vụn tái chế"
+        },
+        {
+          "id": "cn11_b6_mcq_01_opt_C",
+          "label": "C",
+          "content": "Gỗ vụn ép lại thành bàn ghế"
+        },
+        {
+          "id": "cn11_b6_mcq_01_opt_D",
+          "label": "D",
+          "content": "Đất đá tự nhiên mới khai thác"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b6_mcq_01_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b6_mcq_02",
+      "number": 105,
+      "section": "Bài 6: Vật liệu mới",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Vật liệu nano là vật liệu có kích thước cấu trúc hạt hoặc màng nằm trong khoảng nào?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b6_mcq_02_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Vật liệu nano là vật liệu có kích thước cấu trúc hạt hoặc màng nằm trong khoảng nào?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Kích thước nano chuẩn quy ước từ 1 đến 100 nm.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b6_mcq_02_opt_A",
+          "label": "A",
+          "content": "Từ 1 nanomet (nm) đến 100 nanomet (nm)"
+        },
+        {
+          "id": "cn11_b6_mcq_02_opt_B",
+          "label": "B",
+          "content": "Từ 1 milimet (mm) đến 10 milimet (mm)"
+        },
+        {
+          "id": "cn11_b6_mcq_02_opt_C",
+          "label": "C",
+          "content": "Từ 1 centimet (cm) đến 1 mét (m)"
+        },
+        {
+          "id": "cn11_b6_mcq_02_opt_D",
+          "label": "D",
+          "content": "Lớn hơn 1 micromet"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b6_mcq_02_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b6_mcq_03",
+      "number": 106,
+      "section": "Bài 6: Vật liệu mới",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Tại sao vật liệu nano lại có những tính chất vật lý và hóa học đặc biệt khác lạ so với vật liệu cùng loại ở kích thước lớn?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b6_mcq_03_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Tại sao vật liệu nano lại có những tính chất vật lý và hóa học đặc biệt khác lạ so với vật liệu cùng loại ở kích thước lớn?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Hiệu ứng bề mặt và hiệu ứng lượng tử kích thước nano tạo nên cơ tính vượt bậc.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b6_mcq_03_opt_A",
+          "label": "A",
+          "content": "Do tỉ số diện tích bề mặt trên thể tích cực lớn và sự xuất hiện của các hiệu ứng lượng tử bề mặt"
+        },
+        {
+          "id": "cn11_b6_mcq_03_opt_B",
+          "label": "B",
+          "content": "Do vật liệu nano nặng hơn gấp ngàn lần"
+        },
+        {
+          "id": "cn11_b6_mcq_03_opt_C",
+          "label": "C",
+          "content": "Do vật liệu nano không có nguyên tử"
+        },
+        {
+          "id": "cn11_b6_mcq_03_opt_D",
+          "label": "D",
+          "content": "Do vật liệu nano chỉ tồn tại ở nhiệt độ âm tuyệt đối"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b6_mcq_03_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b6_mcq_04",
+      "number": 107,
+      "section": "Bài 6: Vật liệu mới",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Vật liệu composite được định nghĩa là gì?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b6_mcq_04_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Vật liệu composite được định nghĩa là gì?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Composite gồm cốt (chịu lực) và nền (liên kết, bảo vệ cốt).",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b6_mcq_04_opt_A",
+          "label": "A",
+          "content": "Vật liệu tổ hợp từ hai hay nhiều thành phần vật liệu khác nhau, gồm thành phần cốt và thành phần nền, không hòa tan vào nhau"
+        },
+        {
+          "id": "cn11_b6_mcq_04_opt_B",
+          "label": "B",
+          "content": "Một kim loại tinh khiết được nung chảy"
+        },
+        {
+          "id": "cn11_b6_mcq_04_opt_C",
+          "label": "C",
+          "content": "Dung dịch muối hòa tan trong nước"
+        },
+        {
+          "id": "cn11_b6_mcq_04_opt_D",
+          "label": "D",
+          "content": "Khí gas nén lỏng"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b6_mcq_04_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b6_mcq_05",
+      "number": 108,
+      "section": "Bài 6: Vật liệu mới",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Trong vật liệu composite, thành phần cốt (chất gia cường) có vai trò gì?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b6_mcq_05_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Trong vật liệu composite, thành phần cốt (chất gia cường) có vai trò gì?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Cốt (sợi thủy tinh, sợi carbon, sợi aramid) đóng vai trò chịu lực chính.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b6_mcq_05_opt_A",
+          "label": "A",
+          "content": "Bảo đảm cho composite có độ bền cơ học, độ cứng và khả năng chịu tải trọng cao"
+        },
+        {
+          "id": "cn11_b6_mcq_05_opt_B",
+          "label": "B",
+          "content": "Làm dung môi hòa tan các hạt nhựa"
+        },
+        {
+          "id": "cn11_b6_mcq_05_opt_C",
+          "label": "C",
+          "content": "Làm cho composite dễ bị mục rữa"
+        },
+        {
+          "id": "cn11_b6_mcq_05_opt_D",
+          "label": "D",
+          "content": "Làm composite dẫn nhiệt nhanh"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b6_mcq_05_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b6_mcq_06",
+      "number": 109,
+      "section": "Bài 6: Vật liệu mới",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Trong vật liệu composite, thành phần nền (matrix) có vai trò gì?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b6_mcq_06_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Trong vật liệu composite, thành phần nền (matrix) có vai trò gì?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Nền (nhựa polymer, kim loại, gốm) giữ các sợi cốt cố định và bảo vệ cốt.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b6_mcq_06_opt_A",
+          "label": "A",
+          "content": "Liên kết các thành phần cốt lại với nhau, truyền tải ứng suất và bảo vệ cốt khỏi tác động môi trường"
+        },
+        {
+          "id": "cn11_b6_mcq_06_opt_B",
+          "label": "B",
+          "content": "Tạo ra các vết nứt để thoát nhiệt"
+        },
+        {
+          "id": "cn11_b6_mcq_06_opt_C",
+          "label": "C",
+          "content": "Làm cho vật liệu trở nên dễ vỡ"
+        },
+        {
+          "id": "cn11_b6_mcq_06_opt_D",
+          "label": "D",
+          "content": "Hút ẩm từ không khí"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b6_mcq_06_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b6_mcq_07",
+      "number": 110,
+      "section": "Bài 6: Vật liệu mới",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Ưu điểm vượt trội của vật liệu composite cốt sợi carbon (CFRP) là gì?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b6_mcq_07_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Ưu điểm vượt trội của vật liệu composite cốt sợi carbon (CFRP) là gì?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Sợi carbon có tỷ lệ độ bền/trọng lượng thuộc hàng cao nhất hiện nay.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b6_mcq_07_opt_A",
+          "label": "A",
+          "content": "Độ bền kéo cực cao trong khi khối lượng riêng rất nhẹ, chống ăn mòn và chống mỏi tuyệt vời"
+        },
+        {
+          "id": "cn11_b6_mcq_07_opt_B",
+          "label": "B",
+          "content": "Rất nặng và dễ gỉ sét"
+        },
+        {
+          "id": "cn11_b6_mcq_07_opt_C",
+          "label": "C",
+          "content": "Giá thành rẻ nhất thế giới, rẻ hơn đất cát"
+        },
+        {
+          "id": "cn11_b6_mcq_07_opt_D",
+          "label": "D",
+          "content": "Dễ hòa tan trong nước mưa"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b6_mcq_07_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b6_mcq_08",
+      "number": 111,
+      "section": "Bài 6: Vật liệu mới",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Vật liệu có cơ tính biến thiên (FGM - Functionally Graded Material) là gì?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b6_mcq_08_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Vật liệu có cơ tính biến thiên (FGM - Functionally Graded Material) là gì?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "FGM có thành phần biến đổi liên tục từ bề mặt vào lõi.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b6_mcq_08_opt_A",
+          "label": "A",
+          "content": "Vật liệu composite tiên tiến có thành phần và cấu trúc thay đổi liên tục trong không gian để đáp ứng các yêu cầu cơ lý khác nhau ở từng vị trí"
+        },
+        {
+          "id": "cn11_b6_mcq_08_opt_B",
+          "label": "B",
+          "content": "Vật liệu bị hỏng liên tục khi làm việc"
+        },
+        {
+          "id": "cn11_b6_mcq_08_opt_C",
+          "label": "C",
+          "content": "Vật liệu chỉ sử dụng một lần duy nhất rồi vứt bỏ"
+        },
+        {
+          "id": "cn11_b6_mcq_08_opt_D",
+          "label": "D",
+          "content": "Vật liệu đổi màu theo cảm xúc người dùng"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b6_mcq_08_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b6_mcq_09",
+      "number": 112,
+      "section": "Bài 6: Vật liệu mới",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Ứng dụng tiêu biểu của vật liệu có cơ tính biến thiên (FGM) là:",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b6_mcq_09_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Ứng dụng tiêu biểu của vật liệu có cơ tính biến thiên (FGM) là:"
+        }
+      ],
+      "formulas": [],
+      "explanation": "FGM tối ưu hóa giữa lớp gốm chịu nhiệt bề mặt và lớp kim loại bền dai bên trong.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b6_mcq_09_opt_A",
+          "label": "A",
+          "content": "Mũi tên lửa, tấm chắn nhiệt tàu con thoi (mặt ngoài chịu nhiệt cực cao, mặt trong chịu lực bền dai)"
+        },
+        {
+          "id": "cn11_b6_mcq_09_opt_B",
+          "label": "B",
+          "content": "Làm lạt buộc giò chả"
+        },
+        {
+          "id": "cn11_b6_mcq_09_opt_C",
+          "label": "C",
+          "content": "Làm phấn viết bảng"
+        },
+        {
+          "id": "cn11_b6_mcq_09_opt_D",
+          "label": "D",
+          "content": "Làm ruột bút chì"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b6_mcq_09_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b6_mcq_10",
+      "number": 113,
+      "section": "Bài 6: Vật liệu mới",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Hợp kim nhớ hình (Shape Memory Alloy - SMA) có tính năng độc đáo nào?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b6_mcq_10_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Hợp kim nhớ hình (Shape Memory Alloy - SMA) có tính năng độc đáo nào?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Hiệu ứng nhớ hình giúp kim loại trở lại hình dáng ban đầu qua chuyển pha nhiệt.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b6_mcq_10_opt_A",
+          "label": "A",
+          "content": "Có khả năng tự phục hồi lại hình dạng ban đầu sau khi bị biến dạng dẻo khi được gia nhiệt đến nhiệt độ nhất định"
+        },
+        {
+          "id": "cn11_b6_mcq_10_opt_B",
+          "label": "B",
+          "content": "Ghi nhớ được giọng nói của chủ nhân"
+        },
+        {
+          "id": "cn11_b6_mcq_10_opt_C",
+          "label": "C",
+          "content": "Chụp lại được hình ảnh xung quanh"
+        },
+        {
+          "id": "cn11_b6_mcq_10_opt_D",
+          "label": "D",
+          "content": "Tự động tăng gấp đôi kích thước mãi mãi"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b6_mcq_10_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b6_mcq_11",
+      "number": 114,
+      "section": "Bài 6: Vật liệu mới",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Hợp kim nhớ hình nổi tiếng và được ứng dụng rộng rãi nhất hiện nay là:",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b6_mcq_11_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Hợp kim nhớ hình nổi tiếng và được ứng dụng rộng rãi nhất hiện nay là:"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Nitinol (Ni-Ti) là hợp kim nhớ hình tiêu biểu trong y tế và hàng không.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b6_mcq_11_opt_A",
+          "label": "A",
+          "content": "Hợp kim Nitinol (Nickel - Titanium)"
+        },
+        {
+          "id": "cn11_b6_mcq_11_opt_B",
+          "label": "B",
+          "content": "Hợp kim Gang xám"
+        },
+        {
+          "id": "cn11_b6_mcq_11_opt_C",
+          "label": "C",
+          "content": "Thép xây dựng CT3"
+        },
+        {
+          "id": "cn11_b6_mcq_11_opt_D",
+          "label": "D",
+          "content": "Hợp kim Chì - Thiếc"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b6_mcq_11_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b6_mcq_12",
+      "number": 115,
+      "section": "Bài 6: Vật liệu mới",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Ứng dụng trong y tế rất nổi tiếng của hợp kim nhớ hình Nitinol là gì?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b6_mcq_12_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Ứng dụng trong y tế rất nổi tiếng của hợp kim nhớ hình Nitinol là gì?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Stent Nitinol tự bung nở khi vào thân nhiệt cơ thể để mở rộng mạch máu tắc.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b6_mcq_12_opt_A",
+          "label": "A",
+          "content": "Chế tạo ống nong mạch vành tim (Stent), dây cung chỉnh nha thẩm mỹ"
+        },
+        {
+          "id": "cn11_b6_mcq_12_opt_B",
+          "label": "B",
+          "content": "Chế tạo kim tiêm dùng một lần"
+        },
+        {
+          "id": "cn11_b6_mcq_12_opt_C",
+          "label": "C",
+          "content": "Chế tạo giường bệnh nhân thông thường"
+        },
+        {
+          "id": "cn11_b6_mcq_12_opt_D",
+          "label": "D",
+          "content": "Chế tạo bông băng y tế"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b6_mcq_12_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b6_mcq_13",
+      "number": 116,
+      "section": "Bài 6: Vật liệu mới",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Vật liệu composite sợi thủy tinh (FRP) thường được ứng dụng để chế tạo sản phẩm nào?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b6_mcq_13_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Vật liệu composite sợi thủy tinh (FRP) thường được ứng dụng để chế tạo sản phẩm nào?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "FRP rất bền hóa chất, nhẹ, chịu nước mặn nên làm vỏ xuồng và bồn bể.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b6_mcq_13_opt_A",
+          "label": "A",
+          "content": "Thân vỏ tàu thuyền, bồn chứa hóa chất, cánh quạt tuabin gió, mũ bảo hiểm"
+        },
+        {
+          "id": "cn11_b6_mcq_13_opt_B",
+          "label": "B",
+          "content": "Lõi dây truyền tải điện cao thế"
+        },
+        {
+          "id": "cn11_b6_mcq_13_opt_C",
+          "label": "C",
+          "content": "Trục khuỷu động cơ xe tải nặng"
+        },
+        {
+          "id": "cn11_b6_mcq_13_opt_D",
+          "label": "D",
+          "content": "Lò xo giảm xóc"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b6_mcq_13_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b6_mcq_14",
+      "number": 117,
+      "section": "Bài 6: Vật liệu mới",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Vật liệu phủ nano chống bám dính, chống bám nước (hiệu ứng lá sen) được ứng dụng ở đâu?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b6_mcq_14_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Vật liệu phủ nano chống bám dính, chống bám nước (hiệu ứng lá sen) được ứng dụng ở đâu?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Lớp phủ kị nước nano giúp kính và pin mặt trời không đọng nước và tự làm sạch.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b6_mcq_14_opt_A",
+          "label": "A",
+          "content": "Sơn phủ kính ô tô, bề mặt pin mặt trời, vải chống thấm tự làm sạch"
+        },
+        {
+          "id": "cn11_b6_mcq_14_opt_B",
+          "label": "B",
+          "content": "Bánh răng máy tiện"
+        },
+        {
+          "id": "cn11_b6_mcq_14_opt_C",
+          "label": "C",
+          "content": "Búa đập đá"
+        },
+        {
+          "id": "cn11_b6_mcq_14_opt_D",
+          "label": "D",
+          "content": "Mỏ neo tàu biển"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b6_mcq_14_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b6_mcq_15",
+      "number": 118,
+      "section": "Bài 6: Vật liệu mới",
+      "type": "single_choice",
+      "cognitive_level": "comprehension",
+      "points": 0.25,
+      "stem": "Nhận định nào sau đây là ĐÚNG khi nói về xu hướng phát triển của vật liệu cơ khí trong tương lai?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b6_mcq_15_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Nhận định nào sau đây là ĐÚNG khi nói về xu hướng phát triển của vật liệu cơ khí trong tương lai?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Vật liệu tương lai hướng tới xanh, nhẹ, thông minh và tuần hoàn tái sinh.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "options": [
+        {
+          "id": "cn11_b6_mcq_15_opt_A",
+          "label": "A",
+          "content": "Hướng tới vật liệu siêu nhẹ, siêu bền, thông minh, tiết kiệm năng lượng và thân thiện với môi trường"
+        },
+        {
+          "id": "cn11_b6_mcq_15_opt_B",
+          "label": "B",
+          "content": "Quay trở lại chỉ dùng gang thô và gỗ tự nhiên"
+        },
+        {
+          "id": "cn11_b6_mcq_15_opt_C",
+          "label": "C",
+          "content": "Ngừng nghiên cứu vật liệu mới vì vật liệu cũ đã hoàn hảo"
+        },
+        {
+          "id": "cn11_b6_mcq_15_opt_D",
+          "label": "D",
+          "content": "Chỉ sử dụng vật liệu có giá thành đắt nhất"
+        }
+      ],
+      "answer_key": {
+        "question_type": "single_choice",
+        "correct_option_id": "cn11_b6_mcq_15_opt_A"
+      }
+    },
+    {
+      "id": "cn11_b6_tf_01",
+      "number": 119,
+      "section": "Bài 6: Vật liệu mới",
+      "type": "true_false_cluster",
+      "cognitive_level": "comprehension",
+      "points": 1.0,
+      "stem": "Khi nói về vật liệu nano, phát biểu sau đúng hay sai?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b6_tf_01_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Khi nói về vật liệu nano, phát biểu sau đúng hay sai?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Ống nano carbon có cơ tính siêu việt, độ bền gấp hàng trăm lần thép.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "statements": [
+        {
+          "id": "cn11_b6_tf_01_stmt_a",
+          "label": "a",
+          "content": "Hạt nano có kích thước từ 1 nm đến 100 nm."
+        },
+        {
+          "id": "cn11_b6_tf_01_stmt_b",
+          "label": "b",
+          "content": "Vật liệu nano có tỷ lệ diện tích bề mặt trên thể tích lớn, giúp tăng hoạt tính phản ứng."
+        },
+        {
+          "id": "cn11_b6_tf_01_stmt_c",
+          "label": "c",
+          "content": "Vật liệu nano có độ bền cơ học luôn kém hơn vật liệu khối truyền thống."
+        },
+        {
+          "id": "cn11_b6_tf_01_stmt_d",
+          "label": "d",
+          "content": "Ống nano carbon (CNT) có độ bền kéo cao gấp nhiều lần thép và có tính dẫn điện tốt."
+        }
+      ],
+      "answer_key": {
+        "question_type": "true_false_cluster",
+        "statement_answers": {
+          "cn11_b6_tf_01_stmt_a": true,
+          "cn11_b6_tf_01_stmt_b": true,
+          "cn11_b6_tf_01_stmt_c": false,
+          "cn11_b6_tf_01_stmt_d": true
+        }
+      }
+    },
+    {
+      "id": "cn11_b6_tf_02",
+      "number": 120,
+      "section": "Bài 6: Vật liệu mới",
+      "type": "true_false_cluster",
+      "cognitive_level": "comprehension",
+      "points": 1.0,
+      "stem": "Khi nói về vật liệu composite và hợp kim nhớ hình, phát biểu sau đúng hay sai?",
+      "stem_blocks": [
+        {
+          "block_id": "cn11_b6_tf_02_blk_1",
+          "order_index": 0,
+          "type": "paragraph",
+          "content": "Khi nói về vật liệu composite và hợp kim nhớ hình, phát biểu sau đúng hay sai?"
+        }
+      ],
+      "formulas": [],
+      "explanation": "Cốt chịu lực, nền mới là thành phần liên kết và bảo vệ cốt.",
+      "validation": {
+        "confidence": 1.0,
+        "needs_review": false,
+        "verified_by_human": true,
+        "critical_errors": [],
+        "warnings": []
+      },
+      "statements": [
+        {
+          "id": "cn11_b6_tf_02_stmt_a",
+          "label": "a",
+          "content": "Vật liệu composite gồm ít nhất hai thành phần không hòa tan vào nhau là cốt và nền."
+        },
+        {
+          "id": "cn11_b6_tf_02_stmt_b",
+          "label": "b",
+          "content": "Cốt trong composite đóng vai trò tạo liên kết và bảo vệ nền khỏi môi trường bên ngoài."
+        },
+        {
+          "id": "cn11_b6_tf_02_stmt_c",
+          "label": "c",
+          "content": "Hợp kim Nitinol có thể phục hồi lại hình dáng ban đầu khi được cung cấp nhiệt thích hợp."
+        },
+        {
+          "id": "cn11_b6_tf_02_stmt_d",
+          "label": "d",
+          "content": "Stent mạch vành tim làm bằng hợp kim nhớ hình có thể tự bung ra ở nhiệt độ cơ thể người."
+        }
+      ],
+      "answer_key": {
+        "question_type": "true_false_cluster",
+        "statement_answers": {
+          "cn11_b6_tf_02_stmt_a": true,
+          "cn11_b6_tf_02_stmt_b": false,
+          "cn11_b6_tf_02_stmt_c": true,
+          "cn11_b6_tf_02_stmt_d": true
+        }
+      }
+    }
+  ],
+  "assets_manifest": []
+}
